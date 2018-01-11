@@ -1,0 +1,245 @@
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\ApplicationInsights.config
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csc.exe
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csc.exe.config
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csc.rsp
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csi.exe
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csi.rsp
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.AppContext.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Collections.Immutable.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Diagnostics.StackTrace.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.FileSystem.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.FileSystem.Primitives.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\vbc.exe
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\vbc.exe.config
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\vbc.rsp
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\VBCSCompiler.exe
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\VBCSCompiler.exe.config
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\GastoTransparenteMunicipal.dll.config
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\GastoTransparenteMunicipal.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\GastoTransparenteMunicipal.pdb
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Antlr3.Runtime.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.SqlServer.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.Web.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.WindowsServer.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.ApplicationInsights.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Google.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Web.Infrastructure.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Newtonsoft.Json.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Owin.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Helpers.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Mvc.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Optimization.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Razor.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Deployment.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Razor.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\WebGrease.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Helpers.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Mvc.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Optimization.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Razor.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Deployment.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Razor.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Antlr3.Runtime.pdb
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Newtonsoft.Json.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.SqlServer.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Google.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.ApplicationInsights.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.WindowsServer.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.Web.xml
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Helpers.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Mvc.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Optimization.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Razor.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.WebPages.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.WebPages.Deployment.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.WebPages.Razor.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\EntityFramework.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\EntityFramework.SqlServer.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Security.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Security.Google.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csprojResolveAssemblyReference.cache
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.dll
+c:\users\gonzalo\documents\visual studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.pdb
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\ApplicationInsights.config
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\GastoTransparenteMunicipal.dll.config
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\GastoTransparenteMunicipal.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\GastoTransparenteMunicipal.pdb
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csc.exe
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csc.exe.config
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csc.rsp
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csi.exe
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csi.exe.config
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\csi.rsp
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.AppContext.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Console.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.Compression.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.Claims.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.ValueTuple.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\vbc.exe
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\vbc.exe.config
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\vbc.rsp
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\VBCSCompiler.exe
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Antlr3.Runtime.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.SqlServer.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.Web.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Newtonsoft.Json.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Owin.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Helpers.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Mvc.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Optimization.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Razor.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Razor.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\WebGrease.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Antlr3.Runtime.pdb
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\EntityFramework.SqlServer.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.Web.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Newtonsoft.Json.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Helpers.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Mvc.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Optimization.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.Razor.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\System.Web.WebPages.Razor.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\EntityFramework.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.Razor.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csproj.CoreCompileInputs.cache
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.dll
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.pdb
+C:\Users\Lmleon\Documents\GitHub\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csprojResolveAssemblyReference.cache

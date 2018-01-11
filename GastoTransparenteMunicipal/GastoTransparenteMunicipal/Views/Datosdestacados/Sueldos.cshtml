@@ -1,0 +1,418 @@
+﻿
+@{
+    ViewBag.Title = "Sueldos";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/css/styleSueldos.css">
+
+<div class="row">
+    <div class="col padding-Div seccion-destado">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 padding-cero">
+                    <h1>
+                        Sueldos promedios
+                        <small>
+                            del
+                            <span>
+                                <span class="dropdown">
+                                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="texto muntotal">
+                                            Municipio Total
+                                        </span>
+                                        <span class="md-36 amarillo octicon octicon-chevron-down"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Municipio Total</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Adm. y Serv. Municipal</a>
+                                        <a class="dropdown-item" href="#">Salud</a>
+                                        <a class="dropdown-item" href="#">Educación</a>
+                                        <a class="dropdown-item" href="#">Cementerio</a>
+                                    </div>
+                                </span>
+                            </span>
+                            del año:
+                            <span>
+                                <span class="dropdown">
+                                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="texto muntotal">
+                                            2017 a Junio
+                                        </span>
+                                        <span class="md-36 amarillo octicon octicon-chevron-down"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">2017 a Junio</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">2016</a>
+                                        <a class="dropdown-item" href="#">2015</a>
+                                        <a class="dropdown-item" href="#">2014</a>
+                                        <a class="dropdown-item" href="#">2013</a>
+                                    </div>
+                                </span>
+                            </span>
+                        </small>
+                    </h1>
+                    <p>En esta sección puedes conocer el detalle las remuneraciones promedio de las personas que trabajan en el municipio</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-12 col-sm-4 right">
+                            <div class="row">
+
+                                <div id="padre1" onclick="cambioPadre(1)" class="align-self-center col-6 col-sm-12 borde-papa">
+                                    <h5 class="padres">Estamento</h5>
+                                </div>
+                                <div id="padre2" onclick="cambioPadre(2)" class="align-self-center col-6 col-sm-12">
+                                    <h5 class="padres">Profesiones</h5>
+                                </div>
+                                <div id="padre3" onclick="cambioPadre(3)" class="align-self-center col-6 col-sm-12">
+                                    <h5 class="padres">Nivel Educación</h5>
+                                </div>
+                                <div id="padre4" onclick="cambioPadre(4)" class="align-self-center col-6 col-sm-12">
+                                    <h5 class="padres">Rango etario</h5>
+                                </div>
+                                <div id="padre5" onclick="cambioPadre(5)" class="align-self-center col-6 col-sm-12">
+                                    <h5 class="padres">Calidad jurídica</h5>
+                                </div>
+                                <div id="padre6" onclick="cambioPadre(6)" class="align-self-center col-6 col-sm-12">
+                                    <h5 class="padres">Antigüedad</h5>
+                                </div>
+                                <div id="padre7" onclick="cambioPadre(7)" class="align-self-center col-6 col-sm-12">
+                                    <h5 class="padres">Grado</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-8 left">
+                            <div class="row borde">
+                                <div class="col-md-12 hijos">
+                                    <div class="row ">
+                                        <div class="col-4 align-self-center">
+                                            <h6></h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">Remuneración Promedio</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">Cantidad de Funcionarios</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 hijos">
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <h6>Directivo</h6>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                                <div class="col-12 text-center">$x.xxx.xxx</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 align-self-center">
+                                            <div class="row">
+                                                <div class="col-12 text-center">200</div>
+                                                <div class="col-12 text-center">100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        function cambioPadre(aux) {
+            for (var i = 1; i < 8; i++) {
+                $("#padre" + i).removeClass("borde-papa");
+            }
+            $("#padre" + aux).addClass("borde-papa");
+
+        }
+    </script>
+}

@@ -1,0 +1,52 @@
+.padres{
+	padding:0;
+	cursor:pointer;
+}
+.padres:hover{
+	background-color:#f5f9ff;
+}
+
+.hijos{
+	padding-top: 20px;
+	padding-bottom:20px;
+}
+.borde{
+	border:4px solid #0083b9;
+	border-radius: 5px;
+	color:#0083b9;
+	background-color:#f5f9ff;
+	height: 100%;
+	max-height: 540px;
+	overflow-y: scroll;
+
+}
+
+.borde-papa{
+	border:4px solid #0083b9;
+}
+
+.left{
+	z-index: 1;
+}
+.right{
+	padding: 0px 15px 0px 15px;
+	
+}
+
+@media (min-width: 576px) {
+  .borde-papa {
+    border-right: 4px solid transparent;
+    border-radius: 5px 0 0 5px;
+	color:#0083b9;
+	background-color:#f5f9ff;
+  }
+
+  .right{
+	z-index: 2;
+	padding: 0px 11px 0px 0px;
+  }
+
+  .padres{
+	padding: 1rem 1rem;
+  }
+}

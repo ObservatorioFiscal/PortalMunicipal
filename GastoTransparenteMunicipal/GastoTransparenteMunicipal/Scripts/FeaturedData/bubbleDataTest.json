@@ -1,0 +1,30 @@
+﻿{
+ "name": "document",
+  "children": [
+    {
+      "name": "nombre 1",
+      "size": "1000",
+      "position": 1
+    },
+    {
+      "name": "nombre 2",
+      "size": 2000,
+      "position": 2
+    },
+    {
+      "name": "nombre 3",
+      "size": 2500,
+      "position": 3
+    },
+    {
+      "name": "nombre 4",
+      "size": 4000,
+      "position": 4
+    },
+    {
+      "name": "nombre 5",
+      "size": 4500,
+      "position": 5
+    }
+  ]
+}

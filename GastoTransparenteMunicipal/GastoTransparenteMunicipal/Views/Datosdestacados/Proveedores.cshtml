@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Proveedores";
+}
+
+<div class="row">
+    <div class="col padding-Div seccion-destado">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 padding-cero">
+                    <h1>
+                        Proveedores
+                        <small>
+                            <span class="select">
+                                <select id="select">
+                                    <option>Municipio Total</option>
+                                    <option>Adm. y Serv. Municipal</option>
+                                    <option>Salud</option>
+                                    <option>Educación</option>
+                                    <option>Cementerio</option>
+                                </select>
+                            </span>
+                        </small>
+
+                        <small>
+                            del año:
+                            <span class="select">
+                                <select id="select">
+                                    <option>2017 a Junio</option>
+                                    <option>2016</option>
+                                    <option>2015</option>
+                                    <option>2014</option>
+                                    <option>2013</option>
+                                </select>
+                            </span>
+                        </small>
+                    </h1>
+                    <p>Las compras del municipio representan un 10% del total de gasto realizado a julio de 2017, los montos constituyen los compromisos anuales adquiridos por el municipio con cada proveedor.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 padding-cero">
+                    <h2>Top 20 proveedores con mayores compras</h2>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 padding-cero">
+                    <h2>Buscar Proveedores</h2>
+                    <p>Si el proveedor que buscas no está entre los 20 principales, usa el buscador que aparece a continuación:<br><br><br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("select").resizeselect()
+        });
+
+        (function ($, window) {
+            var arrowWidth = 30;
+
+            $.fn.resizeselect = function (settings) {
+                return this.each(function () {
+
+                    $(this).change(function () {
+                        var $this = $(this);
+
+                        // create test element
+                        var text = $this.find("option:selected").text();
+                        var $test = $("<span>").html(text).css({
+                            "font-size": $this.css("font-size"), // ensures same size text
+                            "visibility": "hidden"               // prevents FOUC
+                        });
+
+
+                        // add to parent, get width, and get out
+                        $test.appendTo($this.parent());
+                        var width = $test.width();
+                        $test.remove();
+
+                        // set select width
+                        $this.width(width + arrowWidth);
+
+                        // run on start
+                    }).change();
+
+                });
+            };
+
+            // run by default
+            $("select.resizeselect").resizeselect();
+
+        })(jQuery, window);
+    </script>
+}

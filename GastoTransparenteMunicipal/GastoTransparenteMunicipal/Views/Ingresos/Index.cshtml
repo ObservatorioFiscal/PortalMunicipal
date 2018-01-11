@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Ingresos";
+}
+
+<div class="row">
+    <div class="col grisB" id="IngresoGastos">
+        <div class="triangulo-equilatero-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h2>¿Donde ingresaron los <br> recursos?</h2>
+                    <p><br>Revisa la distribución de los ingresos entre las distintas áreas del Municipio: Educación Salud, Adm. y Servicios Minicipales, y Cementerios.<br><br><br></p>
+                    <a href="" class="btn">Área</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h2>¿De qué fuentes provienen los recursos?</h2>
+                    <p><br>Explora las fuentes que financian las distintas áreas del Municipio: Aportes del Gobierno, Fondo Común Municipal, Patentes, Contribuciones, Permisos de Circulación, entre otras.<br><br></p>
+                    <a href="" class="btn">Cuentas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col grisB padding-Div"></div>
+</div>
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(".destacado").hover(
+            function () {
+                $(".destacado").css("background-color", "#f5f9ff");
+                $("#destacado-barra").removeClass("hidden");
+                $(".borde-menu").css("border-bottom", "1px solid");
+
+            }, function () {
+                $(".destacado").css("background-color", "#ffffff");
+                $("#destacado-barra").addClass("hidden");
+                $(".borde-menu").css("border-bottom", "0px");
+            }
+        );
+    </script>
+}
