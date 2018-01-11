@@ -12,44 +12,27 @@
                         Subsidios
                         <small>
                             del
-                            <span>
-                                <span class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="texto muntotal">
-                                            Municipio Total
-                                        </span>
-                                        <span class="md-36 amarillo octicon octicon-chevron-down"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Municipio Total</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Adm. y Serv. Municipal</a>
-                                        <a class="dropdown-item" href="#">Salud</a>
-                                        <a class="dropdown-item" href="#">Educación</a>
-                                        <a class="dropdown-item" href="#">Cementerio</a>
-                                    </div>
-                                </span>
+                            <span class="select">
+                                <select>
+                                    <option>Municipio Total</option>
+                                    <option>Adm. y Serv. Municipal</option>
+                                    <option>Salud</option>
+                                    <option>Educación</option>
+                                    <option>Cementerio</option>
+                                </select>
                             </span>
-                            del año:
-                            <span>
-                                <span class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="texto muntotal">
-                                            2017 a Junio
-                                        </span>
-                                        <span class="md-36 amarillo octicon octicon-chevron-down"></span>
-                                    </a>
+                        </small>
 
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">2017 a Junio</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">2016</a>
-                                        <a class="dropdown-item" href="#">2015</a>
-                                        <a class="dropdown-item" href="#">2014</a>
-                                        <a class="dropdown-item" href="#">2013</a>
-                                    </div>
-                                </span>
+                        <small>
+                            del año:
+                            <span class="select">
+                                <select>
+                                    <option>2017 a Junio</option>
+                                    <option>2016</option>
+                                    <option>2015</option>
+                                    <option>2014</option>
+                                    <option>2013</option>
+                                </select>
                             </span>
                         </small>
                     </h1>
@@ -74,3 +57,12 @@
     </div>
 </div>
 
+
+@section Scripts{
+    <script src="~/Scripts/select.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("select").resizeselect()
+        });
+    </script>
+}

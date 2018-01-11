@@ -11,6 +11,7 @@ namespace GastoTransparenteMunicipal.Controllers
         // GET: Datosdestacados
         public ActionResult Sueldos()
         {
+            ViewBag.Sueldos = "active";
             return View();
         }
 

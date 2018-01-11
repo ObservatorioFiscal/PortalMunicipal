@@ -25,6 +25,7 @@ namespace GastoTransparenteMunicipal
                       "~/Content/css/bootstrap-reboot.css",
                       "~/Content/css/bootstrap-grid.css",
                       "~/Content/css/styleBootrap.css",
+                      "~/Content/css/font.css",
                       "~/Content/css/style.css"));
         }
     }

@@ -11,8 +11,9 @@
                     <h1>
                         Proveedores
                         <small>
+                            del
                             <span class="select">
-                                <select id="select">
+                                <select>
                                     <option>Municipio Total</option>
                                     <option>Adm. y Serv. Municipal</option>
                                     <option>Salud</option>
@@ -25,7 +26,7 @@
                         <small>
                             del año:
                             <span class="select">
-                                <select id="select">
+                                <select>
                                     <option>2017 a Junio</option>
                                     <option>2016</option>
                                     <option>2015</option>
@@ -57,45 +58,10 @@
 </div>
 
 @section scripts{
+    <script src="~/Scripts/select.js"></script>
     <script>
         $(document).ready(function () {
             $("select").resizeselect()
         });
-
-        (function ($, window) {
-            var arrowWidth = 30;
-
-            $.fn.resizeselect = function (settings) {
-                return this.each(function () {
-
-                    $(this).change(function () {
-                        var $this = $(this);
-
-                        // create test element
-                        var text = $this.find("option:selected").text();
-                        var $test = $("<span>").html(text).css({
-                            "font-size": $this.css("font-size"), // ensures same size text
-                            "visibility": "hidden"               // prevents FOUC
-                        });
-
-
-                        // add to parent, get width, and get out
-                        $test.appendTo($this.parent());
-                        var width = $test.width();
-                        $test.remove();
-
-                        // set select width
-                        $this.width(width + arrowWidth);
-
-                        // run on start
-                    }).change();
-
-                });
-            };
-
-            // run by default
-            $("select.resizeselect").resizeselect();
-
-        })(jQuery, window);
     </script>
 }

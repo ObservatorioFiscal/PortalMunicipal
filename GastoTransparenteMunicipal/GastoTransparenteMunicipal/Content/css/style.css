@@ -12,12 +12,16 @@ a:hover{
 }
 
 h1, h2, h3,h4,h5,h6{
-	font-weight: 400;
+	font-weight: 300;
 }
 
 h1{
-	font-size: 2.5rem;
+	font-size: 2.75rem;
 	padding-top: 2rem;
+}
+
+h1 small {
+    font-size: 1.75rem;
 }
 
 h2{
@@ -44,7 +48,7 @@ h4{
 
 h5{
 	font-size: 1.50rem;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 h6{
@@ -100,22 +104,22 @@ h6{
 	text-decoration: underline;
 }
 
-.muntotal{
-	color:#0083b9;
+.muntotal {
+    color: #0083b9 !important;
 }
-.admmunicipal{
-	color:#008e00;
+.admmunicipal {
+    color: #008e00 !important;
 }
-.salud{
-	color:#ea1c73;
+.salud {
+    color: #ea1c73 !important;
 }
 
-.educacion{
-	color:#9b5cb5;
+.educacion {
+    color: #9b5cb5 !important;
 }
 
 .cementerio{
-	color:#990000;
+	color:#990000 !important;
 }
 
 
@@ -204,6 +208,10 @@ h6{
 	font-size: 36px;
 }
 
+.md-96 {
+    font-size: 96px;
+}
+
 .zoom{
 	border: 1px solid transparent;
     width: 32px;
@@ -218,7 +226,6 @@ h6{
 
 .menu-mobile{
 	display: block;
-
 }
 
 .menu-mobile p{
@@ -270,20 +277,14 @@ h6{
 
 
 .select {
-    border: 0px;
-    border-bottom: 4px solid #f1c330;
-    
-    margin: 0 auto;
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: middle;
     background: #fff url('../image/chevron-down.svg') no-repeat 95% center;
 }
 
     .select select {
+        font-weight: 300;
         padding: 0px 10px;
-        width: 110%;
         border: none;
+        border-bottom: 4px solid #f1c330;
         box-shadow: none;
         background-color: transparent;
         background-image: none;
@@ -291,3 +292,9 @@ h6{
         -moz-appearance: none;
         appearance: none;
     }
+
+        .select select option {
+            font-weight: 300;
+            font-size: 80%;
+            color: #212529;
+        }

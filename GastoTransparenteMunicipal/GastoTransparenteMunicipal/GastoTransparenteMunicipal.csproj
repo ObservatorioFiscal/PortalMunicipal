@@ -205,9 +205,11 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\font.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styleBootrap.css" />
     <Content Include="Content\css\styleSueldos.css" />
+    <Content Include="Content\font\portal.svg" />
     <Content Include="Content\image\chevron-down.svg" />
     <Content Include="Content\image\fondo.png" />
     <Content Include="Content\image\icono.png" />
@@ -217,9 +219,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\FeaturedData\bubbleDataTest.json" />
     <Content Include="Scripts\FeaturedData\SubsidyBubbleChart.js" />
+    <Content Include="Scripts\select.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -285,6 +287,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Datosdestacados\Corporaciones.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font\portal.eot" />
+    <Content Include="Content\font\portal.ttf" />
+    <Content Include="Content\font\portal.woff" />
+    <Content Include="Content\font\portal.woff2" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
