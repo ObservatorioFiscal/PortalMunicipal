@@ -4,7 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a37ec59ed2de42aa91e29862b3dc2876" Name="Diagram1" />
+      <Diagram DiagramId="a37ec59ed2de42aa91e29862b3dc2876" Name="Diagram1" >
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGasto" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoGeneral" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel1" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel2" Width="1.5" PointX="7.5" PointY="6.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel3" Width="1.5" PointX="9.75" PointY="6.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel4" Width="1.5" PointX="12" PointY="6.25" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Municipalidad" Width="1.5" PointX="0.75" PointY="4.375" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGast_Munici" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastGener_Munici" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV1_IfGastoGener" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV2_InfGastoNV1" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV3_InfGastoNV2" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV4_InfGastoNV3" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -12,6 +12,8 @@ namespace Core
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class GastoTransparenteMunicipalEntities : DbContext
     {
@@ -25,5 +27,21 @@ namespace Core
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<InformeGasto> InformeGasto { get; set; }
+        public virtual DbSet<InformeGastoGeneral> InformeGastoGeneral { get; set; }
+        public virtual DbSet<InformeGastoNivel1> InformeGastoNivel1 { get; set; }
+        public virtual DbSet<InformeGastoNivel2> InformeGastoNivel2 { get; set; }
+        public virtual DbSet<InformeGastoNivel3> InformeGastoNivel3 { get; set; }
+        public virtual DbSet<InformeGastoNivel4> InformeGastoNivel4 { get; set; }
+        public virtual DbSet<Municipalidad> Municipalidad { get; set; }
+    
+        public virtual int SP_InformeGasto(Nullable<System.Guid> idGroutpReportGasto)
+        {
+            var idGroutpReportGastoParameter = idGroutpReportGasto.HasValue ?
+                new ObjectParameter("IdGroutpReportGasto", idGroutpReportGasto) :
+                new ObjectParameter("IdGroutpReportGasto", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InformeGasto", idGroutpReportGastoParameter);
+        }
     }
 }

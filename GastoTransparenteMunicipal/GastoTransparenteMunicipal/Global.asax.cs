@@ -15,6 +15,7 @@ namespace GastoTransparenteMunicipal
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MapperConfig.Mapping();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }

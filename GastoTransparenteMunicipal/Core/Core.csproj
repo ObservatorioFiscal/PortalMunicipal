@@ -65,6 +65,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GastoTransparenteMunicipal.edmx</DependentUpon>
     </Compile>
+    <Compile Include="InformeGasto.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeGastoGeneral.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeGastoNivel1.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeGastoNivel2.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeGastoNivel3.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeGastoNivel4.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipalidad.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
