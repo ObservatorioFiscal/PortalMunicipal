@@ -56,6 +56,50 @@ h6{
 	font-weight: 100;
 }
 
+.im {
+    padding-right: 0px;
+    margin: 15px 0px;
+}
+
+.gr {
+    color: #0D2B50;
+    font-weight: 400;
+    border-left: 2px solid;
+    line-height: 13px;
+    padding-left: 5px;
+    padding-right: 0px;
+    margin: 5px 0px;
+}
+
+.gr small {
+    font-size:70%;
+}
+
+
+@media (min-width: 576px) {
+    .gr {
+        font-size: 1.5rem;
+        line-height: 22px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .gr {
+        font-size: 1rem;
+    }
+
+    .im {
+        margin: 12px 0px;
+    }
+}
+
+@media (min-width: 960px) {
+    .gr {
+        font-size: 1.3rem;
+    }
+}
+
 .padding-Div{
 	padding-top: 5rem;
 	padding-bottom: 5rem;
@@ -66,9 +110,8 @@ h6{
 }
 
 .active{
-	color:#f1c330;
+	color:#f1c330 !important;
 	border-bottom: 5px solid #f1c330;
-	background-color:#f5f9ff;
 }
 .active2{
 	color:#f1c330;
@@ -281,6 +324,7 @@ h6{
 }
 
     .select select {
+        cursor:pointer;
         font-weight: 300;
         padding: 0px 10px;
         border: none;

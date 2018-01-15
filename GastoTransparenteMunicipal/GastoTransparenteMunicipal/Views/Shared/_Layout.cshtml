@@ -17,20 +17,32 @@
                     <div class="col">
                         <div class="container">
                             <div class="row">
-                                <div class="col-12 col-sm-12 col-md-5 padding-cero align-self-center">
+                                <div class="col-12 col-sm-12 col-md-5 align-self-center">
                                     <div class="row">
-                                        <div class="col-10 col-sm-12 align-self-center">
-                                            <h3 class="text-center">
+                                        <div class=" padding-cero col-10 col-sm-12 align-self-center">
+                                            <div class="row">
+                                                <span class="im col-4 align-self-center">
+                                                    <img class="img-fluid" src="~/Content/image/logo.png" alt="LOGO MUNICIPALIDAD XXXXXX" />
+                                                </span>
+                                                <span class="gr col-8 align-self-center">
+                                                    Gasto Transparente Municipal<br />
+                                                    <small>Rendición de cuentas para nuestro vecinos</small>
+                                                </span>
+                                            </div>
+
+                                            @*<h3 class="text-center">
                                                 <a href="#">
                                                     <img src="~/Content/image/logo.png" class="img-fluid">
+                                                    <span>Gasto Transparente Municipal</span>
+                                                    <span>Rendición de cuentas para nuestro vecinos</span>
                                                 </a>
-                                            </h3>
+                                            </h3>*@
                                         </div>
-                                        <div class="col-2 col-sm-0 align-self-center menu-mobile">
+                                        <div class="im col-2 col-sm-0 align-self-center menu-mobile">
                                             <p class="text-center">
                                                 <a id="menu-mobile">
                                                     Menu
-                                                    <span class="text-center md-36 amarillo octicon octicon-chevron-down"></span>
+                                                    <i class="text-center md-24 amarillo demo-icon icon-down-open">&#xe80c;</i>
                                                 </a>
                                             </p>
                                         </div>
@@ -71,8 +83,7 @@
                                             </li>
                                             <li class="nav-item destacado">
                                                 <a class="nav-link" href="#">
-                                                    Datos<br> destacados
-                                                    <span class="md-24 amarillo octicon octicon-chevron-down"></span>
+                                                    Datos<br> destacados <i class="text-center md-24 amarillo demo-icon icon-down-open">&#xe80c;</i>
                                                 </a>
 
                                             </li>
@@ -116,22 +127,30 @@
             <div class="col padding-Div azulB">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 align-self-center">
                             <ul>
-                                <li class="blanco"><a href="#">Inicio</a></li>
-                                <li class="blanco"><a href="#">Ingresos</a></li>
-                                <li class="blanco"><a href="#">Gastos</a></li>
-                                <li class="blanco"><a href="#">Sueldos por tipo de funcionario</a></li>
-                                <li class="blanco"><a href="#">Proveedores</a></li>
-                                <li class="blanco"><a href="#">Corporaciones</a></li>
+                                <li class="blanco"><a href="#" class="@ViewBag.Inicio">Inicio</a></li>
+                                <li class="blanco"><a href="#" class="@ViewBag.Ingresos">Ingresos</a></li>
+                                <li class="blanco"><a href="#" class="@ViewBag.Gastos">Gastos</a></li>
+                                <li class="blanco"><a href="#" class="@ViewBag.Sueldo">Sueldos por tipo de funcionario</a></li>
+                                <li class="blanco"><a href="#" class="@ViewBag.Proveedores">Proveedores</a></li>
+                                <li class="blanco"><a href="#" class="@ViewBag.Corporaciones">Corporaciones</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 align-self-center">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <p>Una iniciativa conjunta de:</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-9">
+                                    <img src="~/Content/image/iniciativa.png" class="img-fluid" usemap="#iniciativa" />
+                                    <map name="iniciativa">
+                                        <area shape="rect" coords="1,1,240,56" alt=" Observatorio del Gasto Fiscal en Chile" href="rectangulo.html" />
+                                        <area shape="rect" coords="260,1,390,56" alt="Consejo para la Transparencia" href="rectangulo.html" />
+                                        <area shape="rect" coords="410,1,550,56" alt="Laboratorio de Gobierno" href="rectangulo.html" />
+                                    </map>
+                                </div>
+                                @*<div class="col-md-3">
                                     <img src="~/Content/image/icono.png" class="img-fluid" alt="">
                                 </div>
                                 <div class="col-md-3">
@@ -139,16 +158,18 @@
                                 </div>
                                 <div class="col-md-3">
                                     <img src="~/Content/image/icono.png" class="img-fluid" alt="">
-                                </div>
+                                </div>*@
                                 <div class="col-md-3">
-                                    <img src="~/Content/image/icono.png" class="img-fluid" alt="">
+                                    <a href="">
+                                        <img src="~/Content/image/logo_municipalidad.png" class="img-fluid" alt="Municipalidad">
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-1">
-                            <img src="~/Content/image/icono.png" class="img-fluid" alt="">
-                            <img src="~/Content/image/icono.png" class="img-fluid" alt="">
+                        <div class="col-md-1 align-self-center">
+                            <a href="#"><i class="blanco md-36 demo-icon icon-twitter-squared">&#xf304;</i></a>
+                            <a href="#"><i class="blanco md-36 demo-icon icon-facebook-squared">&#xf308;</i></a>
                         </div>
                     </div>
                 </div>
@@ -157,10 +178,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>*@
-    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>*@
     
-    @*<script src="~/Scripts/bootstrap.js"></script>*@
 
     @Scripts.Render("~/bundles/jquery")
     @*@Scripts.Render("~/bundles/bootstrap")*@

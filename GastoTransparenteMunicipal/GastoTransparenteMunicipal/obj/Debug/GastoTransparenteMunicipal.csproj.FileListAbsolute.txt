@@ -513,3 +513,14 @@ C:\Users\Gonzalo\Documents\Visual Studio 2017\Projects\PortalMunicipal\GastoTran
 C:\Users\Gonzalo\Documents\Visual Studio 2017\Projects\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csprojResolveAssemblyReference.cache
 C:\Users\Gonzalo\Documents\Visual Studio 2017\Projects\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.dll
 C:\Users\Gonzalo\Documents\Visual Studio 2017\Projects\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.pdb
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\AutoMapper.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Core.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\NPOI.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\NPOI.OOXML.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\NPOI.OpenXml4Net.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\NPOI.OpenXmlFormats.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Core.pdb
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\Core.dll.config
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\AutoMapper.xml
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\NPOI.xml

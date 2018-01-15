@@ -235,6 +235,7 @@
     <Content Include="Content\image\chevron-down.svg" />
     <Content Include="Content\image\fondo.png" />
     <Content Include="Content\image\icono.png" />
+    <Content Include="Content\image\iniciativa.png" />
     <Content Include="Content\image\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
