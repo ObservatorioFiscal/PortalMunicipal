@@ -12,24 +12,23 @@ namespace Core
     using System;
     using System.Collections.Generic;
     
-    public partial class Municipalidad
+    public partial class InformePersonalCategoriaCementerio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Municipalidad()
+        public InformePersonalCategoriaCementerio()
         {
-            this.InformeGasto = new HashSet<InformeGasto>();
-            this.InformeGastoGeneral = new HashSet<InformeGastoGeneral>();
-            this.InformeSubsidio = new HashSet<InformeSubsidio>();
+            this.InformePersonalResultadoCementerio = new HashSet<InformePersonalResultadoCementerio>();
         }
     
-        public int IdMunicipalidad { get; set; }
+        public long IdInformePersonalCategoria { get; set; }
+        public Nullable<System.Guid> IdGroupInformePersonal { get; set; }
+        public Nullable<int> IdMunicipalidad { get; set; }
+        public Nullable<int> AnoInforme { get; set; }
+        public Nullable<int> MesInforme { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
         public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InformeGasto> InformeGasto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InformeGastoGeneral> InformeGastoGeneral { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InformeSubsidio> InformeSubsidio { get; set; }
+        public virtual ICollection<InformePersonalResultadoCementerio> InformePersonalResultadoCementerio { get; set; }
     }
 }

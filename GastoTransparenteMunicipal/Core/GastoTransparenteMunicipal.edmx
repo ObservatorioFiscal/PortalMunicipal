@@ -94,6 +94,248 @@
           <Property Name="PorcentajeDelTotalDeGasto" Type="float" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="InformePersonalAdmServicios">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+          <Property Name="EDAD" Type="int" />
+          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+          <Property Name="GRADO" Type="int" />
+          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+          <Property Name="SUELDOHABERES" Type="bigint" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaAdmServicios">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaCementerio">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaEducacion">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaMunicipioTotal">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaSalud">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InformePersonalCementerio">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+          <Property Name="EDAD" Type="int" />
+          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+          <Property Name="GRADO" Type="int" />
+          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+          <Property Name="SUELDOHABERES" Type="bigint" />
+        </EntityType>
+        <EntityType Name="InformePersonalEducacion">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+          <Property Name="EDAD" Type="int" />
+          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+          <Property Name="GRADO" Type="int" />
+          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+          <Property Name="SUELDOHABERES" Type="bigint" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoAdmServicios">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInformePersonalCategoria" Type="bigint" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="20" />
+          <Property Name="SueldoPromedio" Type="bigint" />
+          <Property Name="CantidadFuncionarios" Type="int" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoCementerio">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInformePersonalCategoria" Type="bigint" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="20" />
+          <Property Name="SueldoPromedio" Type="bigint" />
+          <Property Name="CantidadFuncionarios" Type="int" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoEducacion">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInformePersonalCategoria" Type="bigint" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="20" />
+          <Property Name="SueldoPromedio" Type="bigint" />
+          <Property Name="CantidadFuncionarios" Type="int" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoMunicipioTotal">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInformePersonalCategoria" Type="bigint" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="20" />
+          <Property Name="SueldoPromedio" Type="bigint" />
+          <Property Name="CantidadFuncionarios" Type="int" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoSalud">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInformePersonalCategoria" Type="bigint" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="20" />
+          <Property Name="SueldoPromedio" Type="bigint" />
+          <Property Name="CantidadFuncionarios" Type="int" />
+        </EntityType>
+        <EntityType Name="InformePersonalSalud">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+          <Property Name="EDAD" Type="int" />
+          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+          <Property Name="GRADO" Type="int" />
+          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+          <Property Name="SUELDOHABERES" Type="bigint" />
+        </EntityType>
+        <EntityType Name="InformeSubsidio">
+          <Key>
+            <PropertyRef Name="IdSubsidio" />
+          </Key>
+          <Property Name="IdSubsidio" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="IdGroupInformeSubsidio" Type="uniqueidentifier" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="CATEGORIA" Type="nvarchar" MaxLength="300" />
+          <Property Name="ORGANIZACION" Type="nvarchar" MaxLength="300" />
+          <Property Name="FECHADECRETO" Type="datetime2" Precision="7" />
+          <Property Name="OBJETIVODELAPORTE" Type="nvarchar" MaxLength="600" />
+          <Property Name="MONTOAPORTE" Type="float" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InformeSubsidioCategoria">
+          <Key>
+            <PropertyRef Name="IdInformeSubsidioOCategoria" />
+          </Key>
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="IdGroupInformeSubsidio" Type="uniqueidentifier" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="300" />
+          <Property Name="TotalMonto" Type="float" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IdInformeSubsidioOCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InformeSubsidioOrganizacion">
+          <Key>
+            <PropertyRef Name="IdInformeSubsidioOrganizacion" />
+          </Key>
+          <Property Name="IdMunicipalidad" Type="int" />
+          <Property Name="IdGroupInformeSubsidio" Type="uniqueidentifier" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="300" />
+          <Property Name="Organizacion" Type="nvarchar" MaxLength="300" />
+          <Property Name="TotalMonto" Type="float" />
+          <Property Name="AnoInforme" Type="int" />
+          <Property Name="MesInforme" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IdInformeSubsidioOrganizacion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="Municipalidad">
           <Key>
             <PropertyRef Name="IdMunicipalidad" />
@@ -101,6 +343,78 @@
           <Property Name="IdMunicipalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <Association Name="FK__InformePe__IdInf__339FAB6E">
+          <End Role="InformePersonalCategoriaAdmServicios" Type="Self.InformePersonalCategoriaAdmServicios" Multiplicity="0..1" />
+          <End Role="InformePersonalResultadoAdmServicios" Type="Self.InformePersonalResultadoAdmServicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaAdmServicios">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoAdmServicios">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__3A4CA8FD">
+          <End Role="InformePersonalCategoriaSalud" Type="Self.InformePersonalCategoriaSalud" Multiplicity="0..1" />
+          <End Role="InformePersonalResultadoSalud" Type="Self.InformePersonalResultadoSalud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaSalud">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoSalud">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__40F9A68C">
+          <End Role="InformePersonalCategoriaEducacion" Type="Self.InformePersonalCategoriaEducacion" Multiplicity="0..1" />
+          <End Role="InformePersonalResultadoEducacion" Type="Self.InformePersonalResultadoEducacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaEducacion">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoEducacion">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__47A6A41B">
+          <End Role="InformePersonalCategoriaCementerio" Type="Self.InformePersonalCategoriaCementerio" Multiplicity="0..1" />
+          <End Role="InformePersonalResultadoCementerio" Type="Self.InformePersonalResultadoCementerio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaCementerio">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoCementerio">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__4E53A1AA">
+          <End Role="InformePersonalCategoriaMunicipioTotal" Type="Self.InformePersonalCategoriaMunicipioTotal" Multiplicity="0..1" />
+          <End Role="InformePersonalResultadoMunicipioTotal" Type="Self.InformePersonalResultadoMunicipioTotal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaMunicipioTotal">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoMunicipioTotal">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeSu__IdMun__0F624AF8">
+          <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+          <End Role="InformeSubsidio" Type="Self.InformeSubsidio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="InformeSubsidio">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_InfGast_Munici">
           <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
           <End Role="InformeGasto" Type="Self.InformeGasto" Multiplicity="*" />
@@ -174,7 +488,40 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="SP_InformeGasto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
-          <Parameter Name="IdGroutpReportGasto" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_InformePersonalAdmServicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_InformePersonalCementerio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_InformePersonalEducacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_InformePersonalMunicipioTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_InformePersonalSalud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_InformeSubsidio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdGroupReportSubsidio" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_PersonalAdmServicios_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_PersonalCementerio_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_PersonalEducacion_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_PersonalMunicipioTotal_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="SP_PersonalSalud_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
         </Function>
         <EntityContainer Name="GastoTransparenteMunicipalModelStoreContainer">
           <EntitySet Name="InformeGasto" EntityType="Self.InformeGasto" Schema="dbo" store:Type="Tables" />
@@ -183,7 +530,48 @@
           <EntitySet Name="InformeGastoNivel2" EntityType="Self.InformeGastoNivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InformeGastoNivel3" EntityType="Self.InformeGastoNivel3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InformeGastoNivel4" EntityType="Self.InformeGastoNivel4" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalAdmServicios" EntityType="Self.InformePersonalAdmServicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalCategoriaAdmServicios" EntityType="Self.InformePersonalCategoriaAdmServicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalCategoriaCementerio" EntityType="Self.InformePersonalCategoriaCementerio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalCategoriaEducacion" EntityType="Self.InformePersonalCategoriaEducacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalCategoriaMunicipioTotal" EntityType="Self.InformePersonalCategoriaMunicipioTotal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalCategoriaSalud" EntityType="Self.InformePersonalCategoriaSalud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalCementerio" EntityType="Self.InformePersonalCementerio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalEducacion" EntityType="Self.InformePersonalEducacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalResultadoAdmServicios" EntityType="Self.InformePersonalResultadoAdmServicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalResultadoCementerio" EntityType="Self.InformePersonalResultadoCementerio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalResultadoEducacion" EntityType="Self.InformePersonalResultadoEducacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalResultadoMunicipioTotal" EntityType="Self.InformePersonalResultadoMunicipioTotal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalResultadoSalud" EntityType="Self.InformePersonalResultadoSalud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformePersonalSalud" EntityType="Self.InformePersonalSalud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeSubsidio" EntityType="Self.InformeSubsidio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeSubsidioCategoria" EntityType="Self.InformeSubsidioCategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeSubsidioOrganizacion" EntityType="Self.InformeSubsidioOrganizacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipalidad" EntityType="Self.Municipalidad" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__InformePe__IdInf__339FAB6E" Association="Self.FK__InformePe__IdInf__339FAB6E">
+            <End Role="InformePersonalCategoriaAdmServicios" EntitySet="InformePersonalCategoriaAdmServicios" />
+            <End Role="InformePersonalResultadoAdmServicios" EntitySet="InformePersonalResultadoAdmServicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__3A4CA8FD" Association="Self.FK__InformePe__IdInf__3A4CA8FD">
+            <End Role="InformePersonalCategoriaSalud" EntitySet="InformePersonalCategoriaSalud" />
+            <End Role="InformePersonalResultadoSalud" EntitySet="InformePersonalResultadoSalud" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__40F9A68C" Association="Self.FK__InformePe__IdInf__40F9A68C">
+            <End Role="InformePersonalCategoriaEducacion" EntitySet="InformePersonalCategoriaEducacion" />
+            <End Role="InformePersonalResultadoEducacion" EntitySet="InformePersonalResultadoEducacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__47A6A41B" Association="Self.FK__InformePe__IdInf__47A6A41B">
+            <End Role="InformePersonalCategoriaCementerio" EntitySet="InformePersonalCategoriaCementerio" />
+            <End Role="InformePersonalResultadoCementerio" EntitySet="InformePersonalResultadoCementerio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__4E53A1AA" Association="Self.FK__InformePe__IdInf__4E53A1AA">
+            <End Role="InformePersonalCategoriaMunicipioTotal" EntitySet="InformePersonalCategoriaMunicipioTotal" />
+            <End Role="InformePersonalResultadoMunicipioTotal" EntitySet="InformePersonalResultadoMunicipioTotal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeSu__IdMun__0F624AF8" Association="Self.FK__InformeSu__IdMun__0F624AF8">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="InformeSubsidio" EntitySet="InformeSubsidio" />
+          </AssociationSet>
           <AssociationSet Name="FK_InfGast_Munici" Association="Self.FK_InfGast_Munici">
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="InformeGasto" EntitySet="InformeGasto" />
@@ -220,6 +608,23 @@
           <EntitySet Name="InformeGastoNivel2" EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel2" />
           <EntitySet Name="InformeGastoNivel3" EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel3" />
           <EntitySet Name="InformeGastoNivel4" EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel4" />
+          <EntitySet Name="InformePersonalAdmServicios" EntityType="GastoTransparenteMunicipalModel.InformePersonalAdmServicios" />
+          <EntitySet Name="InformePersonalCategoriaAdmServicios" EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaAdmServicios" />
+          <EntitySet Name="InformePersonalCategoriaCementerio" EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaCementerio" />
+          <EntitySet Name="InformePersonalCategoriaEducacion" EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaEducacion" />
+          <EntitySet Name="InformePersonalCategoriaMunicipioTotal" EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaMunicipioTotal" />
+          <EntitySet Name="InformePersonalCategoriaSalud" EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaSalud" />
+          <EntitySet Name="InformePersonalCementerio" EntityType="GastoTransparenteMunicipalModel.InformePersonalCementerio" />
+          <EntitySet Name="InformePersonalEducacion" EntityType="GastoTransparenteMunicipalModel.InformePersonalEducacion" />
+          <EntitySet Name="InformePersonalResultadoAdmServicios" EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoAdmServicios" />
+          <EntitySet Name="InformePersonalResultadoCementerio" EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoCementerio" />
+          <EntitySet Name="InformePersonalResultadoEducacion" EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoEducacion" />
+          <EntitySet Name="InformePersonalResultadoMunicipioTotal" EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoMunicipioTotal" />
+          <EntitySet Name="InformePersonalResultadoSalud" EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoSalud" />
+          <EntitySet Name="InformePersonalSalud" EntityType="GastoTransparenteMunicipalModel.InformePersonalSalud" />
+          <EntitySet Name="InformeSubsidio" EntityType="GastoTransparenteMunicipalModel.InformeSubsidio" />
+          <EntitySet Name="InformeSubsidioCategoria" EntityType="GastoTransparenteMunicipalModel.InformeSubsidioCategoria" />
+          <EntitySet Name="InformeSubsidioOrganizacion" EntityType="GastoTransparenteMunicipalModel.InformeSubsidioOrganizacion" />
           <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
           <AssociationSet Name="FK_InfGast_Munici" Association="GastoTransparenteMunicipalModel.FK_InfGast_Munici">
             <End Role="Municipalidad" EntitySet="Municipalidad" />
@@ -245,8 +650,65 @@
             <End Role="InformeGastoNivel3" EntitySet="InformeGastoNivel3" />
             <End Role="InformeGastoNivel4" EntitySet="InformeGastoNivel4" />
           </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__339FAB6E" Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__339FAB6E">
+            <End Role="InformePersonalCategoriaAdmServicios" EntitySet="InformePersonalCategoriaAdmServicios" />
+            <End Role="InformePersonalResultadoAdmServicios" EntitySet="InformePersonalResultadoAdmServicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__47A6A41B" Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__47A6A41B">
+            <End Role="InformePersonalCategoriaCementerio" EntitySet="InformePersonalCategoriaCementerio" />
+            <End Role="InformePersonalResultadoCementerio" EntitySet="InformePersonalResultadoCementerio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__40F9A68C" Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__40F9A68C">
+            <End Role="InformePersonalCategoriaEducacion" EntitySet="InformePersonalCategoriaEducacion" />
+            <End Role="InformePersonalResultadoEducacion" EntitySet="InformePersonalResultadoEducacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__4E53A1AA" Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__4E53A1AA">
+            <End Role="InformePersonalCategoriaMunicipioTotal" EntitySet="InformePersonalCategoriaMunicipioTotal" />
+            <End Role="InformePersonalResultadoMunicipioTotal" EntitySet="InformePersonalResultadoMunicipioTotal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformePe__IdInf__3A4CA8FD" Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__3A4CA8FD">
+            <End Role="InformePersonalCategoriaSalud" EntitySet="InformePersonalCategoriaSalud" />
+            <End Role="InformePersonalResultadoSalud" EntitySet="InformePersonalResultadoSalud" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeSu__IdMun__0F624AF8" Association="GastoTransparenteMunicipalModel.FK__InformeSu__IdMun__0F624AF8">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="InformeSubsidio" EntitySet="InformeSubsidio" />
+          </AssociationSet>
           <FunctionImport Name="SP_InformeGasto">
-            <Parameter Name="IdGroutpReportGasto" Mode="In" Type="Guid" />
+          <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalAdmServicios">
+          <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalCementerio">
+          <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalEducacion">
+          <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalMunicipioTotal">
+          <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalSalud">
+          <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformeSubsidio">
+          <Parameter Name="IdGroupReportSubsidio" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PersonalEducacion_RangoAntiguedad">
+          <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PersonalAdmServicios_RangoAntiguedad">
+            <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PersonalCementerio_RangoAntiguedad">
+            <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PersonalMunicipioTotal_RangoAntiguedad">
+            <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PersonalSalud_RangoAntiguedad">
+            <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="InformeGasto">
@@ -348,6 +810,259 @@
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="InformeGastoNivel3" Relationship="GastoTransparenteMunicipalModel.FK_InfGastNV4_InfGastoNV3" FromRole="InformeGastoNivel4" ToRole="InformeGastoNivel3" />
         </EntityType>
+        <EntityType Name="InformePersonalAdmServicios">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EDAD" Type="Int32" />
+          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GRADO" Type="Int32" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SUELDOHABERES" Type="Int64" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaAdmServicios">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InformePersonalResultadoAdmServicios" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__339FAB6E" FromRole="InformePersonalCategoriaAdmServicios" ToRole="InformePersonalResultadoAdmServicios" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaCementerio">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InformePersonalResultadoCementerio" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__47A6A41B" FromRole="InformePersonalCategoriaCementerio" ToRole="InformePersonalResultadoCementerio" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaEducacion">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InformePersonalResultadoEducacion" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__40F9A68C" FromRole="InformePersonalCategoriaEducacion" ToRole="InformePersonalResultadoEducacion" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaMunicipioTotal">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InformePersonalResultadoMunicipioTotal" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__4E53A1AA" FromRole="InformePersonalCategoriaMunicipioTotal" ToRole="InformePersonalResultadoMunicipioTotal" />
+        </EntityType>
+        <EntityType Name="InformePersonalCategoriaSalud">
+          <Key>
+            <PropertyRef Name="IdInformePersonalCategoria" />
+          </Key>
+          <Property Name="IdInformePersonalCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InformePersonalResultadoSalud" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__3A4CA8FD" FromRole="InformePersonalCategoriaSalud" ToRole="InformePersonalResultadoSalud" />
+        </EntityType>
+        <EntityType Name="InformePersonalCementerio">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EDAD" Type="Int32" />
+          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GRADO" Type="Int32" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SUELDOHABERES" Type="Int64" />
+        </EntityType>
+        <EntityType Name="InformePersonalEducacion">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EDAD" Type="Int32" />
+          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GRADO" Type="Int32" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SUELDOHABERES" Type="Int64" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoAdmServicios">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInformePersonalCategoria" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoPromedio" Type="Int64" />
+          <Property Name="CantidadFuncionarios" Type="Int32" />
+          <NavigationProperty Name="InformePersonalCategoriaAdmServicios" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__339FAB6E" FromRole="InformePersonalResultadoAdmServicios" ToRole="InformePersonalCategoriaAdmServicios" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoCementerio">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInformePersonalCategoria" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoPromedio" Type="Int64" />
+          <Property Name="CantidadFuncionarios" Type="Int32" />
+          <NavigationProperty Name="InformePersonalCategoriaCementerio" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__47A6A41B" FromRole="InformePersonalResultadoCementerio" ToRole="InformePersonalCategoriaCementerio" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoEducacion">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInformePersonalCategoria" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoPromedio" Type="Int64" />
+          <Property Name="CantidadFuncionarios" Type="Int32" />
+          <NavigationProperty Name="InformePersonalCategoriaEducacion" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__40F9A68C" FromRole="InformePersonalResultadoEducacion" ToRole="InformePersonalCategoriaEducacion" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoMunicipioTotal">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInformePersonalCategoria" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoPromedio" Type="Int64" />
+          <Property Name="CantidadFuncionarios" Type="Int32" />
+          <NavigationProperty Name="InformePersonalCategoriaMunicipioTotal" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__4E53A1AA" FromRole="InformePersonalResultadoMunicipioTotal" ToRole="InformePersonalCategoriaMunicipioTotal" />
+        </EntityType>
+        <EntityType Name="InformePersonalResultadoSalud">
+          <Key>
+            <PropertyRef Name="IdInformePersonalResultado" />
+          </Key>
+          <Property Name="IdInformePersonalResultado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInformePersonalCategoria" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoPromedio" Type="Int64" />
+          <Property Name="CantidadFuncionarios" Type="Int32" />
+          <NavigationProperty Name="InformePersonalCategoriaSalud" Relationship="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__3A4CA8FD" FromRole="InformePersonalResultadoSalud" ToRole="InformePersonalCategoriaSalud" />
+        </EntityType>
+        <EntityType Name="InformePersonalSalud">
+          <Key>
+            <PropertyRef Name="IdInformePersonal" />
+          </Key>
+          <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupInformePersonal" Type="Guid" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EDAD" Type="Int32" />
+          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GRADO" Type="Int32" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SUELDOHABERES" Type="Int64" />
+        </EntityType>
+        <EntityType Name="InformeSubsidio">
+          <Key>
+            <PropertyRef Name="IdSubsidio" />
+          </Key>
+          <Property Name="IdSubsidio" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="IdGroupInformeSubsidio" Type="Guid" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="CATEGORIA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ORGANIZACION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FECHADECRETO" Type="DateTime" Precision="7" />
+          <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="MONTOAPORTE" Type="Double" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__InformeSu__IdMun__0F624AF8" FromRole="InformeSubsidio" ToRole="Municipalidad" />
+        </EntityType>
+        <EntityType Name="InformeSubsidioCategoria">
+          <Key>
+            <PropertyRef Name="IdInformeSubsidioOCategoria" />
+          </Key>
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="IdGroupInformeSubsidio" Type="Guid" />
+          <Property Name="Categoria" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TotalMonto" Type="Double" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IdInformeSubsidioOCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="InformeSubsidioOrganizacion">
+          <Key>
+            <PropertyRef Name="IdInformeSubsidioOrganizacion" />
+          </Key>
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="IdGroupInformeSubsidio" Type="Guid" />
+          <Property Name="Categoria" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Organizacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TotalMonto" Type="Double" />
+          <Property Name="AnoInforme" Type="Int32" />
+          <Property Name="MesInforme" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IdInformeSubsidioOrganizacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="Municipalidad">
           <Key>
             <PropertyRef Name="IdMunicipalidad" />
@@ -356,6 +1071,7 @@
           <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="InformeGasto" Relationship="GastoTransparenteMunicipalModel.FK_InfGast_Munici" FromRole="Municipalidad" ToRole="InformeGasto" />
           <NavigationProperty Name="InformeGastoGeneral" Relationship="GastoTransparenteMunicipalModel.FK_InfGastGener_Munici" FromRole="Municipalidad" ToRole="InformeGastoGeneral" />
+          <NavigationProperty Name="InformeSubsidio" Relationship="GastoTransparenteMunicipalModel.FK__InformeSu__IdMun__0F624AF8" FromRole="Municipalidad" ToRole="InformeSubsidio" />
         </EntityType>
         <Association Name="FK_InfGast_Munici">
           <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
@@ -426,6 +1142,78 @@
             </Principal>
             <Dependent Role="InformeGastoNivel4">
               <PropertyRef Name="IdInformeGastoNivel3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__339FAB6E">
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalCategoriaAdmServicios" Role="InformePersonalCategoriaAdmServicios" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalResultadoAdmServicios" Role="InformePersonalResultadoAdmServicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaAdmServicios">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoAdmServicios">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__47A6A41B">
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalCategoriaCementerio" Role="InformePersonalCategoriaCementerio" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalResultadoCementerio" Role="InformePersonalResultadoCementerio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaCementerio">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoCementerio">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__40F9A68C">
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalCategoriaEducacion" Role="InformePersonalCategoriaEducacion" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalResultadoEducacion" Role="InformePersonalResultadoEducacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaEducacion">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoEducacion">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__4E53A1AA">
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalCategoriaMunicipioTotal" Role="InformePersonalCategoriaMunicipioTotal" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalResultadoMunicipioTotal" Role="InformePersonalResultadoMunicipioTotal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaMunicipioTotal">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoMunicipioTotal">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformePe__IdInf__3A4CA8FD">
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalCategoriaSalud" Role="InformePersonalCategoriaSalud" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.InformePersonalResultadoSalud" Role="InformePersonalResultadoSalud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformePersonalCategoriaSalud">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Principal>
+            <Dependent Role="InformePersonalResultadoSalud">
+              <PropertyRef Name="IdInformePersonalCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeSu__IdMun__0F624AF8">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.InformeSubsidio" Role="InformeSubsidio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="InformeSubsidio">
+              <PropertyRef Name="IdMunicipalidad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -530,6 +1318,265 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalAdmServicios">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalAdmServicios">
+              <MappingFragment StoreEntitySet="InformePersonalAdmServicios">
+                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalCategoriaAdmServicios">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalCategoriaAdmServicios">
+              <MappingFragment StoreEntitySet="InformePersonalCategoriaAdmServicios">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalCategoriaCementerio">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalCategoriaCementerio">
+              <MappingFragment StoreEntitySet="InformePersonalCategoriaCementerio">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalCategoriaEducacion">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalCategoriaEducacion">
+              <MappingFragment StoreEntitySet="InformePersonalCategoriaEducacion">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalCategoriaMunicipioTotal">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalCategoriaMunicipioTotal">
+              <MappingFragment StoreEntitySet="InformePersonalCategoriaMunicipioTotal">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalCategoriaSalud">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalCategoriaSalud">
+              <MappingFragment StoreEntitySet="InformePersonalCategoriaSalud">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalCementerio">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalCementerio">
+              <MappingFragment StoreEntitySet="InformePersonalCementerio">
+                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalEducacion">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalEducacion">
+              <MappingFragment StoreEntitySet="InformePersonalEducacion">
+                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalResultadoAdmServicios">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalResultadoAdmServicios">
+              <MappingFragment StoreEntitySet="InformePersonalResultadoAdmServicios">
+                <ScalarProperty Name="CantidadFuncionarios" ColumnName="CantidadFuncionarios" />
+                <ScalarProperty Name="SueldoPromedio" ColumnName="SueldoPromedio" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+                <ScalarProperty Name="IdInformePersonalResultado" ColumnName="IdInformePersonalResultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalResultadoCementerio">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalResultadoCementerio">
+              <MappingFragment StoreEntitySet="InformePersonalResultadoCementerio">
+                <ScalarProperty Name="CantidadFuncionarios" ColumnName="CantidadFuncionarios" />
+                <ScalarProperty Name="SueldoPromedio" ColumnName="SueldoPromedio" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+                <ScalarProperty Name="IdInformePersonalResultado" ColumnName="IdInformePersonalResultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalResultadoEducacion">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalResultadoEducacion">
+              <MappingFragment StoreEntitySet="InformePersonalResultadoEducacion">
+                <ScalarProperty Name="CantidadFuncionarios" ColumnName="CantidadFuncionarios" />
+                <ScalarProperty Name="SueldoPromedio" ColumnName="SueldoPromedio" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+                <ScalarProperty Name="IdInformePersonalResultado" ColumnName="IdInformePersonalResultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalResultadoMunicipioTotal">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalResultadoMunicipioTotal">
+              <MappingFragment StoreEntitySet="InformePersonalResultadoMunicipioTotal">
+                <ScalarProperty Name="CantidadFuncionarios" ColumnName="CantidadFuncionarios" />
+                <ScalarProperty Name="SueldoPromedio" ColumnName="SueldoPromedio" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+                <ScalarProperty Name="IdInformePersonalResultado" ColumnName="IdInformePersonalResultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalResultadoSalud">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalResultadoSalud">
+              <MappingFragment StoreEntitySet="InformePersonalResultadoSalud">
+                <ScalarProperty Name="CantidadFuncionarios" ColumnName="CantidadFuncionarios" />
+                <ScalarProperty Name="SueldoPromedio" ColumnName="SueldoPromedio" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdInformePersonalCategoria" ColumnName="IdInformePersonalCategoria" />
+                <ScalarProperty Name="IdInformePersonalResultado" ColumnName="IdInformePersonalResultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformePersonalSalud">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformePersonalSalud">
+              <MappingFragment StoreEntitySet="InformePersonalSalud">
+                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+                <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeSubsidio">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformeSubsidio">
+              <MappingFragment StoreEntitySet="InformeSubsidio">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MONTOAPORTE" ColumnName="MONTOAPORTE" />
+                <ScalarProperty Name="OBJETIVODELAPORTE" ColumnName="OBJETIVODELAPORTE" />
+                <ScalarProperty Name="FECHADECRETO" ColumnName="FECHADECRETO" />
+                <ScalarProperty Name="ORGANIZACION" ColumnName="ORGANIZACION" />
+                <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdSubsidio" ColumnName="IdSubsidio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeSubsidioCategoria">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformeSubsidioCategoria">
+              <MappingFragment StoreEntitySet="InformeSubsidioCategoria">
+                <ScalarProperty Name="IdInformeSubsidioOCategoria" ColumnName="IdInformeSubsidioOCategoria" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="TotalMonto" ColumnName="TotalMonto" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeSubsidioOrganizacion">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.InformeSubsidioOrganizacion">
+              <MappingFragment StoreEntitySet="InformeSubsidioOrganizacion">
+                <ScalarProperty Name="IdInformeSubsidioOrganizacion" ColumnName="IdInformeSubsidioOrganizacion" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="MesInforme" ColumnName="MesInforme" />
+                <ScalarProperty Name="AnoInforme" ColumnName="AnoInforme" />
+                <ScalarProperty Name="TotalMonto" ColumnName="TotalMonto" />
+                <ScalarProperty Name="Organizacion" ColumnName="Organizacion" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Municipalidad">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
               <MappingFragment StoreEntitySet="Municipalidad">
@@ -539,6 +1586,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SP_InformeGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGasto" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalAdmServicios" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdmServicios" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerio" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacion" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotal" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSalud" />
+          <FunctionImportMapping FunctionImportName="SP_InformeSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidio" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdmServicios_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdmServicios_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoAntiguedad" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -83,6 +83,57 @@
     <Compile Include="InformeGastoNivel4.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="InformePersonalAdmServicios.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalCategoriaAdmServicios.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalCategoriaCementerio.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalCategoriaEducacion.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalCategoriaMunicipioTotal.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalCategoriaSalud.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalCementerio.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalEducacion.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalResultadoAdmServicios.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalResultadoCementerio.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalResultadoEducacion.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalResultadoMunicipioTotal.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalResultadoSalud.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformePersonalSalud.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeSubsidio.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeSubsidioCategoria.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeSubsidioOrganizacion.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Municipalidad.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
