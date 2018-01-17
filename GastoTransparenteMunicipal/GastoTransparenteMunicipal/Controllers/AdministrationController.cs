@@ -36,6 +36,7 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
+
         public ActionResult CargaInformeSubsidio()
         {
             return View();
@@ -60,6 +61,7 @@ namespace GastoTransparenteMunicipal.Controllers
             }            
             return View();
         }
+
 
         public ActionResult CargaInformePersonal()
         {
