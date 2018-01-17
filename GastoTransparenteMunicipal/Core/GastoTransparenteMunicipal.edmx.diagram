@@ -5,42 +5,69 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a37ec59ed2de42aa91e29862b3dc2876" Name="Diagram1" ZoomLevel="98" >
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGasto" Width="1.5" PointX="3" PointY="9.625" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoGeneral" Width="1.5" PointX="3" PointY="5.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel1" Width="1.5" PointX="5.25" PointY="5.5" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel2" Width="1.5" PointX="7.5" PointY="5.625" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel3" Width="1.5" PointX="9.75" PointY="5.625" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel4" Width="1.5" PointX="12" PointY="5.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalAdmServicios" Width="1.5" PointX="10.75" PointY="13.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaAdmServicios" Width="1.5" PointX="5.75" PointY="14" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaCementerio" Width="1.5" PointX="10.75" PointY="10" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaEducacion" Width="1.5" PointX="10.75" PointY="1" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaMunicipioTotal" Width="1.5" PointX="5.75" PointY="10" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGasto" Width="1.5" PointX="3" PointY="23.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoGeneral" Width="1.5" PointX="3" PointY="19.25" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel1" Width="1.5" PointX="5.25" PointY="19" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel2" Width="1.5" PointX="7.5" PointY="19.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel3" Width="1.5" PointX="9.75" PointY="19.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeGastoNivel4" Width="1.5" PointX="12" PointY="19.25" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeIngreso" Width="1.5" PointX="3" PointY="27.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeIngresoGeneral" Width="1.5" PointX="3" PointY="33" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeIngresoNivel1" Width="1.5" PointX="5.25" PointY="32.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeIngresoNivel2" Width="1.5" PointX="7.5" PointY="32.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeIngresoNivel3" Width="1.5" PointX="9.75" PointY="32.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeIngresoNivel4" Width="1.5" PointX="12" PointY="33" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalAdmServicios" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaAdmServicios" Width="1.5" PointX="10.75" PointY="5" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaCementerio" Width="1.5" PointX="10.75" PointY="1" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaEducacion" Width="1.5" PointX="5.75" PointY="9" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaMunicipioTotal" Width="1.5" PointX="5.75" PointY="5" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCategoriaSalud" Width="1.5" PointX="5.75" PointY="1" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCementerio" Width="1.5" PointX="12.75" PointY="13.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalEducacion" Width="1.5" PointX="0.75" PointY="14.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoAdmServicios" Width="1.5" PointX="8" PointY="14" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoCementerio" Width="1.5" PointX="13" PointY="10" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoEducacion" Width="1.5" PointX="13" PointY="1" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoMunicipioTotal" Width="1.5" PointX="8" PointY="10" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalCementerio" Width="1.5" PointX="5.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalEducacion" Width="1.5" PointX="7.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoAdmServicios" Width="1.5" PointX="13" PointY="5" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoCementerio" Width="1.5" PointX="13" PointY="1" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoEducacion" Width="1.5" PointX="8" PointY="9" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoMunicipioTotal" Width="1.5" PointX="8" PointY="5" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalResultadoSalud" Width="1.5" PointX="8" PointY="1" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalSalud" Width="1.5" PointX="2.75" PointY="14.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeSubsidio" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeSubsidioCategoria" Width="1.5" PointX="14.75" PointY="4.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeSubsidioOrganizacion" Width="1.5" PointX="14.75" PointY="13.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Municipalidad" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformePersonalSalud" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresAdmServicios" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresCementerio" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresEducacion" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresResumenAdmServicios" Width="1.5" PointX="9.75" PointY="13.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresResumenCementerio" Width="1.5" PointX="11.75" PointY="13.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresResumenEducacion" Width="1.5" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresResumenMunicipioTotal" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresResumenSalud" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeProveedoresSalud" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeSubsidio" Width="1.5" PointX="3" PointY="36.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeSubsidioCategoria" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeSubsidioOrganizacion" Width="1.5" PointX="15.75" PointY="11.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Municipalidad" Width="1.5" PointX="0.75" PointY="19.875" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGast_Munici" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastGener_Munici" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV1_IfGastoGener" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV2_InfGastoNV1" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV3_InfGastoNV2" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV4_InfGastoNV3" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__339FAB6E" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__47A6A41B" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__40F9A68C" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__4E53A1AA" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__3A4CA8FD" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformeSu__IdMun__0F624AF8" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfIngr_Munici" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastGener1_Munici" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV1_IfIngresoGener1" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV2_InfIngreso1NV1" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV3_InfIngresoNV2" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK_InfGastNV4_InfIngreso1NV3" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__5812160E" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__59063A47" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__59FA5E80" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__5AEE82B9" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePe__IdInf__5BE2A6F2" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePr__IdMun__5CD6CB2B" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePr__IdMun__5DCAEF64" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePr__IdMun__5EBF139D" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformePr__IdMun__5FB337D6" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformeSu__IdMun__60A75C0F" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.InformeCorporaciones" Width="1.5" PointX="3" PointY="41" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__InformeCo__IdMun__42E1EEFE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

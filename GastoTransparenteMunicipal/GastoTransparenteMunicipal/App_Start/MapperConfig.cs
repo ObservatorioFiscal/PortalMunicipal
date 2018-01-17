@@ -23,6 +23,15 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => e.GetCell(5).NumericCellValue))
                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
 
+                cfg.CreateMap<IRow, Core.InformeIngreso>()
+                .ForMember(dst => dst.TIPO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
+                .ForMember(dst => dst.AREANIVEL1A, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.AREANIVEL2, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.CUENTANIVEL1, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
+                .ForMember(dst => dst.CUENTANIVEL2, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
+                .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => e.GetCell(5).NumericCellValue))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
+
                 cfg.CreateMap<IRow, Core.InformeSubsidio>()
                 .ForMember(dst => dst.CATEGORIA, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.ORGANIZACION, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
@@ -78,6 +87,36 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(7).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString() ))
                 .ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
+
+                cfg.CreateMap<IRow, Core.InformeProveedoresAdmServicios>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))                
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+
+                cfg.CreateMap<IRow, Core.InformeProveedoresSalud>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+
+                cfg.CreateMap<IRow, Core.InformeProveedoresEducacion>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+
+                cfg.CreateMap<IRow, Core.InformeProveedoresCementerio>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+
+                cfg.CreateMap<IRow, Core.InformeCorporaciones>()
+                .ForMember(dst => dst.ObjetivoDelAporte, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
+                .ForMember(dst => dst.Origen, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Destino, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.MontoAportado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
             });
         }
     }

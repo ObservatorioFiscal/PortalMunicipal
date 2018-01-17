@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
-    public class FeaturedDataController : Controller
+    public class FeaturedDataController : BaseController
     {
         // GET: FeaturedData
         public ActionResult Subsidy()
@@ -23,10 +23,18 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult Providers()
         {
+            var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
+            var result = query.Select(r => new { r.Proveedor, r.Monto });
+            ViewBag.test = result.ToList();
             return View();
         }
 
         public ActionResult Corporation()
+        {
+            return View();
+        }
+
+        public ActionResult PersonalSalary()
         {
             return View();
         }

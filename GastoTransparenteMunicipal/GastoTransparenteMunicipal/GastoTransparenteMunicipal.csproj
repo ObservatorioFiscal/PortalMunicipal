@@ -242,6 +242,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\FeaturedData\WordCloud.js" />
     <Content Include="Scripts\FeaturedData\bubbleDataTest.json" />
     <Content Include="Scripts\FeaturedData\SubsidyBubbleChart.js" />
     <Content Include="Scripts\select.js" />
@@ -331,6 +332,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administration\CargaInformePersonal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administration\CargaInformeCorporaciones.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Administration\CargaInformeProveedores.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FeaturedData\Providers.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
