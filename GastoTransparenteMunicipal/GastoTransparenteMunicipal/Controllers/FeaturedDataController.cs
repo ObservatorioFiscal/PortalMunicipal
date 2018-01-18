@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,8 +25,14 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Providers()
         {
             var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
-            var result = query.Select(r => new { r.Proveedor, r.Monto });
-            ViewBag.test = result.ToList();
+            var result = query.Select(r => new { r.Proveedor, r.Monto }).ToList();            
+            
+            var jsonProveedor = JsonConvert.SerializeObject(result.Select( r => r.Proveedor));
+            var jsonMonto = JsonConvert.SerializeObject(result.Select(r => r.Monto));
+            ViewBag.proveedor = jsonProveedor;
+            ViewBag.monto = jsonMonto;
+
+            ViewBag.proveedor = jsonProveedor.Replace("'","");
             return View();
         }
 
@@ -42,6 +49,12 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Test()
         {
             return View();
+        }
+
+        public class Tupla
+        {
+            public string Proveedor { get; set; }
+            public long? Monto{ get; set; }
         }
     }
 }
