@@ -14,6 +14,7 @@ namespace GastoTransparenteMunicipal
         {
             Mapper.Initialize(cfg => {
 
+                #region Carga de archivo
                 cfg.CreateMap<IRow, Core.InformeGasto>()
                 .ForMember(dst => dst.TIPO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.AREANIVEL1A, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
@@ -117,6 +118,37 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.Origen, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
                 .ForMember(dst => dst.Destino, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
                 .ForMember(dst => dst.MontoAportado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                #endregion
+
+                #region proveedores
+                cfg.CreateMap<InformeProveedores, Core.InformeProveedoresAdmServicios>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedores, Core.InformeProveedoresEducacion>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedores, Core.InformeProveedoresCementerio>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedores, Core.InformeProveedoresSalud>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenAdmServicios>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenEducacion>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenCementerio>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenSalud>()
+                .ReverseMap();
+
+                cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenMunicipioTotal>()
+                .ReverseMap();
+                #endregion 
+
             });
         }
     }
