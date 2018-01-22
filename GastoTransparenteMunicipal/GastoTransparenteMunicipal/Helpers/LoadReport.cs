@@ -12,26 +12,23 @@ namespace GastoTransparenteMunicipal.Helpers
     {
         protected DateTime UpdatedOn { get; set; }
         public Guid IdGroupInforme { get; }
-
+        
         public LoadReport()
         {            
             this.UpdatedOn = DateTime.UtcNow;
             this.IdGroupInforme = Guid.NewGuid();
         }
 
-        public List<InformeGasto> LoadInformeGasto(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<GastoInforme> LoadInformeGasto(IWorkbook excelInforme)
         {
-            List<InformeGasto> InformeGastos = new List<InformeGasto>();                        
+            List<GastoInforme> InformeGastos = new List<GastoInforme>();                        
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
             {                
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformeGasto informeGasto = Mapper.Map<IRow, InformeGasto>(row);
-                    informeGasto.AnoInforme = AnoInforme;
-                    informeGasto.IdMunicipalidad = IdMunicipalidad;
-                    informeGasto.MesInforme = MesInforme;
+                    GastoInforme informeGasto = Mapper.Map<IRow, GastoInforme>(row);                    
                     informeGasto.UpdatedOn = this.UpdatedOn;
                     informeGasto.IdGroupInformeGasto = this.IdGroupInforme;
 
@@ -42,19 +39,17 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeGastos;
         }
 
-        public List<InformeIngreso> LoadInformeIngreso(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<IngresoInforme> LoadInformeIngreso(IWorkbook excelInforme)
         {
-            List<InformeIngreso> InformeIngresos = new List<InformeIngreso>();
+            List<IngresoInforme> InformeIngresos = new List<IngresoInforme>();
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
             {
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformeIngreso informeIngreso = Mapper.Map<IRow, InformeIngreso>(row);
-                    informeIngreso.AnoInforme = AnoInforme;
-                    informeIngreso.IdMunicipalidad = IdMunicipalidad;
-                    informeIngreso.MesInforme = MesInforme;
+                    IngresoInforme informeIngreso = Mapper.Map<IRow, IngresoInforme>(row);
+    
                     informeIngreso.UpdatedOn = this.UpdatedOn;
                     informeIngreso.IdGroupInformeIngreso = this.IdGroupInforme;
 
@@ -65,19 +60,16 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeIngresos;
         }
 
-        public List<InformeSubsidio> LoadInformeSubsidio(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<SubsidioInforme> LoadInformeSubsidio(IWorkbook excelInforme)
         {
-            List<InformeSubsidio> InformeSubsidio = new List<InformeSubsidio>();            
+            List<SubsidioInforme> InformeSubsidio = new List<SubsidioInforme>();
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {                
+            {
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformeSubsidio informeSubsidio = Mapper.Map<IRow, InformeSubsidio>(row);
-                    informeSubsidio.AnoInforme = AnoInforme;
-                    informeSubsidio.IdMunicipalidad = IdMunicipalidad;
-                    informeSubsidio.MesInforme = MesInforme;
+                    SubsidioInforme informeSubsidio = Mapper.Map<IRow, SubsidioInforme>(row);              
                     informeSubsidio.UpdatedOn = this.UpdatedOn;
                     informeSubsidio.IdGroupInformeSubsidio = this.IdGroupInforme;
 
@@ -88,19 +80,16 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeSubsidio;
         }
 
-        public List<InformePersonalSalud> LoadInformePersonalSalud(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<Personal_SaludInforme> LoadInformePersonalSalud(IWorkbook excelInforme)
         {
-            List<InformePersonalSalud> InformeSalud = new List<InformePersonalSalud>();
+            List<Personal_SaludInforme> InformeSalud = new List<Personal_SaludInforme>();
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {                
+            {
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformePersonalSalud informeSalud = Mapper.Map<IRow, InformePersonalSalud>(row);
-                    informeSalud.AnoInforme = AnoInforme;
-                    informeSalud.IdMunicipalidad = IdMunicipalidad;
-                    informeSalud.MesInforme = MesInforme;
+                    Personal_SaludInforme informeSalud = Mapper.Map<IRow, Personal_SaludInforme>(row);    
                     informeSalud.UpdatedOn = this.UpdatedOn;
                     informeSalud.IdGroupInformePersonal = this.IdGroupInforme;
 
@@ -109,24 +98,20 @@ namespace GastoTransparenteMunicipal.Helpers
             }
 
             return InformeSalud;
-        }        
+        }
 
-        public List<InformePersonalEducacion> LoadInformePersonalEducacion(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<Personal_EducacionInforme> LoadInformePersonalEducacion(IWorkbook excelInforme)
         {
-            List<InformePersonalEducacion> InformeEducacion = new List<InformePersonalEducacion>();
+            List<Personal_EducacionInforme> InformeEducacion = new List<Personal_EducacionInforme>();
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
             {
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformePersonalEducacion informeEducacion = Mapper.Map<IRow, InformePersonalEducacion>(row);
-                    informeEducacion.AnoInforme = AnoInforme;
-                    informeEducacion.IdMunicipalidad = IdMunicipalidad;
-                    informeEducacion.MesInforme = MesInforme;
+                    Personal_EducacionInforme informeEducacion = Mapper.Map<IRow, Personal_EducacionInforme>(row);                    
                     informeEducacion.UpdatedOn = this.UpdatedOn;
                     informeEducacion.IdGroupInformePersonal = this.IdGroupInforme;
-
                     InformeEducacion.Add(informeEducacion);
                 }
             }
@@ -134,19 +119,16 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeEducacion;
         }
 
-        public List<InformePersonalCementerio> LoadInformePersonalCementerio(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<Personal_CementerioInforme> LoadInformePersonalCementerio(IWorkbook excelInforme)
         {
-            List<InformePersonalCementerio> InformeCementerio = new List<InformePersonalCementerio>();
+            List<Personal_CementerioInforme> InformeCementerio = new List<Personal_CementerioInforme>();
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
             {
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformePersonalCementerio informeCementerio = Mapper.Map<IRow, InformePersonalCementerio>(row);
-                    informeCementerio.AnoInforme = AnoInforme;
-                    informeCementerio.IdMunicipalidad = IdMunicipalidad;
-                    informeCementerio.MesInforme = MesInforme;
+                    Personal_CementerioInforme informeCementerio = Mapper.Map<IRow, Personal_CementerioInforme>(row);
                     informeCementerio.UpdatedOn = this.UpdatedOn;
                     informeCementerio.IdGroupInformePersonal = this.IdGroupInforme;
 
@@ -157,19 +139,16 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeCementerio;
         }
 
-        public List<InformePersonalAdmServicios> LoadInformePersonalAdmServicios(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        public List<Personal_AdmInforme> LoadInformePersonalAdmServicios(IWorkbook excelInforme)
         {
-            List<InformePersonalAdmServicios> InformeAdmServicios = new List<InformePersonalAdmServicios>();
+            List<Personal_AdmInforme> InformeAdmServicios = new List<Personal_AdmInforme>();
             ISheet sheet = excelInforme.GetSheetAt(0);
             for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
             {
                 var row = sheet.GetRow(rowPosition);
                 if (row != null)
                 {
-                    InformePersonalAdmServicios informeAdmServicios = Mapper.Map<IRow, InformePersonalAdmServicios>(row);
-                    informeAdmServicios.AnoInforme = AnoInforme;
-                    informeAdmServicios.IdMunicipalidad = IdMunicipalidad;
-                    informeAdmServicios.MesInforme = MesInforme;
+                    Personal_AdmInforme informeAdmServicios = Mapper.Map<IRow, Personal_AdmInforme>(row);
                     informeAdmServicios.UpdatedOn = this.UpdatedOn;
                     informeAdmServicios.IdGroupInformePersonal = this.IdGroupInforme;
 
@@ -180,120 +159,120 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeAdmServicios;
         }
 
-        public List<InformeProveedoresSalud> LoadInformeProveedoresSalud(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        {
-            List<InformeProveedoresSalud> InformeSalud = new List<InformeProveedoresSalud>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    InformeProveedoresSalud informeSalud = Mapper.Map<IRow, InformeProveedoresSalud>(row);
-                    informeSalud.AnoInforme = AnoInforme;
-                    informeSalud.IdMunicipalidad = IdMunicipalidad;
-                    informeSalud.MesInforme = MesInforme;
-                    informeSalud.UpdatedOn = this.UpdatedOn;
-                    informeSalud.IdGroupInformeProveedores = this.IdGroupInforme;
+        //public List<InformeProveedoresSalud> LoadInformeProveedoresSalud(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        //{
+        //    List<InformeProveedoresSalud> InformeSalud = new List<InformeProveedoresSalud>();
+        //    ISheet sheet = excelInforme.GetSheetAt(0);
+        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+        //    {
+        //        var row = sheet.GetRow(rowPosition);
+        //        if (row != null)
+        //        {
+        //            InformeProveedoresSalud informeSalud = Mapper.Map<IRow, InformeProveedoresSalud>(row);
+        //            informeSalud.AnoInforme = AnoInforme;
+        //            informeSalud.IdMunicipalidad = IdMunicipalidad;
+        //            informeSalud.MesInforme = MesInforme;
+        //            informeSalud.UpdatedOn = this.UpdatedOn;
+        //            informeSalud.IdGroupInformeProveedores = this.IdGroupInforme;
 
-                    InformeSalud.Add(informeSalud);
-                }
-            }
+        //            InformeSalud.Add(informeSalud);
+        //        }
+        //    }
 
-            return InformeSalud;
-        }
+        //    return InformeSalud;
+        //}
 
-        public List<InformeProveedoresEducacion> LoadInformeProveedoresEducacion(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        {
-            List<InformeProveedoresEducacion> InformeEducacion = new List<InformeProveedoresEducacion>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    InformeProveedoresEducacion informeEducacion = Mapper.Map<IRow, InformeProveedoresEducacion>(row);
-                    informeEducacion.AnoInforme = AnoInforme;
-                    informeEducacion.IdMunicipalidad = IdMunicipalidad;
-                    informeEducacion.MesInforme = MesInforme;
-                    informeEducacion.UpdatedOn = this.UpdatedOn;
-                    informeEducacion.IdGroupInformeProveedores = this.IdGroupInforme;
+        //public List<InformeProveedoresEducacion> LoadInformeProveedoresEducacion(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        //{
+        //    List<InformeProveedoresEducacion> InformeEducacion = new List<InformeProveedoresEducacion>();
+        //    ISheet sheet = excelInforme.GetSheetAt(0);
+        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+        //    {
+        //        var row = sheet.GetRow(rowPosition);
+        //        if (row != null)
+        //        {
+        //            InformeProveedoresEducacion informeEducacion = Mapper.Map<IRow, InformeProveedoresEducacion>(row);
+        //            informeEducacion.AnoInforme = AnoInforme;
+        //            informeEducacion.IdMunicipalidad = IdMunicipalidad;
+        //            informeEducacion.MesInforme = MesInforme;
+        //            informeEducacion.UpdatedOn = this.UpdatedOn;
+        //            informeEducacion.IdGroupInformeProveedores = this.IdGroupInforme;
 
-                    InformeEducacion.Add(informeEducacion);
-                }
-            }
+        //            InformeEducacion.Add(informeEducacion);
+        //        }
+        //    }
 
-            return InformeEducacion;
-        }
-                                 
-        public List<InformeProveedoresCementerio> LoadInformeProveedoresCementerio(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        {
-            List<InformeProveedoresCementerio> InformeCementerio = new List<InformeProveedoresCementerio>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    InformeProveedoresCementerio informeCementerio = Mapper.Map<IRow, InformeProveedoresCementerio>(row);
-                    informeCementerio.AnoInforme = AnoInforme;
-                    informeCementerio.IdMunicipalidad = IdMunicipalidad;
-                    informeCementerio.MesInforme = MesInforme;
-                    informeCementerio.UpdatedOn = this.UpdatedOn;
-                    informeCementerio.IdGroupInformeProveedores = this.IdGroupInforme;
+        //    return InformeEducacion;
+        //}
 
-                    InformeCementerio.Add(informeCementerio);
-                }
-            }
+        //public List<InformeProveedoresCementerio> LoadInformeProveedoresCementerio(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        //{
+        //    List<InformeProveedoresCementerio> InformeCementerio = new List<InformeProveedoresCementerio>();
+        //    ISheet sheet = excelInforme.GetSheetAt(0);
+        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+        //    {
+        //        var row = sheet.GetRow(rowPosition);
+        //        if (row != null)
+        //        {
+        //            InformeProveedoresCementerio informeCementerio = Mapper.Map<IRow, InformeProveedoresCementerio>(row);
+        //            informeCementerio.AnoInforme = AnoInforme;
+        //            informeCementerio.IdMunicipalidad = IdMunicipalidad;
+        //            informeCementerio.MesInforme = MesInforme;
+        //            informeCementerio.UpdatedOn = this.UpdatedOn;
+        //            informeCementerio.IdGroupInformeProveedores = this.IdGroupInforme;
 
-            return InformeCementerio;
-        }
-                                 
-        public List<InformeProveedoresAdmServicios> LoadInformeProveedoresAdmServicios(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        {
-            List<InformeProveedoresAdmServicios> InformeAdmServicios = new List<InformeProveedoresAdmServicios>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    InformeProveedoresAdmServicios informeAdmServicios = Mapper.Map<IRow, InformeProveedoresAdmServicios>(row);
-                    informeAdmServicios.AnoInforme = AnoInforme;
-                    informeAdmServicios.IdMunicipalidad = IdMunicipalidad;
-                    informeAdmServicios.MesInforme = MesInforme;
-                    informeAdmServicios.UpdatedOn = this.UpdatedOn;
-                    informeAdmServicios.IdGroupInformeProveedores = this.IdGroupInforme;
+        //            InformeCementerio.Add(informeCementerio);
+        //        }
+        //    }
 
-                    InformeAdmServicios.Add(informeAdmServicios);
-                }
-            }
+        //    return InformeCementerio;
+        //}
 
-            return InformeAdmServicios;
-        }
+        //public List<InformeProveedoresAdmServicios> LoadInformeProveedoresAdmServicios(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        //{
+        //    List<InformeProveedoresAdmServicios> InformeAdmServicios = new List<InformeProveedoresAdmServicios>();
+        //    ISheet sheet = excelInforme.GetSheetAt(0);
+        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+        //    {
+        //        var row = sheet.GetRow(rowPosition);
+        //        if (row != null)
+        //        {
+        //            InformeProveedoresAdmServicios informeAdmServicios = Mapper.Map<IRow, InformeProveedoresAdmServicios>(row);
+        //            informeAdmServicios.AnoInforme = AnoInforme;
+        //            informeAdmServicios.IdMunicipalidad = IdMunicipalidad;
+        //            informeAdmServicios.MesInforme = MesInforme;
+        //            informeAdmServicios.UpdatedOn = this.UpdatedOn;
+        //            informeAdmServicios.IdGroupInformeProveedores = this.IdGroupInforme;
 
-        public List<InformeCorporaciones> LoadInformeCorporaciones(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        {
-            List<InformeCorporaciones> InformeCorporaciones = new List<InformeCorporaciones>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    InformeCorporaciones informeCorporaciones = Mapper.Map<IRow, InformeCorporaciones>(row);
-                    informeCorporaciones.AnoInforme = AnoInforme;
-                    informeCorporaciones.IdMunicipalidad = IdMunicipalidad;
-                    informeCorporaciones.MesInforme = MesInforme;
-                    informeCorporaciones.UpdatedOn = this.UpdatedOn;
-                    informeCorporaciones.IdGroupInforme = this.IdGroupInforme;
+        //            InformeAdmServicios.Add(informeAdmServicios);
+        //        }
+        //    }
 
-                    InformeCorporaciones.Add(informeCorporaciones);
-                }
-            }
+        //    return InformeAdmServicios;
+        //}
 
-            return InformeCorporaciones;
-        }
+        //public List<InformeCorporaciones> LoadInformeCorporaciones(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
+        //{
+        //    List<InformeCorporaciones> InformeCorporaciones = new List<InformeCorporaciones>();
+        //    ISheet sheet = excelInforme.GetSheetAt(0);
+        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+        //    {
+        //        var row = sheet.GetRow(rowPosition);
+        //        if (row != null)
+        //        {
+        //            InformeCorporaciones informeCorporaciones = Mapper.Map<IRow, InformeCorporaciones>(row);
+        //            informeCorporaciones.AnoInforme = AnoInforme;
+        //            informeCorporaciones.IdMunicipalidad = IdMunicipalidad;
+        //            informeCorporaciones.MesInforme = MesInforme;
+        //            informeCorporaciones.UpdatedOn = this.UpdatedOn;
+        //            informeCorporaciones.IdGroupInforme = this.IdGroupInforme;
+
+        //            InformeCorporaciones.Add(informeCorporaciones);
+        //        }
+        //    }
+
+        //    return InformeCorporaciones;
+        //}
 
     }
 }

@@ -12,34 +12,34 @@ namespace Core
     using System;
     using System.Collections.Generic;
     
-    public partial class Municipalidad
+    public partial class Personal_Ano
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Municipalidad()
+        public Personal_Ano()
         {
-            this.Corporacion_Ano = new HashSet<Corporacion_Ano>();
-            this.Gasto_Ano = new HashSet<Gasto_Ano>();
-            this.Ingreso_Ano = new HashSet<Ingreso_Ano>();
-            this.Personal_Ano = new HashSet<Personal_Ano>();
-            this.Proveedor_Ano = new HashSet<Proveedor_Ano>();
-            this.Subsidio_Ano = new HashSet<Subsidio_Ano>();
+            this.Personal_Adm_Nivel1 = new HashSet<Personal_Adm_Nivel1>();
+            this.Personal_Salud_Nivel1 = new HashSet<Personal_Salud_Nivel1>();
+            this.Personal_Educacion_Nivel1 = new HashSet<Personal_Educacion_Nivel1>();
+            this.Personal_Cementerio_Nivel1 = new HashSet<Personal_Cementerio_Nivel1>();
+            this.Personal_Total_Nivel1 = new HashSet<Personal_Total_Nivel1>();
         }
     
-        public int IdMunicipalidad { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
+        public long IdAno { get; set; }
+        public Nullable<int> IdMunicipalidad { get; set; }
+        public Nullable<int> Ano { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
+        public Nullable<int> Mes { get; set; }
     
+        public virtual Municipalidad Municipalidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Corporacion_Ano> Corporacion_Ano { get; set; }
+        public virtual ICollection<Personal_Adm_Nivel1> Personal_Adm_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gasto_Ano> Gasto_Ano { get; set; }
+        public virtual ICollection<Personal_Salud_Nivel1> Personal_Salud_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ingreso_Ano> Ingreso_Ano { get; set; }
+        public virtual ICollection<Personal_Educacion_Nivel1> Personal_Educacion_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personal_Ano> Personal_Ano { get; set; }
+        public virtual ICollection<Personal_Cementerio_Nivel1> Personal_Cementerio_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proveedor_Ano> Proveedor_Ano { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subsidio_Ano> Subsidio_Ano { get; set; }
+        public virtual ICollection<Personal_Total_Nivel1> Personal_Total_Nivel1 { get; set; }
     }
 }

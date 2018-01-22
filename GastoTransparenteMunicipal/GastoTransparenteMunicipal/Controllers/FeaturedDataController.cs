@@ -24,15 +24,15 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult Providers()
         {
-            var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
-            var result = query.Select(r => new { r.Proveedor, r.Monto }).ToList();            
+            //var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
+            //var result = query.Select(r => new { r.Proveedor, r.Monto }).ToList();            
             
-            var jsonProveedor = JsonConvert.SerializeObject(result.Select( r => r.Proveedor));
-            var jsonMonto = JsonConvert.SerializeObject(result.Select(r => r.Monto));
-            ViewBag.proveedor = jsonProveedor;
-            ViewBag.monto = jsonMonto;
+            //var jsonProveedor = JsonConvert.SerializeObject(result.Select( r => r.Proveedor));
+            //var jsonMonto = JsonConvert.SerializeObject(result.Select(r => r.Monto));
+            //ViewBag.proveedor = jsonProveedor;
+            //ViewBag.monto = jsonMonto;
 
-            ViewBag.proveedor = jsonProveedor.Replace("'","");
+            //ViewBag.proveedor = jsonProveedor.Replace("'","");
             return View();
         }
 

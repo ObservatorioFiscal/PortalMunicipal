@@ -25,17 +25,17 @@ namespace GastoTransparenteMunicipal.Models
         public string JsonProveedor { get; set; }        
         List<InformeProveedoresResumen> InformeProveedoresResumen { get; set; }
 
-        public List<InformeProveedoresResumen> InitWordCloudData(GastoTransparenteMunicipalEntities db, int TakeElements)
-        {
-            var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
-            var result = query.ToList();
+        //public List<InformeProveedoresResumen> InitWordCloudData(GastoTransparenteMunicipalEntities db, int TakeElements)
+        //{
+        //    var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
+        //    var result = query.ToList();
 
-            this.JsonProveedor = JsonConvert.SerializeObject(result.Select(r => r.Proveedor));
-            this.JsonMonto = JsonConvert.SerializeObject(result.Select(r => r.Monto));
+        //    this.JsonProveedor = JsonConvert.SerializeObject(result.Select(r => r.Proveedor));
+        //    this.JsonMonto = JsonConvert.SerializeObject(result.Select(r => r.Monto));
 
-            this.InformeProveedoresResumen = Mapper.Map< List<InformeProveedoresResumenMunicipioTotal>, List<InformeProveedoresResumen> > (result);
+        //    this.InformeProveedoresResumen = Mapper.Map< List<InformeProveedoresResumenMunicipioTotal>, List<InformeProveedoresResumen> > (result);
 
-            return this.InformeProveedoresResumen;
-        }        
+        //    return this.InformeProveedoresResumen;
+        //}        
     }
 }
