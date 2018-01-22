@@ -89,64 +89,68 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
 
-                //cfg.CreateMap<IRow, Core.InformeProveedoresAdmServicios>()
-                //.ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
-                //.ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                //.ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))                
-                //.ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                cfg.CreateMap<IRow, Core.Proveedor_AdmInforme>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))                
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
 
-                //cfg.CreateMap<IRow, Core.InformeProveedoresSalud>()
-                //.ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
-                //.ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                //.ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                //.ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                cfg.CreateMap<IRow, Core.Proveedor_SaludInforme>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
 
-                //cfg.CreateMap<IRow, Core.InformeProveedoresEducacion>()
-                //.ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
-                //.ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                //.ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                //.ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                cfg.CreateMap<IRow, Core.Proveedor_EducacionInforme>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
 
-                //cfg.CreateMap<IRow, Core.InformeProveedoresCementerio>()
-                //.ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
-                //.ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                //.ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                //.ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                cfg.CreateMap<IRow, Core.Proveedor_CementerioInforme>()
+                .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
+                .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
 
-                //cfg.CreateMap<IRow, Core.InformeCorporaciones>()
-                //.ForMember(dst => dst.ObjetivoDelAporte, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                //.ForMember(dst => dst.Origen, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                //.ForMember(dst => dst.Destino, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                //.ForMember(dst => dst.MontoAportado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                cfg.CreateMap<IRow, Core.CorporacionInforme>()
+                .ForMember(dst => dst.ObjetivoDelAporte, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
+                .ForMember(dst => dst.Origen, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.Destino, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.MontoAportado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
                 #endregion
 
                 #region proveedores
-                //cfg.CreateMap<InformeProveedores, Core.InformeProveedoresAdmServicios>()
-                //.ReverseMap();
 
-                //cfg.CreateMap<InformeProveedores, Core.InformeProveedoresEducacion>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedores, Core.InformeProveedoresCementerio>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedores, Core.InformeProveedoresSalud>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenAdmServicios>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenEducacion>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenCementerio>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenSalud>()
-                //.ReverseMap();
-
-                //cfg.CreateMap<InformeProveedoresResumen, Core.InformeProveedoresResumenMunicipioTotal>()
-                //.ReverseMap();
+                cfg.CreateMap<Core.Proveedor_Adm_Nivel1 , Proveedor_Nivel1>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Total_Nivel1 , Proveedor_Nivel1>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Salud_Nivel1 , Proveedor_Nivel1>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Educacion_Nivel1 , Proveedor_Nivel1>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Cementerio_Nivel1 , Proveedor_Nivel1>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Adm_Nivel2 , Proveedor_Nivel2>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Total_Nivel2  ,Proveedor_Nivel2>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Salud_Nivel2 , Proveedor_Nivel2>()
+                .ReverseMap();                                
+                                                             
+                cfg.CreateMap<Core.Proveedor_Educacion_Nivel2 , Proveedor_Nivel2>()
+                .ReverseMap();                                
+                                                              
+                cfg.CreateMap<Core.Proveedor_Cementerio_Nivel2 , Proveedor_Nivel2>()
+                .ReverseMap();
                 #endregion 
 
             });

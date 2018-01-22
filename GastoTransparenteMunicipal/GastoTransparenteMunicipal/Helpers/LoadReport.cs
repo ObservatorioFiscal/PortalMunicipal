@@ -159,120 +159,105 @@ namespace GastoTransparenteMunicipal.Helpers
             return InformeAdmServicios;
         }
 
-        //public List<InformeProveedoresSalud> LoadInformeProveedoresSalud(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        //{
-        //    List<InformeProveedoresSalud> InformeSalud = new List<InformeProveedoresSalud>();
-        //    ISheet sheet = excelInforme.GetSheetAt(0);
-        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-        //    {
-        //        var row = sheet.GetRow(rowPosition);
-        //        if (row != null)
-        //        {
-        //            InformeProveedoresSalud informeSalud = Mapper.Map<IRow, InformeProveedoresSalud>(row);
-        //            informeSalud.AnoInforme = AnoInforme;
-        //            informeSalud.IdMunicipalidad = IdMunicipalidad;
-        //            informeSalud.MesInforme = MesInforme;
-        //            informeSalud.UpdatedOn = this.UpdatedOn;
-        //            informeSalud.IdGroupInformeProveedores = this.IdGroupInforme;
+        public List<Proveedor_SaludInforme> LoadInformeProveedoresSalud(IWorkbook excelInforme)
+        {
+            List<Proveedor_SaludInforme> InformeSalud = new List<Proveedor_SaludInforme>();
+            ISheet sheet = excelInforme.GetSheetAt(0);
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Proveedor_SaludInforme informeSalud = Mapper.Map<IRow, Proveedor_SaludInforme>(row);
+                    informeSalud.UpdatedOn = this.UpdatedOn;
+                    informeSalud.IdGroupInformeProveedores = this.IdGroupInforme;
 
-        //            InformeSalud.Add(informeSalud);
-        //        }
-        //    }
+                    InformeSalud.Add(informeSalud);
+                }
+            }
 
-        //    return InformeSalud;
-        //}
+            return InformeSalud;
+        }
 
-        //public List<InformeProveedoresEducacion> LoadInformeProveedoresEducacion(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        //{
-        //    List<InformeProveedoresEducacion> InformeEducacion = new List<InformeProveedoresEducacion>();
-        //    ISheet sheet = excelInforme.GetSheetAt(0);
-        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-        //    {
-        //        var row = sheet.GetRow(rowPosition);
-        //        if (row != null)
-        //        {
-        //            InformeProveedoresEducacion informeEducacion = Mapper.Map<IRow, InformeProveedoresEducacion>(row);
-        //            informeEducacion.AnoInforme = AnoInforme;
-        //            informeEducacion.IdMunicipalidad = IdMunicipalidad;
-        //            informeEducacion.MesInforme = MesInforme;
-        //            informeEducacion.UpdatedOn = this.UpdatedOn;
-        //            informeEducacion.IdGroupInformeProveedores = this.IdGroupInforme;
+        public List<Proveedor_EducacionInforme> LoadInformeProveedoresEducacion(IWorkbook excelInforme)
+        {
+            List<Proveedor_EducacionInforme> InformeEducacion = new List<Proveedor_EducacionInforme>();
+            ISheet sheet = excelInforme.GetSheetAt(0);
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Proveedor_EducacionInforme informeEducacion = Mapper.Map<IRow, Proveedor_EducacionInforme>(row);
+                    informeEducacion.UpdatedOn = this.UpdatedOn;
+                    informeEducacion.IdGroupInformeProveedores = this.IdGroupInforme;
 
-        //            InformeEducacion.Add(informeEducacion);
-        //        }
-        //    }
+                    InformeEducacion.Add(informeEducacion);
+                }
+            }
 
-        //    return InformeEducacion;
-        //}
+            return InformeEducacion;
+        }
 
-        //public List<InformeProveedoresCementerio> LoadInformeProveedoresCementerio(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        //{
-        //    List<InformeProveedoresCementerio> InformeCementerio = new List<InformeProveedoresCementerio>();
-        //    ISheet sheet = excelInforme.GetSheetAt(0);
-        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-        //    {
-        //        var row = sheet.GetRow(rowPosition);
-        //        if (row != null)
-        //        {
-        //            InformeProveedoresCementerio informeCementerio = Mapper.Map<IRow, InformeProveedoresCementerio>(row);
-        //            informeCementerio.AnoInforme = AnoInforme;
-        //            informeCementerio.IdMunicipalidad = IdMunicipalidad;
-        //            informeCementerio.MesInforme = MesInforme;
-        //            informeCementerio.UpdatedOn = this.UpdatedOn;
-        //            informeCementerio.IdGroupInformeProveedores = this.IdGroupInforme;
+        public List<Proveedor_CementerioInforme> LoadInformeProveedoresCementerio(IWorkbook excelInforme)
+        {
+            List<Proveedor_CementerioInforme> InformeCementerio = new List<Proveedor_CementerioInforme>();
+            ISheet sheet = excelInforme.GetSheetAt(0);
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Proveedor_CementerioInforme informeCementerio = Mapper.Map<IRow, Proveedor_CementerioInforme>(row);
+                    informeCementerio.UpdatedOn = this.UpdatedOn;
+                    informeCementerio.IdGroupInformeProveedores = this.IdGroupInforme;
 
-        //            InformeCementerio.Add(informeCementerio);
-        //        }
-        //    }
+                    InformeCementerio.Add(informeCementerio);
+                }
+            }
 
-        //    return InformeCementerio;
-        //}
+            return InformeCementerio;
+        }
 
-        //public List<InformeProveedoresAdmServicios> LoadInformeProveedoresAdmServicios(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        //{
-        //    List<InformeProveedoresAdmServicios> InformeAdmServicios = new List<InformeProveedoresAdmServicios>();
-        //    ISheet sheet = excelInforme.GetSheetAt(0);
-        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-        //    {
-        //        var row = sheet.GetRow(rowPosition);
-        //        if (row != null)
-        //        {
-        //            InformeProveedoresAdmServicios informeAdmServicios = Mapper.Map<IRow, InformeProveedoresAdmServicios>(row);
-        //            informeAdmServicios.AnoInforme = AnoInforme;
-        //            informeAdmServicios.IdMunicipalidad = IdMunicipalidad;
-        //            informeAdmServicios.MesInforme = MesInforme;
-        //            informeAdmServicios.UpdatedOn = this.UpdatedOn;
-        //            informeAdmServicios.IdGroupInformeProveedores = this.IdGroupInforme;
+        public List<Proveedor_AdmInforme> LoadInformeProveedoresAdmServicios(IWorkbook excelInforme)
+        {
+            List<Proveedor_AdmInforme> InformeAdmServicios = new List<Proveedor_AdmInforme>();
+            ISheet sheet = excelInforme.GetSheetAt(0);
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Proveedor_AdmInforme informeAdmServicios = Mapper.Map<IRow, Proveedor_AdmInforme>(row);          
+                    informeAdmServicios.UpdatedOn = this.UpdatedOn;
+                    informeAdmServicios.IdGroupInformeProveedores = this.IdGroupInforme;
 
-        //            InformeAdmServicios.Add(informeAdmServicios);
-        //        }
-        //    }
+                    InformeAdmServicios.Add(informeAdmServicios);
+                }
+            }
 
-        //    return InformeAdmServicios;
-        //}
+            return InformeAdmServicios;
+        }
 
-        //public List<InformeCorporaciones> LoadInformeCorporaciones(IWorkbook excelInforme, int AnoInforme, int IdMunicipalidad, int MesInforme = 0)
-        //{
-        //    List<InformeCorporaciones> InformeCorporaciones = new List<InformeCorporaciones>();
-        //    ISheet sheet = excelInforme.GetSheetAt(0);
-        //    for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-        //    {
-        //        var row = sheet.GetRow(rowPosition);
-        //        if (row != null)
-        //        {
-        //            InformeCorporaciones informeCorporaciones = Mapper.Map<IRow, InformeCorporaciones>(row);
-        //            informeCorporaciones.AnoInforme = AnoInforme;
-        //            informeCorporaciones.IdMunicipalidad = IdMunicipalidad;
-        //            informeCorporaciones.MesInforme = MesInforme;
-        //            informeCorporaciones.UpdatedOn = this.UpdatedOn;
-        //            informeCorporaciones.IdGroupInforme = this.IdGroupInforme;
+        public List<CorporacionInforme> LoadInformeCorporaciones(IWorkbook excelInforme)
+        {
+            List<CorporacionInforme> InformeCorporaciones = new List<CorporacionInforme>();
+            ISheet sheet = excelInforme.GetSheetAt(0);
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    CorporacionInforme informeCorporaciones = Mapper.Map<IRow, CorporacionInforme>(row);
+                    informeCorporaciones.UpdatedOn = this.UpdatedOn;
+                    informeCorporaciones.IdGroupInforme = this.IdGroupInforme;
 
-        //            InformeCorporaciones.Add(informeCorporaciones);
-        //        }
-        //    }
+                    InformeCorporaciones.Add(informeCorporaciones);
+                }
+            }
 
-        //    return InformeCorporaciones;
-        //}
+            return InformeCorporaciones;
+        }
 
     }
 }

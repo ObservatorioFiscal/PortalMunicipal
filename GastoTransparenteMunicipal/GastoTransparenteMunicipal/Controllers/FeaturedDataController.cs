@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GastoTransparenteMunicipal.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,19 +23,29 @@ namespace GastoTransparenteMunicipal.Controllers
             return this.Content(jsonDocument, "application/json");            
         }
 
+        [HttpGet]
         public ActionResult Providers()
         {
-            //var query = db.InformeProveedoresResumenMunicipioTotal.OrderByDescending(r => r.Monto).Take(20);
-            //var result = query.Select(r => new { r.Proveedor, r.Monto }).ToList();            
-            
-            //var jsonProveedor = JsonConvert.SerializeObject(result.Select( r => r.Proveedor));
-            //var jsonMonto = JsonConvert.SerializeObject(result.Select(r => r.Monto));
-            //ViewBag.proveedor = jsonProveedor;
-            //ViewBag.monto = jsonMonto;
+            var idMunicipality = GetCurrentIdMunicipality();
+            var takeElements = 20;
 
-            //ViewBag.proveedor = jsonProveedor.Replace("'","");
-            return View();
+            ProveedorModel proveedorModel = new ProveedorModel();
+            proveedorModel.Init(db, takeElements, idMunicipality);
+            
+            return View(proveedorModel);
         }
+
+        [HttpPost]
+        public ActionResult Providers(int year,int origenData)
+        {
+            var idMunicipality = GetCurrentIdMunicipality();
+            var takeElements = 20;
+            ProveedorModel proveedorModel = new ProveedorModel();
+            proveedorModel.WordCloud(db, takeElements, idMunicipality, year,origenData);
+
+            return View(proveedorModel);
+        }
+
 
         public ActionResult Corporation()
         {

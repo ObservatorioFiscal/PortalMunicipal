@@ -12,15 +12,14 @@ namespace Core
     using System;
     using System.Collections.Generic;
     
-    public partial class Proveedor_Salud_Nivel2
+    public partial class CorporacionInforme
     {
-        public long IdNivel2 { get; set; }
-        public Nullable<long> IdNIvel1 { get; set; }
-        public string Nombre { get; set; }
-        public Nullable<long> Monto { get; set; }
-        public string Area { get; set; }
-        public string Glosa { get; set; }
-    
-        public virtual Proveedor_Salud_Nivel1 Proveedor_Salud_Nivel1 { get; set; }
+        public long IdInformeCorporacion { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
+        public Nullable<System.Guid> IdGroupInforme { get; set; }
+        public string ObjetivoDelAporte { get; set; }
+        public string Origen { get; set; }
+        public string Destino { get; set; }
+        public Nullable<long> MontoAportado { get; set; }
     }
 }

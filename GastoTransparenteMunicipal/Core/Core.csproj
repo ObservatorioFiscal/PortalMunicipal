@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CorporacionInforme.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Corporacion_Ano.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -89,8 +92,12 @@
     <Compile Include="Gasto_Nivel4.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
-    <Compile Include="InformeProveedores.cs" />
-    <Compile Include="InformeProveedoresResumen.cs" />
+    <Compile Include="OrigenData.cs" />
+    <Compile Include="Personal.cs" />
+    <Compile Include="Personal_Nivel2.cs" />
+    <Compile Include="Personal_Nivel1.cs" />
+    <Compile Include="Proveedor_Nivel1.cs" />
+    <Compile Include="Proveedor_Nivel2.cs" />
     <Compile Include="IngresoInforme.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -158,6 +165,9 @@
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor_AdmInforme.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Proveedor_Adm_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -167,16 +177,25 @@
     <Compile Include="Proveedor_Ano.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Proveedor_CementerioInforme.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Proveedor_Cementerio_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Proveedor_Cementerio_Nivel2.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Proveedor_EducacionInforme.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Proveedor_Educacion_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Proveedor_Educacion_Nivel2.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor_SaludInforme.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Proveedor_Salud_Nivel1.cs">

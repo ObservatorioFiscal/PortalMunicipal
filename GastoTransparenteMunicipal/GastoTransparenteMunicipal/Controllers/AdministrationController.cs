@@ -114,6 +114,17 @@ namespace GastoTransparenteMunicipal.Controllers
             DateTime data = DateTime.Now;
             LoadReport loadReport = new LoadReport();
             Personal_Ano personalAno = new Personal_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+
+            if (admServicios != null || salud != null || educacion != null || cementerio != null)
+            {
+                db.Personal_Ano.Add(personalAno);
+                db.SaveChanges();
+            }
+            else
+            {
+                return View();
+            }
+
             if (admServicios != null)
             {
                 using (Stream fileStream = admServicios.InputStream)
@@ -121,8 +132,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
 
                     var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);
-                    db.Personal_AdmInforme.AddRange(result);
-                    db.Personal_Ano.Add(personalAno);
+                    db.Personal_AdmInforme.AddRange(result);                    
 
                     db.SaveChanges();
                     db.SP_InformePersonalAdm(loadReport.IdGroupInforme, personalAno.IdAno);
@@ -135,8 +145,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalSalud(xssfwb);
-                    db.Personal_SaludInforme.AddRange(result);
-                    db.Personal_Ano.Add(personalAno);
+                    db.Personal_SaludInforme.AddRange(result);                    
 
                     db.SaveChanges();
                     db.SP_InformePersonalSalud(loadReport.IdGroupInforme, personalAno.IdAno);
@@ -149,8 +158,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalEducacion(xssfwb);
-                    db.Personal_EducacionInforme.AddRange(result);                    
-                    db.Personal_Ano.Add(personalAno);
+                    db.Personal_EducacionInforme.AddRange(result);                                        
 
                     db.SaveChanges();
                     db.SP_InformePersonalEducacion(loadReport.IdGroupInforme, personalAno.IdAno);                    
@@ -163,8 +171,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalCementerio(xssfwb);
-                    db.Personal_CementerioInforme.AddRange(result);
-                    db.Personal_Ano.Add(personalAno);
+                    db.Personal_CementerioInforme.AddRange(result);                    
 
                     db.SaveChanges();
                     db.SP_InformePersonalCementerio(loadReport.IdGroupInforme, personalAno.IdAno);
@@ -176,99 +183,117 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
-        //public ActionResult CargaInformeProveedores()
-        //{
-        //    return View();
-        //}
+        public ActionResult CargaInformeProveedores()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public ActionResult CargaInformeProveedores(HttpPostedFileBase admServicios, HttpPostedFileBase salud, HttpPostedFileBase educacion, HttpPostedFileBase cementerio)
-        //{
-        //    XSSFWorkbook xssfwb;
+        [HttpPost]
+        public ActionResult CargaInformeProveedores(HttpPostedFileBase admServicios, HttpPostedFileBase salud, HttpPostedFileBase educacion, HttpPostedFileBase cementerio)
+        {
+            XSSFWorkbook xssfwb;
 
-        //    int idMunicipality = GetCurrentIdMunicipality();
-        //    int year = 2017;
-        //    DateTime data = DateTime.Now;
-        //    LoadReport loadReport = new LoadReport();
+            int idMunicipality = GetCurrentIdMunicipality();
+            int year = 2017;
+            int month = 0;
+            LoadReport loadReport = new LoadReport();
+            Proveedor_Ano proveedorAno = new Proveedor_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            if (admServicios != null || salud  != null || educacion != null || cementerio != null)
+            {
+                db.Proveedor_Ano.Add(proveedorAno);
+                db.SaveChanges();
+            }
+            else
+            {
+                return View();
+            }
 
-        //    if (admServicios != null)
-        //    {
-        //        using (Stream fileStream = admServicios.InputStream)
-        //        {
-        //            xssfwb = new XSSFWorkbook(fileStream);
+            if (admServicios != null)
+            {
+                using (Stream fileStream = admServicios.InputStream)
+                {                    
+                    xssfwb = new XSSFWorkbook(fileStream);
 
-        //            var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb, year, idMunicipality);
-        //            db.InformeProveedoresAdmServicios.AddRange(result);
-        //            db.SaveChanges();
-        //            db.SP_InformeProveedoresAdmServicios(loadReport.IdGroupInforme);
-        //        }
-        //    }
+                    var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
+                    db.Proveedor_AdmInforme.AddRange(result);                    
+                    db.SaveChanges();
 
-        //    if (salud != null)
-        //    {
-        //        using (Stream fileStream = salud.InputStream)
-        //        {
-        //            xssfwb = new XSSFWorkbook(fileStream);
-        //            var result = loadReport.LoadInformeProveedoresSalud(xssfwb, year, idMunicipality);
-        //            db.InformeProveedoresSalud.AddRange(result);
-        //            db.SaveChanges();
-        //            db.SP_InformeProveedoresAdmServicios(loadReport.IdGroupInforme);
-        //        }
-        //    }
+                    db.SP_ProveedorAdm(loadReport.IdGroupInforme,proveedorAno.IdAno);
+                }
+            }
 
-        //    if (educacion != null)
-        //    {
-        //        using (Stream fileStream = educacion.InputStream)
-        //        {
-        //            xssfwb = new XSSFWorkbook(fileStream);
-        //            var result = loadReport.LoadInformeProveedoresEducacion(xssfwb, year, idMunicipality);
-        //            db.InformeProveedoresEducacion.AddRange(result);
-        //            db.SaveChanges();
-        //            db.SP_InformeProveedoresEducacion(loadReport.IdGroupInforme);
-        //        }
-        //    }
+            if (salud != null)
+            {
+                using (Stream fileStream = salud.InputStream)
+                {                    
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
+                    db.Proveedor_SaludInforme.AddRange(result);                    
+                    db.SaveChanges();
 
-        //    if (cementerio != null)
-        //    {
-        //        using (Stream fileStream = cementerio.InputStream)
-        //        {
-        //            xssfwb = new XSSFWorkbook(fileStream);
-        //            var result = loadReport.LoadInformeProveedoresCementerio(xssfwb, year, idMunicipality);
-        //            db.InformeProveedoresCementerio.AddRange(result);
-        //            db.SaveChanges();
-        //            db.SP_InformeProveedoresAdmServicios(loadReport.IdGroupInforme);
-        //        }
+                    db.SP_ProveedorSalud(loadReport.IdGroupInforme,proveedorAno.IdAno);
+                }
+            }
 
-        //    }
+            if (educacion != null)
+            {
+                using (Stream fileStream = educacion.InputStream)
+                {                    
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
+                    db.Proveedor_EducacionInforme.AddRange(result);                    
+                    db.SaveChanges();
 
-        //    db.SP_InformeProveedoresMunicipioTotal(loadReport.IdGroupInforme);
+                    db.SP_ProveedorEducacion(loadReport.IdGroupInforme,proveedorAno.IdAno);
+                }
+            }
 
-        //    return View();
-        //}
+            if (cementerio != null)
+            {
+                using (Stream fileStream = cementerio.InputStream)
+                {                    
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
+                    db.Proveedor_CementerioInforme.AddRange(result);                    
+                    db.SaveChanges();
 
-        //public ActionResult CargaInformeCorporaciones()
-        //{
-        //    return View();
-        //}
+                    db.SP_ProveedorCementerio(loadReport.IdGroupInforme, proveedorAno.IdAno);
+                }
 
-        //[HttpPost]
-        //public ActionResult CargaInformeCorporaciones(HttpPostedFileBase file)
-        //{
-        //    XSSFWorkbook xssfwb;
-        //    int idMunicipality = GetCurrentIdMunicipality();
-        //    int year = 2017;
-        //    DateTime data = DateTime.Now;
-        //    using (Stream fileStream = file.InputStream)
-        //    {
-        //        xssfwb = new XSSFWorkbook(fileStream);
-        //        LoadReport loadReport = new LoadReport();
-        //        var result = loadReport.LoadInformeCorporaciones(xssfwb, year, idMunicipality);
-        //        db.InformeCorporaciones.AddRange(result);
-        //        db.SaveChanges();
+            }
+            
+            db.SaveChanges();
+            db.SP_ProveedorTotal(loadReport.IdGroupInforme, proveedorAno.IdAno);
 
-        //        db.SP_InformeCorporaciones(loadReport.IdGroupInforme);
-        //    }
-        //    return View();
-        //}
+            return View();
+        }
+
+        public ActionResult CargaInformeCorporaciones()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CargaInformeCorporaciones(HttpPostedFileBase file)
+        {
+            XSSFWorkbook xssfwb;
+            int idMunicipality = GetCurrentIdMunicipality();
+            int year = 2017;
+            int month = 0;
+
+            DateTime data = DateTime.Now;
+            Corporacion_Ano corporacionAno = new Corporacion_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            using (Stream fileStream = file.InputStream)
+            {
+                xssfwb = new XSSFWorkbook(fileStream);
+                LoadReport loadReport = new LoadReport();
+                var result = loadReport.LoadInformeCorporaciones(xssfwb);
+                db.CorporacionInforme.AddRange(result);
+                db.SaveChanges();
+
+                db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);
+            }
+            return View();
+        }
     }
 }
