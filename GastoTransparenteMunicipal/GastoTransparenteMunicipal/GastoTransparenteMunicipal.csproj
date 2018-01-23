@@ -223,6 +223,7 @@
     <Compile Include="Models\PersonalModel.cs" />
     <Compile Include="Models\ProveedorModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SubsidioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -52,9 +52,26 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult PersonalSalary()
         {
-            return View();
+            var idMunicipality = GetCurrentIdMunicipality();
+
+            PersonalModel personalModel = new PersonalModel();
+            personalModel.Init(db, idMunicipality);
+
+            return View(personalModel);
+        }
+
+        [HttpPost]
+        public ActionResult PersonalSalary(int year, int origenData)
+        {
+            var idMunicipality = GetCurrentIdMunicipality();
+
+            PersonalModel personalModel = new PersonalModel();
+            personalModel.LoadPersonal(db, idMunicipality ,year ,origenData);
+
+            return View(personalModel);
         }
 
         public ActionResult Test()

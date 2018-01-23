@@ -216,6 +216,9 @@
     <Compile Include="Subsidio_Ano.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Subsidio_N3.cs" />
+    <Compile Include="Subsidio_N2.cs" />
+    <Compile Include="Subsidio_N1.cs" />
     <Compile Include="Subsidio_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>

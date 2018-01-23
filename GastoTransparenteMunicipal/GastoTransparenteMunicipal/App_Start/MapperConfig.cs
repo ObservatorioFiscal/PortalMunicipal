@@ -151,7 +151,53 @@ namespace GastoTransparenteMunicipal
                                                               
                 cfg.CreateMap<Core.Proveedor_Cementerio_Nivel2 , Proveedor_Nivel2>()
                 .ReverseMap();
-                #endregion 
+                #endregion
+
+                #region personal
+                cfg.CreateMap<Core.Personal_Adm_Nivel1, Personal_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Salud_Nivel1, Personal_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Total_Nivel1, Personal_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Educacion_Nivel1, Personal_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Cementerio_Nivel1, Personal_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Adm_Nivel2, Personal_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Salud_Nivel2, Personal_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Total_Nivel2, Personal_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Educacion_Nivel2, Personal_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Personal_Cementerio_Nivel2, Personal_Nivel2>()
+                .ReverseMap();
+
+                #endregion
+
+                #region Subsidio
+                cfg.CreateMap<Core.Subsidio_Nivel1, Subsidio_N1>()
+                .ForMember(dst => dst.subsidio_Nivel2, src => src.Ignore())
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Subsidio_Nivel2, Subsidio_N2>()
+                .ForMember(dst => dst.subsidio_Nivel3, src => src.Ignore())
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Subsidio_Nivel3, Subsidio_N3>()
+                .ReverseMap();
+                #endregion
 
             });
         }
