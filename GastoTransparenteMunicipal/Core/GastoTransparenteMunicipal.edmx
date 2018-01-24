@@ -606,6 +606,16 @@
           <Property Name="MONTOAPORTE" Type="float" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <Association Name="FK__Corporaci__IdAno__71D1E811">
           <End Role="Corporacion_Ano" Type="Self.Corporacion_Ano" Multiplicity="0..1" />
           <End Role="Corporacion_Nivel1" Type="Self.Corporacion_Nivel1" Multiplicity="*" />
@@ -1170,6 +1180,7 @@
           <EntitySet Name="Subsidio_Nivel2" EntityType="Self.Subsidio_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subsidio_Nivel3" EntityType="Self.Subsidio_Nivel3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubsidioInforme" EntityType="Self.SubsidioInforme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Corporaci__IdAno__71D1E811" Association="Self.FK__Corporaci__IdAno__71D1E811">
             <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
             <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
@@ -1379,6 +1390,7 @@
           <EntitySet Name="Subsidio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel2" />
           <EntitySet Name="Subsidio_Nivel3" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel3" />
           <EntitySet Name="SubsidioInforme" EntityType="GastoTransparenteMunicipalModel.SubsidioInforme" />
+          <EntitySet Name="sysdiagrams" EntityType="GastoTransparenteMunicipalModel.sysdiagrams" />
           <AssociationSet Name="FK__Corporaci__IdAno__71D1E811" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__71D1E811">
             <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
             <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
@@ -2264,6 +2276,16 @@
           <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
           <Property Name="MONTOAPORTE" Type="Double" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK__Corporaci__IdAno__71D1E811">
           <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="0..1" />
@@ -3376,6 +3398,17 @@
                 <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
                 <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
                 <ScalarProperty Name="IdSubsidio" ColumnName="IdSubsidio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

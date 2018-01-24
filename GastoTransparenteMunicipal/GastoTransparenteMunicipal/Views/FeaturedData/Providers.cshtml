@@ -1,4 +1,4 @@
-﻿
+﻿@model GastoTransparenteMunicipal.Models.ProveedorModel
 @*@{
     ViewBag.Title = "Providers";
 }
@@ -19,34 +19,16 @@
         drawWordCloud(text_string);
 
         function drawWordCloud(text_string) {
-            //var common = "po op,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
-
-            //var word_count = {};
-
-            //var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
-            //if (words.length == 1) {
-            //    word_count[words[0]] = 1;
-            //} else {
-            //    words.forEach(function (word) {
-            //        var word = word.toLowerCase();
-            //        if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
-            //            if (word_count[word]) {
-            //                word_count[word]++;
-            //            } else {
-            //                word_count[word] = 1;
-            //            }
-            //        }
-            //    })
-            //}
-            var array_montos = JSON.parse("@ViewBag.monto");            
-            var json_textos = ("@ViewBag.proveedor").replace(/&quot;/g, '"');    
+ 
+            var array_montos = JSON.parse("@Model.JsonMonto");
+            var json_textos = ("@Model.JsonProveedor").replace(/&quot;/g, '"');
             var array_texto = JSON.parse(json_textos);
 
             var word_count = {};
             for (i = 0; i < array_montos.length; i++) {
                 word_count[array_texto[i]] = Math.round(array_montos[i]/1);
             }
-            
+
             console.log(word_count);
             var svg_location = "#chart";
             var width = $(document).width();
@@ -81,7 +63,7 @@
                     .data(words)
                     .enter().append("text")
                     .style("font-size", function (d) { return xScale(d.value) + "px"; })
-                    .style("font-family", "Impact")                    
+                    .style("font-family", "Impact")
                     //.style("fill", function (d, i) { return fill(i); })
                     .style("fill", function (d, i) { return "#1f77b4"; })
                     //.style("background-color","#1f77b4")

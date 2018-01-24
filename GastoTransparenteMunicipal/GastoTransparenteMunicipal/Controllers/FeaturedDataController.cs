@@ -10,17 +10,32 @@ namespace GastoTransparenteMunicipal.Controllers
 {
     public class FeaturedDataController : BaseController
     {
-        // GET: FeaturedData
+        [HttpGet]
         public ActionResult Subsidy()
         {
-            return View();
+            var idMunicipality = GetCurrentIdMunicipality();
+            SubsidioModel subsidioModel = new SubsidioModel();
+            subsidioModel.Init(db, idMunicipality);
+            return View(subsidioModel);
         }
 
-        public ActionResult SubsidyAjax()
+        [HttpPost]
+        public ActionResult Subsidy(int year)
         {
-            var jsonDocument = System.IO.File.ReadAllText(@"C:\Users\Gonzalo\Documents\Visual Studio 2017\Projects\GastoTransparenteMunicipal\GastoTransparenteMunicipal\Scripts\FeaturedData\bubbleDataTest.json");
-            //var json = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonDocument).ToString();    
-            return this.Content(jsonDocument, "application/json");            
+            var idMunicipality = GetCurrentIdMunicipality();
+            SubsidioModel subsidioModel = new SubsidioModel();
+            subsidioModel.Load(db, idMunicipality,year);
+            return View(subsidioModel);
+        }
+
+        public string SubsidyAjax(int IdNivel2)
+        {
+            var idMunicipality = GetCurrentIdMunicipality();
+            SubsidioModel subsidioModel = new SubsidioModel();
+            subsidioModel.Load_Nivel3(db, IdNivel2);
+            var json = JsonConvert.SerializeObject(subsidioModel.Subsidio_Nivel3);
+
+            return json;
         }
 
         [HttpGet]
@@ -46,10 +61,22 @@ namespace GastoTransparenteMunicipal.Controllers
             return View(proveedorModel);
         }
 
-
+        [HttpGet]
         public ActionResult Corporation()
         {
-            return View();
+            var idMunicipality = GetCurrentIdMunicipality();
+            CorporacionModel corporacion = new CorporacionModel();
+            corporacion.Init(db, idMunicipality);
+            return View(corporacion);
+        }
+
+        [HttpPost]
+        public ActionResult Corporation(int year)
+        {
+            var idMunicipality = GetCurrentIdMunicipality();
+            CorporacionModel corporacion = new CorporacionModel();
+            corporacion.Load(db, idMunicipality, year);
+            return View(corporacion);
         }
 
         [HttpGet]
@@ -72,17 +99,6 @@ namespace GastoTransparenteMunicipal.Controllers
             personalModel.LoadPersonal(db, idMunicipality ,year ,origenData);
 
             return View(personalModel);
-        }
-
-        public ActionResult Test()
-        {
-            return View();
-        }
-
-        public class Tupla
-        {
-            public string Proveedor { get; set; }
-            public long? Monto{ get; set; }
         }
     }
 }

@@ -21,5 +21,8 @@ namespace Core
         public const string Niveleducacion   = "niveleducacion";
         public const string Profesiones      = "profesiones";
         public const string Rangoetario      = "rangoetario";
+
+        public const string TipoGastoCuenta  = "CUENTA";
+        public const string TipoGastoArea    = "AREA";
     }
 }

@@ -53,32 +53,33 @@ namespace GastoTransparenteMunicipal.Models
             {
                 case OrigenData.Adm:
                     nivel1 = db.Proveedor_Adm_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
-                    Mapper.Map((Proveedor_Adm_Nivel1)nivel1, this.Proveedor_Nivel1);
+                    Mapper.Map((List < Proveedor_Adm_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.Educacion:
                     nivel1 = db.Proveedor_Educacion_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
-                    Mapper.Map((Proveedor_Educacion_Nivel1)nivel1, this.Proveedor_Nivel1);
+                    Mapper.Map((List < Proveedor_Educacion_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.Salud:
                     nivel1 = db.Proveedor_Salud_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
-                    Mapper.Map((Proveedor_Salud_Nivel1)nivel1, this.Proveedor_Nivel1);
+                    Mapper.Map((List < Proveedor_Salud_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.Cementerio:
                     nivel1 = db.Proveedor_Cementerio_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
-                    Mapper.Map((Proveedor_Cementerio_Nivel1)nivel1, this.Proveedor_Nivel1);
+                    Mapper.Map((List < Proveedor_Cementerio_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.MunicipioTotal:
                     nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
-                    Mapper.Map((Proveedor_Total_Nivel1)nivel1, this.Proveedor_Nivel1);
+                  
+                    Mapper.Map((List<Proveedor_Total_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 default:
                     nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
-                    Mapper.Map((Proveedor_Total_Nivel1)nivel1, this.Proveedor_Nivel1);
+                    Mapper.Map((List < Proveedor_Total_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
             }
         }

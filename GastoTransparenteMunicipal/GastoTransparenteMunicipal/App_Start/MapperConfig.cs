@@ -199,6 +199,38 @@ namespace GastoTransparenteMunicipal
                 .ReverseMap();
                 #endregion
 
+                #region corporacion
+                cfg.CreateMap<Core.Corporacion_Nivel1, Corporacion_N1>()
+                .ReverseMap();
+                #endregion
+
+                #region Gasto
+                cfg.CreateMap<Core.Gasto_Nivel1, Gasto_N1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Gasto_Nivel2, Gasto_N2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Gasto_Nivel3, Gasto_N3>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Gasto_Nivel4, Gasto_N4>()
+                .ReverseMap();
+                #endregion
+
+                #region Ingreso
+                cfg.CreateMap<Core.Ingreso_Nivel1, Ingreso_N1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Ingreso_Nivel2, Ingreso_N2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Ingreso_Nivel3, Ingreso_N3>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Ingreso_Nivel4, Ingreso_N4>()
+                .ReverseMap();
+                #endregion
             });
         }
     }

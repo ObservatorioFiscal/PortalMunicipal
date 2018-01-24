@@ -56,6 +56,7 @@
     <Compile Include="Corporacion_Ano.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Corporacion_N1.cs" />
     <Compile Include="Corporacion_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -80,6 +81,14 @@
     <Compile Include="Gasto_Ano.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ingreso_N1.cs" />
+    <Compile Include="Ingreso_N2.cs" />
+    <Compile Include="Ingreso_N3.cs" />
+    <Compile Include="Ingreso_N4.cs" />
+    <Compile Include="Gasto_N4.cs" />
+    <Compile Include="Gasto_N3.cs" />
+    <Compile Include="Gasto_N2.cs" />
+    <Compile Include="Gasto_N1.cs" />
     <Compile Include="Gasto_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -226,6 +235,9 @@
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Subsidio_Nivel3.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
   </ItemGroup>
