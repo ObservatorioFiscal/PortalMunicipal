@@ -28,7 +28,16 @@ namespace GastoTransparenteMunicipal.Controllers
             return View(subsidioModel);
         }
 
-        public string SubsidyAjax(int IdNivel2)
+        [HttpPost]
+        public string SubsidyAjaxNivel1()
+        {
+            var idMunicipality = GetCurrentIdMunicipality();
+            SubsidioModel subsidioModel = new SubsidioModel();
+            subsidioModel.Init(db, idMunicipality);
+            return subsidioModel.JsonSubsidio;
+        }
+
+        public string SubsidyChartNivel3(int IdNivel2)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
@@ -63,11 +72,17 @@ namespace GastoTransparenteMunicipal.Controllers
 
         [HttpGet]
         public ActionResult Corporation()
+        {   
+            return View();
+        }
+
+
+        public string CorporationAjax()
         {
             var idMunicipality = GetCurrentIdMunicipality();
             CorporacionModel corporacion = new CorporacionModel();
             corporacion.Init(db, idMunicipality);
-            return View(corporacion);
+            return corporacion.JsonCorporacion_Nivel1;
         }
 
         [HttpPost]

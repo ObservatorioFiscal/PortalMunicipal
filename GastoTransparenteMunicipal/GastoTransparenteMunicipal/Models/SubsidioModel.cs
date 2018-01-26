@@ -34,11 +34,17 @@ namespace GastoTransparenteMunicipal.Models
                 this.Subsidio_Nivel1.Add(subsidio_n1);
             }
 
+            LoadJsonNivel1(subsidio_Nivel1);
         }
 
         public void LoadJsonNivel1(List<Subsidio_Nivel1> subsidio_Nivel1)
         {
-            var jsonResult = subsidio_Nivel1.Select(r => new { r.Nombre, r.Monto });
+            var data = subsidio_Nivel1.Select( (r , i) => new { name = r.Nombre, size = r.Monto, position = (i + 1) }).OrderByDescending(r => r.size).ToList();           
+            var jsonResult = new {
+                name= "document",
+                children= data
+            };
+
             this.JsonSubsidio = JsonConvert.SerializeObject(jsonResult);
         }
 

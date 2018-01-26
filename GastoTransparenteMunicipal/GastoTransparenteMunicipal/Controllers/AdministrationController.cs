@@ -81,7 +81,7 @@ namespace GastoTransparenteMunicipal.Controllers
             int idMunicipality = GetCurrentIdMunicipality();
             int year = 2017;
             int month = 0;
-            Ingreso_Ano subsidioAno = new Ingreso_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Subsidio_Ano subsidioAno = new Subsidio_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
 
             using (Stream fileStream = file.InputStream)
             {
@@ -89,7 +89,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 LoadReport loadReport = new LoadReport();
                 var result = loadReport.LoadInformeSubsidio(xssfwb);
                 db.SubsidioInforme.AddRange(result);
-                db.Ingreso_Ano.Add(subsidioAno);
+                db.Subsidio_Ano.Add(subsidioAno);
                 db.SaveChanges();
 
                 db.SP_InformeSubsidio(loadReport.IdGroupInforme, subsidioAno.IdAno);
@@ -289,6 +289,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 LoadReport loadReport = new LoadReport();
                 var result = loadReport.LoadInformeCorporaciones(xssfwb);
                 db.CorporacionInforme.AddRange(result);
+                db.Corporacion_Ano.Add(corporacionAno);
                 db.SaveChanges();
 
                 db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);

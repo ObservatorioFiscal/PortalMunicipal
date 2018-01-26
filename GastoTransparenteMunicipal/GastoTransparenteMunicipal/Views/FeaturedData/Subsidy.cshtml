@@ -1,4 +1,4 @@
-﻿
+﻿@model GastoTransparenteMunicipal.Models.SubsidioModel
 @{
     ViewBag.Title = "Subsidy";
 }
@@ -46,5 +46,21 @@
     <p><span class="tooltipTitle">Clasificacion: </span><span id="clasificacion"></span></p>
     <p><span class="tooltipTitle">Monto: </span><span id="monto"></span></p>
 </div>
+
 <script src="//d3js.org/d3.v4.js"></script>
 <script src="~/Scripts/FeaturedData/SubsidyBubbleChart.js"></script>
+<script type="text/javascript" charset="iso-8859-2">
+
+    var url = "@Url.Action("SubsidyAjaxNivel1", "FeaturedData")";
+    $.ajax({
+        type: 'POST',
+        url: url,
+        dataType: 'json',
+        success: function (result) {
+            drawChart(result);
+        }
+    });
+
+    //
+
+</script>

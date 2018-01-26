@@ -1,4 +1,4 @@
-﻿
+﻿@model GastoTransparenteMunicipal.Models.CorporacionModel
 @{
     ViewBag.Title = "Corporation";
 }
@@ -185,8 +185,10 @@ tooltip2.append('div')                        // NEW
               // NEW
 
 
-
-d3.json("https://api.myjson.com/bins/rfh4n", function(error, energy) {
+var currentMunicipality = "RECOLETA";
+var url = "/" + currentMunicipality + "/FeaturedData/CorporationAjax";
+//d3.json("https://api.myjson.com/bins/rfh4n", function(error, energy) {
+    d3.json(url, function (error, energy) {
   if (error) throw error;
 
   sankey(energy);

@@ -34,13 +34,12 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.SubsidioInforme>()
-                .ForMember(dst => dst.CATEGORIA, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                .ForMember(dst => dst.ORGANIZACION, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                .ForMember(dst => dst.FECHADECRETO, src => src.MapFrom(e => e.GetCell(2).DateCellValue))
-                .ForMember(dst => dst.OBJETIVODELAPORTE, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
-                .ForMember(dst => dst.MONTOAPORTE, src => src.MapFrom(e => e.GetCell(4).NumericCellValue));
-
-
+                .ForMember(dst => dst.FECHADECRETO, src => src.MapFrom(e => e.GetCell(0).DateCellValue))
+                .ForMember(dst => dst.CATEGORIA, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.ORGANIZACION, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
+                .ForMember(dst => dst.MONTOAPORTE, src => src.MapFrom(e => e.GetCell(3).NumericCellValue))
+                .ForMember(dst => dst.OBJETIVODELAPORTE, src => src.MapFrom(e => e.GetCell(4).StringCellValue));
+            
                 cfg.CreateMap<IRow, Core.Personal_AdmInforme>()
                 .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))

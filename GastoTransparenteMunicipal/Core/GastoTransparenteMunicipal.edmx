@@ -590,7 +590,7 @@
           </Key>
           <Property Name="IdNivel3" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdNivel2" Type="bigint" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="800" />
           <Property Name="Monto" Type="bigint" />
         </EntityType>
         <EntityType Name="SubsidioInforme">
@@ -1339,6 +1339,62 @@
     <edmx:ConceptualModels>
       <Schema Namespace="GastoTransparenteMunicipalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GastoTransparenteMunicipalEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="SP_InformeCorporaciones">
+            <Parameter Name="IdGroupInforme" Mode="In" Type="Guid" />
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformeGasto">
+            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformeIngreso">
+            <Parameter Name="IdGroupReportIngreso" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalAdm">
+            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalCementerio">
+            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalEducacion">
+            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalMunicipioTotal">
+            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformePersonalSalud">
+            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InformeSubsidio">
+            <Parameter Name="IdGroupReportSubsidio" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ProveedorAdm">
+            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ProveedorCementerio">
+            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ProveedorEducacion">
+            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ProveedorSalud">
+            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ProveedorTotal">
+            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
+            <Parameter Name="IdAn" Mode="In" Type="Int64" />
+          </FunctionImport>
           <EntitySet Name="Corporacion_Ano" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano" />
           <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
           <EntitySet Name="CorporacionInforme" EntityType="GastoTransparenteMunicipalModel.CorporacionInforme" />
@@ -1543,62 +1599,6 @@
             <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
             <End Role="Subsidio_Nivel3" EntitySet="Subsidio_Nivel3" />
           </AssociationSet>
-          <FunctionImport Name="SP_InformeCorporaciones">
-            <Parameter Name="IdGroupInforme" Mode="In" Type="Guid" />
-            <Parameter Name="IdAno" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformeGasto">
-            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformeIngreso">
-            <Parameter Name="IdGroupReportIngreso" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformePersonalAdm">
-            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformePersonalCementerio">
-            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformePersonalEducacion">
-            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformePersonalMunicipioTotal">
-            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformePersonalSalud">
-            <Parameter Name="IdGroupInformePersona" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_InformeSubsidio">
-            <Parameter Name="IdGroupReportSubsidio" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_ProveedorAdm">
-            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_ProveedorCementerio">
-            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_ProveedorEducacion">
-            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_ProveedorSalud">
-            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="SP_ProveedorTotal">
-            <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
-            <Parameter Name="IdAn" Mode="In" Type="Int64" />
-          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Corporacion_Ano">
           <Key>
@@ -2260,7 +2260,7 @@
           </Key>
           <Property Name="IdNivel3" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdNivel2" Type="Int64" />
-          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
           <Property Name="Monto" Type="Int64" />
           <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel3" ToRole="Subsidio_Nivel2" />
         </EntityType>
@@ -2749,6 +2749,20 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GastoTransparenteMunicipalModelStoreContainer" CdmEntityContainer="GastoTransparenteMunicipalEntities" >
+          <FunctionImportMapping FunctionImportName="SP_InformeCorporaciones" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeCorporaciones" />
+          <FunctionImportMapping FunctionImportName="SP_InformeGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGasto" />
+          <FunctionImportMapping FunctionImportName="SP_InformeIngreso" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngreso" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdm" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerio" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacion" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotal" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSalud" />
+          <FunctionImportMapping FunctionImportName="SP_InformeSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidio" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal" />
           <EntitySetMapping Name="Corporacion_Ano">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Ano">
               <MappingFragment StoreEntitySet="Corporacion_Ano">
@@ -3412,20 +3426,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_InformeCorporaciones" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeCorporaciones" />
-          <FunctionImportMapping FunctionImportName="SP_InformeGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGasto" />
-          <FunctionImportMapping FunctionImportName="SP_InformeIngreso" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngreso" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdm" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerio" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacion" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotal" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSalud" />
-          <FunctionImportMapping FunctionImportName="SP_InformeSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidio" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

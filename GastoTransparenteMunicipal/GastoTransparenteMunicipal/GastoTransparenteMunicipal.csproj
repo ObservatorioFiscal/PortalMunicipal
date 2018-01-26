@@ -251,6 +251,9 @@
     <Content Include="Scripts\FeaturedData\WordCloud.js" />
     <Content Include="Scripts\FeaturedData\bubbleDataTest.json" />
     <Content Include="Scripts\FeaturedData\SubsidyBubbleChart.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\select.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -347,6 +350,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FeaturedData\Providers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
