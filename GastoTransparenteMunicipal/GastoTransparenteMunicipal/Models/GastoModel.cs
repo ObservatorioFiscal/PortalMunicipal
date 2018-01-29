@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Core;
+using Newtonsoft.Json;
 
 namespace GastoTransparenteMunicipal.Models
 {
@@ -13,6 +14,8 @@ namespace GastoTransparenteMunicipal.Models
         public List<Gasto_N2> Gasto_Nivel2 { get; set; }
         public List<Gasto_N3> Gasto_Nivel3 { get; set; }
         public List<Gasto_N4> Gasto_Nivel4 { get; set; }
+
+        public string JsonNivel1 { get; set; }
 
         public GastoModel()
         {
@@ -27,6 +30,7 @@ namespace GastoTransparenteMunicipal.Models
             Gasto_Ano gasto_Ano = db.Gasto_Ano.Where(r => r.IdMunicipalidad == idMunicipality).OrderByDescending(r => r.IdAno).First();
             var gasto_Nivel1 = db.Gasto_Nivel1.Where(r => r.IdAno == gasto_Ano.IdAno && r.Tipo == tipoGasto).ToList();
             Mapper.Map(gasto_Nivel1, this.Gasto_Nivel1);
+            LoadJsonNivel1(this.Gasto_Nivel1);
         }
 
         public void LoadNivel1(GastoTransparenteMunicipalEntities db, int idMunicipality, string tipoGasto, int year)
@@ -52,6 +56,32 @@ namespace GastoTransparenteMunicipal.Models
         {
             var gasto_Nivel4 = db.Gasto_Nivel4.Where(r => r.Tipo == tipoGasto && r.IdNivel3 == idNivel3).ToList();
             Mapper.Map(gasto_Nivel4, this.Gasto_Nivel4);
+        }
+
+        public void LoadJsonNivel1(List<Gasto_N1> Gasto_Nivel1)
+        {
+            var data = Gasto_Nivel1.OrderBy(r => r.MontoGastado).Select(r => new
+            {
+                name = r.Nombre,
+                size = r.MontoGastado,
+                tipo = r.Tipo,
+                valueTooltip1 = string.Format("{0:C0}", r.MontoGastado.Value),
+                valueTooltip2 = string.Format("{0:N0}",r.MontoPresupuestado),
+                porcentaje1 = Math.Round((r.PorcentajeGastado.Value) * 100,2),
+                porcentaje2 = Math.Round((r.PorcentajePresupuestado.Value) * 100, 2),
+                descripcion = r.Descripcion,
+                nivel = 1,
+                id = r.IdNivel1,
+                color = "#193558"
+            }).ToList();
+
+            var jsonData = new
+            {
+                name = "flare",
+                children  = data,
+                Format = "0"
+            };
+            this.JsonNivel1 = JsonConvert.SerializeObject(jsonData);
         }
     }
 }
