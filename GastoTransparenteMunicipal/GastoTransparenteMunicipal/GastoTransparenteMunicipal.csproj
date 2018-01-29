@@ -231,26 +231,39 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
     <Content Include="Content\css\font.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styleBootrap.css" />
     <Content Include="Content\css\styleSueldos.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font\portal.svg" />
     <Content Include="Content\image\chevron-down.svg" />
     <Content Include="Content\image\fondo.png" />
     <Content Include="Content\image\icono.png" />
     <Content Include="Content\image\iniciativa.png" />
     <Content Include="Content\image\logo.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\FeaturedData\WordCloud.js" />
     <Content Include="Scripts\FeaturedData\bubbleDataTest.json" />
     <Content Include="Scripts\FeaturedData\SubsidyBubbleChart.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -292,6 +305,7 @@
     <Content Include="Views\FeaturedData\Corporation.cshtml" />
     <Content Include="Views\FeaturedData\Test.cshtml" />
     <Content Include="Views\FeaturedData\Subsidy.cshtml" />
+    <Content Include="Views\Gastos\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

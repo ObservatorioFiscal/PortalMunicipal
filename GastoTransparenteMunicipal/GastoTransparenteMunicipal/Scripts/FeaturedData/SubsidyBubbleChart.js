@@ -4,6 +4,7 @@ function drawChart(data) {
         "decimal": ",",
         "thousands": "."
     });
+    console.log(data);
     var diameter = 700;
     //format = localeFormatter.format(",.0f"), //ya no se usa si datos editar un html
     //color = d3.scaleOrdinal(d3.schemeCategory20c);
@@ -34,8 +35,8 @@ function drawChart(data) {
 
     var root = d3.hierarchy(classes(data))
         .sum(function (d) { return d.value; })
-        .sort(function (a, b) { return b.value - a.value; });
-
+        .sort(function (a, b) {return b.value - a.value; });
+    console.log(root);
     bubble(root);
     var node = svg.selectAll(".node")
         .data(root.children)
@@ -59,18 +60,25 @@ function drawChart(data) {
 
     node.append("circle")
         .attr("r", function (d) { return d.r; })
+        .attr("class", "circle")
+        .attr("onclick", function (d) { return "selectCircle('" + d.data.className.replace(/ /g, '') + "','" + d.data.className + "')" })
+        .attr("id", function (d) { return d.data.className.replace(/ /g, '') + "B" })
         .style("fill", function (d) {
-            var colorPosition = d.data.orderDescPosition;
+            var colorPosition = d.data.orderDescPosition;   
             var li = lateralPanel.append("li").attr("style", "list-style-type: none");
-            li.append("i").attr("class", "fa fa-circle").attr("style", "color:" + vectorColor(colorPosition));
+            li.append("i")
+                .attr("class", "circle fa fa-circle")
+                .attr("id", d.data.className.replace(/ /g, '') + "S" )
+                .attr("style", "color:" + vectorColor(colorPosition));
             li.append("label").text(d.data.className);
             return vectorColor(colorPosition);
         });
 
-    node.append("text")
-        .attr("dy", ".3em")
-        .style("text-anchor", "middle")
-        .text(function (d) { return d.data.className.substring(0, d.r / 3); });
+    //node.append("input")
+    //    .attr("type", "hidden")
+    //    .attr("id", function (d) { return d.data.className.replace(/ /g, '') + "i" })
+    //    .attr("value", function (d) { return d.data.className })
+    //    .text();
 
     d3.select(self.frameElement).style("height", diameter + "px");
 }
@@ -88,4 +96,18 @@ function classes(root) {
 }
 
 
+function selectCircle(idSelected, nameSelected) {
+    var circles = document.getElementsByClassName("circle");        
+    for (i = 0; i < circles.length; i++) {
+        if (circles[i].id != (idSelected + "S") && circles[i].id != (idSelected + "B")) {
+            circles[i].classList.add("disable-color");
+        }
+    }    
+}
 
+function deselectCircle() {
+    var circles = document.getElementsByClassName("circle");
+    for (i = 0; i < circles.length; i++) {        
+        circles[i].classList.remove("disable-color");       
+    }
+}
