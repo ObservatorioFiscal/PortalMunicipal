@@ -17,13 +17,59 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
-        public string JsonGastoNivel1()
+        public string JsonGastoNivelX(string tipo, int? idNivel ,int? profundidad,int? year)
         {
-            var idMunicipality = GetCurrentIdMunicipality();
-            GastoModel gastos = new Models.GastoModel();
-            gastos.Init(db, idMunicipality, "AREA");
-            return gastos.JsonNivel1;
+            if (tipo == null)
+            {
+                tipo = "AREA";
+            }
+
+            if (idNivel == null && profundidad == null && year == null)
+            {                
+                var idMunicipality = GetCurrentIdMunicipality();
+                GastoModel gastos = new Models.GastoModel();
+                gastos.Init(db, idMunicipality, tipo);
+                return gastos.JsonNivel1;
+            }
+
+            if (profundidad == null && year != null)
+            {
+                var idMunicipality = GetCurrentIdMunicipality();
+                GastoModel gastos = new Models.GastoModel();
+                gastos.LoadNivel1(db, idMunicipality, tipo, year.Value);
+                return gastos.JsonNivel1;
+            }
+
+            if (profundidad == 2)
+            {
+                var idMunicipality = GetCurrentIdMunicipality();
+                GastoModel gastos = new Models.GastoModel();
+                gastos.LoadNivel2(db, idMunicipality, tipo, year.Value, idNivel.Value);
+                return gastos.JsonNivel2;
+            }
+
+            if (profundidad == 3)
+            {
+                var idMunicipality = GetCurrentIdMunicipality();
+                GastoModel gastos = new Models.GastoModel();
+                gastos.LoadNivel3(db, idMunicipality, tipo, year.Value, idNivel.Value);
+                return gastos.JsonNivel3;
+
+            }
+
+            if (profundidad == 4)
+            {
+                var idMunicipality = GetCurrentIdMunicipality();
+                GastoModel gastos = new Models.GastoModel();
+                gastos.LoadNivel3(db, idMunicipality, tipo, year.Value, idNivel.Value);
+                return gastos.JsonNivel4;
+
+            }
+
+            return "";
         }
+
+
         #region
         //public ActionResult GetDatosQuienInvierte29999nivel1(string id)
         //{
