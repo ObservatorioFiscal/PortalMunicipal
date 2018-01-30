@@ -20,7 +20,6 @@ namespace GastoTransparenteMunicipal
                       "~/Content/css/styleBootrap.css",
                       "~/Content/css/font.css",
                       "~/Content/css/style.css",
-                      "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
                       "~/Content/site.css"));          
 

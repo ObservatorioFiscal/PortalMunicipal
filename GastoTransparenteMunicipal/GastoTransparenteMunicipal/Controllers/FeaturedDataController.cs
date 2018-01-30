@@ -1,4 +1,5 @@
-﻿using GastoTransparenteMunicipal.Models;
+﻿using Core;
+using GastoTransparenteMunicipal.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -94,26 +95,95 @@ namespace GastoTransparenteMunicipal.Controllers
             return View(corporacion);
         }
 
-        [HttpGet]
-        public ActionResult PersonalSalary()
-        {
-            var idMunicipality = GetCurrentIdMunicipality();
+        //****************PERSONAL****************//
+        //****************************************//
 
-            PersonalModel personalModel = new PersonalModel();
-            personalModel.Init(db, idMunicipality);
-
-            return View(personalModel);
-        }
-
-        [HttpPost]
         public ActionResult PersonalSalary(int year, int origenData)
         {
             var idMunicipality = GetCurrentIdMunicipality();
+            
+            Personal_Ano personal_Ano = db.Personal_Ano.FirstOrDefault(r => r.IdMunicipalidad == idMunicipality && r.Ano == year);
 
-            PersonalModel personalModel = new PersonalModel();
-            personalModel.LoadPersonal(db, idMunicipality ,year ,origenData);
-
-            return View(personalModel);
+            switch (origenData)
+            {
+                case OrigenData.Adm:
+                    return this.Json(personal_Ano.Personal_Adm_Nivel1.Select(r =>
+                                    new
+                                    {
+                                        Item = r.CodTipo,
+                                        Lista = r.Personal_Adm_Nivel2.Select(l =>
+                                        new
+                                        {
+                                            Nombre = l.Nombre,
+                                            CMujer = l.CantidadMujer,
+                                            CHombre = l.CantidadHombre,
+                                            MMujer = l.MontoMujer,
+                                            MHombre = l.MontoHombre
+                                        })
+                                    }), JsonRequestBehavior.AllowGet);
+                case OrigenData.Salud:
+                    return this.Json(personal_Ano.Personal_Salud_Nivel1.Select(r =>
+                                    new
+                                    {
+                                        Item = r.CodTipo,
+                                        Lista = r.Personal_Salud_Nivel2.Select(l =>
+                                        new
+                                        {
+                                            Nombre = l.Nombre,
+                                            CMujer = l.CantidadMujer,
+                                            CHombre = l.CantidadHombre,
+                                            MMujer = l.MontoMujer,
+                                            MHombre = l.MontoHombre
+                                        })
+                                    }), JsonRequestBehavior.AllowGet);
+                case OrigenData.Educacion:
+                    return this.Json(personal_Ano.Personal_Educacion_Nivel1.Select(r =>
+                                    new
+                                    {
+                                        Item = r.CodTipo,
+                                        Lista = r.Personal_Educacion_Nivel2.Select(l =>
+                                        new
+                                        {
+                                            Nombre = l.Nombre,
+                                            CMujer = l.CantidadMujer,
+                                            CHombre = l.CantidadHombre,
+                                            MMujer = l.MontoMujer,
+                                            MHombre = l.MontoHombre
+                                        })
+                                    }), JsonRequestBehavior.AllowGet);
+                case OrigenData.Cementerio:
+                    return this.Json(personal_Ano.Personal_Cementerio_Nivel1.Select(r =>
+                                    new
+                                    {
+                                        Item = r.CodTipo,
+                                        Lista = r.Personal_Cementerio_Nivel2.Select(l =>
+                                        new
+                                        {
+                                            Nombre = l.Nombre,
+                                            CMujer = l.CantidadMujer,
+                                            CHombre = l.CantidadHombre,
+                                            MMujer = l.MontoMujer,
+                                            MHombre = l.MontoHombre
+                                        })
+                                    }), JsonRequestBehavior.AllowGet);
+                case OrigenData.MunicipioTotal:
+                    return this.Json(personal_Ano.Personal_Total_Nivel1.Select(r =>
+                                    new
+                                    {
+                                        Item = r.CodTipo,
+                                        Lista = r.Personal_Total_Nivel2.Select(l =>
+                                        new
+                                        {
+                                            Nombre = l.Nombre,
+                                            CMujer = l.CantidadMujer,
+                                            CHombre = l.CantidadHombre,
+                                            MMujer = l.MontoMujer,
+                                            MHombre = l.MontoHombre
+                                        })
+                                    }), JsonRequestBehavior.AllowGet);
+                default:
+                    return this.Json(false, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

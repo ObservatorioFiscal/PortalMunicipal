@@ -151,3 +151,82 @@
   color:#ffffff;
   text-decoration:none;
 }
+
+
+.table {
+    width: 90%;
+    max-width: 90%;
+    margin:20px auto;
+    margin-bottom: 1rem;
+    font-size:90%;
+    background-color: transparent;
+}
+
+    .table th,
+    .table td {
+        padding: 0.5rem;
+        vertical-align: top;
+        border: 1px solid #e9ecef;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #e9ecef;
+    }
+
+    .table tbody + tbody {
+        border-top: 2px solid #e9ecef;
+    }
+
+    .table .table {
+        background-color: #fff;
+    }
+
+
+.Tabpadre {
+    font-weight: 400;
+    font-size: 1rem;
+}
+.Tabhijo {
+    font-weight: 300;
+    font-size: 0.9rem;
+    background-color: #f5f9ff;
+}
+
+.bordeRight {
+    border-right: 1px solid transparent;
+}
+
+
+
+.buscar {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid;
+}
+
+.input-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    border: 2px solid;
+}
+
+    .input-group .form-control {
+        position: relative;
+        z-index: 2;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+        border-radius: 0.5rem;
+        border:0;
+        padding: 0.5rem;
+    }

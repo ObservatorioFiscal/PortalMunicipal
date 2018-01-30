@@ -14,7 +14,6 @@
                     "visibility": "hidden"               // previene el FOUC
                 });
 
-
                 // agregar al padre, obtener ancho y salir
                 $test.appendTo($this.parent());
                 var width = $test.width();
@@ -28,25 +27,36 @@
                 switch (text) {
                     case "Municipio Total":
                         $("select").removeClass("muntotal admmunicipal salud educacion cementerio");
+                        $("#tabla").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("select").addClass("muntotal");
+                        $("#tabla").addClass("muntotal");
                         break;
                     case "Adm. y Serv. Municipal":
                         $("select").removeClass("muntotal admmunicipal salud educacion cementerio");
+                        $("#tabla").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("select").addClass("admmunicipal");
+                        $("#tabla").addClass("admmunicipal");
                         break;
                     case "Salud":
                         $("select").removeClass("muntotal admmunicipal salud educacion cementerio");
+                        $("#tabla").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("select").addClass("salud");
+                        $("#tabla").addClass("salud");
                         break;
                     case "Educación":
                         $("select").removeClass("muntotal admmunicipal salud educacion cementerio");
+                        $("#tabla").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("select").addClass("educacion");
+                        $("#tabla").addClass("educacion");
                         break;
                     case "Cementerio":
                         $("select").removeClass("muntotal admmunicipal salud educacion cementerio");
+                        $("#tabla").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("select").addClass("cementerio");
+                        $("#tabla").addClass("cementerio");
                         break;
                 }
+                
 
 
             }).change();

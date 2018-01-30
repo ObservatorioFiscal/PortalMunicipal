@@ -5,34 +5,34 @@
 
 <link rel="stylesheet" type="text/css" href="~/Content/css/styleSueldos.css">
 
-<div class="row">
-    <div class="col padding-Div seccion-destado">
+<div class="row seccion-destado">
+    <div class="col">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 padding-cero">
+                <div class="col-md-12">
                     <h1>
                         Sueldos Promedios
                         <small>
                             del
                             <span class="select">
-                                <select>
-                                    <option>Municipio Total</option>
-                                    <option>Adm. y Serv. Municipal</option>
-                                    <option>Salud</option>
-                                    <option>Educación</option>
-                                    <option>Cementerio</option>
+                                <select id="categoria">
+                                    <option value="5">Municipio Total</option>
+                                    <option value="1">Adm. y Serv. Municipal</option>
+                                    <option value="2">Salud</option>
+                                    <option value="3">Educación</option>
+                                    <option value="4">Cementerio</option>
                                 </select>
                             </span>
                         </small>
                         <small>
                             del año:
                             <span class="select">
-                                <select>
-                                    <option>2017 a Junio</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
-                                    <option>2013</option>
+                                <select id="ano">
+                                    <option value="2017">2017 a Junio</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
                                 </select>
                             </span>
                         </small>
@@ -41,31 +41,30 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row padding-Div">
                 <div class="col-md-12">
-                    <div class="row">
+                    <div id="tabla" class="row muntotal">
                         <div class="col-12 col-sm-4">
                             <div class="row">
-
                                 <div id="padre1" onclick="cambioPadre(1)" class="padres align-self-center col-6 col-sm-12 borde-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso12">&#xe800;</i> Estamento</h5>
                                 </div>
-                                <div id="padre2" onclick="cambioPadre(2)" class="padres align-self-center col-6 col-sm-12">
+                                <div id="padre2" onclick="cambioPadre(2)" class="padres align-self-center col-6 col-sm-12 no-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso7">&#xe805;</i> Profesiones</h5>
                                 </div>
-                                <div id="padre3" onclick="cambioPadre(3)" class="padres align-self-center col-6 col-sm-12">
+                                <div id="padre3" onclick="cambioPadre(3)" class="padres align-self-center col-6 col-sm-12 no-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso5">&#xe802;</i> Nivel Educación</h5>
                                 </div>
-                                <div id="padre4" onclick="cambioPadre(4)" class="padres align-self-center col-6 col-sm-12">
+                                <div id="padre4" onclick="cambioPadre(4)" class="padres align-self-center col-6 col-sm-12 no-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso6">&#xe804;</i> Rango etario</h5>
                                 </div>
-                                <div id="padre5" onclick="cambioPadre(5)" class="padres align-self-center col-6 col-sm-12">
+                                <div id="padre5" onclick="cambioPadre(5)" class="padres align-self-center col-6 col-sm-12 no-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso4">&#xe803;</i> Calidad jurídica</h5>
                                 </div>
-                                <div id="padre6" onclick="cambioPadre(6)" class="padres align-self-center col-6 col-sm-12">
+                                <div id="padre6" onclick="cambioPadre(6)" class="padres align-self-center col-6 col-sm-12 no-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso3">&#xe801;</i> Antigüedad</h5>
                                 </div>
-                                <div id="padre7" onclick="cambioPadre(7)" class="padres align-self-center col-6 col-sm-12">
+                                <div id="padre7" onclick="cambioPadre(7)" class="padres align-self-center col-6 col-sm-12 no-papa">
                                     <h5><i class="md-36 demo-icon icon-recurso1">&#xe80d;</i> Grado</h5>
                                 </div>
 
@@ -90,44 +89,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="hijosdiv"></div>
-                                <div class="col-md-12 hijos">
-                                    <div class="row">
-                                        <div class="col-4 align-self-center">
-                                            <h6>Directivo</h6>
-                                        </div>
-                                        <div class="col-4 align-self-center">
-                                            <div class="row">
-                                                <div class="col-12 text-center"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i> $x.xxx.xxx</div>
-                                                <div class="col-12 text-center"><i class="md-24 demo-icon icon-recurso13">&#xe80b;</i> $x.xxx.xxx</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 align-self-center">
-                                            <div class="row">
-                                                <div class="col-12 text-center">200</div>
-                                                <div class="col-12 text-center">100</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div id="hijosdiv1">
                                 </div>
-                                <div class="col-md-12 hijos">
-                                    <div class="row">
-                                        <div class="col-4 align-self-center">
-                                            <h6>Directivo</h6>
-                                        </div>
-                                        <div class="col-4 align-self-center">
-                                            <div class="row">
-                                                <div class="col-12 text-center"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i> $x.xxx.xxx</div>
-                                                <div class="col-12 text-center"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i> $x.xxx.xxx</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 align-self-center">
-                                            <div class="row">
-                                                <div class="col-12 text-center">200</div>
-                                                <div class="col-12 text-center">100</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div id="hijosdiv2" class="hidden">
+                                </div>
+                                <div id="hijosdiv3" class="hidden">
+                                </div>
+                                <div id="hijosdiv4" class="hidden">
+                                </div>
+                                <div id="hijosdiv5" class="hidden">
+                                </div>
+                                <div id="hijosdiv6" class="hidden">
+                                </div>
+                                <div id="hijosdiv7" class="hidden">
                                 </div>
                             </div>
                         </div>
@@ -144,69 +118,81 @@
     <script type="text/javascript">
         function cambioPadre(aux) {
             for (var i = 1; i < 8; i++) {
-                $("#padre" + i ).removeClass("borde-papa");
+                $("#hijosdiv" + i).addClass("hidden");
+                $("#padre" + i).removeClass("borde-papa");
+                $("#padre" + i).addClass("no-papa");
             }
-            $("#padre" + aux ).addClass("borde-papa");
-
+            $("#hijosdiv" + aux).removeClass("hidden");
+            $("#padre" + aux).addClass("borde-papa");
+            $("#padre" + aux).removeClass("no-papa");
+        }
+        function consultaBd() {
+            for (var i = 2; i < 8; i++) {
+                $("#padre" + i).removeClass("borde-papa");
+                $("#padre" + i).addClass("no-papa");
+                
+            }
+            $("#padre1").addClass("borde-papa");
+            $("#padre1").removeClass("no-papa");
             $.ajax({
                 cache: false,
                 async: false,
                 type: 'POST',
                 data: {
-                    pagina: pagina,
-                    tags: etiqueta,
-                    orden: orden
+                    origenData: $("#categoria").val(),
+                    year: $("#ano").val()
                 },
-                url: '../../Datosdestacados/FiltroListadoSueldos',
+                url: '@Url.Action("PersonalSalary", "FeaturedData")',
                 dataType: 'json',
                 success: function (data) {
-                    $("#hijosdiv").remove();
-                    $.each(data, function (i, item) {
-                        $("#hijosdiv").append(nuevoHijo(item));
+                    $(".hijos").remove();
+                    
+                    $.each(data, function (index, item) {
+                        $.each(item.Lista, function (index2, item2) {
+                            $("#hijosdiv" + item.Item).append(nuevoHijo(item2));
+                        });
                     });
                 },
-                error: function (msg) {
-                    $('#btnagendar').attr('disabled', false);
-                }
+                //error: function (msg) {
+                //    $('#btnagendar').attr('disabled', false);
+                //}
             });
-
-
         }
-
-
-
         function nuevoHijo(item) {
             return '\
-                <div class="col-md-12 hijos">\
-                    <div class="row">\
-                        <div class="col-4 align-self-center">\
-                            <h6>' + item.Directivo + '</h6>\
-                        </div>\
-                        <div class="col-4 align-self-center">\
-                            <div class="row">\
-                                <div class="col-12 text-center"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i>' + item.$x.xxx.xxx + '</div>\
-                                <div class="col-12 text-center"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i>' + item.$x.xxx.xxx + '</div>\
+                    <div class="col-md-12 hijos">\
+                        <div class="row">\
+                            <div class="col-4 align-self-center">\
+                                <h6>' + item.Nombre + '</h6>\
                             </div>\
-                        </div>\
-                        <div class="col-4 align-self-center">\
-                            <div class="row">\
-                                <div class="col-12 text-center">' + item.200 + '</div>\
-                                <div class="col-12 text-center">' + item.100 + '</div>\
+                            <div class="col-4 align-self-center">\
+                                <div class="row">\
+                                    <div class="col-12"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i>' + item.CMujer + '</div>\
+                                    <div class="col-12"><i class="md-24 demo-icon icon-recurso12">&#xe80a;</i>' + item.CHombre + '</div>\
+                                </div>\
+                            </div>\
+                            <div class="col-4 align-self-center">\
+                                <div class="row">\
+                                    <div class="col-12">' + item.MMujer + '</div>\
+                                    <div class="col-12">' + item.MHombre + '</div>\
+                                </div>\
                             </div>\
                         </div>\
                     </div>\
-                </div>\
-                ';
+                    ';
         }
-
-
-
     </script>
 
     <script src="~/Scripts/select.js"></script>
     <script>
         $(document).ready(function () {
-            $("select").resizeselect()
+            consultaBd();
+
+            $("select").resizeselect();
+
+            $("select").change(function () {
+                consultaBd();
+            });
         });
     </script>
 

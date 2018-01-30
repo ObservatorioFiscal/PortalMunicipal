@@ -3,11 +3,11 @@
     ViewBag.Title = "Subsidios";
 }
 
-<div class="row">
-    <div class="col padding-Div seccion-destado">
+<div class="row seccion-destado">
+    <div class="col">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 padding-cero">
+                <div class="col-md-12">
                     <h1>
                         Subsidios
                         <small>
@@ -41,16 +41,94 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12 padding-cero">
+                <div class="col-md-12">
                     <h2>Top 20 proveedores con mayores compras</h2>
 
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-12 padding-cero">
+                <div class="col-md-12">
                     <h2>Buscar Proveedores</h2>
                     <p>Si el proveedor que buscas no está entre los 20 principales, usa el buscador que aparece a continuación:<br><br><br></p>
+
+                    <div>
+                        <div class="muntotal input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Busca un beneficiado">
+                            <div>
+                                <button class="btn" type="button">buscar</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row muntotal">
+                                    <div class="col-9">Beneficiario</div>
+                                    <div class="col-3">Monto Millones $</div>
+                                </div>
+                                <div class="row celda destacadocolor">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                    <div class="col-12 ">
+                                        <div class="row">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha Decreto</th>
+                                                        <th>Beneficiario</th>
+                                                        <th>Monto</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>19/04/1990</td>
+                                                        <td>Apoyo de Seguridad a la Comuna</td>
+                                                        <td>$358 </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19/04/2016</td>
+                                                        <td>Aporte para mejoramiento de infraestructura del Jardín Infantil "Pequitas".</td>
+                                                        <td>$358 </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19/04/2001</td>
+                                                        <td>Apoyo de Seguridad a la Comuna</td>
+                                                        <td>$358 </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row celda">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                </div>
+                                <div class="row celda">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                </div>
+                                <div class="row celda">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                </div>
+                                <div class="row celda">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                </div>
+                                <div class="row celda">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                </div>
+                                <div class="row celda">
+                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                    <div class="col-3">$650.000.000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -64,5 +142,39 @@
         $(document).ready(function () {
             $("select").resizeselect()
         });
+
+        function verDetalle(aux) {
+            $(".Tabhijo").remove();
+
+            var auxiliar = $(this).parent();
+
+            //$("#hijosdiv").append(nuevoHijoCabezera());
+            //$("#hijosdiv").append(nuevoHijo(item));
+
+        }
+
+
+        function nuevoHijoCabezera() {
+            return '\
+                    <tr class="Tabhijo">\
+                        <th></th>\
+                        <th class="bordeRight">Fecha decreto</th>\
+                        <th>Objetivo</th>\
+                        <th></th>\
+                        <th>Monto</th>\
+                    </tr>\
+                ';
+        }
+        function nuevoHijo(item) {
+            return '\
+                    <tr class="Tabhijo">\
+                        <td></td>\
+                        <td>20-01-2015</td>\
+                        <td colspan="2">Apoyo de Seguridad a la Comuna</td>\
+                        <td class="text-center">$150.000.000</td>\
+                    </tr>\
+                ';
+
+        }
     </script>
 }

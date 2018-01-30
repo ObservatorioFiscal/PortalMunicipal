@@ -17,7 +17,7 @@ h1, h2, h3,h4,h5,h6{
 
 h1{
 	font-size: 2.75rem;
-	padding-top: 2rem;
+	padding-top: 2.4rem;
 }
 
 h1 small {
@@ -25,7 +25,7 @@ h1 small {
 }
 
 h2{
-	padding-top: 2rem;
+	padding-top: 1rem;
 	font-size: 2rem;
 }
 h3{
@@ -53,7 +53,7 @@ h5{
 
 h6{
 	font-size: 1.25rem;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 .im {
@@ -101,8 +101,8 @@ h6{
 }
 
 .padding-Div{
-	padding-top: 5rem;
-	padding-bottom: 5rem;
+	padding-top: 2rem;
+	padding-bottom: 3rem;
 }
 .padding-cero{
 	padding-left:0;
@@ -266,46 +266,6 @@ h6{
 }
 
 
-
-.menu-mobile{
-	display: block;
-}
-
-.menu-mobile p{
-	line-height: 1;
-}
-.menu-mobile .octicon{
-	line-height: 0;
-}
-
-.menu-mobile li{
-	list-style: none;
-	padding: 0.4rem 1rem;
-}
-
-
-
-@media (min-width: 576px) {
-  .menu-mobile {
-    display:none;
-  }
-}
-
-.menu-mobile p{
-    margin-bottom: 0;
-}
-
-
-.triangulo-equilatero-bottom {
-     width: 0;
-     height: 0;
-     border-right: 80px solid transparent;
-     border-top: 80px solid #ffffff ;
-     border-left: 80px solid transparent;
-     border-bottom: 80px solid transparent;
-     margin:0 auto;
-}
-
 .destacadocolor{
 	background-color: #f5f9ff;
 }
@@ -342,3 +302,8 @@ h6{
             font-size: 80%;
             color: #212529;
         }
+
+.celda {
+    padding: 10px 0px;
+    border-bottom: 2px solid #a0a0a0;
+}

@@ -25,12 +25,14 @@ namespace GastoTransparenteMunicipal.Controllers
         // GET: Datosdestacados
         public ActionResult Subsidios()
         {
+            ViewBag.Subsidios = "active";
             return View();
         }
 
         // GET: Datosdestacados
         public ActionResult Corporaciones()
         {
+            ViewBag.Corporaciones = "active";
             return View();
         }
 

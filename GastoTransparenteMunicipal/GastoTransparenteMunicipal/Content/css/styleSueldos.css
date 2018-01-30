@@ -7,21 +7,18 @@
 }
 
 .hijos{
-	padding-top: 20px;
-	padding-bottom:20px;
+	padding-top: 15px;
+	padding-bottom:15px;
 }
 .borde{
 	border-radius: 5px;
-	color:#0083b9;
 	background-color:#f5f9ff;
 	height: 100%;
 	max-height: 540px;
 	overflow-y: scroll;
-
 }
 
 .borde-papa {
-    color: #0083b9 !important;
     background-color: #f5f9ff;
     border-radius: 5px;
 }
@@ -32,6 +29,9 @@
 
     .padres {
         padding: 1rem 1rem;
-        color: #ababab;
+    }
+
+    .no-papa {
+        color: #a0a0a0;
     }
 }
