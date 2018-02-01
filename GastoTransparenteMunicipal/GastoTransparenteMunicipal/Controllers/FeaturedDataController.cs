@@ -11,15 +11,6 @@ namespace GastoTransparenteMunicipal.Controllers
 {
     public class FeaturedDataController : BaseController
     {
-        [HttpGet]
-        public ActionResult Subsidy()
-        {
-            var idMunicipality = GetCurrentIdMunicipality();
-            SubsidioModel subsidioModel = new SubsidioModel();
-            subsidioModel.Init(db, idMunicipality);
-            return View(subsidioModel);
-        }
-
         [HttpPost]
         public ActionResult Subsidy(int year)
         {
@@ -38,13 +29,20 @@ namespace GastoTransparenteMunicipal.Controllers
             return subsidioModel.JsonSubsidio;
         }
 
-        public string SubsidyChartNivel3(int IdNivel2)
+
+        public string SubsidyChartNivel2(int IdAno)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
+            //subsidioModel.Load_Nivel2(db, IdAno);
+            //var json = JsonConvert.SerializeObject(subsidioModel.Subsidio_Nivel2);
+            return "";//json;
+        }
+        public string SubsidyChartNivel3(int IdNivel2)
+        {
+            SubsidioModel subsidioModel = new SubsidioModel();
             subsidioModel.Load_Nivel3(db, IdNivel2);
             var json = JsonConvert.SerializeObject(subsidioModel.Subsidio_Nivel3);
-
             return json;
         }
 

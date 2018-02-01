@@ -63,70 +63,20 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="row celda">
-
                                 </div>
                                 <div class="row muntotal celda">
                                     <div class="col-9"><h6><b>Beneficiario</b></h6></div>
                                     <div class="col-3"><h6><b>Monto Millones $</b></h6></div>
                                 </div>
-                                <div class="row celda destacadocolor" id="item-1">
-                                    <div class="col-9" onclick="verDetalle(1)">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                    <div class="col-12 hijotabla">
-                                        <div class="row">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Fecha Decreto</th>
-                                                        <th>Beneficiario</th>
-                                                        <th>Monto</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>19/04/1990</td>
-                                                        <td>Apoyo de Seguridad a la Comuna</td>
-                                                        <td>$358 </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>19/04/2016</td>
-                                                        <td>Aporte para mejoramiento de infraestructura del Jardín Infantil "Pequitas".</td>
-                                                        <td>$358 </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>19/04/2001</td>
-                                                        <td>Apoyo de Seguridad a la Comuna</td>
-                                                        <td>$358 </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row celda">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                <div id="listapapa"></div>
+                                @*<div class="row celda destacadocolor" id="item-401">
+                                    <div class="col-9" onclick="verDetalle(401)">Compañia De Seguros Generales Pentasecurity S.A.</div>
                                     <div class="col-3">$650.000.000</div>
                                 </div>
                                 <div class="row celda">
                                     <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
                                     <div class="col-3">$650.000.000</div>
-                                </div>
-                                <div class="row celda">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                </div>
-                                <div class="row celda">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                </div>
-                                <div class="row celda">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                </div>
-                                <div class="row celda">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
 
@@ -142,32 +92,65 @@
 @section Scripts{
     <script src="~/Scripts/select.js"></script>
     <script>
+        var idANO = "VALORDELANOTOMADODELGRAFICO";
         $(document).ready(function () {
-            $("select").resizeselect()
+            $("select").resizeselect();
+            llenarTabla();
         });
 
+
+        function llenarTabla() {
+            $("#listapapa").remove();
+            $.ajax({
+                cache: false,
+                async: false,
+                type: 'POST',
+                data: {
+                    IdAno: idANO
+                },
+                url: '@Url.Action("SubsidyChartNivel2", "FeaturedData")',
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (index, item) {
+                        $("#table-" + aux).append(nuevoPapa(item));
+                    });
+                }
+            });
+        };
+
+
         function verDetalle(aux) {
-
             $("#item-" + aux).addClass("destacadocolor");
-            this.children(".col-12").remove();
             $(".hijotabla").remove();
+            $.ajax({
+                cache: false,
+                async: false,
+                type: 'POST',
+                data: {
+                    IdNivel2: aux
+                },
+                url: '@Url.Action("SubsidyChartNivel3", "FeaturedData")',
+                dataType: 'json',
+                success: function (data) {
+                    $("#item-" + aux).append(nuevoHijoHeader(aux));
+                    $.each(data, function (index, item) {
+                        $("#table-" + aux).append(nuevoHijo(item));
+                    });
+                }
+            });
+        };
 
-
-            $("#item-" + aux).append(nuevoHijoHeader());
-
-            $("#item-" + aux).append(nuevoHijoHeader());
-            $("#item-" + aux).append(nuevoHijoFooter());
-            
-            //$("#hijosdiv").append(nuevoHijoCabezera());
-            //$("#hijosdiv").append(nuevoHijo(item));
-
-
-            
+        function nuevoPapa(item) {
+            return '\
+                    <div class="row celda" id="item-'+ item.IdNivel2 +'">\
+                        <div class="col-9" onclick="verDetalle('+ item.IdNivel2 + ')">' + item.Nombre +'</div>\
+                        <div class="col-3">$'+ item.Monto +'</div>\
+                    </div>\
+                ';
 
         }
 
-
-        function nuevoHijoHeader() {
+        function nuevoHijoHeader(aux) {
             return '\
                     <div class="col-12 hijotabla">\
                         <div class="row">\
@@ -179,25 +162,22 @@
                                         <th>Monto</th>\
                                     </tr>\
                                 </thead>\
-                                <tbody>\
+                                <tbody id="table-'+aux+'">\
+                                </tbody>\
+                            </table>\
+                        </div>\
+                    </div>\
                     ';
         }
         function nuevoHijo(item) {
             return '\
                     <tr>\
                         <td> 19/04/2016 </td>\
-                        <td> Aporte para mejoramiento de infraestructura del Jardín Infantil "Pequitas". </td>\
-                        <td> $358 </td>\
+                        <td> '+ item.Nombre +' </td>\
+                        <td> $'+ item.Monto +' </td>\
                     </tr>\
                     ';
         }
-        function nuevoHijoFooter() {
-            return '\
-                            </tbody>\
-                            </table>\
-                        </div>\
-                    </div>\
-                    ';
-        }
+
     </script>
 }
