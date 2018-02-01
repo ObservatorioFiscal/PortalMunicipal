@@ -12,27 +12,20 @@
                         Subsidios
                         <small>
                             del
-                            <span class="select">
-                                <select>
-                                    <option>Municipio Total</option>
-                                    <option>Adm. y Serv. Municipal</option>
-                                    <option>Salud</option>
-                                    <option>Educación</option>
-                                    <option>Cementerio</option>
-                                </select>
-                            </span>
+                            <span class="muntotal">Municipio Total</span>
                         </small>
 
                         <small>
                             del año:
-                            <span class="select">
-                                <select>
-                                    <option>2017 a Junio</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
-                                    <option>2013</option>
-                                </select>
+                            <span class="select ">
+                                @Html.DropDownList("name", (SelectList)ViewBag.Anos, null, new { @class = "muntotal", @id= "ano" })
+                                @*<select id="ano">
+                                    <option value="2017">2017 a Junio</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                </select>*@
                             </span>
                         </small>
                     </h1>
@@ -43,7 +36,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Top 20 proveedores con mayores compras</h2>
-
+                </div>
+                <div class="col-md-12">
+                    <div class="row" id="container">
+                        <div class="col-md-8" id="chart"></div>
+                        <div class="col-md-4" id="lateralPanel"></div>
+                    </div>
                 </div>
             </div>
 
@@ -53,8 +51,8 @@
                     <p>Si el proveedor que buscas no está entre los 20 principales, usa el buscador que aparece a continuación:<br><br><br></p>
 
                     <div>
-                        <div class="muntotal input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Busca un beneficiado">
+                        <div class="muntotal input-group">
+                            <input type="text" class="" placeholder="Busca un beneficiado">
                             <div>
                                 <button class="btn" type="button">buscar</button>
                             </div>
@@ -70,13 +68,13 @@
                                 </div>
                                 <div id="listapapa"></div>
                                 @*<div class="row celda destacadocolor" id="item-401">
-                                    <div class="col-9" onclick="verDetalle(401)">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                </div>
-                                <div class="row celda">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
-                                    <div class="col-3">$650.000.000</div>
-                                </div>*@
+                                        <div class="col-9" onclick="verDetalle(401)">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                        <div class="col-3">$650.000.000</div>
+                                    </div>
+                                    <div class="row celda">
+                                        <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                        <div class="col-3">$650.000.000</div>
+                                    </div>*@
                             </div>
                         </div>
 
@@ -91,33 +89,46 @@
 
 @section Scripts{
     <script src="~/Scripts/select.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script src="~/Scripts/FeaturedData/SubsidyBubbleChart.js"></script>
     <script>
         var idANO = "VALORDELANOTOMADODELGRAFICO";
-        $(document).ready(function () {
-            $("select").resizeselect();
-            llenarTabla();
-        });
+        
 
-
-        function llenarTabla() {
-            $("#listapapa").remove();
+        function llenarCirculos() {
             $.ajax({
                 cache: false,
                 async: false,
                 type: 'POST',
                 data: {
-                    IdAno: idANO
+                    year: $("#ano").val()
+                },
+                url: '@Url.Action("SubsidyAjaxNivel1", "FeaturedData")',
+                dataType: 'json',
+                success: function (result) {
+                    drawChart(result);
+                }
+            });
+        }//SI NO ES ESO, es porque la url al tener recoleta caga
+
+        function llenarTabla() {
+            //$("#listapapa").remove();
+            $.ajax({
+                cache: false,
+                async: false,
+                type: 'POST',
+                data: {
+                    year: $("#ano").val()
                 },
                 url: '@Url.Action("SubsidyChartNivel2", "FeaturedData")',
                 dataType: 'json',
                 success: function (data) {
                     $.each(data, function (index, item) {
-                        $("#table-" + aux).append(nuevoPapa(item));
+                        $("#listapapa").append(nuevoPapa(item));
                     });
                 }
             });
         };
-
 
         function verDetalle(aux) {
             $("#item-" + aux).addClass("destacadocolor");
@@ -143,13 +154,12 @@
         function nuevoPapa(item) {
             return '\
                     <div class="row celda" id="item-'+ item.IdNivel2 +'">\
-                        <div class="col-9" onclick="verDetalle('+ item.IdNivel2 + ')">' + item.Nombre +'</div>\
+                        <div class="col-9" onclick="verDetalle('+ item.IdNivel2 + ')">' + item.Nombre + '<small>(' + item.Categoria+')</small></div>\
                         <div class="col-3">$'+ item.Monto +'</div>\
                     </div>\
                 ';
 
         }
-
         function nuevoHijoHeader(aux) {
             return '\
                     <div class="col-12 hijotabla">\
@@ -179,5 +189,11 @@
                     ';
         }
 
+
+        $(document).ready(function () {
+            $("select").resizeselect();
+            llenarCirculos();
+            llenarTabla();
+        });
     </script>
 }

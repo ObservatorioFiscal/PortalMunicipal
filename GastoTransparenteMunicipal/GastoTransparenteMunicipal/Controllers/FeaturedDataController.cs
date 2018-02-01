@@ -11,33 +11,49 @@ namespace GastoTransparenteMunicipal.Controllers
 {
     public class FeaturedDataController : BaseController
     {
-        [HttpPost]
-        public ActionResult Subsidy(int year)
-        {
-            var idMunicipality = GetCurrentIdMunicipality();
-            SubsidioModel subsidioModel = new SubsidioModel();
-            subsidioModel.Load(db, idMunicipality,year);
-            return View(subsidioModel);
-        }
+        //[HttpPost]
+        //public ActionResult Subsidy(int year)
+        //{
+        //    var idMunicipality = GetCurrentIdMunicipality();
+        //    SubsidioModel subsidioModel = new SubsidioModel();
+        //    subsidioModel.Load(db, idMunicipality,year);
+        //    return View(subsidioModel);
+        //}
+
+        //[HttpPost]
+        //public string SubsidyAjaxNivel1()
+        //{
+        //    var idMunicipality = GetCurrentIdMunicipality();
+        //    SubsidioModel subsidioModel = new SubsidioModel();
+        //    subsidioModel.Init(db, idMunicipality);
+        //    return subsidioModel.JsonSubsidio;
+        //}
 
         [HttpPost]
-        public string SubsidyAjaxNivel1()
+        public string SubsidyAjaxNivel1(int year)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
-            subsidioModel.Init(db, idMunicipality);
+            subsidioModel.Load(db,year);
             return subsidioModel.JsonSubsidio;
         }
 
 
-        public string SubsidyChartNivel2(int IdAno)
+        public ActionResult SubsidyChartNivel2(int year)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
-            //subsidioModel.Load_Nivel2(db, IdAno);
-            //var json = JsonConvert.SerializeObject(subsidioModel.Subsidio_Nivel2);
-            return "";//json;
+            var lista = db.Subsidio_Nivel2.Where(r => r.IdAno == year).ToList();
+            return this.Json(lista.Select(r =>
+                        new
+                        {
+                            IdNivel2 = r.IdNivel2,
+                            Nombre = r.Nombre,
+                            Categoria = r.Subsidio_Nivel1.Nombre,
+                            Monto = r.Monto
+                        }), JsonRequestBehavior.AllowGet);
         }
+        
         public string SubsidyChartNivel3(int IdNivel2)
         {
             SubsidioModel subsidioModel = new SubsidioModel();
@@ -54,19 +70,18 @@ namespace GastoTransparenteMunicipal.Controllers
 
             ProveedorModel proveedorModel = new ProveedorModel();
             proveedorModel.Init(db, takeElements, idMunicipality);
-            
+
             return View(proveedorModel);
         }
 
-        [HttpPost]
-        public ActionResult Providers(int year,int origenData)
+        public string Providers(int year, int origenData)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             var takeElements = 20;
             ProveedorModel proveedorModel = new ProveedorModel();
-            proveedorModel.WordCloud(db, takeElements, idMunicipality, year,origenData);
+            proveedorModel.WordCloud(db, takeElements, idMunicipality, year, origenData);
 
-            return View(proveedorModel);
+            return proveedorModel.JsonProveedor;
         }
 
         [HttpGet]

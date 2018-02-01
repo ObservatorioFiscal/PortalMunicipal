@@ -41,12 +41,12 @@
                 <div class="col-md-6 text-center">
                     <h2>¿De dónde provienen los recursos?</h2>
                     <p><br>Conoce ingresos por aportes del gobiernos,  patentes municipales, permisos de circulación, etc. en cada una de las áreas: Salud, Educación, Servicios Municipales y Cementerios(Se consideran los aportes que el municipio les entrega a las distintas Corporaciones de la comuna).<br><br></p>
-                    <a href="" class="btn">Ingresos</a>
+                    <a href="@Url.Action("Index","Ingresos")" class="btn">Ingresos</a>
                 </div>
                 <div class="col-md-6 text-center">
                     <h2>¿Cómo se usa ese dinero?</h2>
                     <p><br>Conoce los gastos por áreas como Salud, Educación, Servicios o por tipo de cuentas entre los cuales se encuentran Personal, bienes y servicios o transferencias.(Se consideran los aportes que el municipio les entrega a las distintas Corporaciones de la comuna).<br><br></p>
-                    <a href="" class="btn">Gastos</a>
+                    <a href="@Url.Action("Index","Gastos")" class="btn">Gastos</a>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <a href="">
+                            <a href="@Url.Action("Sueldos","DatosDestacados")">
                                 <i class="md-96 demo-icon icon-recurso8">&#xe806;</i>
                                 <p><br>¿Cual es el sueldo promedio por tipo de funcionario?</p>
                             </a>
@@ -75,7 +75,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <a href="">
+                            <a href="@Url.Action("Proveedores","DatosDestacados")">
                                 <i class="md-96 demo-icon icon-recurso9">&#xe807;</i>
                                 <p><br>¿A quiénes le <br> compramos?</p>
                             </a>
@@ -85,7 +85,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <a href="">
+                            <a href="@Url.Action("Subsidios","DatosDestacados")">
                                 <i class="md-96 demo-icon icon-recurso10">&#xe808;</i>
                                 <p><br>¿A quiénes<br>  subsidiamos?</p>
                             </a>
@@ -95,7 +95,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <a href="">
+                            <a href="@Url.Action("Corporaciones","DatosDestacados")">
                                 <i class="md-96 demo-icon icon-recurso11">&#xe809;</i>
                                 <p><br>¿Cómo se financian nuestras Corporaciones?</p>
                             </a>

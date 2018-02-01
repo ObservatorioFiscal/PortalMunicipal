@@ -41,16 +41,16 @@
                                             <hr>
                                             <nav>
                                                 <ul>
-                                                    <li class="nav-item"><a href="../" class="@ViewBag.Inicio"> Inicio </a></li>
+                                                    <li class="nav-item"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio"> Inicio </a></li>
                                                     <li class="nav-item"><a href="@Url.Action("Index", "Ingresos")" class="@ViewBag.Ingreso">Ingresos </a></li>
-                                                    <li class="nav-item"><a href="../Gastos" class="@ViewBag.Gasto">Gastos </a></li>
+                                                    <li class="nav-item"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gasto">Gastos </a></li>
                                                     <li>
                                                         Datos destacado
                                                         <ul>
-                                                            <li><a class="@ViewBag.Proveedores" href="#">Proveedores </a></li>
-                                                            <li><a class="@ViewBag.Subsidios" href="#">Subsidios </a></li>
-                                                            <li><a class="@ViewBag.Corporaciones" href="#">Corporaciones </a></li>
-                                                            <li><a class="@ViewBag.Sueldos" href="#">Sueldos por tipo de funcionario </a></li>
+                                                            <li><a class="@ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores </a></li>
+                                                            <li><a class="@ViewBag.Subsidios" href="@Url.Action("Subsidios","DatosDestacados")">Subsidios </a></li>
+                                                            <li><a class="@ViewBag.Corporaciones" href="@Url.Action("Corporaciones","DatosDestacados")">Corporaciones </a></li>
+                                                            <li><a class="@ViewBag.Sueldos" href="@Url.Action("Sueldos","DatosDestacados")">Sueldos por tipo de funcionario </a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -64,13 +64,13 @@
                                     <nav class="">
                                         <ul class="nav nav-resp align-items-center">
                                             <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Inicio" href="../">Inicio</a>
+                                                <a class="nav-link @ViewBag.Inicio" href="@Url.Action("Index","Home")">Inicio</a>
                                             </li>
                                             <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Ingreso" href="/Ingresos">Ingresos</a>
+                                                <a class="nav-link @ViewBag.Ingreso" href="@Url.Action("Index","Ingresos")">Ingresos</a>
                                             </li>
                                             <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Gasto" href="/Gastos">Gastos</a>
+                                                <a class="nav-link @ViewBag.Gasto" href="@Url.Action("Index","Gastos")">Gastos</a>
                                             </li>
                                             <li class="nav-item destacado">
                                                 <a class="nav-link" href="#">
@@ -91,16 +91,16 @@
                                 <div class="col-md-12 padding-cero">
                                     <ul class="nav justify-content-end align-items-center">
                                         <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Proveedores" href="#">Proveedores</a>
+                                            <a class="nav-link nav-link-sub @ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Subsidios" href="#">Subsidios</a>
+                                            <a class="nav-link nav-link-sub @ViewBag.Subsidios" href="@Url.Action("Subsidios","DatosDestacados")">Subsidios</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Corporaciones" href="#">Corporaciones</a>
+                                            <a class="nav-link nav-link-sub @ViewBag.Corporaciones" href="@Url.Action("Corporaciones","DatosDestacados")">Corporaciones</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Sueldos" href="#">Sueldos por <br>tipo de funcionario</a>
+                                            <a class="nav-link nav-link-sub @ViewBag.Sueldos" href="@Url.Action("Sueldos","DatosDestacados")">Sueldos por <br>tipo de funcionario</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -119,12 +119,12 @@
                     <div class="row">
                         <div class="col-md-3 align-self-center">
                             <ul>
-                                <li class="blanco"><a href="#" class="@ViewBag.Inicio">Inicio</a></li>
-                                <li class="blanco"><a href="#" class="@ViewBag.Ingresos">Ingresos</a></li>
-                                <li class="blanco"><a href="#" class="@ViewBag.Gastos">Gastos</a></li>
-                                <li class="blanco"><a href="#" class="@ViewBag.Sueldo">Sueldos por tipo de funcionario</a></li>
-                                <li class="blanco"><a href="#" class="@ViewBag.Proveedores">Proveedores</a></li>
-                                <li class="blanco"><a href="#" class="@ViewBag.Corporaciones">Corporaciones</a></li>
+                                <li class="blanco"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio">Inicio</a></li>
+                                <li class="blanco"><a href="@Url.Action("Index","Ingresos")" class="@ViewBag.Ingresos">Ingresos</a></li>
+                                <li class="blanco"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gastos">Gastos</a></li>
+                                <li class="blanco"><a href="@Url.Action("Sueldos","DatosDestacados")" class="@ViewBag.Sueldo">Sueldos por tipo de funcionario</a></li>
+                                <li class="blanco"><a href="@Url.Action("Proveedores","DatosDestacados")" class="@ViewBag.Proveedores">Proveedores</a></li>
+                                <li class="blanco"><a href="@Url.Action("Corporaciones","DatosDestacados")" class="@ViewBag.Corporaciones">Corporaciones</a></li>
                             </ul>
                         </div>
                         <div class="col-md-8 align-self-center">
@@ -151,7 +151,7 @@
                                     </div>*@
                                 <div class="col-md-3">
                                     <a href="">
-                                        <img class="text-center" src="~/Content/image/logo_municipalidad.png" class="img-fluid" alt="Municipalidad">
+                                        <img class="text-center img-fluid" src="~/Content/image/logo_municipalidad.png" alt="Municipalidad">
                                     </a>
                                 </div>
                             </div>

@@ -578,6 +578,7 @@
     <Property Name="IdNivel1" Type="bigint" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
     <Property Name="Monto" Type="bigint" />
+    <Property Name="IdAno" Type="bigint" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel3">
     <Key>
@@ -600,16 +601,6 @@
     <Property Name="OBJETIVODELAPORTE" Type="nvarchar" MaxLength="600" />
     <Property Name="MONTOAPORTE" Type="float" />
     <Property Name="UpdatedOn" Type="datetime" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK__Corporaci__IdAno__71D1E811">
     <End Role="Corporacion_Ano" Type="Self.Corporacion_Ano" Multiplicity="0..1" />
@@ -1031,6 +1022,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Subsidio___IdAno__1332DBDC">
+    <End Role="Subsidio_Ano" Type="Self.Subsidio_Ano" Multiplicity="0..1" />
+    <End Role="Subsidio_Nivel2" Type="Self.Subsidio_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subsidio_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Subsidio_Nivel2">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Subsidio___IdMun__114A936A">
     <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
     <End Role="Subsidio_Ano" Type="Self.Subsidio_Ano" Multiplicity="*" />
@@ -1043,7 +1046,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsidio___IdNiv__1332DBDC">
+  <Association Name="FK__Subsidio___IdNiv__14270015">
     <End Role="Subsidio_Nivel1" Type="Self.Subsidio_Nivel1" Multiplicity="0..1" />
     <End Role="Subsidio_Nivel2" Type="Self.Subsidio_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1052,18 +1055,6 @@
       </Principal>
       <Dependent Role="Subsidio_Nivel2">
         <PropertyRef Name="IdNivel1" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Subsidio___IdNiv__14270015">
-    <End Role="Subsidio_Nivel2" Type="Self.Subsidio_Nivel2" Multiplicity="0..1" />
-    <End Role="Subsidio_Nivel3" Type="Self.Subsidio_Nivel3" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subsidio_Nivel2">
-        <PropertyRef Name="IdNivel2" />
-      </Principal>
-      <Dependent Role="Subsidio_Nivel3">
-        <PropertyRef Name="IdNivel2" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1175,7 +1166,6 @@
     <EntitySet Name="Subsidio_Nivel2" EntityType="Self.Subsidio_Nivel2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subsidio_Nivel3" EntityType="Self.Subsidio_Nivel3" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubsidioInforme" EntityType="Self.SubsidioInforme" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Corporaci__IdAno__71D1E811" Association="Self.FK__Corporaci__IdAno__71D1E811">
       <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
       <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
@@ -1316,17 +1306,17 @@
       <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
     </AssociationSet>
+    <AssociationSet Name="FK__Subsidio___IdAno__1332DBDC" Association="Self.FK__Subsidio___IdAno__1332DBDC">
+      <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+      <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
+    </AssociationSet>
     <AssociationSet Name="FK__Subsidio___IdMun__114A936A" Association="Self.FK__Subsidio___IdMun__114A936A">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdNiv__1332DBDC" Association="Self.FK__Subsidio___IdNiv__1332DBDC">
+    <AssociationSet Name="FK__Subsidio___IdNiv__14270015" Association="Self.FK__Subsidio___IdNiv__14270015">
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdNiv__14270015" Association="Self.FK__Subsidio___IdNiv__14270015">
-      <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
-      <End Role="Subsidio_Nivel3" EntitySet="Subsidio_Nivel3" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

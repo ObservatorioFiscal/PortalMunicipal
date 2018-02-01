@@ -59,77 +59,83 @@
 
 @section scripts{
     <script src="~/Scripts/select.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="~/Scripts/FeaturedData/WordCloud.js"></script>
     <script>
         $(document).ready(function () {
             $("select").resizeselect()
         });
     </script>
 
-
-
     <script>
-        var text_string = "po op Of course that’s your contention. You’re a first year grad student. You just got finished readin’ some Marxian historian, Pete Garrison probably. You’re gonna be convinced of that ’til next month when you get to James Lemon and then you’re gonna be talkin’ about how the economies of Virginia and Pennsylvania were entrepreneurial and capitalist way back in 1740. That’s gonna last until next year. You’re gonna be in here regurgitating Gordon Wood, talkin’ about, you know, the Pre-Revolutionary utopia and the capital-forming effects of military mobilization… ‘Wood drastically underestimates the impact of social distinctions predicated upon wealth, especially inherited wealth.’ You got that from Vickers, Work in Essex County, page 98, right? Yeah, I read that, too. Were you gonna plagiarize the whole thing for us? Do you have any thoughts of your own on this matter? Or do you, is that your thing? You come into a bar. You read some obscure passage and then pretend, you pawn it off as your own, as your own idea just to impress some girls and embarrass my friend? See, the sad thing about a guy like you is in 50 years, you’re gonna start doin’ some thinkin’ on your own and you’re gonna come up with the fact that there are two certainties in life. One: don’t do that. And two: you dropped a hundred and fifty grand on a fuckin’ education you coulda got for a dollar fifty in late charges at the public library.";
-
-        drawWordCloud(text_string);
-
-        function drawWordCloud(text_string) {
-
-            //var array_montos = JSON.parse("@Model.JsonMonto");
-            //var json_textos = ("@Model.JsonProveedor").replace(/&quot;/g, '"');
-            var array_texto = JSON.parse(json_textos);
-
-            var word_count = {};
-            for (i = 0; i < array_montos.length; i++) {
-                word_count[array_texto[i]] = Math.round(array_montos[i]/1);
+    var url = "@Url.Action("Providers", "FeaturedData")" + "?year=2017&origenData=5";
+        $.ajax({
+            type: 'POST',
+            url: url,
+            dataType: 'json',
+            success: function (result) {
+                console.log(result);
+                drawWordCloud(result.monto,result.proveedor);
             }
+        });
+    function drawWordCloud(monto,proveedor) {
 
-            console.log(word_count);
-            var svg_location = "#chart";
-            var width = $(document).width();
-            var height = $(document).height();
-
-            var fill = d3.scale.category20();
-            var word_entries = d3.entries(word_count);
-
-            var xScale = d3.scale.linear()
-                .domain([0, d3.max(word_entries, function (d) {
-                    return d.value;
-                })
-                ])
-                .range([10, 100]);
-            d3.layout.cloud().size([width, height])
-                .timeInterval(20)
-                .words(word_entries)
-                .fontSize(function (d) { return xScale(+d.value); })
-                .text(function (d) { return d.key; })
-                .rotate(function () { return 0; })
-                .font("Impact")
-                .on("end", draw)
-                .start();
-
-            function draw(words) {
-                d3.select(svg_location).append("svg")
-                    .attr("width", width)
-                    .attr("height", height)
-                    .append("g")
-                    .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
-                    .selectAll("text")
-                    .data(words)
-                    .enter().append("text")
-                    .style("font-size", function (d) { return xScale(d.value) + "px"; })
-                    .style("font-family", "Impact")
-                    //.style("fill", function (d, i) { return fill(i); })
-                    .style("fill", function (d, i) { return "#1f77b4"; })
-                    //.style("background-color","#1f77b4")
-                    .attr("text-anchor", "middle")
-                    .attr("transform", function (d) {
-                        return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
-                    })
-                    .text(function (d) { return  d.key; });
-            }
-
-            d3.layout.cloud().stop();
+        var array_montos = monto;
+        var array_texto = proveedor;
+        console.log(array_montos);
+        var word_count = {};
+        for (i = 0; i < array_montos.length; i++) {
+            word_count[array_texto[i]] = Math.round(array_montos[i]/1);
         }
+
+        console.log(word_count);
+        var svg_location = "#chart";
+        var width = $(document).width();
+        var height = $(document).height();
+
+        var fill = d3.scale.category20();
+        var word_entries = d3.entries(word_count);
+
+        var xScale = d3.scale.linear()
+            .domain([0, d3.max(word_entries, function (d) {
+                return d.value;
+            })
+            ])
+            .range([10, 100]);
+        d3.layout.cloud().size([width, height])
+            .timeInterval(20)
+            .words(word_entries)
+            .fontSize(function (d) { return xScale(+d.value); })
+            .text(function (d) { return d.key; })
+            .rotate(function () { return 0; })
+            .font("Impact")
+            .on("end", draw)
+            .start();
+
+        function draw(words) {
+            d3.select(svg_location).append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function (d) { return xScale(d.value) + "px"; })
+                .style("font-family", "Impact")
+                //.style("fill", function (d, i) { return fill(i); })
+                .style("fill", function (d, i) { return "#1f77b4"; })
+                //.style("background-color","#1f77b4")
+                .attr("text-anchor", "middle")
+                .attr("transform", function (d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
+                })
+                .text(function (d) { return  d.key; });
+        }
+
+        d3.layout.cloud().stop();
+    }
     </script>
+
 
 }

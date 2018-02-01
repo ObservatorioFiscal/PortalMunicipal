@@ -108,7 +108,6 @@
     <EntitySet Name="Subsidio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel2" />
     <EntitySet Name="Subsidio_Nivel3" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel3" />
     <EntitySet Name="SubsidioInforme" EntityType="GastoTransparenteMunicipalModel.SubsidioInforme" />
-    <EntitySet Name="sysdiagrams" EntityType="GastoTransparenteMunicipalModel.sysdiagrams" />
     <AssociationSet Name="FK__Corporaci__IdAno__71D1E811" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__71D1E811">
       <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
       <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
@@ -253,13 +252,13 @@
       <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdNiv__1332DBDC" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__1332DBDC">
-      <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
+    <AssociationSet Name="FK__Subsidio___IdAno__1332DBDC" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC">
+      <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
     <AssociationSet Name="FK__Subsidio___IdNiv__14270015" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015">
+      <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
-      <End Role="Subsidio_Nivel3" EntitySet="Subsidio_Nivel3" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Corporacion_Ano">
@@ -893,6 +892,7 @@
     <Property Name="Mes" Type="Int32" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__114A936A" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__123EB7A3" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
+    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel1">
     <Key>
@@ -903,7 +903,7 @@
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
     <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__123EB7A3" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Ano" />
-    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__1332DBDC" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Nivel2" />
+    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Nivel2" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel2">
     <Key>
@@ -913,8 +913,9 @@
     <Property Name="IdNivel1" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__1332DBDC" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Nivel1" />
-    <NavigationProperty Name="Subsidio_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Nivel3" />
+    <Property Name="IdAno" Type="Int64" />
+    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Ano" />
+    <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Nivel1" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel3">
     <Key>
@@ -924,7 +925,6 @@
     <Property Name="IdNivel2" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel3" ToRole="Subsidio_Nivel2" />
   </EntityType>
   <EntityType Name="SubsidioInforme">
     <Key>
@@ -938,16 +938,6 @@
     <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
     <Property Name="MONTOAPORTE" Type="Double" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK__Corporaci__IdAno__71D1E811">
     <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="0..1" />
@@ -1381,7 +1371,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsidio___IdNiv__1332DBDC">
+  <Association Name="FK__Subsidio___IdAno__1332DBDC">
+    <End Type="GastoTransparenteMunicipalModel.Subsidio_Ano" Role="Subsidio_Ano" Multiplicity="0..1" />
+    <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel2" Role="Subsidio_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subsidio_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Subsidio_Nivel2">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsidio___IdNiv__14270015">
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel1" Role="Subsidio_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel2" Role="Subsidio_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1390,18 +1392,6 @@
       </Principal>
       <Dependent Role="Subsidio_Nivel2">
         <PropertyRef Name="IdNivel1" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Subsidio___IdNiv__14270015">
-    <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel2" Role="Subsidio_Nivel2" Multiplicity="0..1" />
-    <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel3" Role="Subsidio_Nivel3" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subsidio_Nivel2">
-        <PropertyRef Name="IdNivel2" />
-      </Principal>
-      <Dependent Role="Subsidio_Nivel3">
-        <PropertyRef Name="IdNivel2" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
