@@ -307,3 +307,7 @@ h6{
     padding: 10px 0px;
     border-bottom: 2px solid #a0a0a0;
 }
+
+    .celda:hover {
+        background-color: #f5f9ff;
+    }

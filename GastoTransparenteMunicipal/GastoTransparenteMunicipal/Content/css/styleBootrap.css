@@ -84,7 +84,7 @@
 .nav-link-sub{
   font-size: 0.9rem;
   text-align: center;
-  padding: 0rem 1.4rem 0rem 1.4rem;
+  padding: 0 1.4rem;
   min-height: 55px;
 }
 
@@ -172,6 +172,7 @@
     .table thead th {
         vertical-align: bottom;
         border-bottom: 2px solid #e9ecef;
+        font-weight:500;
     }
 
     .table tbody + tbody {

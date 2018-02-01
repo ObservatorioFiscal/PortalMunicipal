@@ -62,14 +62,17 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <div class="row muntotal">
-                                    <div class="col-9">Beneficiario</div>
-                                    <div class="col-3">Monto Millones $</div>
+                                <div class="row celda">
+
                                 </div>
-                                <div class="row celda destacadocolor">
-                                    <div class="col-9">Compañia De Seguros Generales Pentasecurity S.A.</div>
+                                <div class="row muntotal celda">
+                                    <div class="col-9"><h6><b>Beneficiario</b></h6></div>
+                                    <div class="col-3"><h6><b>Monto Millones $</b></h6></div>
+                                </div>
+                                <div class="row celda destacadocolor" id="item-1">
+                                    <div class="col-9" onclick="verDetalle(1)">Compañia De Seguros Generales Pentasecurity S.A.</div>
                                     <div class="col-3">$650.000.000</div>
-                                    <div class="col-12 ">
+                                    <div class="col-12 hijotabla">
                                         <div class="row">
                                             <table class="table">
                                                 <thead>
@@ -144,37 +147,57 @@
         });
 
         function verDetalle(aux) {
-            $(".Tabhijo").remove();
 
-            var auxiliar = $(this).parent();
+            $("#item-" + aux).addClass("destacadocolor");
+            this.children(".col-12").remove();
+            $(".hijotabla").remove();
 
+
+            $("#item-" + aux).append(nuevoHijoHeader());
+
+            $("#item-" + aux).append(nuevoHijoHeader());
+            $("#item-" + aux).append(nuevoHijoFooter());
+            
             //$("#hijosdiv").append(nuevoHijoCabezera());
             //$("#hijosdiv").append(nuevoHijo(item));
 
+
+            
+
         }
 
 
-        function nuevoHijoCabezera() {
+        function nuevoHijoHeader() {
             return '\
-                    <tr class="Tabhijo">\
-                        <th></th>\
-                        <th class="bordeRight">Fecha decreto</th>\
-                        <th>Objetivo</th>\
-                        <th></th>\
-                        <th>Monto</th>\
-                    </tr>\
-                ';
+                    <div class="col-12 hijotabla">\
+                        <div class="row">\
+                            <table class="table">\
+                                <thead>\
+                                    <tr>\
+                                        <th>Fecha Decreto</th>\
+                                        <th>Beneficiario</th>\
+                                        <th>Monto</th>\
+                                    </tr>\
+                                </thead>\
+                                <tbody>\
+                    ';
         }
         function nuevoHijo(item) {
             return '\
-                    <tr class="Tabhijo">\
-                        <td></td>\
-                        <td>20-01-2015</td>\
-                        <td colspan="2">Apoyo de Seguridad a la Comuna</td>\
-                        <td class="text-center">$150.000.000</td>\
+                    <tr>\
+                        <td> 19/04/2016 </td>\
+                        <td> Aporte para mejoramiento de infraestructura del Jardín Infantil "Pequitas". </td>\
+                        <td> $358 </td>\
                     </tr>\
-                ';
-
+                    ';
+        }
+        function nuevoHijoFooter() {
+            return '\
+                            </tbody>\
+                            </table>\
+                        </div>\
+                    </div>\
+                    ';
         }
     </script>
 }
