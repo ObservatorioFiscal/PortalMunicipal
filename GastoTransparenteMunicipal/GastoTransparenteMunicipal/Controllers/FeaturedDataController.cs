@@ -84,6 +84,25 @@ namespace GastoTransparenteMunicipal.Controllers
             return proveedorModel.JsonProveedor;
         }
 
+        public string ProvidersTable(int year, int origenData)
+        {
+            var idMunicipality = GetCurrentIdMunicipality();
+            var takeElements = 20;
+            ProveedorModel proveedorModel = new ProveedorModel();
+            proveedorModel.WordCloud(db, takeElements, idMunicipality, year, origenData);
+
+            return proveedorModel.JsonTabla;
+        }
+
+        public string ProvidersDetalle(int IdNivel1, int origenData= 3)
+        {            
+            var idMunicipality = GetCurrentIdMunicipality();            
+            ProveedorModel proveedorModel = new ProveedorModel();
+            proveedorModel.JsonNivel3(db, IdNivel1, origenData);
+
+            return proveedorModel.JsonDetalle;
+        }
+
         [HttpGet]
         public ActionResult Corporation()
         {   

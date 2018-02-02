@@ -10,10 +10,7 @@ using Newtonsoft.Json;
 namespace GastoTransparenteMunicipal.Controllers
 {
     public class DatosdestacadosController : BaseController
-    {
-        private GastoTransparenteMunicipalEntities db = new GastoTransparenteMunicipalEntities();
-        
-
+    {                
         // GET: Datosdestacados
         public ActionResult Sueldos()
         {
@@ -24,6 +21,8 @@ namespace GastoTransparenteMunicipal.Controllers
         // GET: Datosdestacados
         public ActionResult Proveedores()
         {
+            var idMunicipality = GetCurrentIdMunicipality();
+            ViewBag.Anos = new SelectList(db.Proveedor_Ano.Where(r => r.IdMunicipalidad == idMunicipality), "Ano", "Ano");
             ViewBag.Proveedores = "active";
             return View();
         }
@@ -39,7 +38,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         // GET: Datosdestacados
         public ActionResult Corporaciones()
-        {
+        {            
             ViewBag.Corporaciones = "active";
             return View();
         }

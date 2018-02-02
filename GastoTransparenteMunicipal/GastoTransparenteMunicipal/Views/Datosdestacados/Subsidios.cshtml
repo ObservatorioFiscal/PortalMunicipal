@@ -44,7 +44,10 @@
                     </div>
                 </div>
             </div>
-
+            <div id="tooltip" class="hidden">
+                <p><span class="tooltipTitle">Clasificacion: </span><span id="clasificacion"></span></p>
+                <p><span class="tooltipTitle">Monto: </span><span id="monto"></span></p>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <h2>Buscar Proveedores</h2>
@@ -52,7 +55,7 @@
 
                     <div>
                         <div class="muntotal input-group">
-                            <input type="text" class="" placeholder="Busca un beneficiado">
+                            <input id="buscaSubsidio" type="text" class="" placeholder="Busca un beneficiado">
                             <div>
                                 <button class="btn" type="button">buscar</button>
                             </div>
@@ -155,7 +158,7 @@
             return '\
                     <div class="row celda" id="item-'+ item.IdNivel2 +'">\
                         <div class="col-9" onclick="verDetalle('+ item.IdNivel2 + ')">' + item.Nombre + '<small>(' + item.Categoria+')</small></div>\
-                        <div class="col-3">$'+ item.Monto +'</div>\
+                        <div class="col-3">$'+ item.Monto.toLocaleString() +'</div>\
                     </div>\
                 ';
 
@@ -184,7 +187,7 @@
                     <tr>\
                         <td> 19/04/2016 </td>\
                         <td> '+ item.Nombre +' </td>\
-                        <td> $'+ item.Monto +' </td>\
+                        <td> $'+ item.Monto.toLocaleString() +' </td>\
                     </tr>\
                     ';
         }

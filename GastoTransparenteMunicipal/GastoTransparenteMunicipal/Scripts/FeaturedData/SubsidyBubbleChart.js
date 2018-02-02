@@ -48,7 +48,7 @@ function drawChart(data) {
             var tooltip = d3.select("#tooltip");
             tooltip.style("left", d3.event.pageX + "px");
             tooltip.style("top", d3.event.pageY + "px");
-            tooltip.select("#monto").text(d.data.value);
+            tooltip.select("#monto").text( "$ " + d.data.value.toLocaleString());
             tooltip.select("#clasificacion").text(d.data.className);
 
             d3.select("#tooltip").classed("hidden", false);
@@ -97,11 +97,14 @@ function classes(root) {
 
 
 function selectCircle(idSelected, nameSelected) {
-    var circles = document.getElementsByClassName("circle");        
+    deselectCircle();
+    var circles = document.getElementsByClassName("circle");
+    $("#buscaSubsidio").val('');
+    $("#buscaSubsidio").val(nameSelected);
     for (i = 0; i < circles.length; i++) {
         if (circles[i].id != (idSelected + "S") && circles[i].id != (idSelected + "B")) {
             circles[i].classList.add("disable-color");
-        }
+        }        
     }    
 }
 
