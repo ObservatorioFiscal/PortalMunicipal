@@ -65,10 +65,13 @@ function drawChart(data) {
         .attr("id", function (d) { return d.data.className.replace(/ /g, '') + "B" })
         .style("fill", function (d) {
             var colorPosition = d.data.orderDescPosition;   
-            var li = lateralPanel.append("li").attr("style", "list-style-type: none");
+            var div = lateralPanel.append("div")
+            div.attr("onclick", "selectCircle('" + d.data.className.replace(/ /g, '') + "','" + d.data.className + "')");
+
+            var li = div.append("li").attr("style", "list-style-type: none");
             li.append("i")
                 .attr("class", "circle fa fa-circle")
-                .attr("id", d.data.className.replace(/ /g, '') + "S" )
+                .attr("id", d.data.className.replace(/ /g, '') + "S")                
                 .attr("style", "color:" + vectorColor(colorPosition));
             li.append("label").text(d.data.className);
             return vectorColor(colorPosition);
