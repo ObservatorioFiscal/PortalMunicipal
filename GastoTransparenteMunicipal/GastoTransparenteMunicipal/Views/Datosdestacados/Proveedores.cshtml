@@ -34,7 +34,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" id="chartdiv">
                     <h2>Top 20 proveedores con mayores compras</h2>
                     <div id="chart"></div>
                 </div>
@@ -91,7 +91,8 @@
         init();        
     }
 
-    function init() {        
+    function init() {
+        drawChart
         drawChart();
         llenarTabla();
     }
@@ -215,8 +216,8 @@
         }
 
         var svg_location = "#chart";
-        var width = $(document).width()*(4/5);
-        var height = $(document).height()/3;
+        var width = $("#chartdiv").width();
+        var height = width/3;
 
         var fill = d3.scale.category20();
         var word_entries = d3.entries(word_count);
