@@ -55,7 +55,7 @@
 
                     <div>
                         <div class="muntotal input-group">
-                            <input id="buscaSubsidio" type="text" class="" placeholder="Busca un beneficiado">
+                            <input id="buscaSubsidio" onchange="filter(this)" type="text" class="" placeholder="Busca un beneficiado">
                             <div>
                                 <button class="btn" type="button">buscar</button>
                             </div>
@@ -97,7 +97,29 @@
     <script>
         var idANO = "VALORDELANOTOMADODELGRAFICO";
         
-
+        function filter(element) {
+            var text = element.value.toUpperCase();
+            console.log(text);
+            var listapapa = $("#listapapa")[0];
+            if (text != "") {
+                for (i = 0; i < listapapa.children.length; i++) {
+                    var hijo = listapapa.children[i];
+                    var hijotext = hijo.children[0].outerText.toUpperCase();
+                    if (!hijotext.includes(text)) {
+                        hijo.hidden = true;
+                    }
+                    else {
+                        hijo.hidden = false;
+                    }
+                }
+            }
+            else {
+                for (i = 0; i < listapapa.children.length; i++) {
+                    var hijo = listapapa.children[i];
+                    hijo.hidden = false;
+                }
+            }
+        }
         function llenarCirculos() {
             $.ajax({
                 cache: false,

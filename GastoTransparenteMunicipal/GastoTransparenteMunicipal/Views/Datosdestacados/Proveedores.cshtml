@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="muntotal input-group">
-                <input id="buscaProveedor" type="text" class="" placeholder="Busca un proveedor">
+                <input id="buscaProveedor" onchange="filter(this)" type="text" class="" placeholder="Busca un proveedor">
                 <div>
                     <button class="btn" type="button">buscar</button>
                 </div>
@@ -85,6 +85,30 @@
     <script src="~/Scripts/FeaturedData/WordCloud.js"></script>
 
 <script>
+
+    function filter(element) {        
+        var text = element.value.toUpperCase();      
+        console.log(text);
+        var listapapa = $("#listapapa")[0];  
+        if (text != "") {
+            for (i = 0; i < listapapa.children.length; i++) {
+                var hijo = listapapa.children[i];
+                var hijotext = hijo.children[0].outerText.toUpperCase();
+                if (!hijotext.includes(text)) {
+                    hijo.hidden = true;
+                }
+                else {
+                    hijo.hidden = false;
+                }
+            }
+        }
+        else {
+            for (i = 0; i < listapapa.children.length; i++) {
+                var hijo = listapapa.children[i];               
+                hijo.hidden = false;                
+            }
+        }
+    }
 
     function change() {
         clearAll();
@@ -256,6 +280,7 @@
                 .attr("monto", function (d) { return d.value.toLocaleString(); })
                 .attr("class", "normal-text")
                 .attr("onmouseover", "mouseover_text(event)")
+                .attr("onmousemove", "mousemove_text(event)")
                 .attr("onmouseout", "mouseout_text(event)")
                 .attr("onclick", function (d) {
                     return "selectText('"+ d.key +"')";
@@ -276,8 +301,8 @@
 
         function mouseover_text(event) {
             var tooltip = $("#tooltip");
-            tooltip.css("left", event.pageX + "px");
-            tooltip.css("top", event.pageY + "px");
+            tooltip.css("left", (event.pageX + 20) + "px");
+            tooltip.css("top", (event.pageY - 110) + "px");
             tooltip.select("#monto").text("Monto: $ " + event.srcElement.attributes.monto.nodeValue );
             tooltip.attr("class","");
 
@@ -288,6 +313,11 @@
                     texts[i].classList.add("change-color");
                 }
             }
+        }
+
+        function mousemove_text(event) {
+            mouseout_text(event);
+            mouseover_text(event);
         }
 
         function mouseout_text(event) {
