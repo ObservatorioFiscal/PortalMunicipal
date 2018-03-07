@@ -1,0 +1,86 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.disable-color {
+    fill: #dddddd !important;
+    color: #dddddd !important;
+}
+
+.change-color {
+    fill: #b3daea !important;
+    color: #b3daea !important;
+}
+
+text {
+    font: 20px sans-serif;
+}
+
+.tooltipTitle {
+    font-size: 20px;
+}
+
+#tooltip {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+    #tooltip.hidden {
+        display: none;
+    }
+
+    #tooltip p {
+        margin: 0;
+        font-family: Futura;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+#tooltipProveedor {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+    #tooltipProveedor.hidden {
+        display: none;
+    }
+
+    #tooltipProveedor p {
+        margin: 0;
+        font-family: Futura;
+        font-size: 16px;
+        line-height: 20px;
+    }

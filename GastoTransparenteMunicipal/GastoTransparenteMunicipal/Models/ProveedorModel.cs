@@ -22,120 +22,138 @@ namespace GastoTransparenteMunicipal.Models
             this.Proveedor_Nivel1 = new List<Core.Proveedor_Nivel1>();
             this.Proveedor_Nivel2 = new List<Core.Proveedor_Nivel2>();
         }
-
-        public void Init(GastoTransparenteMunicipalEntities db, int takeElements, int idMunicipality)
+        
+        public void WordCloud(GastoTransparenteMunicipalEntities db, int takeElements, int year, int origenData)
         {
-            var proveedor_Ano = db.Proveedor_Ano.Where(r => r.IdMunicipalidad == idMunicipality).OrderByDescending(r => r.Ano).First();
-
-            LoadNivel1(db, proveedor_Ano, OrigenData.MunicipioTotal, 20);
-            LoadNivel2(db, proveedor_Ano, OrigenData.MunicipioTotal, 20);
+            LoadNivel1(db, year, origenData, takeElements);
             LoadJsonNivel1();
         }
 
-        public void WordCloud(GastoTransparenteMunicipalEntities db, int takeElements, int idMunicipality, int year, int origenData)
+        public void ListaCompleta(GastoTransparenteMunicipalEntities db, int year, int origenData)
         {
-            var proveedor_Ano = db.Proveedor_Ano.Where(r => r.IdMunicipalidad == idMunicipality && r.Ano == year).First();
-
-            LoadNivel1(db, proveedor_Ano, OrigenData.MunicipioTotal, takeElements);
-            LoadNivel2(db, proveedor_Ano, OrigenData.MunicipioTotal, takeElements);
-
-            LoadNivel1(db, proveedor_Ano, OrigenData.MunicipioTotal, takeElements);
-            LoadNivel2(db, proveedor_Ano, OrigenData.MunicipioTotal, takeElements);
-
-            LoadJsonNivel1();
+            LoadNivel1Tabla(db, year, origenData);
+            LoadJsonNivel1Tabla();
         }
 
-        private List<Proveedor_Nivel1> LoadNivel1(GastoTransparenteMunicipalEntities db, Proveedor_Ano proveedor_Ano, int origenData, int takeElements)
+        public void ListaDetalle(GastoTransparenteMunicipalEntities db, int Idnivel1, int origenData)
+        {
+            LoadNivel2(db, Idnivel1, origenData);
+            LoadJsonNivel2();
+        }
+
+
+        private List<Proveedor_Nivel1> LoadNivel1(GastoTransparenteMunicipalEntities db, int year, int origenData, int takeElements)
         {
             object nivel1;
             switch (origenData)
             {
                 case OrigenData.Adm:
-                    nivel1 = db.Proveedor_Adm_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
+                    nivel1 = db.Proveedor_Adm_Nivel1.Where(r => r.IdAno == year).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
                     Mapper.Map((List<Proveedor_Adm_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.Educacion:
-                    nivel1 = db.Proveedor_Educacion_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
+                    nivel1 = db.Proveedor_Educacion_Nivel1.Where(r => r.IdAno == year).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
                     Mapper.Map((List<Proveedor_Educacion_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.Salud:
-                    nivel1 = db.Proveedor_Salud_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
+                    nivel1 = db.Proveedor_Salud_Nivel1.Where(r => r.IdAno == year).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
                     Mapper.Map((List<Proveedor_Salud_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.Cementerio:
-                    nivel1 = db.Proveedor_Cementerio_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
+                    nivel1 = db.Proveedor_Cementerio_Nivel1.Where(r => r.IdAno == year).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
                     Mapper.Map((List<Proveedor_Cementerio_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 case OrigenData.MunicipioTotal:
-                    nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
+                    nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == year).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
 
                     Mapper.Map((List<Proveedor_Total_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
 
                 default:
-                    nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == proveedor_Ano.IdAno).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
+                    nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == year).OrderByDescending(r => r.Monto).Take(takeElements).ToList();
                     Mapper.Map((List<Proveedor_Total_Nivel1>)nivel1, this.Proveedor_Nivel1);
                     return this.Proveedor_Nivel1;
             }
         }
-
-        private List<Proveedor_Nivel2> LoadNivel2(GastoTransparenteMunicipalEntities db, Proveedor_Ano proveedor_Ano, int origenData, int takeElements)
+        private List<Proveedor_Nivel1> LoadNivel1Tabla(GastoTransparenteMunicipalEntities db, int year, int origenData)
         {
+            object nivel1;
             switch (origenData)
             {
                 case OrigenData.Adm:
-                    foreach (var item in this.Proveedor_Nivel1)
-                    {
-                        var nivel2 = db.Proveedor_Adm_Nivel2.Where(r => r.IdNIvel1 == item.IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                        Mapper.Map(nivel2, this.Proveedor_Nivel2);
-                    }
+                    nivel1 = db.Proveedor_Adm_Nivel1.Where(r => r.IdAno == year).ToList();
+                    Mapper.Map((List<Proveedor_Adm_Nivel1>)nivel1, this.Proveedor_Nivel1);
+                    return this.Proveedor_Nivel1;
+
+                case OrigenData.Educacion:
+                    nivel1 = db.Proveedor_Educacion_Nivel1.Where(r => r.IdAno == year).ToList();
+                    Mapper.Map((List<Proveedor_Educacion_Nivel1>)nivel1, this.Proveedor_Nivel1);
+                    return this.Proveedor_Nivel1;
+
+                case OrigenData.Salud:
+                    nivel1 = db.Proveedor_Salud_Nivel1.Where(r => r.IdAno == year).ToList();
+                    Mapper.Map((List<Proveedor_Salud_Nivel1>)nivel1, this.Proveedor_Nivel1);
+                    return this.Proveedor_Nivel1;
+
+                case OrigenData.Cementerio:
+                    nivel1 = db.Proveedor_Cementerio_Nivel1.Where(r => r.IdAno == year).ToList();
+                    Mapper.Map((List<Proveedor_Cementerio_Nivel1>)nivel1, this.Proveedor_Nivel1);
+                    return this.Proveedor_Nivel1;
+
+                case OrigenData.MunicipioTotal:
+                    nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == year).ToList();
+
+                    Mapper.Map((List<Proveedor_Total_Nivel1>)nivel1, this.Proveedor_Nivel1);
+                    return this.Proveedor_Nivel1;
+
+                default:
+                    nivel1 = db.Proveedor_Total_Nivel1.Where(r => r.IdAno == year).ToList();
+                    Mapper.Map((List<Proveedor_Total_Nivel1>)nivel1, this.Proveedor_Nivel1);
+                    return this.Proveedor_Nivel1;
+            }
+        }
+
+        private List<Proveedor_Nivel2> LoadNivel2(GastoTransparenteMunicipalEntities db, int Idnivel1, int origenData)
+        {
+            object nivel2;
+            switch (origenData)
+            {
+                case OrigenData.Adm:
+                    nivel2 = db.Proveedor_Adm_Nivel2.Where(r => r.IdNIvel1 == Idnivel1).ToList();
+                    Mapper.Map((List<Proveedor_Adm_Nivel2>)nivel2, this.Proveedor_Nivel2);
                     return this.Proveedor_Nivel2;
 
                 case OrigenData.Educacion:
-                    foreach (var item in this.Proveedor_Nivel1)
-                    {
-                        var nivel2 = db.Proveedor_Educacion_Nivel2.Where(r => r.IdNIvel1 == item.IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                        Mapper.Map(nivel2, this.Proveedor_Nivel2);
-                    }
+                    nivel2 = db.Proveedor_Educacion_Nivel2.Where(r => r.IdNIvel1 == Idnivel1).ToList();
+                    Mapper.Map((List<Proveedor_Educacion_Nivel2>)nivel2, this.Proveedor_Nivel2);
                     return this.Proveedor_Nivel2;
 
                 case OrigenData.Salud:
-                    foreach (var item in this.Proveedor_Nivel1)
-                    {
-                        var nivel2 = db.Proveedor_Salud_Nivel2.Where(r => r.IdNIvel1 == item.IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                        Mapper.Map(nivel2, this.Proveedor_Nivel2);
-                    }
+                    nivel2 = db.Proveedor_Salud_Nivel2.Where(r => r.IdNIvel1 == Idnivel1).ToList();
+                    Mapper.Map((List<Proveedor_Salud_Nivel2>)nivel2, this.Proveedor_Nivel2);
                     return this.Proveedor_Nivel2;
 
                 case OrigenData.Cementerio:
-                    foreach (var item in this.Proveedor_Nivel1)
-                    {
-                        var nivel2 = db.Proveedor_Cementerio_Nivel2.Where(r => r.IdNIvel1 == item.IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                        Mapper.Map(nivel2, this.Proveedor_Nivel2);
-                    }
+                    nivel2 = db.Proveedor_Cementerio_Nivel2.Where(r => r.IdNIvel1 == Idnivel1).ToList();
+                    Mapper.Map((List<Proveedor_Cementerio_Nivel2>)nivel2, this.Proveedor_Nivel2);
                     return this.Proveedor_Nivel2;
 
                 case OrigenData.MunicipioTotal:
-                    foreach (var item in this.Proveedor_Nivel1)
-                    {
-                        var nivel2 = db.Proveedor_Total_Nivel2.Where(r => r.IdNIvel1 == item.IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                        Mapper.Map(nivel2, this.Proveedor_Nivel2);
-                    }
-                    return this.Proveedor_Nivel2;
+                    nivel2 = db.Proveedor_Total_Nivel2.Where(r => r.IdNIvel1 == Idnivel1).ToList();
 
+                    Mapper.Map((List<Proveedor_Total_Nivel2>)nivel2, this.Proveedor_Nivel2);
+                    return this.Proveedor_Nivel2;
                 default:
-                    foreach (var item in this.Proveedor_Nivel1)
-                    {
-                        var nivel2 = db.Proveedor_Total_Nivel2.Where(r => r.IdNIvel1 == item.IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                        Mapper.Map(nivel2, this.Proveedor_Nivel2);
-                    }
+                    nivel2 = db.Proveedor_Total_Nivel2.Where(r => r.IdNIvel1 == Idnivel1).ToList();
+                    Mapper.Map((List<Proveedor_Total_Nivel2>)nivel2, this.Proveedor_Nivel2);
                     return this.Proveedor_Nivel2;
             }
         }
+
 
         private void LoadJsonNivel1()
         {
@@ -149,45 +167,32 @@ namespace GastoTransparenteMunicipal.Models
             };
 
             this.JsonProveedor = JsonConvert.SerializeObject(proveedor);
-            this.JsonTabla = JsonConvert.SerializeObject(this.Proveedor_Nivel1);
         }
 
-        public void JsonNivel3(GastoTransparenteMunicipalEntities db,int IdNivel1,int origenData)
+        private void LoadJsonNivel1Tabla()
         {
-            object nivel2 = null;
-            switch (origenData)
+            
+            var proveedor = this.Proveedor_Nivel1.Select(r => new
             {
-                case OrigenData.Adm:                    
-                    nivel2 = db.Proveedor_Adm_Nivel2.Where(r => r.IdNIvel1 == IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                    Mapper.Map((List<Proveedor_Adm_Nivel2>)nivel2, this.Proveedor_Nivel2);
-                    this.JsonDetalle = JsonConvert.SerializeObject(this.Proveedor_Nivel2);
-                    break;
-                case OrigenData.Educacion:                    
-                    nivel2 = db.Proveedor_Educacion_Nivel2.Where(r => r.IdNIvel1 == IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                    Mapper.Map((List<Proveedor_Educacion_Nivel2>)nivel2, this.Proveedor_Nivel2);
-                    this.JsonDetalle = JsonConvert.SerializeObject(this.Proveedor_Nivel2);
-                    break;
-                case OrigenData.Salud:                    
-                    nivel2 = db.Proveedor_Salud_Nivel2.Where(r => r.IdNIvel1 == IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                    Mapper.Map((List<Proveedor_Salud_Nivel2>)nivel2, this.Proveedor_Nivel2);
-                    this.JsonDetalle = JsonConvert.SerializeObject(this.Proveedor_Nivel2);
-                    break;
-                case OrigenData.Cementerio:                    
-                    nivel2 = db.Proveedor_Cementerio_Nivel2.Where(r => r.IdNIvel1 == IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                    Mapper.Map((List<Proveedor_Cementerio_Nivel2>)nivel2, this.Proveedor_Nivel2);
-                    this.JsonDetalle = JsonConvert.SerializeObject(this.Proveedor_Nivel2);
-                    break;
-                case OrigenData.MunicipioTotal:                    
-                    nivel2 = db.Proveedor_Total_Nivel2.Where(r => r.IdNIvel1 == IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                    Mapper.Map((List<Proveedor_Total_Nivel2>)nivel2, this.Proveedor_Nivel2);
-                    this.JsonDetalle = JsonConvert.SerializeObject(this.Proveedor_Nivel2);
-                    break;
-                default:                    
-                    nivel2 = db.Proveedor_Total_Nivel2.Where(r => r.IdNIvel1 == IdNivel1).OrderByDescending(r => r.Monto).ToList();
-                    Mapper.Map((List<Proveedor_Total_Nivel2>)nivel2, this.Proveedor_Nivel2);
-                    this.JsonDetalle = JsonConvert.SerializeObject(this.Proveedor_Nivel2);
-                    break;
-            }
+                r.IdNivel1,
+                r.Nombre,
+                r.Monto
+            });
+
+            this.JsonTabla = JsonConvert.SerializeObject(proveedor);
+        }
+
+        private void LoadJsonNivel2()
+        {
+            var proveedor = this.Proveedor_Nivel2.Select(r => new
+            {
+                r.Nombre,
+                r.Monto,
+                r.Glosa,
+                r.Area
+            });
+
+            this.JsonDetalle = JsonConvert.SerializeObject(proveedor);
         }
     }
 }

@@ -11,23 +11,8 @@ namespace GastoTransparenteMunicipal.Controllers
 {
     public class FeaturedDataController : BaseController
     {
-        //[HttpPost]
-        //public ActionResult Subsidy(int year)
-        //{
-        //    var idMunicipality = GetCurrentIdMunicipality();
-        //    SubsidioModel subsidioModel = new SubsidioModel();
-        //    subsidioModel.Load(db, idMunicipality,year);
-        //    return View(subsidioModel);
-        //}
-
-        //[HttpPost]
-        //public string SubsidyAjaxNivel1()
-        //{
-        //    var idMunicipality = GetCurrentIdMunicipality();
-        //    SubsidioModel subsidioModel = new SubsidioModel();
-        //    subsidioModel.Init(db, idMunicipality);
-        //    return subsidioModel.JsonSubsidio;
-        //}
+        //****************SUBSIDIOS****************//
+        //****************************************//
 
         [HttpPost]
         public string SubsidyAjaxNivel1(int year)
@@ -62,69 +47,42 @@ namespace GastoTransparenteMunicipal.Controllers
             return json;
         }
 
-        [HttpGet]
-        public ActionResult Providers()
-        {
-            var idMunicipality = GetCurrentIdMunicipality();
-            var takeElements = 20;
+        //****************PROVEEDORES****************//
+        //****************************************//
 
-            ProveedorModel proveedorModel = new ProveedorModel();
-            proveedorModel.Init(db, takeElements, idMunicipality);
-
-            return View(proveedorModel);
-        }
-
+        
         public string Providers(int year, int origenData)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             var takeElements = 20;
             ProveedorModel proveedorModel = new ProveedorModel();
-            proveedorModel.WordCloud(db, takeElements, idMunicipality, year, origenData);
-
+            proveedorModel.WordCloud(db, takeElements, year, origenData);
             return proveedorModel.JsonProveedor;
         }
 
         public string ProvidersTable(int year, int origenData)
         {
-            var idMunicipality = GetCurrentIdMunicipality();
-            var takeElements = 20;
             ProveedorModel proveedorModel = new ProveedorModel();
-            proveedorModel.WordCloud(db, takeElements, idMunicipality, year, origenData);
-
+            proveedorModel.ListaCompleta(db, year, origenData);
             return proveedorModel.JsonTabla;
         }
 
-        public string ProvidersDetalle(int IdNivel1, int origenData= 3)
-        {            
-            var idMunicipality = GetCurrentIdMunicipality();            
+        public string ProvidersDetalle(int IdNivel1, int origenData)
+        {
             ProveedorModel proveedorModel = new ProveedorModel();
-            proveedorModel.JsonNivel3(db, IdNivel1, origenData);
+            proveedorModel.ListaDetalle(db, IdNivel1, origenData);
 
             return proveedorModel.JsonDetalle;
         }
 
-        [HttpGet]
-        public ActionResult Corporation()
-        {   
-            return View();
-        }
-
-
-        public string CorporationAjax()
+        //****************CORPORACION****************//
+        //****************************************//
+        
+        public string CorporationAjax(int year)
         {
-            var idMunicipality = GetCurrentIdMunicipality();
             CorporacionModel corporacion = new CorporacionModel();
-            corporacion.Init(db, idMunicipality);
+            corporacion.Load(db, year);
             return corporacion.JsonCorporacion_Nivel1;
-        }
-
-        [HttpPost]
-        public ActionResult Corporation(int year)
-        {
-            var idMunicipality = GetCurrentIdMunicipality();
-            CorporacionModel corporacion = new CorporacionModel();
-            corporacion.Load(db, idMunicipality, year);
-            return View(corporacion);
         }
 
         //****************PERSONAL****************//
@@ -134,7 +92,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var idMunicipality = GetCurrentIdMunicipality();
             
-            Personal_Ano personal_Ano = db.Personal_Ano.FirstOrDefault(r => r.IdMunicipalidad == idMunicipality && r.Ano == year);
+            Personal_Ano personal_Ano = db.Personal_Ano.Find(year);
 
             switch (origenData)
             {

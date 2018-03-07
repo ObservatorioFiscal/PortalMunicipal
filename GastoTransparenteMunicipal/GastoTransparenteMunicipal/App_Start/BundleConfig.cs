@@ -20,8 +20,8 @@ namespace GastoTransparenteMunicipal
                       "~/Content/css/styleBootrap.css",
                       "~/Content/css/font.css",
                       "~/Content/css/style.css",
-                      "~/Content/font-awesome.css",
-                      "~/Content/site.css"));          
+                      "~/Content/css/tinyscrollbar.css",
+                      "~/Content/site.css"));      
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));

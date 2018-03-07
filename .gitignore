@@ -11,3 +11,12 @@ GastoTransparenteMunicipal/.vs/GastoTransparenteMunicipal/v15/.suo
 *.pdb
 GastoTransparenteMunicipal/GastoTransparenteMunicipal/obj/Debug/GastoTransparenteMunicipal.dll
 GastoTransparenteMunicipal/GastoTransparenteMunicipal/obj/Debug/GastoTransparenteMunicipal.pdb
+GastoTransparenteMunicipal/Core/bin/Debug/Core.dll
+GastoTransparenteMunicipal/Core/bin/Debug/Core.dll
+*.config
+*.pdb
+*.dll
+*.cache
+*.pdb
+GastoTransparenteMunicipal/GastoTransparenteMunicipal/bin/GastoTransparenteMunicipal.dll.config
+GastoTransparenteMunicipal/GastoTransparenteMunicipal/bin/GastoTransparenteMunicipal.dll

@@ -5,9 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - @ViewBag.logo</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="~/Content/css/font.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/styleBootrap.css" rel="stylesheet" />
+    <link href="~/Content/css/styleSueldos.css" rel="stylesheet" />
+    <link href="~/Content/css/tinyscrollbar.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid">
@@ -21,36 +27,34 @@
                                     <div class="row">
                                         <div class="padding-cero col-10 col-sm-10 col-md-12 align-self-center">
                                             <div class="row">
-                                                <span class="im col-4 align-self-center">
-                                                    <img class="img-fluid" src="~/Content/image/logo.png" alt="LOGO MUNICIPALIDAD XXXXXX" />
+                                                <span class="col-8 align-self-center">
+                                                    <img class="img-fluid" src="~/Content/image/logo.svg" alt="" />
                                                 </span>
-                                                <span class="gr col-8 align-self-center">
-                                                    Gasto Transparente Municipal<br />
-                                                    <small>Rendición de cuentas para nuestro vecinos</small>
+                                                <span class="col-4 align-self-center">
+                                                    <img class="img-fluid" src="~/Content/image/@(ViewBag.logo + ".png")" alt="LOGO MUNICIPALIDAD XXXXXX" />
                                                 </span>
+
                                             </div>
                                         </div>
-                                        <div class="im col-2 col-sm-2 col-md-0 align-self-center ">
-                                            <p class="text-center">
-                                                <a id="menu-mobile">
-                                                    <i class="text-center md-24 amarillo demo-icon icon-down-open">&#xe80c;</i>
-                                                </a>
-                                            </p>
+                                        <div class="col-2 col-sm-2 col-md-0 align-self-center ">
+                                            <a id="menu-mobile">
+                                                <span class="md-24 icon-menu"></span>
+                                            </a>
                                         </div>
                                         <div class="col-12 hidden" id="menu-mobile-contenido">
                                             <hr>
                                             <nav>
-                                                <ul>
+                                                <ul style="padding: 0;">
                                                     <li class="nav-item"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio"> Inicio </a></li>
                                                     <li class="nav-item"><a href="@Url.Action("Index", "Ingresos")" class="@ViewBag.Ingreso">Ingresos </a></li>
                                                     <li class="nav-item"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gasto">Gastos </a></li>
-                                                    <li>
+                                                    <li  class="nav-item">
                                                         Datos destacado
                                                         <ul>
-                                                            <li><a class="@ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores </a></li>
-                                                            <li><a class="@ViewBag.Subsidios" href="@Url.Action("Subsidios","DatosDestacados")">Subsidios </a></li>
-                                                            <li><a class="@ViewBag.Corporaciones" href="@Url.Action("Corporaciones","DatosDestacados")">Corporaciones </a></li>
-                                                            <li><a class="@ViewBag.Sueldos" href="@Url.Action("Sueldos","DatosDestacados")">Sueldos por tipo de funcionario </a></li>
+                                                            <li class="nav-item"><a class="@ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores </a></li>
+                                                            <li class="nav-item"><a class="@ViewBag.Subsidios" href="@Url.Action("Subsidios","DatosDestacados")">Subsidios </a></li>
+                                                            <li class="nav-item"><a class="@ViewBag.Corporaciones" href="@Url.Action("Corporaciones","DatosDestacados")">Corporaciones </a></li>
+                                                            <li class="nav-item"><a class="@ViewBag.Sueldos" href="@Url.Action("Sueldos","DatosDestacados")">Sueldos por tipo de funcionario </a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -74,7 +78,7 @@
                                             </li>
                                             <li class="nav-item destacado">
                                                 <a class="nav-link" href="#">
-                                                    Datos<br> destacados <i class="text-center md-24 demo-icon icon-down-open">&#xe80c;</i>
+                                                    Datos<br> destacados <span class="md-12 icon-Recurso-20"></span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -151,15 +155,19 @@
                                     </div>*@
                                 <div class="col-md-3">
                                     <a href="">
-                                        <img class="text-center img-fluid" src="~/Content/image/logo_municipalidad.png" alt="Municipalidad">
+                                        <img class="text-center img-fluid" src="~/Content/image/@(ViewBag.logo + ".png")" alt="Municipalidad">
                                     </a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-1 align-self-center">
-                            <a href="#"><i class="blanco md-36 demo-icon icon-twitter-squared">&#xf304;</i></a>
-                            <a href="#"><i class="blanco md-36 demo-icon icon-facebook-squared">&#xf308;</i></a>
+                            <a href="#">
+                                <span class="md-36 blanco icon-twitter"></span>
+                            </a>
+                            <a href="#">
+                                <span class="md-36 blanco icon-facebook"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -167,11 +175,9 @@
         </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
 
     <script>

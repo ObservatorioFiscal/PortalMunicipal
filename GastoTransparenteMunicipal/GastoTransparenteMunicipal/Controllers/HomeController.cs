@@ -11,6 +11,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Index()
         {
             var value = GetCurrentMunicipality();
+            ViewBag.logo = value;
             ViewBag.Inicio = "active";
             ViewBag.Destacado = "hidden";
             return View();

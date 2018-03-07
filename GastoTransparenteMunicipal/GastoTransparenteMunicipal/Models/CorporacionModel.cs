@@ -17,20 +17,11 @@ namespace GastoTransparenteMunicipal.Models
         {
             this.Corporacion_Nivel1 = new List<Corporacion_N1>();
         }
-
-        public void Init(GastoTransparenteMunicipalEntities db, int idMunicipality)
+        
+        public void Load(GastoTransparenteMunicipalEntities db, int year)
         {
-            Corporacion_Ano corporacion_Ano = db.Corporacion_Ano.Where(r => r.IdMunicipalidad == idMunicipality).OrderByDescending(r => r.IdAno).First();
-            var corporacion_nivel1 = db.Corporacion_Nivel1.Where(r => r.IdAno == corporacion_Ano.IdAno).ToList();
-            Mapper.Map(corporacion_nivel1, this.Corporacion_Nivel1);
-            LoadJson(this.Corporacion_Nivel1);
-        }
-
-        public void Load(GastoTransparenteMunicipalEntities db, int idMunicipality, int year)
-        {
-            Corporacion_Ano corporacion_Ano = db.Corporacion_Ano.Where(r => r.IdMunicipalidad == idMunicipality && r.Ano == year).First();
-            var corporacion_nivel1 = db.Corporacion_Ano.Where(r => r.IdAno == corporacion_Ano.IdAno).ToList();
-            Mapper.Map(corporacion_nivel1, this.Corporacion_Nivel1);
+            Corporacion_Ano corporacion_Ano = db.Corporacion_Ano.Find(year);
+            Mapper.Map(corporacion_Ano.Corporacion_Nivel1.ToList() , this.Corporacion_Nivel1);
             LoadJson(this.Corporacion_Nivel1);
         }
 
