@@ -34,15 +34,15 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (NIVEL)
             {
                 case "1":
-                    List<Gasto_Nivel1> lista1 = db.Gasto_Ano.Find(year).Gasto_Nivel1.Where(r => r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Gasto_Nivel1> lista1 = db.Gasto_Ano.Find(year).Gasto_Nivel1.Where(r => r.Tipo == FUNCIONALECONOMICO && r.MontoGastado>0).OrderByDescending(r => r.MontoGastado).ToList();
 
                     d3.Load(lista1, "0");
                     break;
                 case "2":
-                    List<Gasto_Nivel2> lista2 = db.Gasto_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Gasto_Nivel2> lista2 = db.Gasto_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                     if (lista2.Count < 1)
                     {
-                        lista2 = db.Gasto_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                        lista2 = db.Gasto_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                         if (lista2.Count < 1)
                         {
                             d3.Load(lista2, "2");// 2= NO hay mas detalle
@@ -55,7 +55,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     else
                     {
-                        if (!db.Gasto_Nivel2.Any(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO))
+                        if (!db.Gasto_Nivel2.Any(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0))
                         {
                             d3.Load(lista2, "3"); // 1= Solo hay en la que eligio
                         }
@@ -66,10 +66,10 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     break;
                 case "3":
-                    List<Gasto_Nivel3> lista3 = db.Gasto_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Gasto_Nivel3> lista3 = db.Gasto_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                     if (lista3.Count < 1)
                     {
-                        lista3 = db.Gasto_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                        lista3 = db.Gasto_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                         if (lista3.Count < 1)
                         {
                             d3.Load(lista3, "2");// 2= NO hay mas detalle
@@ -81,7 +81,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     else
                     {
-                        if (!db.Gasto_Nivel3.Any(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO))
+                        if (!db.Gasto_Nivel3.Any(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0))
                         {
                             d3.Load(lista3, "3");
                         }
@@ -92,10 +92,10 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     break;
                 case "4":
-                    List<Gasto_Nivel4> lista4 = db.Gasto_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Gasto_Nivel4> lista4 = db.Gasto_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                     if (lista4.Count < 1)
                     {
-                        lista4 = db.Gasto_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                        lista4 = db.Gasto_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                         if (lista4.Count < 1)
                         {
                             d3.Load(lista4, "2");// 2= NO hay mas detalle
@@ -107,7 +107,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     else
                     {
-                        if (!db.Gasto_Nivel4.Any(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO))
+                        if (!db.Gasto_Nivel4.Any(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0))
                         {
                             d3.Load(lista4, "3");
                         }
@@ -124,118 +124,7 @@ namespace GastoTransparenteMunicipal.Controllers
             #endregion
         }
 
-
-        #region
-        //public ActionResult GetDatosQuienInvierte29999nivel1(string id)
-        //{
-        //    #region FINAL
-        //    d3Object_TreeMap d3 = new d3Object_TreeMap();
-        //    string[] array;
-        //    bool FUNCIONALECONOMICO f = false;
-        //    string NIVEL = "";
-        //    int PADRE = 0;
-        //    #region parseo Datos
-        //    try
-        //    {
-        //        array = id.Split(';');
-        //        FUNCIONALECONOMICO = (array[0] == "0") ? false : true;
-        //        NIVEL = array[1];
-        //        PADRE = Convert.ToInt32(array[2]);
-        //    }
-        //    catch { }
-        //    #endregion
-        //    switch (NIVEL)
-        //    {
-        //        case "1":
-        //            List<nivel1> lista1 = _context.nivel1.Where(r => r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-
-        //            d3.Load(lista1, "0");
-        //            break;
-        //        case "2":
-        //            List<nivel2> lista2 = _context.nivel2.Where(r => r.Fk_IdNivel1 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-        //            if (lista2.Count < 1)
-        //            {
-        //                lista2 = _context.nivel2.Where(r => r.Fk_IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-        //                if (lista2.Count < 1)
-        //                {
-        //                    d3.Load(lista2, "2");// 2= NO hay mas detalle
-        //                }
-        //                else
-        //                {
-        //                    d3.Load(lista2, "1");// 1= Hay pero en otra categoria
-        //                }
-
-        //            }
-        //            else
-        //            {
-        //                if (!_context.nivel2.Any(r => r.Fk_IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO))
-        //                {
-        //                    d3.Load(lista2, "3"); // 1= Solo hay en la que eligio
-        //                }
-        //                else
-        //                {
-        //                    d3.Load(lista2, "0");// 0= Hay normal
-        //                }
-        //            }
-        //            break;
-        //        case "3":
-        //            List<nivel3> lista3 = _context.nivel3.Where(r => r.Fk_IdNivel2 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-        //            if (lista3.Count < 1)
-        //            {
-        //                lista3 = _context.nivel3.Where(r => r.Fk_IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-        //                if (lista3.Count < 1)
-        //                {
-        //                    d3.Load(lista3, "2");// 2= NO hay mas detalle
-        //                }
-        //                else
-        //                {
-        //                    d3.Load(lista3, "1");
-        //                }
-        //            }
-        //            else
-        //            {
-        //                if (!_context.nivel3.Any(r => r.Fk_IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO))
-        //                {
-        //                    d3.Load(lista3, "3");
-        //                }
-        //                else
-        //                {
-        //                    d3.Load(lista3, "0");
-        //                }
-        //            }
-        //            break;
-        //        case "4":
-        //            List<nivel4> lista4 = _context.nivel4.Where(r => r.Fk_IdNivel3 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-        //            if (lista4.Count < 1)
-        //            {
-        //                lista4 = _context.nivel4.Where(r => r.Fk_IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.Valor).ToList();
-        //                if (lista4.Count < 1)
-        //                {
-        //                    d3.Load(lista4, "2");// 2= NO hay mas detalle
-        //                }
-        //                else
-        //                {
-        //                    d3.Load(lista4, "1");
-        //                }
-        //            }
-        //            else
-        //            {
-        //                if (!_context.nivel4.Any(r => r.Fk_IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO))
-        //                {
-        //                    d3.Load(lista4, "3");
-        //                }
-        //                else
-        //                {
-        //                    d3.Load(lista4, "0");
-        //                }
-        //            }
-        //            break;
-        //    }
-        //    string json = d3.getJson();
-        //    return this.Content(json, "application/json");
-        //    #endregion
-        //}
-        #endregion
+        
 
 
 

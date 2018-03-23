@@ -154,8 +154,8 @@
 
 
 .table {
-    width: 90%;
-    max-width: 90%;
+    width: 91%;
+    max-width: 91%;
     margin:20px auto;
     margin-bottom: 1rem;
     font-size:90%;
@@ -183,6 +183,10 @@
         background-color: #fff;
     }
 
+.alineacion {
+    text-align: right;
+    padding-right: 14%;
+}
 
 .Tabpadre {
     font-weight: 400;

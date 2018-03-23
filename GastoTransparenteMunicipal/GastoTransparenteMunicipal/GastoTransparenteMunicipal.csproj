@@ -233,6 +233,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styleBootrap.css" />
     <Content Include="Content\css\styleSueldos.css" />
+    <Content Include="Content\css\styleTreemap.css" />
     <Content Include="Content\css\tinyscrollbar.css" />
     <Content Include="Content\font\icomoon.svg" />
     <Content Include="Content\image\bg-scrollbar-thumb-y.png" />

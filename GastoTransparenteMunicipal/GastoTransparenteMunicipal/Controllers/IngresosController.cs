@@ -34,15 +34,15 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (NIVEL)
             {
                 case "1":
-                    List<Ingreso_Nivel1> lista1 = db.Ingreso_Ano.Find(year).Ingreso_Nivel1.Where(r => r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Ingreso_Nivel1> lista1 = db.Ingreso_Ano.Find(year).Ingreso_Nivel1.Where(r => r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
 
                     d3.Load(lista1, "0");
                     break;
                 case "2":
-                    List<Ingreso_Nivel2> lista2 = db.Ingreso_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Ingreso_Nivel2> lista2 = db.Ingreso_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                     if (lista2.Count < 1)
                     {
-                        lista2 = db.Ingreso_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                        lista2 = db.Ingreso_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                         if (lista2.Count < 1)
                         {
                             d3.Load(lista2, "2");// 2= NO hay mas detalle
@@ -55,7 +55,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     else
                     {
-                        if (!db.Ingreso_Nivel2.Any(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO))
+                        if (!db.Ingreso_Nivel2.Any(r => r.IdNivel1 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0))
                         {
                             d3.Load(lista2, "3"); // 1= Solo hay en la que eligio
                         }
@@ -66,10 +66,10 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     break;
                 case "3":
-                    List<Ingreso_Nivel3> lista3 = db.Ingreso_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Ingreso_Nivel3> lista3 = db.Ingreso_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                     if (lista3.Count < 1)
                     {
-                        lista3 = db.Ingreso_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                        lista3 = db.Ingreso_Nivel3.Where(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                         if (lista3.Count < 1)
                         {
                             d3.Load(lista3, "2");// 2= NO hay mas detalle
@@ -81,7 +81,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     else
                     {
-                        if (!db.Ingreso_Nivel3.Any(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO))
+                        if (!db.Ingreso_Nivel3.Any(r => r.IdNivel2 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0))
                         {
                             d3.Load(lista3, "3");
                         }
@@ -92,10 +92,10 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     break;
                 case "4":
-                    List<Ingreso_Nivel4> lista4 = db.Ingreso_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo == FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                    List<Ingreso_Nivel4> lista4 = db.Ingreso_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                     if (lista4.Count < 1)
                     {
-                        lista4 = db.Ingreso_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO).OrderByDescending(r => r.MontoGastado).ToList();
+                        lista4 = db.Ingreso_Nivel4.Where(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
                         if (lista4.Count < 1)
                         {
                             d3.Load(lista4, "2");// 2= NO hay mas detalle
@@ -107,7 +107,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                     else
                     {
-                        if (!db.Ingreso_Nivel4.Any(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO))
+                        if (!db.Ingreso_Nivel4.Any(r => r.IdNivel3 == PADRE && r.Tipo != FUNCIONALECONOMICO && r.MontoGastado > 0))
                         {
                             d3.Load(lista4, "3");
                         }

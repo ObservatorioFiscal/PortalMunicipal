@@ -15,9 +15,10 @@ h1, h2, h3,h4,h5,h6{
 	font-weight: 300;
 }
 
-h1{
-	font-size: 2.75rem;
-	padding-top: 2.4rem;
+h1 {
+    font-size: 2.75rem;
+    padding-top: 2.4rem;
+    line-height: 1;
 }
 
 h1 small {
@@ -131,6 +132,10 @@ h6{
     list-style: none;
 }
 
+.menuflecha {
+    margin: 0 0 0 5px;
+}
+
 @media (min-width: 768px) {
     .nav-item {
         border: 0;
@@ -226,6 +231,9 @@ h6{
 
 
 
+
+
+
 .barra-superior {
     position: fixed;
     top: 0;
@@ -282,6 +290,7 @@ h6{
     padding: 1.25rem;
     border-radius: 0.25rem;
     background-color: #f5f9ff;
+    margin: 1rem 0;
 }
 
 
@@ -335,3 +344,74 @@ h6{
     background-color:red;
     vertical-align:middle;
 }
+
+.cabezera {
+    position: absolute;
+    background-color: #f5f9ff;
+    z-index: 2;
+}
+
+
+/* Clase que tendra el tooltip */
+.cssToolTip {
+    position: relative; /* Esta clase tiene que tener posicion relativa */
+}
+
+    /* El tooltip */
+    .cssToolTip .oculto {
+        background: rgb(255, 255, 255);
+        border: 1px solid #b3c1de;
+        border-radius: 3px;
+        box-shadow: 3px 3px 5px #d0d0d0;
+        color: #2f5072;
+        display: none;
+        font-size: 0.55em;
+        padding: 5px;
+        /* max-width: 6000px; */
+        position: absolute;
+        top: 15px;
+        width: 150px;
+        left: 19px;
+        z-index: 100;
+    }
+
+    /* El tooltip cuando se muestra */
+    .cssToolTip:hover .oculto {
+        display: inline; /* Para mostrarlo simplemente usamos display block por ejemplo */
+    }
+
+
+.disable-color {
+    fill: #dddddd !important;
+    color: #dddddd !important;
+}
+
+.change-color {
+    fill: #b3daea !important;
+    color: #b3daea !important;
+}
+
+
+.tooltipTitle {
+    font-size: 20px;
+}
+
+#tooltip {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+    #tooltip.hidden {
+        display: none;
+    }
+
+    #tooltip p {
+        margin: 0;
+    }
+

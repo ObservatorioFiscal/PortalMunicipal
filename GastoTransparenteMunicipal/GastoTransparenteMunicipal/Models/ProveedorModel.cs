@@ -15,7 +15,7 @@ namespace GastoTransparenteMunicipal.Models
         public string JsonDetalle { get; set; }
         public List<Proveedor_Nivel1> Proveedor_Nivel1 { get; set; }
         public List<Proveedor_Nivel2> Proveedor_Nivel2 { get; set; }
-
+        int Ordennumero = 0;
         public ProveedorModel()
         {
             this.JsonProveedor = string.Empty;
@@ -29,8 +29,9 @@ namespace GastoTransparenteMunicipal.Models
             LoadJsonNivel1();
         }
 
-        public void ListaCompleta(GastoTransparenteMunicipalEntities db, int year, int origenData)
+        public void ListaCompleta(GastoTransparenteMunicipalEntities db, int year, int origenData, int orden)
         {
+            Ordennumero = orden;
             LoadNivel1Tabla(db, year, origenData);
             LoadJsonNivel1Tabla();
         }
@@ -171,7 +172,21 @@ namespace GastoTransparenteMunicipal.Models
 
         private void LoadJsonNivel1Tabla()
         {
-            
+            switch (Ordennumero)
+            {
+                case 1://Nombre ascendente
+                    this.Proveedor_Nivel1 = this.Proveedor_Nivel1.OrderByDescending(r => r.Nombre).ToList();
+                    break;
+                case 2://Nombre decendente
+                    this.Proveedor_Nivel1 = this.Proveedor_Nivel1.OrderBy(r => r.Nombre).ToList();
+                    break;
+                case 3://Monto ascendente
+                    this.Proveedor_Nivel1 = this.Proveedor_Nivel1.OrderByDescending(r => r.Monto).ToList();
+                    break;
+                default://Monto decendente o 4
+                    this.Proveedor_Nivel1 = this.Proveedor_Nivel1.OrderBy(r => r.Monto).ToList();
+                    break;
+            }
             var proveedor = this.Proveedor_Nivel1.Select(r => new
             {
                 r.IdNivel1,

@@ -24,11 +24,28 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
 
-        public ActionResult SubsidyChartNivel2(int year)
+        public ActionResult SubsidyChartNivel2(int year,int orden)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
             var lista = db.Subsidio_Nivel2.Where(r => r.IdAno == year).ToList();
+
+            switch (orden)
+            {
+                case 1://Nombre ascendente
+                    lista = lista.OrderByDescending(r => r.Nombre).ToList();
+                    break;
+                case 2://Nombre decendente
+                    lista = lista.OrderBy(r => r.Nombre).ToList();
+                    break;
+                case 3://Monto ascendente
+                    lista = lista.OrderByDescending(r => r.Monto).ToList();
+                    break;
+                default://Monto decendente o 4
+                    lista = lista.OrderBy(r => r.Monto).ToList();
+                    break;
+
+            }
             return this.Json(lista.Select(r =>
                         new
                         {
@@ -60,10 +77,10 @@ namespace GastoTransparenteMunicipal.Controllers
             return proveedorModel.JsonProveedor;
         }
 
-        public string ProvidersTable(int year, int origenData)
+        public string ProvidersTable(int year, int origenData,int orden)
         {
             ProveedorModel proveedorModel = new ProveedorModel();
-            proveedorModel.ListaCompleta(db, year, origenData);
+            proveedorModel.ListaCompleta(db, year, origenData, orden);
             return proveedorModel.JsonTabla;
         }
 
@@ -97,11 +114,11 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (origenData)
             {
                 case OrigenData.Adm:
-                    return this.Json(personal_Ano.Personal_Adm_Nivel1.Select(r =>
+                    return this.Json(personal_Ano.Personal_Adm_Nivel1.OrderBy(r=>r.Nombre).Select(r =>
                                     new
                                     {
                                         Item = r.CodTipo,
-                                        Lista = r.Personal_Adm_Nivel2.Select(l =>
+                                        Lista = r.Personal_Adm_Nivel2.OrderBy(l => l.Nombre).Select(l =>
                                         new
                                         {
                                             Nombre = l.Nombre,
@@ -112,11 +129,11 @@ namespace GastoTransparenteMunicipal.Controllers
                                         })
                                     }), JsonRequestBehavior.AllowGet);
                 case OrigenData.Salud:
-                    return this.Json(personal_Ano.Personal_Salud_Nivel1.Select(r =>
+                    return this.Json(personal_Ano.Personal_Salud_Nivel1.OrderBy(r => r.Nombre).Select(r =>
                                     new
                                     {
                                         Item = r.CodTipo,
-                                        Lista = r.Personal_Salud_Nivel2.Select(l =>
+                                        Lista = r.Personal_Salud_Nivel2.OrderBy(l => l.Nombre).Select(l =>
                                         new
                                         {
                                             Nombre = l.Nombre,
@@ -127,11 +144,11 @@ namespace GastoTransparenteMunicipal.Controllers
                                         })
                                     }), JsonRequestBehavior.AllowGet);
                 case OrigenData.Educacion:
-                    return this.Json(personal_Ano.Personal_Educacion_Nivel1.Select(r =>
+                    return this.Json(personal_Ano.Personal_Educacion_Nivel1.OrderBy(r => r.Nombre).Select(r =>
                                     new
                                     {
                                         Item = r.CodTipo,
-                                        Lista = r.Personal_Educacion_Nivel2.Select(l =>
+                                        Lista = r.Personal_Educacion_Nivel2.OrderBy(l => l.Nombre).Select(l =>
                                         new
                                         {
                                             Nombre = l.Nombre,
@@ -142,11 +159,11 @@ namespace GastoTransparenteMunicipal.Controllers
                                         })
                                     }), JsonRequestBehavior.AllowGet);
                 case OrigenData.Cementerio:
-                    return this.Json(personal_Ano.Personal_Cementerio_Nivel1.Select(r =>
+                    return this.Json(personal_Ano.Personal_Cementerio_Nivel1.OrderBy(r => r.Nombre).Select(r =>
                                     new
                                     {
                                         Item = r.CodTipo,
-                                        Lista = r.Personal_Cementerio_Nivel2.Select(l =>
+                                        Lista = r.Personal_Cementerio_Nivel2.OrderBy(l => l.Nombre).Select(l =>
                                         new
                                         {
                                             Nombre = l.Nombre,
@@ -157,11 +174,11 @@ namespace GastoTransparenteMunicipal.Controllers
                                         })
                                     }), JsonRequestBehavior.AllowGet);
                 case OrigenData.MunicipioTotal:
-                    return this.Json(personal_Ano.Personal_Total_Nivel1.Select(r =>
+                    return this.Json(personal_Ano.Personal_Total_Nivel1.OrderBy(r => r.Nombre).Select(r =>
                                     new
                                     {
                                         Item = r.CodTipo,
-                                        Lista = r.Personal_Total_Nivel2.Select(l =>
+                                        Lista = r.Personal_Total_Nivel2.OrderBy(l=>l.Nombre).Select(l =>
                                         new
                                         {
                                             Nombre = l.Nombre,
