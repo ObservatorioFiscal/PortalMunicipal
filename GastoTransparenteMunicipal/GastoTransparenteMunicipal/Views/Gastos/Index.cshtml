@@ -191,7 +191,7 @@
                                 <h5><b>" + d.className + "</b></h5>\
                             </div>\
                             <div class='descripcion'>\
-                                <p><br>Gastado:</p>\
+                                <p>Gastado:</p>\
                                 <h5>$" + d.valueTooltip1 + " millones</h5>\
                                 <p><small>Equivale al " + d.porcentaje1 + "% del Gasto Municipal.</small></p>\
                                 <p><br>Presupuestado:</p>\
@@ -203,7 +203,7 @@
                     })
                     .on("mousemove", function (d) {
                         tooltip.style("top", function (d) {
-                            if (d3.event.pageY > 250) {
+                            if (d3.event.pageY > 500) {
                                 return (d3.event.pageY - 260) + "px"
                             }
                             else {

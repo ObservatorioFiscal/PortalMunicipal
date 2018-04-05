@@ -20,12 +20,12 @@
                             <span class="select ">
                                 @Html.DropDownList("name", (SelectList)ViewBag.Anos, null, new { @class = "muntotal", @id = "ano" })
                                 @*<select id="ano">
-                                        <option value="2017">2017 a Junio</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                        <option value="2013">2013</option>
-                                    </select>*@
+                                <option value="2017">2017 a Junio</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                            </select>*@
                             </span>
                         </small>
                     </h1>
@@ -64,8 +64,8 @@
                     <div class="row celda">
                     </div>
                     <div id="tabla" class="row muntotal celda">
-                        <div class="col-8"><h6><b>Proveedor</b></h6></div>
-                        <div class="col-4"><h6><b>Monto millones $</b></h6></div>
+                        <div class="col-8"><h6><b>Proveedor                   <a id="busquedaNombre" onclick="orden(1)"><span class="md-24 gris icon-sortasc"></span></a></b></h6></div>
+                        <div class="col-4 alineacion"><h6><b>Monto millones $ <a id="busquedaMonto" onclick="orden(3)"><span class="md-24 icon-sortasc"></span></a></b></h6></div>
                     </div>
 
                     <div id="scrollbar1">
@@ -79,6 +79,12 @@
                 </div>
             </div>
 
+
+            <div class="row">
+                <div class="col">
+                    <p><small>*La información presentada en la seccion es subida y presentada exclusivamente por el municipio.</small></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -90,6 +96,35 @@
     <script src="~/Scripts/select.js"></script>
     <script src="~/Scripts/FeaturedData/SubsidyBubbleChart.js"></script>
     <script>
+        
+        function orden(aux) {
+            var seleccionado;
+            var otro;
+            if (aux == 1) {
+                seleccionado = "busquedaNombre";
+                otro = "busquedaMonto";
+            } else {
+                seleccionado = "busquedaMonto";
+                otro = "busquedaNombre";
+            }
+            if ($("#"+seleccionado).children('span').hasClass('gris')) {
+                $("#" + seleccionado).html('<span class="md-24 icon-sortasc"></span>')
+                llenarTabla(aux+1);
+                $("#" + otro).children('span').addClass('gris')
+            }
+            else {
+                if ($("#" +seleccionado).children('span').hasClass('icon-sortdesc')) {
+                    $("#" +seleccionado).html('<span class="md-24 icon-sortasc"></span>')
+                    llenarTabla(aux+1);
+                }
+                else {
+                    $("#" +seleccionado).html('<span class="md-24 icon-sortdesc"></span>')
+                    llenarTabla(aux);
+                }
+            }
+        }
+
+
         function filter(element) {
             var text = element.toUpperCase();
             console.log(text);
@@ -137,18 +172,20 @@
             });
         }
 
-        function llenarTabla() {
+        function llenarTabla(orden) {
             //$("#listapapa").remove();
             $.ajax({
                 cache: false,
                 async: false,
                 type: 'POST',
                 data: {
-                    year: $("#ano").val()
+                    year: $("#ano").val(),
+                    orden: orden
                 },
                 url: '@Url.Action("SubsidyChartNivel2", "FeaturedData")',
                 dataType: 'json',
                 success: function (data) {
+                    $("#listapapa").empty();
                     $.each(data, function (index, item) {
                         $("#listapapa").append(nuevoPapa(item));
                     });
@@ -192,7 +229,7 @@
             return '\
                 <div class="row celda"  onclick="verDetalle('+ item.IdNivel2 + ')" id="item-'+ item.IdNivel2 +'">\
                     <div class="col-9"><span class="md-24 muntotal icon-Recurso5"> </span>' + item.Nombre + '<small>(' + item.Categoria+')</small></div>\
-                    <div class="col-3">$'+ item.Monto.toLocaleString() +'</div>\
+                    <div class="col-3 alineacion">$'+ item.Monto.toLocaleString() +'</div>\
                 </div>\
                 ';
         }
@@ -230,7 +267,7 @@
         $(document).ready(function () {
             $("select").resizeselect();
             llenarCirculos();
-            llenarTabla();
+            llenarTabla(0);
         });
     </script>
 }

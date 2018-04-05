@@ -44,27 +44,26 @@ function drawChart(data, diameterWidth, diameterHeigth) {
         .attr("class", "node")
         .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
         .on("mouseover", function (d) {
-
             var tooltip = d3.select("#tooltip");
             tooltip.style("left", (d3.event.pageX + 10) + "px");
             tooltip.style("top", (d3.event.pageY - 160) + "px");
             tooltip.select("#monto").text("$ " + d.data.value.toLocaleString());
             tooltip.select("#clasificacion").text(d.data.className);
 
-            d3.select("#tooltip").classed("hidden", false);
+            d3.select("#tooltip").classed("visibility", "visible");
         })
         .on("mousemove", function (d) {
-            d3.select("#tooltip").classed("hidden", true);
+            //d3.select("#tooltip").classed("hidden", true);
             var tooltip = d3.select("#tooltip");
             tooltip.style("left", (d3.event.pageX + 20) + "px");
             tooltip.style("top", (d3.event.pageY - 110) + "px");
-            tooltip.select("#monto").text("$ " + d.data.value.toLocaleString());
-            tooltip.select("#clasificacion").text(d.data.className);
+            //tooltip.select("#monto").text("$ " + d.data.value.toLocaleString());
+            //tooltip.select("#clasificacion").text(d.data.className);
 
-            d3.select("#tooltip").classed("hidden", false);
+            //d3.select("#tooltip").classed("visibility", "hidden");
         })
         .on("mouseout", function () {
-            d3.select("#tooltip").classed("hidden", true);
+            d3.select("#tooltip").classed("visibility", "visible");
 
         });
 
@@ -180,20 +179,20 @@ function drawChart(data, diameterWidth, diameterHeigth) {
             tooltip.select("#monto").text("$ " + d.data.value.toLocaleString());
             tooltip.select("#clasificacion").text(d.data.className);
 
-            d3.select("#tooltip").classed("hidden", false);
+            d3.select("#tooltip").style("visibility", "visible");
         })
         .on("mousemove", function (d) {
-            d3.select("#tooltip").classed("hidden", true);
+            //d3.select("#tooltip").classed("visible", "hidden");
             var tooltip = d3.select("#tooltip");
             tooltip.style("left", (d3.event.pageX + 20) + "px");
             tooltip.style("top", (d3.event.pageY - 110) + "px");
-            tooltip.select("#monto").text("$ " + d.data.value.toLocaleString());
-            tooltip.select("#clasificacion").text(d.data.className);
+            //tooltip.select("#monto").text("$ " + d.data.value.toLocaleString());
+            //tooltip.select("#clasificacion").text(d.data.className);
 
-            d3.select("#tooltip").classed("hidden", false);
+            //d3.select("#tooltip").classed("hidden", false);
         })
         .on("mouseout", function () {
-            d3.select("#tooltip").classed("hidden", true);
+            d3.select("#tooltip").style("visibility", "hidden");
 
         });
 

@@ -3,233 +3,6 @@
     ViewBag.Title = "Gastos";
 }
 
-<style>
-    .numero1 {
-        position: relative;
-    }
-
-        .numero1 .numero2 {
-            width: 100%;
-            vertical-align: middle;
-            position: absolute;
-            top: 8px;
-            border-right: 2px solid #dadada;
-            border-left: 2px solid #dadada;
-        }
-
-            .numero1 .numero2 hr {
-                border-color: #ffffff;
-            }
-
-        .numero1 .numero3 {
-            position: absolute;
-            top: 0px;
-            width: 100%;
-            padding: 0px 10px;
-        }
-
-    .flecha {
-        color: white;
-        font-size: 31px;
-    }
-
-    .seleccionadomiga {
-        border-bottom: 4px solid #F1C330 !important;
-    }
-
-    .migapan {
-        padding: 5px;
-        display: inline-block;
-    }
-
-    .cadamiga {
-        cursor: pointer;
-        display: inline-block;
-    }
-
-        .cadamiga:hover .contenmiga {
-            background-color: #F1C330;
-            color: red;
-        }
-
-            .cadamiga:hover .contenmiga span {
-                color: white;
-            }
-
-        .cadamiga:hover .flecha {
-            border-left: 24px solid #F1C330;
-        }
-
-        .cadamiga .contenmiga {
-            background-color: rgb(245, 249, 255);
-            display: inline-block;
-            float: left;
-            height: 44px;
-            border-bottom: 4px solid transparent;
-        }
-
-        .cadamiga .flecha2 {
-            color: white;
-            width: 0;
-            height: 0;
-            border-top: 24px solid transparent;
-            border-left: 24px solid white;
-            display: inline-block;
-            vertical-align: middle;
-            border-bottom: 20px solid transparent;
-        }
-
-        .cadamiga .flecha {
-            color: white;
-            width: 0px;
-            height: 0;
-            border-top: 24px solid transparent;
-            border-left: 24px solid rgb(245, 249, 255);
-            display: inline-block;
-            border-bottom: 20px solid transparent;
-            margin: 0;
-            padding: 0;
-            float: left;
-        }
-
-        .cadamiga .flechContenido {
-            display: inline-block;
-            padding: 0px 20px;
-            vertical-align: middle;
-        }
-
-            .cadamiga .flechContenido span {
-                color: #34495C
-            }
-
-
-    .node {
-        border: solid 1px white;
-        position: absolute;
-        display: flex;
-        text-align: left;
-        justify-content: space-between;
-        flex-direction: column;
-        color: #4e4e4e;
-        font-size: 14px;
-        overflow: hidden;
-        cursor: pointer;
-    }
-
-        .node:hover {
-            overflow: hidden;
-            background-color: #F1C330 !important;
-        }
-
-    .textos {
-        padding: 10px;
-        text-anchor: middle;
-        pointer-events: none;
-        font-family: Roboto;
-        color: white;
-        font-size: 24px;
-        top: 0px;
-        font-weight: 400;
-        padding-bottom: 1px;
-        margin-right: 20px;
-    }
-
-    .textos2 {
-        text-anchor: middle;
-        pointer-events: none;
-        font-family: Roboto;
-        color: white;
-        font-size: 16px;
-        top: 0px;
-        font-weight: 300;
-        display: block;
-    }
-
-    .tooltiptremap {
-        width: 300px;
-        position: absolute;
-        height: auto;
-        background-color: white;
-        border-radius: 4px;
-        border: 1px solid #95989A;
-        pointer-events: none;
-        top: 0;
-        visibility: hidden;
-    }
-
-        .tooltiptremap .titulo {
-            padding: 10px 10px 0px 10px;
-            font-size: 26px;
-            font-weight: 400;
-            margin: 0px;
-            background-color: #EDF1F2;
-        }
-
-        .tooltiptremap .conten {
-            text-align: left;
-            padding: 10px 10px 0px 10px;
-            margin: 0;
-            font-size: 16px;
-        }
-
-        .tooltiptremap .conten2 {
-            padding: 0px 10px;
-            margin: 0px;
-            text-align: left;
-            font-size: 24px;
-        }
-
-        .tooltiptremap .descrip {
-            padding: 0px 10px 10px 10px;
-            font-size: 12px;
-            margin: 0px;
-            background-color: #EDF1F2;
-        }
-
-        .tooltiptremap .text {
-            text-align: left;
-            font-size: 12px;
-            padding: 0px 0px 20px 10px;
-            margin: 0;
-        }
-
-        .tooltiptremap .mensaje {
-            text-align: left;
-            font-size: 11px;
-            background: #fbfbfb;
-            padding: 10px;
-            margin: 0px 10px 10px 10px;
-            color: #f1c330;
-        }
-
-    .Titulo {
-        font-size: 30px;
-        font-weight: 400;
-        margin-top: 10px;
-    }
-
-        .Titulo span {
-            font-size: 20px;
-            font-weight: 300;
-        }
-
-    .seleccionc {
-        border-bottom: 4px solid transparent;
-        cursor: pointer;
-        color: #314b6a;
-        font-weight: 400;
-        font-size: 22px;
-    }
-
-    .seleccioncambio {
-        color: #F1C330;
-        border-bottom: 4px solid #F1C330 !important;
-    }
-</style>
-
-
-
-
 <input type="hidden" id="IDPAPA" name="IDPAPA" value="0" />
 <input type="hidden" id="NOMBREPAPA" name="NOMBREPAPA" value="" />
 <input type="hidden" id="FUNCECONO" name="FUNCECONO" value="" />
@@ -294,9 +67,8 @@
                         <span id="arrrr" class="seleccionc" onclick="cambio('AREA');return false;"> Area </span>
                     </p>
                     <div id="chart_div" style="min-height:400px;" oncontextmenu="return false;"></div>
-                    <div class="Titulo numero1">
+                    <div class="numero1">
                         <div class="numero2">
-
                             <hr />
                         </div>
                         <div class="numero3" id="Titulo">
@@ -307,6 +79,11 @@
             </div>
 
             <div class="row padding-Div"></div>
+            <div class="row">
+                <div class="col">
+                    <p><small>*La información presentada en la seccion es subida y presentada exclusivamente por el municipio.</small></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -378,9 +155,16 @@
             var NombrePapa = $("#NOMBREPAPA").val();
             var margin = { top: 10, right: 10, bottom: 10, left: 10 };
             var width = $(".container").width();
-            width = (width < 400) ? 400 : width;
             var height = width / 3;
-            var treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(5).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
+            var treemap;
+            if (width < 750) {
+                height = 400;
+                treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(1).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
+            }
+            else {
+                treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(5).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
+            }
+            //var treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(5).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
             var div = d3.select("body").select("#chart_div").append("div").attr("id", "treeChart").style("position", "relative").style("height", (height + margin.top + margin.bottom) + "px").style("top", margin.top + "px");
             var tooltip = d3.select("body").append("div").attr('class', 'tooltiptremap');
             var url = "@Url.Action("JsonGastoNivelX", "Gastos")" + "?tipo=" + FUNCECONO + "&idNivel=" + nivel + "&profundidad=" + IDPAPA + "&year=" + IDANO ;
@@ -401,27 +185,26 @@
                         return d.fondo;
                     })
                     .on("mouseover", function (d) {
-                        tooltip.append("p").attr("id", "texto3").attr("class", "titulo").text(d.className);
-                        tooltip.append("p").attr("id", "texto33").attr("class", "descrip").text(d.descripcion);
-                        tooltip.append("p").attr("id", "texto1").attr("class", "conten").text("Gastado:");
-                        tooltip.append("p").attr("id", "texto11").attr("class", "conten2").text("$" + d.valueTooltip1 + " millones");
-                        var aux1 = "Equivale al " + d.porcentaje1 + "% del gasto de " + NombrePapa + ".";
-                        var aux2 = "Equivale al " + d.porcentaje2 + "% del presupuesto de " + NombrePapa + ".";
-                        if (NombrePapa == "Gastos") {
-                            aux1 = "Equivale al " + d.porcentaje1 + "% del gasto total del municipio";
-                            aux2 = "Equivale al " + d.porcentaje2 + "% del presupuesto total del municipio";
-                        }
-                        tooltip.append("p").attr("id", "texto34").attr("class", "text").text(aux1);
-                        tooltip.append("p").attr("id", "texto2").attr("class", "conten ").text("Presupuestado:");
-                        tooltip.append("p").attr("id", "texto22").attr("class", "conten2 ").text("$" + d.valueTooltip2 + " millones");
-                        tooltip.append("p").attr("id", "texto35").attr("class", "text ").text(aux2);
-                        tooltip.append("p").attr("id", "texto36").attr("class", "mensaje").text("* Click en bloque para ver detalle");
-                        tooltip.style("visibility", "visible");
+                        var caja = tooltip.append("div").attr("class", "caja");
+                        caja.html("\
+                            <div class='titulo'>\
+                                <h5><b>" + d.className + "</b></h5>\
+                            </div>\
+                            <div class='descripcion'>\
+                                <p><br>Gastado:</p>\
+                                <h5>$" + d.valueTooltip1 + " millones</h5>\
+                                <p><small>Equivale al " + d.porcentaje1 + "% del Gasto Municipal.</small></p>\
+                                <p><br>Presupuestado:</p>\
+                                <h5>$" + d.valueTooltip2 + " millones</h5>\
+                                <p><small>Equivale al " + d.porcentaje2 + "% del Gasto Municipal.</small><br><br></p>\
+                            </div>\
+                        ")
+                        tooltip.style("visibility", "visible")
                     })
                     .on("mousemove", function (d) {
                         tooltip.style("top", function (d) {
-                            if (d3.event.pageY > 350) {
-                                return (d3.event.pageY - 360) + "px"
+                            if (d3.event.pageY > 250) {
+                                return (d3.event.pageY - 260) + "px"
                             }
                             else {
                                 return (d3.event.pageY - 10) + "px"
@@ -438,31 +221,13 @@
                     })
                     .on("mouseout", function () {
                         tooltip.style("visibility", "hidden");
-                        $("#texto1").remove();
-                        $("#texto2").remove();
-                        $("#texto3").remove();
-                        $("#texto11").remove();
-                        $("#texto22").remove();
-                        $("#texto3").remove();
-                        $("#texto33").remove();
-                        $("#texto34").remove();
-                        $("#texto35").remove();
-                        $("#texto36").remove();
+                        $(".caja").remove();
                         return 1;
                     })
                     .on("click", function (d) {
                         nivel = document.getElementById("NIVEL").value;
                         if (nivel < "4") {
-                            $("#texto1").remove();
-                            $("#texto2").remove();
-                            $("#texto3").remove();
-                            $("#texto11").remove();
-                            $("#texto22").remove();
-                            $("#texto3").remove();
-                            $("#texto33").remove();
-                            $("#texto34").remove();
-                            $("#texto35").remove();
-                            $("#texto36").remove();
+                            $(".caja").remove();
                             tooltip.style("visibility", "hidden");
                             idpapa = document.getElementById("IDPAPA").value;
                             nombretipo = document.getElementById("FUNCECONO").value;
@@ -477,28 +242,30 @@
                             document.getElementById("treeChart").remove();
                         };
                     })
-                node.append("text").attr("class", "textos").text(function (d) {
+                node.html(function (d) {
                     if (d.className != null) {
                         var largo = d.className.length;
-                        var x = d.dx;
-                        var y = d.dy;
-                        if (((largo * 1) < d.dx) && (d.dy > 40)) {
-                            return d.children ? null : d.className;
-                        }
-                        else {
+                        var x = d.dx, y = d.dy;
+                        if (((largo * 8) + 20) > x) {
+                            if (((y - 20) / 45) > 1 && ((largo * 8) + 20) < (x * 2)) {
+                                return "<h5 style='font-size:1em'><b>" + d.className + "</b><small><br>$" + puntos(d.value) + " millones</small></h5>"
+                            }
+                            return "";
+                        } else if (((largo * 11.5) + 20) < x) {
+                            if (((y - 20) / 70) > 1) {
+                                return "<h5 style='font-size:1.5em'><b>" + d.className + "</b><small><br>$" + puntos(d.value) + " millones</small></h5>"
+                            }
+                            return "<h5 style='font-size:1.5em'><b>" + d.className + "</b></h5>"
+                        } else if (((largo * 9.5) + 20) < x) {
+                            if (((y - 20) / 55) > 1) {
+                                return "<h5 style='font-size:1.2em'><b>" + d.className + "</b><small><br>$" + puntos(d.value) + " millones</small></h5>"
+                            }
+                            return "<h5 style='font-size:1.2em'><b>" + d.className + "</b></h5>"
+                        } else if (((y - 20) / 45) > 1) {
+                            return "<h5 style='font-size:1em'><b>" + d.className + "</b></h5>"
                         }
                     }
-                }).append("text").attr("class", "textos2").text(function (d) {
-                    if (d.value != null) {
-                        var largo = String(d.value).length;
-                        var x = d.dx;
-                        var y = d.dy;
-                        if (((largo / 3) < d.dx) && (d.dy > 80)) {
-                            return d.children ? null : "$" + puntos(d.value) +" millones";
-                        }
-                        else {
-                        }
-                    }
+                    return "";
                 });
                 $("#cuuuu").text("");
                 $("#arrrr").text("");

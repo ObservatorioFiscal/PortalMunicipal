@@ -134,3 +134,4 @@ C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Gast
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Release\GastoTransparenteMunicipal.csproj.CoreCompileInputs.cache
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Release\GastoTransparenteMunicipal.dll
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Release\GastoTransparenteMunicipal.pdb
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Release\GastoTransparenteMunicipal.csproj.CopyComplete

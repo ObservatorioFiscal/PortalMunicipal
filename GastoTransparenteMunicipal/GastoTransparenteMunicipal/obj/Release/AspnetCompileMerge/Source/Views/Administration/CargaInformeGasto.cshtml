@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "CargaInformeGasto";
+}
+<div class="row">
+    <div class="col padding-cero">
+        <div class="absolute">
+            <img src="~/Content/image/fondo.png" class="img-fluid">
+        </div>
+        <div class="relative">
+            <h3 class="text-center blanco small-display">
+                <small>Bienvenido al Gasto Transparente Municipal</small>
+            </h3>
+            <h3 class="text-center blanco container">
+                A Julio de 2017, la Municipalidad <span class="amarillo">gastó $28.549 Millones de pesos</span> <small>de un presupuesto anual de</small> $57.343 Millones de pesos<br><br>
+            </h3>
+
+        </div>
+        <div class="relative-abajo small-display">
+            <p class="text-center blanco">
+                <small>¿De donde se obtuvo y como se usó ese dinero?<br>Te ayudaremos a encontrar las respuestas.</small><br>
+                <a href="#IngresoGastos">
+                    <span class="zoom blanco md-36 octicon octicon-chevron-down"></span>
+                </a>
+            </p>
+        </div>
+        <div class="relative-abajo">
+            <p class="text-center blanco">
+                <a href="#IngresoGastos">
+                    <span class="zoom blanco md-36 octicon octicon-chevron-down"></span>
+                </a>
+            </p>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <h2>CargaInformeGasto</h2>
+
+
+    <form action="@Url.Action("CargaInformeGasto","Administration")" method="post" enctype="multipart/form-data">
+        subir archivo gasto<input type="file" accept=".xls,.xlsx" id="file" name="file" />
+        <input type="submit" value="Submit">
+    </form>
+
+</div>

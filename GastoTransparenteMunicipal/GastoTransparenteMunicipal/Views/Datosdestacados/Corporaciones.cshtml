@@ -40,23 +40,7 @@
 
 <style>
     /* set the CSS */
-    .tooltip {
-        background: white;
-        box-shadow: 0 0 5px #999999;
-        color: #333;
-        display: none;
-        font-size: 14px;
-        font-family: Roboto;
-        font-weight: 300;
-        padding: 0px;
-        position: absolute;
-        text-align: center;
-        width: 250px;
-        border-radius: 4px;
-        border: 1px solid #95989A;
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        z-index: 10;
-    }
+    
 
     .link {
         fill: none;
@@ -95,7 +79,7 @@
                 color = d3.scaleOrdinal(d3.schemeCategory20);
 
             var sankey = d3.sankey()
-                .nodeWidth(30)
+                .nodeWidth(100)
                 .nodePadding(10)
                 .extent([[1, 1], [width - 1, height - 6]]);
 
@@ -108,52 +92,13 @@
 
             var node = svg.append("g")
                 .attr("class", "nodes")
-                .attr("font-family", "Roboto")
-                .attr("font-size", 16)
                 .selectAll("g");
 
             // Define the div for the tooltip
             var tooltip = d3.select('body')            // NEW
                 .append('div')                             // NEW
-                .attr('class', 'tooltip');                 // NEW
-
-            tooltip.append('div')
-                .attr('class', 'source_title')
-                .style("text-align", "left")
-                .style("background", "#EFEFEF")
-                .style("padding", "6px");
-
-            tooltip.append('div')
-                .attr('class', 'name')
-                .style("font-size", "18px")
-                .style("text-align", "right")
-                .style("padding", "6px");
-
-            tooltip.append('div')
-                .attr('class', 'target_title')
-                .style("text-align", "left")
-                .style("background", "#EFEFEF")
-                .style("padding", "6px");
-
-            tooltip.append('div')                        // NEW
-                .attr('class', 'name2')
-                .style("text-align", "right")
-                .style("padding", "6px")
-                .style("font-size", "18px");
-
-            tooltip.append('div')
-                .attr('class', 'value_title')
-                .style("text-align", "left")
-                .style("background", "#EFEFEF")
-                .style("padding", "6px");
-
-            tooltip.append('div')                        // NEW
-                .attr('class', 'value')
-                .style("text-align", "right")
-                .style("padding", "6px")
-                .style("font-size", "18px");
-
-            
+                .attr('class', 'tooltiptremap');                 // NEW
+      
             var IDANO = $("#ano").val();
             var url = "@Url.Action("CorporationAjax", "FeaturedData")" + "?year=" + IDANO;
             d3.json(url, function (error, energy) {
@@ -173,17 +118,25 @@
                     .attr("stroke-width", function (d) { return Math.max(1, d.width); });
 
                 link.on('mouseover', function (d) {
-                    tooltip.select('.source_title').html("Origen:");
-                    tooltip.select('.name').html(d.source.name);
-                    tooltip.select('.target_title').html("Destino:");
-                    tooltip.select('.name2').html(d.target.name);
-                    tooltip.select('.value_title').html("Monto aportado:");
-                    tooltip.select('.value').html("$"+puntos(d.value));
-                    tooltip.style('display', 'block');
+                    tooltip.html("\
+                        <div class='caja'>\
+                            <div class='titulo'>\
+                                <h5>Monto:<b> $"+puntos(d.value)+"</b></h5>\
+                            </div>\
+                            <div class='descripcion'>\
+                                <p>Origen:</p>\
+                                <h5>"+ d.source.name+"</h5>\
+                                <p><br>Destino:</p>\
+                                <h5>"+ d.target.name+"</h5>\
+                            </div>\
+                        </div>\
+                    ")
+                    tooltip.style("visibility", "visible")
                 });
 
                 link.on('mouseout', function () {
-                    tooltip.style('display', 'none');
+                    tooltip.style("visibility", "hidden");
+                    $(".caja").remove();
                 });
 
                 link.on('mousemove', function (d) {
@@ -211,7 +164,7 @@
                     .attr("x", function (d) { return d.x0; })
                     .attr("y", function (d) { return d.y0; })
                     .attr("height", function (d) { return d.y1 - d.y0; })
-                    .attr("width", function (d) { return 30; })
+                    .attr("width", function (d) { return 100; })
                     .attr("fill", function (d) {
                         return "#0D2B50";
                     })
@@ -222,14 +175,18 @@
                     .attr("y", function (d) { return (d.y1 + d.y0 - 15) / 2; })
                     .attr("dy", "0.9em")
                     .attr("text-anchor", "end")
-                    .text(function (d) { return d.name2; })
+                    .text(function (d) {
+                        if ($("#Grafico").width() > 500) {
+                            return d.name2;
+                        }
+                        else {
+                            return "";
+                        }
+                    })
                     .filter(function (d) { return d.x0 < width / 2; })
                     .attr("x", function (d) { return d.x1 + 20; })
                     .attr("text-anchor", "start");
-
-                node.selectAll("text")
-                    .style("font-size", "16px")
-                    .style("font-weight", "300");
+                
 
                 node.append("text")
                     .attr("class", "nodeValue")
@@ -237,13 +194,12 @@
 
                 ///align vertically???
                 node.selectAll("text.nodeValue")
-                    .attr("x", function (d) { return d.x0 + 15; })
+                    .attr("x", function (d) { return d.x0 + 10; })
                     .attr("y", function (d) { return (d.y1 + d.y0 + 5) / 2; })
-                    .text(function (d) { return formatNumber(d.value); })
+                    .text(function (d) { return "$"+puntos(d.value); })
                     .style("fill", "white")
-                    .style("font-size", "10px")
                     .style("text-shadow", " 0 0 0 #fff")
-                    .attr("text-anchor", "middle");
+                    .attr("text-anchor", "start");
 
 
                 function highlight_node_links(node, i) {

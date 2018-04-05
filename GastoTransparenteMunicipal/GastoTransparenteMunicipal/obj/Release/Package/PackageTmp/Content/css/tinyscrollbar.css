@@ -4,7 +4,7 @@
     margin: 0 0 40px;
 }
     #scrollbar1 .viewport { 
-        width: 96%;
+        width: 95%;
         height: 480px;
         overflow: hidden;
         position: relative;

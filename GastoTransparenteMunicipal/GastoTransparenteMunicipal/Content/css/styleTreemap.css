@@ -129,34 +129,3 @@
     border-bottom: 4px solid #F1C330 !important;
 }
 
-.tooltiptremap {
-    width: 300px;
-    position: absolute;
-    height: auto;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid #95989A;
-    pointer-events: none;
-    top: 0;
-    visibility: hidden;
-}
-
-    .tooltiptremap .caja {
-    }
-
-        .tooltiptremap .caja .titulo {
-            padding: 10px;
-            background-color: #f5f9ff;
-            color: #193659;
-        }
-
-        .tooltiptremap .caja .descripcion {
-            padding: 10px;
-        }
-
-        .tooltiptremap .caja p,
-        .tooltiptremap .caja h5 {
-            margin: 0;
-            padding: 0;
-            line-height: 1.2;
-        }

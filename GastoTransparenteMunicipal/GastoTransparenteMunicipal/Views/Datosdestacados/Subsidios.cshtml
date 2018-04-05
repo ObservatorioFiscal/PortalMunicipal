@@ -44,9 +44,20 @@
                         <div class="col-md-5 align-self-center" id="lateralPanel"></div>
                     </div>
                 </div>
-                <div id="tooltip" class="hidden">
-                    <p><span class="tooltipTitle">Clasificacion: </span><span id="clasificacion"></span></p>
-                    <p><span class="tooltipTitle">Monto: </span><span id="monto"></span></p>
+                <div id="tooltip" class="tooltiptremap">
+                    <div class="caja">
+                        <div class='titulo'>
+                            <h5><b id="clasificacion"></b></h5>
+                        </div>
+                        <div class='descripcion'>
+                            <p>Monto:</p>
+                            <h5 id="monto"></h5>
+                        </div>
+                    </div>
+
+
+                    @*<p><span class="tooltipTitle">Clasificacion: </span><span id="clasificacion"></span></p>
+                    <p><span class="tooltipTitle">Monto: </span><span id="monto"></span></p>*@
                 </div>
             </div>
 
@@ -65,7 +76,7 @@
                     </div>
                     <div id="tabla" class="row muntotal celda">
                         <div class="col-8"><h6><b>Proveedor                   <a id="busquedaNombre" onclick="orden(1)"><span class="md-24 gris icon-sortasc"></span></a></b></h6></div>
-                        <div class="col-4 alineacion"><h6><b>Monto millones $ <a id="busquedaMonto" onclick="orden(3)"><span class="md-24 icon-sortasc"></span></a></b></h6></div>
+                        <div class="col-4 alineacion"><h6><b>Monto $ <a id="busquedaMonto" onclick="orden(3)"><span class="md-24 icon-sortasc"></span></a></b></h6></div>
                     </div>
 
                     <div id="scrollbar1">

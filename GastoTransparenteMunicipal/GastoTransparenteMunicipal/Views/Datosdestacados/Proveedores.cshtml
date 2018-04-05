@@ -39,7 +39,16 @@
                     <h2>Top 20 proveedores con mayores compras</h2>
                     <div id="chart" class="muntotal"></div>
                 </div>
-                <div id="tooltip" class="hidden">
+                <div id="tooltip" class="tooltiptremap">
+                    <div class="caja">
+                        <div class='titulo'>
+                            <h5><b id="clasificacion"></b></h5>
+                        </div>
+                        <div class='descripcion'>
+                            <p>Monto:</p>
+                            <h5 id="monto"></h5>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -57,7 +66,7 @@
 
                     <div id="tabla" class="row muntotal celda">
                         <div class="col-8"><h6><b>Proveedor                   <a id="busquedaNombre" onclick="orden(1)"><span class="md-24 gris icon-sortasc"></span></a></b></h6></div>
-                        <div class="col-4 alineacion"><h6><b>Monto millones $ <a id="busquedaMonto" onclick="orden(3)"><span class="md-24 icon-sortasc"></span></a></b></h6></div>
+                        <div class="col-4 alineacion"><h6><b>Monto $ <a id="busquedaMonto" onclick="orden(3)"><span class="md-24 icon-sortasc"></span></a></b></h6></div>
                     </div>
 
                     <div id="scrollbar1">
@@ -344,11 +353,12 @@
         }
 
         function mouseover_text(event) {
-            var tooltip = $("#tooltip");
-            tooltip.css("left", (event.pageX + 20) + "px");
-            tooltip.css("top", (event.pageY - 110) + "px");
-            tooltip.text("Monto: $ " + event.srcElement.attributes.monto.nodeValue );
-            tooltip.attr("class","");
+            var tooltip = d3.select("#tooltip");
+            tooltip.style("left", (event.pageX + 20) + "px");
+            tooltip.style("top", (event.pageY - 110) + "px");
+            tooltip.select("#monto").text("$ " + event.srcElement.attributes.monto.nodeValue);
+            tooltip.select("#clasificacion").text(event.toElement.innerHTML);
+            tooltip.style("visibility","visible");
 
             var id = event.srcElement.id;
             var texts = document.getElementsByClassName("normal-text");
@@ -365,8 +375,8 @@
         }
 
         function mouseout_text(event) {
-            var tooltip = $("#tooltip");
-            tooltip.attr("class", "hidden");
+            var tooltip = d3.select("#tooltip");
+            tooltip.style("visibility", "hidden");
             var circles = document.getElementsByClassName("normal-text");
             for (i = 0; i < circles.length; i++) {
                 circles[i].classList.remove("change-color");
