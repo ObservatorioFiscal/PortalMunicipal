@@ -2,104 +2,59 @@
     ViewBag.Title = "About";
 }
 
-<div class="row">
-    <div class="col padding-cero">
-        <div class="absolute">
-            <img src="~/Content/image/fondo.png" class="img-fluid">
-        </div>
-        <div class="relative">
-            <h3 class="text-center blanco small-display">
-                <small>Bienvenido al Gasto Transparente Municipal</small>
-            </h3>
-            <h3 class="text-center blanco container">
-                A Julio de 2017, la Municipalidad <span class="amarillo">gastó $28.549 Millones de pesos</span> <small>de un presupuesto anual de</small> $57.343 Millones de pesos<br><br>
-            </h3>
-
-        </div>
-        <div class="relative-abajo small-display">
-            <p class="text-center blanco">
-                <small>¿De donde se obtuvo y como se usó ese dinero?<br>Te ayudaremos a encontrar las respuestas.</small>
-                <br>
-                <a href="#IngresoGastos">
-                    <span class="zoom blanco md-12 icon-Recurso-20"></span>
-                </a>
-            </p>
-        </div>
-
-    </div>
-</div>
-<div class="row">
-    <div class="col grisB padding-Div" id="IngresoGastos">
+<div class="row seccion-destado">
+    <div class="col">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center">
-                    <h2>¿De dónde provienen los recursos?</h2>
-                    <p><br>Conoce ingresos por aportes del gobiernos,  patentes municipales, permisos de circulación, etc. en cada una de las áreas: Salud, Educación, Servicios Municipales y Cementerios(Se consideran los aportes que el municipio les entrega a las distintas Corporaciones de la comuna).<br><br></p>
-                    <a href="@Url.Action("Index","Ingresos")" class="btn">Ingresos</a>
-                </div>
-                <div class="col-md-6 text-center">
-                    <h2>¿Cómo se usa ese dinero?</h2>
-                    <p><br>Conoce los gastos por áreas como Salud, Educación, Servicios o por tipo de cuentas entre los cuales se encuentran Personal, bienes y servicios o transferencias.(Se consideran los aportes que el municipio les entrega a las distintas Corporaciones de la comuna).<br><br></p>
-                    <a href="@Url.Action("Index","Gastos")" class="btn">Gastos</a>
+                <div class="col-md-12">
+                    <h1>
+                        Informacion del Proyecto
+                    </h1>
+                    <h2>Descripción </h2>
+                    <p>
+                        El proyecto "Gasto Transparente Municipal (Cuentas Claras)" es una iniciativa fue impulsada por Observatorio del Gasto Fiscal, en conjunto con el Consejo para la Transparencia, que consistió en el diseño y la creación de un portal de rendición de cuentas que los municipios pueden implementar en su propio sitio web para publicar información de su gasto de forma amigable, entendible y de interés para la comunidad.<br /><br />
+                        De esta manera, se busca promover una mejor rendición de cuentas del gasto municipal que atraiga a los vecinos y que les otorgue mayores capacidades de control. Por consiguiente, se incentiva no solamente la publicación de datos brutos relevantes, sino también el uso de visualizaciones que posibiliten mejores opciones para los usuarios de obtener conclusiones,comprendiendo en qué y cómo se gastan los recursos municipales.<br /><br />
+                        El Proyecto se inició en Junio 2016, sumando la voluntad y el interés de 5 municipios pilotos. En Octubre del mismo año, el Laboratorio de Gobierno apoyó el proyecto entregando recursos adicionales para fortalecer la iniciativa.<br /><br />
+                        En Julio de 2017, el Consejo para la Transparencia (CPLT) y el Observatorio firmaron un convenio de colaboración, para impulsar y gestionar juntos este modelo de Transparencia Presupuestaria. Por lo anterior, desde Septiembre 2017, el CPLT se suma a la iniciativa “Gasto Transparente Municipal”, con el interés de refozarla e impulsar su implementación futura en más municipios.<br /><br />
+                        Actualmente, el portal es administrado por la municipalidad, con el apoyo desde un nivel más centralizado del CPLT para el seguimiento de la actualización, así como para el alojamiento de los servidores que sustentan la plataforma.
+
+                    </p>
+
+                    <h2>Objetivos del Proyecto</h2>
+                    <p>
+                        °Mejorar la rendición de cuentas públicas.<br />
+                        °Facilitar la comprensión ciudadana de la información del gasto municipal<br />
+                        °Aumentar la participación ciudadana en la asignación y control de recursos públicos<br />
+                        °Aumentar la confianza ciudadana
+                    </p>
+                    <p class="text-center"><img src="~/Content/image/circulos.png" class="img-fluid" /></p>
+
+                    <h2>Etapas desarrolladas</h2>
+                    <p>
+                        <b class="cementerio">Fase 1 - Desarrollo Focus Group Ciudadanos:</b> Antes de empezar el diseño del portal, se desarrollaron jornadas de focus con ciudadanos de cada una de las comunas participantes del piloto, con el objeto de levantar las principales áreas de interés y requerimientos de información de los vecinos en materia de gasto municipal (<a href="" target="_blank">ver informe de resultados del levantamiento aquí</a>)<br /><br />
+                        <b class="cementerio">Fase 2 - Preparación de la información municipal:</b> Con la información levantada, se elaboró un plan de trabajo con los municipios para identificar y y extraer de los sistemas informáticos internos los datos que se requerían para dar cumplimiento a los intereses identificados, priorizando aquella información con mayor factibilidad de obtención y procesamiento.<br /><br />
+                        <b class="cementerio">Fase 3: Desarrollo de evaluaciones de experiencia de usuarios:</b> Se inicia en paralelo la fase de diseño de prototipos de maqueta del Portal, los cuales en distintas etapas iterativas se fueron validando a través de una metodología de Experiencia de Usuarios (Ux), de tal manera de que el desarrollo posterior recogiera se adaptara lo más cercanamente posible al perfil y necesidades de los usuarios.<br /><br />
+                        <b class="cementerio">Fase 4: Desarrollo informático, aprobación y entrega de plataforma web al municipio y CPLT:</b> Una vez aprobado el prototipo, se inicia el desarrollo informático de la plataforma, culminando el ciclo con la aprobación final de los municipios y del CPLT para su publicación y puesta en producción.
+                    </p>
+
+                    <h2>Municipios Pilotos</h2>
+                    <p>
+                        Mediante la firma de un convenio, los alcaldes de las comunas de Peñalolén, La Reina, Vitacura, Recoleta e Isla de Pascua acordaron ser parte del grupo de municipalidades pilotos de este proyecto.<br /><br />
+                        El Portal Gasto Transparente Municipal estará disponible en formato open source, de forma gratuita, para incentivar su implementación por otras municipalidades, así como para facilitar a nivel nacional.
+
+                    </p>
                 </div>
             </div>
+            <div class="row padding-Div">
+                <div class="col-12" id="Grafico">
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col padding-Div">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 padding-cero">
-                    <h2>Datos destacados</h2>
-                    <p>Analiza en detalle cómo se gastan los recursos de la comuna vinculados al municipio, desde los recursos manejados directamente por él, hasta los recursos gestionados a través de las corporaciones dependientes del Alcalde.<br><br><br></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Sueldos","DatosDestacados")">
-                                <span class="md-96 icon-Recurso2"></span>
-                                <p><br>¿Cual es el sueldo promedio por tipo de funcionario?</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Proveedores","DatosDestacados")">
-                                <span class="md-96 icon-Recurso3"></span>
-                                <p><br>¿A quiénes le <br> compramos?</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Subsidios","DatosDestacados")">
-                                <span class="md-96 icon-Recurso7"></span>
-                                <p><br>¿A quiénes<br>  subsidiamos?</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Corporaciones","DatosDestacados")">
-                                <span class="md-96 icon-Recurso1"></span>
-                                <p><br>¿Cómo se financian nuestras Corporaciones?</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 
 @section Scripts{
     <script type="text/javascript">

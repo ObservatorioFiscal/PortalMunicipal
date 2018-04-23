@@ -11,7 +11,7 @@
                     <h1>
                         Subsidios
                         <small>
-                            del
+                            de
                             <span class="muntotal">Municipio Total</span>
                         </small>
 
@@ -19,23 +19,16 @@
                             del año:
                             <span class="select ">
                                 @Html.DropDownList("name", (SelectList)ViewBag.Anos, null, new { @class = "muntotal", @id = "ano" })
-                                @*<select id="ano">
-                                <option value="2017">2017 a Junio</option>
-                                <option value="2016">2016</option>
-                                <option value="2015">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                            </select>*@
                             </span>
                         </small>
                     </h1>
-                    <p>Las compras del municipio representan un 10% del total de gasto realizado a julio de 2017, los montos constituyen los compromisos anuales adquiridos por el municipio con cada proveedor.</p>
+                    <p>En esta sección podrás enterarte de las organizaciones de la comuna que han recibido subvenciones por parte del municipios, en el marco de lo estipulado en la ley 19.862.</p>
                 </div>
             </div>
 
             <div class="row padding-Div-top">
                 <div class="col-md-12">
-                    <h2>Montos por clasificacion de subsidios</h2>
+                    <h2>Subsidios según tipo de organizaciones</h2>
                 </div>
                 <div class="col-md-12">
                     <div class="row" id="container">
@@ -54,15 +47,11 @@
                             <h5 id="monto"></h5>
                         </div>
                     </div>
-
-
-                    @*<p><span class="tooltipTitle">Clasificacion: </span><span id="clasificacion"></span></p>
-                    <p><span class="tooltipTitle">Monto: </span><span id="monto"></span></p>*@
                 </div>
             </div>
 
 
-
+            @*LISTADO DE SUBSIDIOS*@
             <div class="row padding-Div">
                 <div class="col-md-12">
                     <h2>Buscar Beneficiarios</h2>
@@ -103,11 +92,11 @@
 
 @section Scripts{
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tinyscrollbar/2.4.2/jquery.tinyscrollbar.min.js"></script>
     <script src="~/Scripts/select.js"></script>
     <script src="~/Scripts/FeaturedData/SubsidyBubbleChart.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tinyscrollbar/2.4.2/jquery.tinyscrollbar.min.js"></script>
     <script>
-        
+
         function orden(aux) {
             var seleccionado;
             var otro;

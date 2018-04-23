@@ -85,7 +85,7 @@
   font-size: 0.9rem;
   text-align: center;
   padding: 0 1.4rem;
-  min-height: 55px;
+  min-height: 50px;
 }
 
 .btn {
@@ -110,6 +110,17 @@
   border-color: #002851;
 }
 
+.btn-xs {
+    background-color: #153256;
+    display: inline-block;
+    font-weight: 400;
+    min-width: 120px;
+    text-align: center;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
 .btn:focus, .btn:hover {
   text-decoration: none;
   color: #fff;
@@ -129,6 +140,7 @@
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
+    justify-content: center;
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
@@ -136,11 +148,10 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     margin-bottom: 5px;
+    min-height: 300px;
 }
 
 .card-body {
-  -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
   padding: 1.25rem;
  font-weight:400;
 }

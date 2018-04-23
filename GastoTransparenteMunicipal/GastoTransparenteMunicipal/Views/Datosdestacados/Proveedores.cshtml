@@ -11,11 +11,11 @@
                     <h1>
                         Proveedores
                         <small>
-                            del
+                            de
                             <span class="select">
                                 <select id="origenData">
                                     <option value="@OrigenData.MunicipioTotal">Municipio Total</option>
-                                    <option value="@OrigenData.Adm">Adm. y Serv. Municipal</option>
+                                    <option value="@OrigenData.Adm">Adm. y Serv. Municipales</option>
                                     <option value="@OrigenData.Salud">Salud</option>
                                     <option value="@OrigenData.Educacion">Educación</option>
                                     <option value="@OrigenData.Cementerio">Cementerio</option>
@@ -30,32 +30,23 @@
                             </span>
                         </small>
                     </h1>
-                    <p>Las compras del municipio representan un 10% del total de gasto realizado a julio de 2017, los montos constituyen los compromisos anuales adquiridos por el municipio con cada proveedor.</p>
+                    <p>En esta sección sabrás cuales son los principales proveedores que le venden bienes o le prestan servicios al municipio. </p>
                 </div>
             </div>
 
             <div class="row padding-Div">
                 <div class="col-md-12" id="chartdiv">
-                    <h2>Top 20 proveedores con mayores compras</h2>
+                    <h2>Los proveedores más importantes</h2>
+                    <p>En esta gráfica podrás observar los top 20 proveedores que más le venden al municipio, en términos de montos transados.</p>
                     <div id="chart" class="muntotal"></div>
-                </div>
-                <div id="tooltip" class="tooltiptremap">
-                    <div class="caja">
-                        <div class='titulo'>
-                            <h5><b id="clasificacion"></b></h5>
-                        </div>
-                        <div class='descripcion'>
-                            <p>Monto:</p>
-                            <h5 id="monto"></h5>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <div class="row padding-Div">
                 <div class="col-md-12">
                     <h2>Buscar Proveedores</h2>
-                    <p>Si el proveedor que buscas no está entre los 20 principales, usa el buscador que aparece a continuación:<br></p>
+                    <p>Si deseas revisar detalles de las transacciones del municipio con un proveedor específico, búscalo indicando su nombre o razón social de la empresa.<br>
+                    </p>
                 </div>
                 <div class="col-md-12">
                     <input id="buscaProveedor" onkeyup="filter(this.value)" type="text" class="form-control" placeholder="Ingrese el nombre del proveedor">
@@ -63,7 +54,6 @@
                 <div class="col-12">
                     <div class="row celda">
                     </div>
-
                     <div id="tabla" class="row muntotal celda">
                         <div class="col-8"><h6><b>Proveedor                   <a id="busquedaNombre" onclick="orden(1)"><span class="md-24 gris icon-sortasc"></span></a></b></h6></div>
                         <div class="col-4 alineacion"><h6><b>Monto $ <a id="busquedaMonto" onclick="orden(3)"><span class="md-24 icon-sortasc"></span></a></b></h6></div>
@@ -76,16 +66,26 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col">
                     <p><small>*La información presentada en la seccion es subida y presentada exclusivamente por el municipio.</small></p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="tooltip" class="tooltiptremap" style="transition:opacity 0.4s linear;">
+    <div class="caja">
+        <div class="titulo">
+            <h5><b id="classNombre"></b></h5>
+        </div>
+        <div class="descripcion">
+            <p>Monto:</p>
+            <h5 id="valueTooltip1"></h5>
         </div>
     </div>
 </div>
@@ -97,7 +97,7 @@
     <script src="~/Scripts/select.js"></script>
     <script src="~/Scripts/FeaturedData/WordCloud.js"></script>
 
-    <script>
+    <script type="text/javascript">
 
         function orden(aux) {
             var seleccionado;
@@ -250,7 +250,6 @@
             </div>\
             ';
         }
-
         function nuevoHijoHeader(aux) {
             return '\
                     <div class="col-12 hijotabla" id="hijotabla" >\
@@ -271,7 +270,6 @@
                     </div>\
                     ';
         }
-
         function nuevoHijo(item) {
             return '\
                     <tr>\
@@ -354,19 +352,20 @@
 
         function mouseover_text(event) {
             var tooltip = d3.select("#tooltip");
+            document.getElementById("classNombre").innerHTML = event.toElement.innerHTML;
+            document.getElementById("valueTooltip1").innerHTML = "$ " + event.srcElement.attributes.monto.nodeValue;
+            tooltip.style("opacity", "1")
+           
             tooltip.style("left", (event.pageX + 20) + "px");
             tooltip.style("top", (event.pageY - 110) + "px");
-            tooltip.select("#monto").text("$ " + event.srcElement.attributes.monto.nodeValue);
-            tooltip.select("#clasificacion").text(event.toElement.innerHTML);
-            tooltip.style("visibility","visible");
 
-            var id = event.srcElement.id;
-            var texts = document.getElementsByClassName("normal-text");
-            for (i = 0; i < texts.length; i++) {
-                if (texts[i].id != id) {
-                    texts[i].classList.add("change-color");
-                }
-            }
+            //var id = event.srcElement.id;
+            //var texts = document.getElementsByClassName("normal-text");
+            //for (i = 0; i < texts.length; i++) {
+            //    if (texts[i].id != id) {
+            //        texts[i].classList.add("change-color");
+            //    }
+            //}
         }
 
         function mousemove_text(event) {
@@ -376,7 +375,7 @@
 
         function mouseout_text(event) {
             var tooltip = d3.select("#tooltip");
-            tooltip.style("visibility", "hidden");
+            tooltip.style("opacity", "0")
             var circles = document.getElementsByClassName("normal-text");
             for (i = 0; i < circles.length; i++) {
                 circles[i].classList.remove("change-color");
@@ -399,11 +398,6 @@
                 drawChart();
                 llenarTabla(0);
             });
-
-            
-
-            //$("#ano").attr("onchange", "change()");
-            //$("#origenData").attr("onchange", "change()");
         });
     </script>
 

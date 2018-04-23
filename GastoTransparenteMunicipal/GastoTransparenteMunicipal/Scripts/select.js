@@ -32,7 +32,7 @@
                         $("#tabla").addClass("muntotal");
                         $("#chart").addClass("muntotal");
                         break;
-                    case "Adm. y Serv. Municipal":
+                    case "Adm. y Serv. Municipales":
                         $("select").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("#tabla").removeClass("muntotal admmunicipal salud educacion cementerio");
                         $("#chart").removeClass("muntotal admmunicipal salud educacion cementerio");
@@ -82,4 +82,23 @@ function puntos(aux) {
     aux = aux.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
     aux = aux.split('').reverse().join('').replace(/^[\.]/, '');
     return aux;
+}
+
+function redesclick(aux) {
+    var url = "";
+    switch (aux) {
+        case 'twitter':
+            url = "https://twitter.com/?status=";
+            url = url + "Me gusta esta página " + window.location.href;
+            break;
+        case 'facebook':
+            url = "https://www.facebook.com/sharer/sharer.php?u=";
+            url = url + window.location.href;
+            break;
+    }
+    windowObjectReference = window.open(
+        url,
+        "DescriptiveWindowName",
+        "resizable,scrollbars,status"
+    );
 }

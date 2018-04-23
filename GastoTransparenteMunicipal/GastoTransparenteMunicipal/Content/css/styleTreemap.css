@@ -1,27 +1,19 @@
 ﻿.numero1 {
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
     position: relative;
 }
-
-    .numero1 .numero2 {
-        width: 100%;
-        vertical-align: middle;
-        position: absolute;
-        top: 8px;
-        border-right: 2px solid #dadada;
-        border-left: 2px solid #dadada;
-    }
-
-        .numero1 .numero2 hr {
-            border-color: #ffffff;
-        }
-
     .numero1 .numero3 {
         position: absolute;
         top: 0px;
         width: 100%;
         padding: 0px 10px;
+        border-right: 1px solid #193659;
+        border-left: 1px solid #193659;
+        border-bottom: 1px solid #193659;
+    }
+    .numero1 .numero3 p {
+        margin-bottom: -1rem;
     }
 
 .flecha {
@@ -109,11 +101,12 @@
     font-size: 14px;
     overflow: hidden;
     cursor: pointer;
+    transition: 0.4s linear;
 }
 
     .node:hover {
-        overflow: hidden;
         background-color: #F1C330 !important;
+        color: rgb(13, 43, 80);
     }
 
 .seleccionc {

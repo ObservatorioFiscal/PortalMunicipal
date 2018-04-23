@@ -25,7 +25,6 @@
             </div>
             <div class="row padding-Div">
                 <div class="col-12" id="Grafico">
-
                 </div>
             </div>
 
@@ -34,6 +33,20 @@
                     <p><small>*La información presentada en la seccion es subida y presentada exclusivamente por el municipio.</small></p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div id="tooltip" class="tooltiptremap" style="transition:opacity 0.4s linear;">
+    <div class="caja">
+        <div class="titulo">
+            <h5><b id="classNombre"></b></h5>
+        </div>
+        <div class="descripcion">
+            <p>Origen:</p>
+            <h5 id="valueTooltip1"></h5>
+            <p><br>Destino:</p>
+            <h5 id="valueTooltip2"></h5>
         </div>
     </div>
 </div>
@@ -78,26 +91,14 @@
                 format = function (d) { return formatNumber(d) + " Millones de pesos"; },
                 color = d3.scaleOrdinal(d3.schemeCategory20);
 
-            var sankey = d3.sankey()
-                .nodeWidth(100)
-                .nodePadding(10)
-                .extent([[1, 1], [width - 1, height - 6]]);
+            var sankey = d3.sankey().nodeWidth(100).nodePadding(10).extent([[1, 1], [width - 1, height - 6]]);
 
-            var link = svg.append("g")
-                .attr("class", "links")
-                .attr("fill", "none")
-                .attr("stroke", "#000")
-                .attr("stroke-opacity", 0.1)
-                .selectAll("path");
+            var link = svg.append("g").attr("class", "links").attr("fill", "none").attr("stroke", "#000").attr("stroke-opacity", 0.1).selectAll("path");
 
-            var node = svg.append("g")
-                .attr("class", "nodes")
-                .selectAll("g");
+            var node = svg.append("g").attr("class", "nodes").selectAll("g");
 
             // Define the div for the tooltip
-            var tooltip = d3.select('body')            // NEW
-                .append('div')                             // NEW
-                .attr('class', 'tooltiptremap');                 // NEW
+            var tooltip = d3.select(".tooltiptremap");                // NEW
       
             var IDANO = $("#ano").val();
             var url = "@Url.Action("CorporationAjax", "FeaturedData")" + "?year=" + IDANO;
@@ -118,25 +119,14 @@
                     .attr("stroke-width", function (d) { return Math.max(1, d.width); });
 
                 link.on('mouseover', function (d) {
-                    tooltip.html("\
-                        <div class='caja'>\
-                            <div class='titulo'>\
-                                <h5>Monto:<b> $"+puntos(d.value)+"</b></h5>\
-                            </div>\
-                            <div class='descripcion'>\
-                                <p>Origen:</p>\
-                                <h5>"+ d.source.name+"</h5>\
-                                <p><br>Destino:</p>\
-                                <h5>"+ d.target.name+"</h5>\
-                            </div>\
-                        </div>\
-                    ")
-                    tooltip.style("visibility", "visible")
+                    document.getElementById("classNombre").innerHTML = "<small>Monto:</small><br> $"+puntos(d.value);
+                    document.getElementById("valueTooltip1").innerHTML = d.source.name;
+                    document.getElementById("valueTooltip2").innerHTML = d.target.name;
+                    tooltip.style("opacity", "1")
                 });
 
                 link.on('mouseout', function () {
-                    tooltip.style("visibility", "hidden");
-                    $(".caja").remove();
+                    tooltip.style("opacity", "0")
                 });
 
                 link.on('mousemove', function (d) {
@@ -254,7 +244,6 @@
         }
         function sizeDimension() {
             var Width = $("#Grafico").width();
-            console.log(Width);
             $("#Grafico").append("<svg width=" + Width + " height=" + parseInt(Width) / 2 + "></svg>");
         }
 

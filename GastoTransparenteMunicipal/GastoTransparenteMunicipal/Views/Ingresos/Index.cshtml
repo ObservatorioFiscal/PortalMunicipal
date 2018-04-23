@@ -34,7 +34,7 @@
             <div id="Bienvenida" class="row padding-Div text-center">
                 <div class="col-md-12">
                     <h4>Elige un punto de partida</h4>
-                    <p>Puedes seleccionar una perspectiva de inicio, ya sea por área o por cuenta, pero luego también puedes cruzarlas, estando en un área, y conocer sus cuentas y viceversa</p>
+                    <p>¿Cómo quieres empezar revisando la información de los ingresos? Puedes seleccionar una perspectiva por área (hacia dónde se ingresaron los recursos), o por cuenta presupuestaria (fuentes de donde provienen). Una vez al interior de una categoría, puedes ir cruzando las vistas, para ir explorando las cuentas de ingresos para cada área, o viceversa.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="cubo">
@@ -70,12 +70,11 @@
                     </p>
                     <div id="chart_div" style="min-height:400px;" oncontextmenu="return false;"></div>
                     <div class="numero1">
-                        <div class="numero2">
-
-                            <hr />
-                        </div>
-                        <div class="numero3" id="Titulo">
-                            Ingresos <span> (15.000 millones)</span>
+                        <div class="numero3">
+                            <p class='text-center'>
+                                <span id="Titulo" style='background-color:white;padding:0px 5px'>
+                                </span>
+                            </p>   @*Ingresos <span> (15.000 millones)</span>*@
                         </div>
                     </div>
                 </div>
@@ -83,10 +82,38 @@
 
             <div class="row padding-Div"></div>
             <div class="row">
-                <div class="col">
+
+                <div class="col-md-6">
                     <p><small>*La información presentada en la seccion es subida y presentada exclusivamente por el municipio.</small></p>
                 </div>
+                <div class="col-md-6">
+                    <div>
+                        <p class="text-right">
+
+                            Compartir:
+                            <a href="#" onclick="redesclick('facebook')" class="md-24 icon-twitter"></a>
+                            <a href="#" onclick="redesclick('twitter')" class="md-24 icon-facebook"></a>
+                            <a href="#" onclick="dibujar(0); return false;" class="btn btn-xs">Descarga Dataset</a>
+                        </p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div id="tooltip" class="tooltiptremap" style="transition:opacity 0.4s linear;">
+    <div class="caja">
+        <div class="titulo">
+            <h5><b id="classNombre"></b></h5>
+        </div>
+        <div class="descripcion">
+            <p>Ingresado:</p>
+            <h5 id="valueTooltip1"></h5>
+            <p><small id="porcentaje1"></small></p>
+            <p><br>Presupuestado:</p>
+            <h5 id="valueTooltip2"></h5>
+            <p><small id="porcentaje2"></small><br><br></p>
         </div>
     </div>
 </div>
@@ -96,6 +123,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.0/d3.js"></script>
     <script src="~/Scripts/select.js"></script>
     <script>
+
         var idpapa = "0";
         var ID = "0";
         var nombretipo = "";
@@ -105,7 +133,6 @@
         var width = 0;
         function classes(data) {
             var classes = [];
-
             var colores = [
                 "rgba(13,43,80,1)",
                 "rgba(13,43,80,0.95)",
@@ -115,8 +142,7 @@
                 "rgba(13,43,80,0.75)",
                 "rgba(13,43,80,0.70)",
                 "rgba(13,43,80,0.65)",
-                "rgba(13,43,80,0.60)"
-            ]
+                "rgba(13,43,80,0.60)"]
             var i = 0;
             function recurse(name, node) {
                 if (node.children) node.children.forEach(function (child) {
@@ -166,9 +192,8 @@
             else {
                 treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(5).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
             }
-            //var treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(5).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
             var div = d3.select("body").select("#chart_div").append("div").attr("id", "treeChart").style("position", "relative").style("height", (height + margin.top + margin.bottom) + "px").style("top", margin.top + "px");
-            var tooltip = d3.select("body").append("div").attr('class', 'tooltiptremap');
+            var tooltip = d3.select(".tooltiptremap");
             var url = "@Url.Action("JsonIngresoNivelX", "Ingresos")" + "?tipo=" + FUNCECONO + "&idNivel=" + nivel + "&profundidad=" + IDPAPA + "&year=" + IDANO ;
             d3.json(url, function (error, data) {
                 var Format = data.Format;
@@ -187,34 +212,29 @@
                         return d.fondo;
                     })
                     .on("mouseover", function (d) {
-                        var caja = tooltip.append("div").attr("class", "caja");
-                        caja.html("\
-                            <div class='titulo'>\
-                                <h5><b>" + d.className + "</b></h5>\
-                            </div>\
-                            <div class='descripcion'>\
-                                <p>Ingresado:</p>\
-                                <h5>$" + d.valueTooltip1 + " millones</h5>\
-                                <p><small>Equivale al " + d.porcentaje1 + "% del Ingreso Municipal.</small></p>\
-                                <p><br>Presupuestado:</p>\
-                                <h5>$" + d.valueTooltip2 + " millones</h5>\
-                                <p><small>Equivale al " + d.porcentaje2 + "% del Ingreso Municipal.</small><br><br></p>\
-                            </div>\
-                        ")
-                        tooltip.style("visibility", "visible")
+                        
+                        document.getElementById("classNombre").innerHTML=d.className;
+                        document.getElementById("valueTooltip1").innerHTML ="$" + d.valueTooltip1 + " millones";
+                        document.getElementById("porcentaje1").innerHTML ="Equivale al " + d.porcentaje1 + "% del Ingreso Municipal.";
+                        document.getElementById("valueTooltip2").innerHTML ="$" + d.valueTooltip2 + " millones";
+                        document.getElementById("porcentaje2").innerHTML = "Equivale al " + d.porcentaje2 + "% del Ingreso Municipal.";
+                        tooltip.style("opacity", "1")
                     })
                     .on("mousemove", function (d) {
                         tooltip.style("top", function (d) {
                             if (d3.event.pageY > 500) {
-                                return (d3.event.pageY - 250) + "px"
+                                return (d3.event.pageY - 260) + "px"
                             }
                             else {
-                                return (d3.event.pageY - 0) + "px"
+                                return (d3.event.pageY - 10) + "px"
                             }
                         });
                         tooltip.style("left", function (d) {
-                            if (d3.event.pageX > 260) {
-                                return (d3.event.pageX - 260) + "px"
+                            //var eee = d.position;
+
+
+                            if (d3.event.pageX > 300) {
+                                return (d3.event.pageX - 300) + "px"
                             }
                             else {
                                 return (d3.event.pageX - 10) + "px"
@@ -222,15 +242,13 @@
                         });
                     })
                     .on("mouseout", function () {
-                        tooltip.style("visibility", "hidden");
-                        $(".caja").remove();
+                        tooltip.style("opacity", "0");
                         return 1;
                     })
                     .on("click", function (d) {
                         nivel = document.getElementById("NIVEL").value;
                         if (nivel < "4") {
-                            $(".caja").remove();
-                            tooltip.style("visibility", "hidden");
+                            tooltip.style("opacity", "0");
                             idpapa = document.getElementById("IDPAPA").value;
                             nombretipo = document.getElementById("FUNCECONO").value;
 
@@ -311,9 +329,9 @@
                     $("#arrrr").addClass("seleccioncambio");
                 }
                 document.getElementById("FUNCECONO").value = Formato;
-                document.getElementById("Titulo").innerHTML = "<p class='text-center'><span style='background-color:white'>" + className + "( $" + puntos(VALUEX) + " millones) </span></p>";
+                document.getElementById("Titulo").innerHTML =  className + " ( $" + puntos(VALUEX) + " millones )";
 
-        });
+            });
         function position() {
             this.style("left", function (d) { return d.x + "px"; })
                 .style("top", function (d) { return d.y + "px"; })

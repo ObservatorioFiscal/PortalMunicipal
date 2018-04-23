@@ -32,7 +32,7 @@
             <div id="Bienvenida" class="row padding-Div text-center">
                 <div class="col-md-12">
                     <h4>Elige un punto de partida</h4>
-                    <p>Puedes seleccionar una perspectiva de inicio, ya sea por área o por cuenta, pero luego también puedes cruzarlas, estando en un área, y conocer sus cuentas y viceversa</p>
+                    <p>¿Cómo quieres empezar revisando la información de los gastos? Puedes seleccionar una perspectiva por área (en qué se gastaron los recursos), o por cuenta presupuestaria (cómo se gastaron los recursos). Una vez al interior de una categoría, puedes ir cruzando las vistas, para ir explorando las cuentas de gastos para cada área, o viceversa.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="cubo">
@@ -68,11 +68,11 @@
                     </p>
                     <div id="chart_div" style="min-height:400px;" oncontextmenu="return false;"></div>
                     <div class="numero1">
-                        <div class="numero2">
-                            <hr />
-                        </div>
-                        <div class="numero3" id="Titulo">
-                            Gastos <span> (15.000 millones)</span>
+                        <div class="numero3">
+                            <p class='text-center'>
+                                <span id="Titulo" style='background-color:white;padding:0px 5px'>
+                                </span>
+                            </p>   @*Ingresos <span> (15.000 millones)</span>*@
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,21 @@
     </div>
 </div>
 
-
+<div id="tooltip" class="tooltiptremap" style="transition:opacity 0.4s linear;">
+    <div class="caja">
+        <div class="titulo">
+            <h5><b id="classNombre"></b></h5>
+        </div>
+        <div class="descripcion">
+            <p>Ingresado:</p>
+            <h5 id="valueTooltip1"></h5>
+            <p><small id="porcentaje1"></small></p>
+            <p><br>Presupuestado:</p>
+            <h5 id="valueTooltip2"></h5>
+            <p><small id="porcentaje2"></small><br><br></p>
+        </div>
+    </div>
+</div>
 
 
 
@@ -166,7 +180,7 @@
             }
             //var treemap = d3.layout.treemap().size([width, height]).sticky(true).mode("squarify").ratio(5).round(true).sort(function (a, b) { return a.value - b.value; }).value(function (d) { return d.value; });
             var div = d3.select("body").select("#chart_div").append("div").attr("id", "treeChart").style("position", "relative").style("height", (height + margin.top + margin.bottom) + "px").style("top", margin.top + "px");
-            var tooltip = d3.select("body").append("div").attr('class', 'tooltiptremap');
+            var tooltip = d3.select(".tooltiptremap");
             var url = "@Url.Action("JsonGastoNivelX", "Gastos")" + "?tipo=" + FUNCECONO + "&idNivel=" + nivel + "&profundidad=" + IDPAPA + "&year=" + IDANO ;
             d3.json(url, function (error, data) {
                 var Format = data.Format;
@@ -185,21 +199,13 @@
                         return d.fondo;
                     })
                     .on("mouseover", function (d) {
-                        var caja = tooltip.append("div").attr("class", "caja");
-                        caja.html("\
-                            <div class='titulo'>\
-                                <h5><b>" + d.className + "</b></h5>\
-                            </div>\
-                            <div class='descripcion'>\
-                                <p>Gastado:</p>\
-                                <h5>$" + d.valueTooltip1 + " millones</h5>\
-                                <p><small>Equivale al " + d.porcentaje1 + "% del Gasto Municipal.</small></p>\
-                                <p><br>Presupuestado:</p>\
-                                <h5>$" + d.valueTooltip2 + " millones</h5>\
-                                <p><small>Equivale al " + d.porcentaje2 + "% del Gasto Municipal.</small><br><br></p>\
-                            </div>\
-                        ")
-                        tooltip.style("visibility", "visible")
+
+                        document.getElementById("classNombre").innerHTML = d.className;
+                        document.getElementById("valueTooltip1").innerHTML = "$" + d.valueTooltip1 + " millones";
+                        document.getElementById("porcentaje1").innerHTML = "Equivale al " + d.porcentaje1 + "% del Ingreso Municipal.";
+                        document.getElementById("valueTooltip2").innerHTML = "$" + d.valueTooltip2 + " millones";
+                        document.getElementById("porcentaje2").innerHTML = "Equivale al " + d.porcentaje2 + "% del Ingreso Municipal.";
+                        tooltip.style("opacity", "1")
                     })
                     .on("mousemove", function (d) {
                         tooltip.style("top", function (d) {
@@ -211,6 +217,9 @@
                             }
                         });
                         tooltip.style("left", function (d) {
+                            //var eee = d.position;
+
+
                             if (d3.event.pageX > 300) {
                                 return (d3.event.pageX - 300) + "px"
                             }
@@ -220,8 +229,7 @@
                         });
                     })
                     .on("mouseout", function () {
-                        tooltip.style("visibility", "hidden");
-                        $(".caja").remove();
+                        tooltip.style("opacity", "0");
                         return 1;
                     })
                     .on("click", function (d) {
@@ -308,7 +316,7 @@
                     $("#arrrr").addClass("seleccioncambio");
                 }
                 document.getElementById("FUNCECONO").value = Formato;
-                document.getElementById("Titulo").innerHTML = "<p class='text-center'><span style='background-color:white'>" + className + "( $" + puntos(VALUEX) + " mill) </span></p>";
+                document.getElementById("Titulo").innerHTML = className + " ( $" + puntos(VALUEX) + " millones )";
 
         });
         function position() {
