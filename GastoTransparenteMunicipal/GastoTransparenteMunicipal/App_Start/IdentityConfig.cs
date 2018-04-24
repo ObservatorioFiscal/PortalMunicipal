@@ -11,6 +11,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using GastoTransparenteMunicipal.Models;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Configuration;
 
 namespace GastoTransparenteMunicipal
 {
@@ -19,7 +22,29 @@ namespace GastoTransparenteMunicipal
         public Task SendAsync(IdentityMessage message)
         {
             // Conecte su servicio de correo electrónico aquí para enviar correo electrónico.
-            return Task.FromResult(0);
+            return Task.Factory.StartNew(() => SendMail(message));
+        }
+
+        public static void SendMail(IdentityMessage mensaje)
+        {
+            string text = string.Format("Please click on this link to {0} : {1}", mensaje.Subject, mensaje.Body);
+            string html = "Please confirm your account by clicking this link: <a href=\"" + mensaje.Body + "\">link<?a><br/>";
+
+            html += HttpUtility.HtmlEncode(@"Or click on the copy the following link on the browser:" + mensaje.Body);
+
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(ConfigurationManager.AppSettings["Email"].ToString());
+            msg.To.Add(mensaje.Destination);
+            msg.Subject = mensaje.Subject;
+            msg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+            msg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Html));
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["Email"].ToString(), ConfigurationManager.AppSettings["Password"].ToString());
+            smtpClient.Port = 587;
+            smtpClient.Credentials = credentials;
+            smtpClient.EnableSsl = true;
+            smtpClient.Send(msg);
         }
     }
 
