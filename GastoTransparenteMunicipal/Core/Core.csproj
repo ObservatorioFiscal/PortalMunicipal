@@ -237,9 +237,6 @@
     <Compile Include="Subsidio_Nivel3.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="GastoTransparenteMunicipal.edmx">
@@ -260,6 +257,7 @@
       <LastGenOutput>GastoTransparenteMunicipal.Context.cs</LastGenOutput>
       <DependentUpon>GastoTransparenteMunicipal.edmx</DependentUpon>
     </Content>
+    <Content Include="GastoTransparenteMunicipal.edmx.sql" />
     <Content Include="GastoTransparenteMunicipal.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GastoTransparenteMunicipal.edmx</DependentUpon>

@@ -1,670 +1,656 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="GastoTransparenteMunicipalModelStoreContainer" CdmEntityContainer="GastoTransparenteMunicipalEntities">
-    <FunctionImportMapping FunctionImportName="SP_InformeCorporaciones" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeCorporaciones" />
-    <FunctionImportMapping FunctionImportName="SP_InformeGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGasto" />
-    <FunctionImportMapping FunctionImportName="SP_InformeIngreso" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngreso" />
-    <FunctionImportMapping FunctionImportName="SP_InformePersonalAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdm" />
-    <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerio" />
-    <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacion" />
-    <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotal" />
-    <FunctionImportMapping FunctionImportName="SP_InformePersonalSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSalud" />
-    <FunctionImportMapping FunctionImportName="SP_InformeSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidio" />
-    <FunctionImportMapping FunctionImportName="SP_ProveedorAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm" />
-    <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio" />
-    <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion" />
-    <FunctionImportMapping FunctionImportName="SP_ProveedorSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud" />
-    <FunctionImportMapping FunctionImportName="SP_ProveedorTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal" />
     <EntitySetMapping Name="Corporacion_Ano">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Ano">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Corporacion_Ano)">
         <MappingFragment StoreEntitySet="Corporacion_Ano">
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Ano" ColumnName="Ano" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Corporacion_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Corporacion_Nivel1)">
         <MappingFragment StoreEntitySet="Corporacion_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Destino" ColumnName="Destino" />
-          <ScalarProperty Name="Origen" ColumnName="Origen" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CorporacionInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.CorporacionInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.CorporacionInforme)">
         <MappingFragment StoreEntitySet="CorporacionInforme">
-          <ScalarProperty Name="MontoAportado" ColumnName="MontoAportado" />
-          <ScalarProperty Name="Destino" ColumnName="Destino" />
-          <ScalarProperty Name="Origen" ColumnName="Origen" />
-          <ScalarProperty Name="ObjetivoDelAporte" ColumnName="ObjetivoDelAporte" />
-          <ScalarProperty Name="IdGroupInforme" ColumnName="IdGroupInforme" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
           <ScalarProperty Name="IdInformeCorporacion" ColumnName="IdInformeCorporacion" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IdGroupInforme" ColumnName="IdGroupInforme" />
+          <ScalarProperty Name="ObjetivoDelAporte" ColumnName="ObjetivoDelAporte" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="MontoAportado" ColumnName="MontoAportado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Gasto_Ano">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Ano">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Gasto_Ano)">
         <MappingFragment StoreEntitySet="Gasto_Ano">
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Ano" ColumnName="Ano" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Gasto_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Gasto_Nivel1)">
         <MappingFragment StoreEntitySet="Gasto_Nivel1">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Gasto_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Gasto_Nivel2)">
         <MappingFragment StoreEntitySet="Gasto_Nivel2">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Gasto_Nivel3">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Nivel3">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Gasto_Nivel3)">
         <MappingFragment StoreEntitySet="Gasto_Nivel3">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
           <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
+          <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Gasto_Nivel4">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Nivel4">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Gasto_Nivel4)">
         <MappingFragment StoreEntitySet="Gasto_Nivel4">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
           <ScalarProperty Name="IdNivel4" ColumnName="IdNivel4" />
+          <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="GastoInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.GastoInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.GastoInforme)">
         <MappingFragment StoreEntitySet="GastoInforme">
-          <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="MontoPresupuestadoAnual" ColumnName="MontoPresupuestadoAnual" />
-          <ScalarProperty Name="CUENTANIVEL2" ColumnName="CUENTANIVEL2" />
-          <ScalarProperty Name="CUENTANIVEL1" ColumnName="CUENTANIVEL1" />
-          <ScalarProperty Name="AREANIVEL2" ColumnName="AREANIVEL2" />
-          <ScalarProperty Name="AREANIVEL1A" ColumnName="AREANIVEL1A" />
-          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
           <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="AREANIVEL1A" ColumnName="AREANIVEL1A" />
+          <ScalarProperty Name="AREANIVEL2" ColumnName="AREANIVEL2" />
+          <ScalarProperty Name="CUENTANIVEL1" ColumnName="CUENTANIVEL1" />
+          <ScalarProperty Name="CUENTANIVEL2" ColumnName="CUENTANIVEL2" />
+          <ScalarProperty Name="MontoPresupuestadoAnual" ColumnName="MontoPresupuestadoAnual" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ingreso_Ano">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Ano">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Ingreso_Ano)">
         <MappingFragment StoreEntitySet="Ingreso_Ano">
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Ano" ColumnName="Ano" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ingreso_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Ingreso_Nivel1)">
         <MappingFragment StoreEntitySet="Ingreso_Nivel1">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ingreso_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Ingreso_Nivel2)">
         <MappingFragment StoreEntitySet="Ingreso_Nivel2">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ingreso_Nivel3">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Nivel3">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Ingreso_Nivel3)">
         <MappingFragment StoreEntitySet="Ingreso_Nivel3">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
           <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
+          <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ingreso_Nivel4">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Nivel4">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Ingreso_Nivel4)">
         <MappingFragment StoreEntitySet="Ingreso_Nivel4">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
-          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
-          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
           <ScalarProperty Name="IdNivel4" ColumnName="IdNivel4" />
+          <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="PorcentajeGastado" ColumnName="PorcentajeGastado" />
+          <ScalarProperty Name="PorcentajePresupuestado" ColumnName="PorcentajePresupuestado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IngresoInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.IngresoInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.IngresoInforme)">
         <MappingFragment StoreEntitySet="IngresoInforme">
-          <ScalarProperty Name="IdGroupInformeIngreso" ColumnName="IdGroupInformeIngreso" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="MontoPresupuestadoAnual" ColumnName="MontoPresupuestadoAnual" />
-          <ScalarProperty Name="CUENTANIVEL2" ColumnName="CUENTANIVEL2" />
-          <ScalarProperty Name="CUENTANIVEL1" ColumnName="CUENTANIVEL1" />
-          <ScalarProperty Name="AREANIVEL2" ColumnName="AREANIVEL2" />
-          <ScalarProperty Name="AREANIVEL1A" ColumnName="AREANIVEL1A" />
-          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
           <ScalarProperty Name="IdIngresoInforme" ColumnName="IdIngresoInforme" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="AREANIVEL1A" ColumnName="AREANIVEL1A" />
+          <ScalarProperty Name="AREANIVEL2" ColumnName="AREANIVEL2" />
+          <ScalarProperty Name="CUENTANIVEL1" ColumnName="CUENTANIVEL1" />
+          <ScalarProperty Name="CUENTANIVEL2" ColumnName="CUENTANIVEL2" />
+          <ScalarProperty Name="MontoPresupuestadoAnual" ColumnName="MontoPresupuestadoAnual" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IdGroupInformeIngreso" ColumnName="IdGroupInformeIngreso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Municipalidad">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Municipalidad)">
         <MappingFragment StoreEntitySet="Municipalidad">
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Adm_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Adm_Nivel1)">
         <MappingFragment StoreEntitySet="Personal_Adm_Nivel1">
-          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Adm_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Adm_Nivel2)">
         <MappingFragment StoreEntitySet="Personal_Adm_Nivel2">
-          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
-          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
-          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
-          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
+          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
+          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
+          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_AdmInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_AdmInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_AdmInforme)">
         <MappingFragment StoreEntitySet="Personal_AdmInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-          <ScalarProperty Name="AREA" ColumnName="AREA" />
-          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
-          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
           <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Ano">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Ano">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Ano)">
         <MappingFragment StoreEntitySet="Personal_Ano">
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Ano" ColumnName="Ano" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Cementerio_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1)">
         <MappingFragment StoreEntitySet="Personal_Cementerio_Nivel1">
-          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Cementerio_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel2)">
         <MappingFragment StoreEntitySet="Personal_Cementerio_Nivel2">
-          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
-          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
-          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
-          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
+          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
+          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
+          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_CementerioInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_CementerioInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_CementerioInforme)">
         <MappingFragment StoreEntitySet="Personal_CementerioInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-          <ScalarProperty Name="AREA" ColumnName="AREA" />
-          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
-          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
           <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Educacion_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1)">
         <MappingFragment StoreEntitySet="Personal_Educacion_Nivel1">
-          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Educacion_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Educacion_Nivel2)">
         <MappingFragment StoreEntitySet="Personal_Educacion_Nivel2">
-          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
-          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
-          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
-          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
+          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
+          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
+          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_EducacionInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_EducacionInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_EducacionInforme)">
         <MappingFragment StoreEntitySet="Personal_EducacionInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-          <ScalarProperty Name="AREA" ColumnName="AREA" />
-          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
-          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
           <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Salud_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Salud_Nivel1)">
         <MappingFragment StoreEntitySet="Personal_Salud_Nivel1">
-          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Salud_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Salud_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Salud_Nivel2)">
         <MappingFragment StoreEntitySet="Personal_Salud_Nivel2">
-          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
-          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
-          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
-          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
+          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
+          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
+          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_SaludInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_SaludInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_SaludInforme)">
         <MappingFragment StoreEntitySet="Personal_SaludInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-          <ScalarProperty Name="AREA" ColumnName="AREA" />
-          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
-          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
           <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
+          <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
+          <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+          <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
+          <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
+          <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+          <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Total_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Total_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Total_Nivel1)">
         <MappingFragment StoreEntitySet="Personal_Total_Nivel1">
-          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Personal_Total_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Total_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Personal_Total_Nivel2)">
         <MappingFragment StoreEntitySet="Personal_Total_Nivel2">
-          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
-          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
-          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
-          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
+          <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
+          <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
+          <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Adm_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1)">
         <MappingFragment StoreEntitySet="Proveedor_Adm_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Adm_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel2)">
         <MappingFragment StoreEntitySet="Proveedor_Adm_Nivel2">
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_AdmInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_AdmInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_AdmInforme)">
         <MappingFragment StoreEntitySet="Proveedor_AdmInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="RUT" ColumnName="RUT" />
-          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
-          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
           <ScalarProperty Name="IdInformeProveedores" ColumnName="IdInformeProveedores" />
+          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
+          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Ano">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Ano">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Ano)">
         <MappingFragment StoreEntitySet="Proveedor_Ano">
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Ano" ColumnName="Ano" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Cementerio_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel1)">
         <MappingFragment StoreEntitySet="Proveedor_Cementerio_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Cementerio_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel2)">
         <MappingFragment StoreEntitySet="Proveedor_Cementerio_Nivel2">
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_CementerioInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_CementerioInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_CementerioInforme)">
         <MappingFragment StoreEntitySet="Proveedor_CementerioInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="RUT" ColumnName="RUT" />
-          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
-          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
           <ScalarProperty Name="IdInformeProveedores" ColumnName="IdInformeProveedores" />
+          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
+          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Educacion_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel1)">
         <MappingFragment StoreEntitySet="Proveedor_Educacion_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Educacion_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel2)">
         <MappingFragment StoreEntitySet="Proveedor_Educacion_Nivel2">
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_EducacionInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_EducacionInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_EducacionInforme)">
         <MappingFragment StoreEntitySet="Proveedor_EducacionInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="RUT" ColumnName="RUT" />
-          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
-          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
           <ScalarProperty Name="IdInformeProveedores" ColumnName="IdInformeProveedores" />
+          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
+          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Salud_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel1)">
         <MappingFragment StoreEntitySet="Proveedor_Salud_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Salud_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel2)">
         <MappingFragment StoreEntitySet="Proveedor_Salud_Nivel2">
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_SaludInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_SaludInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_SaludInforme)">
         <MappingFragment StoreEntitySet="Proveedor_SaludInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="RUT" ColumnName="RUT" />
-          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
-          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
           <ScalarProperty Name="IdInformeProveedores" ColumnName="IdInformeProveedores" />
+          <ScalarProperty Name="IdGroupInformeProveedores" ColumnName="IdGroupInformeProveedores" />
+          <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Total_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Total_Nivel1)">
         <MappingFragment StoreEntitySet="Proveedor_Total_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedor_Total_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Proveedor_Total_Nivel2)">
         <MappingFragment StoreEntitySet="Proveedor_Total_Nivel2">
-          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNIvel1" ColumnName="IdNIvel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Glosa" ColumnName="Glosa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Subsidio_Ano">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Ano">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Subsidio_Ano)">
         <MappingFragment StoreEntitySet="Subsidio_Ano">
-          <ScalarProperty Name="Mes" ColumnName="Mes" />
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="Ano" ColumnName="Ano" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Subsidio_Nivel1">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Nivel1">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Subsidio_Nivel1)">
         <MappingFragment StoreEntitySet="Subsidio_Nivel1">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
           <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Subsidio_Nivel2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Nivel2">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Subsidio_Nivel2)">
         <MappingFragment StoreEntitySet="Subsidio_Nivel2">
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
           <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Subsidio_Nivel3">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Nivel3">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.Subsidio_Nivel3)">
         <MappingFragment StoreEntitySet="Subsidio_Nivel3">
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
           <ScalarProperty Name="IdNivel3" ColumnName="IdNivel3" />
+          <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SubsidioInforme">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.SubsidioInforme">
+      <EntityTypeMapping TypeName="IsTypeOf(GastoTransparenteMunicipalModel.SubsidioInforme)">
         <MappingFragment StoreEntitySet="SubsidioInforme">
-          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-          <ScalarProperty Name="MONTOAPORTE" ColumnName="MONTOAPORTE" />
-          <ScalarProperty Name="OBJETIVODELAPORTE" ColumnName="OBJETIVODELAPORTE" />
-          <ScalarProperty Name="FECHADECRETO" ColumnName="FECHADECRETO" />
-          <ScalarProperty Name="ORGANIZACION" ColumnName="ORGANIZACION" />
-          <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
-          <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
           <ScalarProperty Name="IdSubsidio" ColumnName="IdSubsidio" />
+          <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
+          <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+          <ScalarProperty Name="ORGANIZACION" ColumnName="ORGANIZACION" />
+          <ScalarProperty Name="FECHADECRETO" ColumnName="FECHADECRETO" />
+          <ScalarProperty Name="OBJETIVODELAPORTE" ColumnName="OBJETIVODELAPORTE" />
+          <ScalarProperty Name="MONTOAPORTE" ColumnName="MONTOAPORTE" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
