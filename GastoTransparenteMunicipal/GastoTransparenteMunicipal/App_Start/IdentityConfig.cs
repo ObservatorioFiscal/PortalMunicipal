@@ -27,7 +27,7 @@ namespace GastoTransparenteMunicipal
 
         public static void SendMail(IdentityMessage mensaje)
         {
-            string text = string.Format("Please click on this link to {0} : {1}", mensaje.Subject, mensaje.Body);
+            string text = string.Format("{0} : {1}", mensaje.Subject, mensaje.Body);
             string html = "Please confirm your account by clicking this link: <a href=\"" + mensaje.Body + "\">link<?a><br/>";
 
             html += HttpUtility.HtmlEncode(@"Or click on the copy the following link on the browser:" + mensaje.Body);
@@ -109,6 +109,21 @@ namespace GastoTransparenteMunicipal
                 manager.UserTokenProvider = 
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
+            return manager;
+        }
+    }
+
+    public class ApplicationRoleManager : RoleManager<IdentityRole>
+    {
+        public ApplicationRoleManager(IRoleStore<IdentityRole, string> roleStore)
+        : base(roleStore) { }
+
+        public static ApplicationRoleManager Create(
+            IdentityFactoryOptions<ApplicationRoleManager> options,
+            IOwinContext context)
+        {
+            var manager = new ApplicationRoleManager(
+                new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
             return manager;
         }
     }
