@@ -268,7 +268,9 @@
     <Content Include="Scripts\jquery.tinyscrollbar.js" />
     <Content Include="Scripts\jquery.tinyscrollbar.min.js" />
     <Content Include="Scripts\select.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -308,9 +310,9 @@
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\AdminComuna\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\CreateAccount.cshtml" />
     <Content Include="Views\Cuenta\ResetPassword.cshtml" />
+    <Content Include="Views\Shared\ViewAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,67 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <title>@ViewBag.Title - @ViewBag.logo</title>
-    @*@Styles.Render("~/Content/css")*@
     <link href="~/Content/css/bootstrap-grid.css" rel="stylesheet" />
     <link href="~/Content/css/bootstrap-reboot.css" rel="stylesheet" />
     <link href="~/Content/css/font.css" rel="stylesheet" />
     <link href="~/Content/css/styleBootrap.css" rel="stylesheet" />
     <link href="~/Content/css/style.css" rel="stylesheet" />
-    <link href="~/Content/css/styleSueldos.css" rel="stylesheet" />
-    <link href="~/Content/css/tinyscrollbar.css" rel="stylesheet" />
-    <link href="~/Content/css/styleTreemap.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col barra-superior">
-                <div class="row">
-                    <div class="col">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-5 align-self-center">
-                                    <div class="row">
-                                        <div class="padding-cero col-10 col-sm-10 col-md-12 align-self-center">
-                                            <div class="row">
-                                                <span class="col-8 align-self-center">
-                                                    <img class="img-fluid" src="~/Content/image/logo.svg" alt="" />
-                                                </span>
-                                                <span class="col-4 align-self-center">
-                                                    <img class="img-fluid" src="~/Content/image/@(ViewBag.logo + ".png")" alt="LOGO MUNICIPALIDAD XXXXXX" />
-                                                </span>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-2 col-sm-2 col-md-0 align-self-center ">
-                                            <a id="menu-mobile">
-                                                <span class="md-24 icon-menu"></span>
-                                            </a>
-                                        </div>
-                                        <div class="col-12 hidden" id="menu-mobile-contenido">
-                                            <hr>
-                                            <nav>
-                                                <a class="nav-link @ViewBag.Inicio" href="@Url.Action("CreateAccount","Admin")">Agregar usuario</a>
-                                            </nav>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="col-0 col-sm-0 col-md-7 padding-cero align-self-center">
-                                    <nav class="">
-                                        <ul class="nav nav-resp align-items-center">
-                                            <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Inicio" href="@Url.Action("CreateAccount","Admin")">Agregar usuario</a>
-                                            </li>                                            
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         @RenderBody()
 
@@ -76,7 +23,14 @@
                     <div class="row">
                         <div class="col-md-3 align-self-center">
                             <ul>
-                                @*<li class="blanco"><a href="@Url.Action("Index","Admin")" class="@ViewBag.Inicio">Inicio</a></li>*@                       
+                                <li class="blanco"><a href="@Url.Action(" Index","Home")" class="@ViewBag.Inicio">Inicio</a></li>
+                                <li class="blanco"><a href="@Url.Action("index","Ingresos")" class="@ViewBag.Ingresos">Ingresos</a></li>
+                                <li class="blanco"><a href="@Url.Action("index","Gastos")" class="@ViewBag.Gastos">Gastos</a></li>
+                                <li class="blanco"><a href="@Url.Action("Dueldos","DatosDestacados")" class="@ViewBag.Sueldo">Remuneraciones</a></li>
+                                <li class="blanco"><a href="@Url.Action("Proveedores","DatosDestacados")" class="@ViewBag.Proveedores">Proveedores</a></li>
+                                <li class="blanco"><a href="@Url.Action(" Corporaciones","DatosDestacados")" class="@ViewBag.Corporaciones">Corporaciones</a></li>
+                                <li class="blanco"><a href="@Url.Action("subsidios","DatosDestacados")" class="@ViewBag.Subsidios">Subsidios</a></li>
+                                <li class="blanco"><a href="@Url.Action("About","Home")" class="@ViewBag.About">El Proyecto</a></li>
                             </ul>
                         </div>
                         <div class="col-md-8 align-self-center">
@@ -107,7 +61,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-1 align-self-center">
                             <a href="#">
                                 <span class="md-36 blanco icon-twitter"></span>
@@ -115,6 +68,11 @@
                             <a href="#">
                                 <span class="md-36 blanco icon-facebook"></span>
                             </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center"><small> Desarrollado por Observatorio del Gasto Fiscal en chile</small> </p>
                         </div>
                     </div>
                 </div>
