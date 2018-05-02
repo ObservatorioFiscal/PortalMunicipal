@@ -78,6 +78,7 @@ namespace Core
         public virtual DbSet<Subsidio_Nivel2> Subsidio_Nivel2 { get; set; }
         public virtual DbSet<Subsidio_Nivel3> Subsidio_Nivel3 { get; set; }
         public virtual DbSet<SubsidioInforme> SubsidioInforme { get; set; }
+        public virtual DbSet<Comunas> Comunas { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)
         {

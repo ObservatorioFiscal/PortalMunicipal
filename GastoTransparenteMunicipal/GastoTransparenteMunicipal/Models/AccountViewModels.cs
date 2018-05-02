@@ -62,6 +62,18 @@ namespace GastoTransparenteMunicipal.Models
         public bool RememberMe { get; set; }
     }
 
+    public class RegisterSimpleViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Correo electrónico")]
+        public string Email { get; set; }
+
+        [Required]        
+        [Display(Name = "Comuna")]
+        public string RoleName { get; set; }
+    }
+
     public class RegisterViewModel
     {
         [Required]

@@ -94,6 +94,7 @@
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__123EB7A3" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Comunas" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
