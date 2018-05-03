@@ -12,5 +12,12 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             return View();
         }
+
+
+        public ActionResult CargaDatos()
+        {
+            return View();
+        }
     }
+
 }

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "CargaDatos";
+}
+
+<div class="container">
+    <div class="row seccion-destado">
+
+        <div class="col-md-12">
+            <h1>Carga de información año 
+                <small>del año:
+                <span class="select">
+                    @*@Html.DropDownList("name", (SelectList)ViewBag.Anos, null, new { @class = "muntotal", @id = "ano" })*@
+                    2017
+                </span>
+                </small>
+                <small>
+                    <a href="#">( +abrir nuevo año )</a>
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-12">
+            <h2>Ingresos <small>volver a subir archivo</small></h2>
+            <h2>Gastos <small>volver a subir archivo</small></h2>
+            <h2>
+                Datos Destacados <br />
+                Proveedores<small> volver a subir archivo</small>
+                Subsidios<small> volver a subir archivo</small>
+                Corporaciones<small> volver a subir archivo</small>
+                Remuneraciones<small> volver a subir archivo</small>
+            </h2>
+        </div>
+    </div>
+    <div class="row padding-Div"></div>
+    <div class="row padding-Div"></div>
+    <div class="row padding-Div"></div>
+</div>

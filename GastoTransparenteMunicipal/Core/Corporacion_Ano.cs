@@ -24,7 +24,8 @@ namespace Core
         public Nullable<int> IdMunicipalidad { get; set; }
         public Nullable<int> Ano { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
-        public Nullable<int> Mes { get; set; }
+        public bool Activo { get; set; }
+        public Nullable<decimal> Semestre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Corporacion_Nivel1> Corporacion_Nivel1 { get; set; }

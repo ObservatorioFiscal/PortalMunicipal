@@ -22,10 +22,10 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaInformeGasto(HttpPostedFileBase file)
         {
             XSSFWorkbook xssfwb;
-            int idMunicipality = GetCurrentIdMunicipality();
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
             int year = 2017;
             int month = 0;
-            Gasto_Ano gastoAno = new Gasto_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Gasto_Ano gastoAno = new Gasto_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
             using (Stream fileStream = file.InputStream)
             {
                 xssfwb = new XSSFWorkbook(fileStream);
@@ -49,11 +49,11 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaInformeIngreso(HttpPostedFileBase file)
         {
             XSSFWorkbook xssfwb;
-            int idMunicipality = GetCurrentIdMunicipality();
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
             int year = 2017;
             int month = 0;
 
-            Ingreso_Ano ingresoAno = new Ingreso_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Ingreso_Ano ingresoAno = new Ingreso_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
             using (Stream fileStream = file.InputStream)
             {
                 xssfwb = new XSSFWorkbook(fileStream);
@@ -78,10 +78,10 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaInformeSubsidio(HttpPostedFileBase file)
         {
             XSSFWorkbook xssfwb;
-            int idMunicipality = GetCurrentIdMunicipality();
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
             int year = 2017;
             int month = 0;
-            Subsidio_Ano subsidioAno = new Subsidio_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Subsidio_Ano subsidioAno = new Subsidio_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
 
             using (Stream fileStream = file.InputStream)
             {
@@ -107,13 +107,13 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             XSSFWorkbook xssfwb;
 
-            int idMunicipality = GetCurrentIdMunicipality();
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
             int year = 2017;
             int month = 0;
 
             DateTime data = DateTime.Now;
             LoadReport loadReport = new LoadReport();
-            Personal_Ano personalAno = new Personal_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Personal_Ano personalAno = new Personal_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
 
             if (admServicios != null || salud != null || educacion != null || cementerio != null)
             {
@@ -193,11 +193,11 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             XSSFWorkbook xssfwb;
 
-            int idMunicipality = GetCurrentIdMunicipality();
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
             int year = 2017;
             int month = 0;
             LoadReport loadReport = new LoadReport();
-            Proveedor_Ano proveedorAno = new Proveedor_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Proveedor_Ano proveedorAno = new Proveedor_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
             if (admServicios != null || salud  != null || educacion != null || cementerio != null)
             {
                 db.Proveedor_Ano.Add(proveedorAno);
@@ -277,12 +277,12 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaInformeCorporaciones(HttpPostedFileBase file)
         {
             XSSFWorkbook xssfwb;
-            int idMunicipality = GetCurrentIdMunicipality();
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
             int year = 2017;
             int month = 0;
 
             DateTime data = DateTime.Now;
-            Corporacion_Ano corporacionAno = new Corporacion_Ano { IdMunicipalidad = idMunicipality, Ano = year, Mes = month, UpdatedOn = DateTime.Now };
+            Corporacion_Ano corporacionAno = new Corporacion_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
             using (Stream fileStream = file.InputStream)
             {
                 xssfwb = new XSSFWorkbook(fileStream);

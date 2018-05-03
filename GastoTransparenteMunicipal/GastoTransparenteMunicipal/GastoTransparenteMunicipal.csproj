@@ -313,6 +313,7 @@
     <Content Include="Views\Admin\CreateAccount.cshtml" />
     <Content Include="Views\Cuenta\ResetPassword.cshtml" />
     <Content Include="Views\Shared\ViewAdmin.cshtml" />
+    <Content Include="Views\AdminComuna\CargaDatos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

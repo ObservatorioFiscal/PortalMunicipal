@@ -305,7 +305,7 @@ h6{
     .select select {
         cursor:pointer;
         font-weight: 300;
-        padding: 0 10px;
+        padding: 0 5px;
         border: none;
         border-bottom: 4px solid #f1c330;
         box-shadow: none;

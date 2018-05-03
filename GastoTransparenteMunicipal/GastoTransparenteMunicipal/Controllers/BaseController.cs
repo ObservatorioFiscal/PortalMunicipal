@@ -17,15 +17,11 @@ namespace GastoTransparenteMunicipal.Controllers
             return municipalityName;
         }
 
-        public int GetCurrentIdMunicipality()
+        public Municipalidad GetCurrentIdMunicipality()
         {
             var municipalityName = RouteData.Values["municipality"].ToString();
-            var municipality = db.Municipalidad.Where(r => r.Nombre == municipalityName).FirstOrDefault();
-
-            if (municipality == null)
-                return 0;
-
-            return municipality.IdMunicipalidad;
+            var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb == municipalityName);
+            return municipality;
         }
     }
 }
