@@ -81,11 +81,12 @@
   color:#f1c330;
 }
 
-.nav-link-sub{
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 0 1.4rem;
-  min-height: 50px;
+.nav-link-sub {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 1.4rem;
+    min-height: 50px;
+    max-height: 50px;
 }
 
 .btn {

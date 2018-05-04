@@ -17,10 +17,10 @@
     <link href="~/Content/css/styleTreemap.css"     rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">R
+    <div class="container-fluid">
         <div class="row">
             <div class="col barra-superior">
-                <div class="row">
+                <div class="row" id="barra-primera">
                     <div class="col">
                         <div class="container">
                             <div class="row">
@@ -29,10 +29,12 @@
                                         <div class="padding-cero col-10 col-sm-10 col-md-12 align-self-center">
                                             <div class="row">
                                                 <span class="col-7 align-self-center">
-                                                    <img class="" src="~/Content/image/logo.svg" alt="Cuentas Claras Municipales" />
-                                                </span>
-                                                <span class="col-5 align-self-end">
-                                                    <b>RECOLETA</b>
+                                                    @{ 
+                                                        string logo = @ViewBag.logo + ".png";
+                                                    }
+                                                    <a href="@Url.Action("Index","Home")">
+                                                        <img class="logo-top" src="~/Content/image/municipios/@logo" alt="Cuentas Claras Municipales" />
+                                                    </a>
                                                 </span>
                                             </div>
                                             @*<div class="row">
@@ -69,7 +71,7 @@
 
 
                                 </div>
-                                <div class="col-0 col-sm-0 col-md-7 padding-cero align-self-center" id="menu-Principal">
+                                <div class="col-0 col-sm-0 col-md-7 padding-cero align-self-end" id="menu-Principal">
                                     <nav class="">
                                         <ul class="nav nav-resp align-items-center">
                                             <li class="nav-item borde-menu">
@@ -97,8 +99,21 @@
                     <div class="col">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 padding-cero">
+                                <div class="col-md-3 col-0 padding-cero">
+                                    <ul class="nav justify-content-start align-items-center">
+                                        <li class="nav-item menu-auxiliar">
+                                            <a href="@Url.Action("Index","Home")">
+                                                <img class="nav-link nav-link-sub img-fluid" src="~/Content/image/municipios/@logo" alt="Cuentas Claras Municipales" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9 col-12 padding-cero">
                                     <ul class="nav justify-content-end align-items-center">
+
+                                        <li class="nav-item menu-auxiliar">
+                                            <a class="nav-link nav-link-sub"><b class="amarillo">DATOS DESTACADOS</b></a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link nav-link-sub @ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores</a>
                                         </li>
@@ -192,6 +207,35 @@
 
     <script>
         $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 25) {
+                    $(".logo-top").css("padding", "0")
+                    //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 0.95)")
+                    $(".menu-auxiliar").css("opacity", "1")
+
+                    var URLactual = window.location.pathname;
+                    if (URLactual.includes("DatosDestacados")) {
+                        $("#barra-primera").css("height", "0")
+                        $("#barra-primera").css("opacity", "0")
+                    }
+                    
+
+                    
+                }
+                if ($(this).scrollTop() < 25) {
+                    $(".logo-top").css("padding", "15px 0")
+                    //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 1)")
+                    
+                    $(".menu-auxiliar").css("opacity", "0")
+                    var URLactual = window.location.pathname;
+                    if (URLactual.includes("DatosDestacados")) {
+                        $("#barra-primera").css("height", "auto")
+                        $("#barra-primera").css("opacity", "1")
+                    }
+                }
+            });
+
+
             $("#menu-mobile").click(
                 function () {
                     if ($("#menu-mobile-contenido").hasClass("hidden")) {

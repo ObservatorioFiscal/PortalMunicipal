@@ -248,6 +248,7 @@
     <Content Include="Content\image\icono.png" />
     <Content Include="Content\image\iniciativa.png" />
     <Content Include="Content\image\logo.svg" />
+    <Content Include="Content\image\municipios\recoleta.png" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

@@ -17,7 +17,7 @@ h1, h2, h3,h4,h5,h6{
 
 h1 {
     font-size: 2.75rem;
-    padding-top: 2.4rem;
+    padding-top: 4.4rem;
     line-height: 1;
 }
 
@@ -79,6 +79,11 @@ h6{
 .azulB{
 	background-color:#0D2B50;
 	color:#ffffff;
+}
+
+.RojoB {
+    background-color: #743131;
+    color: #ffffff;
 }
 .blanco{
 	color:#ffffff;
@@ -150,16 +155,42 @@ h6{
 
 @media (min-width: 576px) {
     .seccion-destado {
-        padding-top: 6rem;
+        padding-top: 7rem;
     }
 }
 
 @media (min-width: 768px) {
     .seccion-destado {
-        padding-top: 6.5rem;
+        padding-top: 7.5rem;
     }
 }
 
+.logo-top {
+    padding: 15px 0px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease
+}
+
+#barra-primera,
+.menu-auxiliar {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease
+}
+
+.menu-auxiliar {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; 
+    opacity:0;
+}
 #menu-mobile {
     background-color: #f5f9ff;
     padding: 0px 5px;
@@ -168,7 +199,7 @@ h6{
 
 .active {
     color: #f1c330 !important;
-    border-bottom: 5px solid #f1c330;
+    border-bottom: 4px solid #f1c330;
 }
 
 .active2 {
@@ -242,7 +273,11 @@ h6{
     z-index: 10;
     background-color: white;
     box-shadow: 0 1px 10px rgba(0, 40, 81, 0.25);
-    padding-top:5px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease
 }
 
 .hidden {
