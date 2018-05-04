@@ -18,6 +18,7 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Corporacion_Nivel1">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Gasto_Nivel1">
     <Key>
@@ -133,6 +135,7 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel1">
     <Key>
@@ -265,6 +268,7 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Personal_Cementerio_Nivel1">
     <Key>
@@ -447,6 +451,7 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Proveedor_Cementerio_Nivel1">
     <Key>
@@ -577,6 +582,7 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel1">
     <Key>
@@ -618,6 +624,16 @@
     <Property Name="OBJETIVODELAPORTE" Type="nvarchar" MaxLength="600" />
     <Property Name="MONTOAPORTE" Type="float" />
     <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Anos_Invisible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Anos_Invisible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Corporacion_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1188,6 +1204,13 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
     <EntitySet Name="Subsidio_Nivel2" EntityType="Self.Subsidio_Nivel2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subsidio_Nivel3" EntityType="Self.Subsidio_Nivel3" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubsidioInforme" EntityType="Self.SubsidioInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Anos_Invisible" EntityType="Self.Anos_Invisible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Anos_Invisible].[IdAno] AS [IdAno], 
+    [Anos_Invisible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Anos_Invisible].[Nombre] AS [Nombre]
+    FROM [dbo].[Anos_Invisible] AS [Anos_Invisible]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Corporacion_Ano_Visible" EntityType="Self.Corporacion_Ano_Visible" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Corporacion_Ano_Visible].[IdAno] AS [IdAno], 

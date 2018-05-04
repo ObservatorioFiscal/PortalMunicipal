@@ -267,6 +267,7 @@
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
+    <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
   </EntityContainer>
   <EntityType Name="Comunas">
     <Key>
@@ -288,6 +289,7 @@
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
     <NavigationProperty Name="Corporacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" FromRole="Corporacion_Ano" ToRole="Corporacion_Nivel1" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Corporacion_Ano" ToRole="Municipalidad" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Corporacion_Nivel1">
     <Key>
@@ -324,6 +326,7 @@
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Gasto_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" FromRole="Gasto_Ano" ToRole="Gasto_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Gasto_Nivel1">
     <Key>
@@ -415,6 +418,7 @@
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" FromRole="Ingreso_Ano" ToRole="Ingreso_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel1">
     <Key>
@@ -569,6 +573,7 @@
     <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Ano" ToRole="Personal_Educacion_Nivel1" />
     <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Ano" ToRole="Personal_Salud_Nivel1" />
     <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Ano" ToRole="Personal_Total_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Personal_Cementerio_Nivel1">
     <Key>
@@ -772,6 +777,7 @@
     <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735" FromRole="Proveedor_Ano" ToRole="Proveedor_Educacion_Nivel1" />
     <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7" FromRole="Proveedor_Ano" ToRole="Proveedor_Salud_Nivel1" />
     <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819" FromRole="Proveedor_Ano" ToRole="Proveedor_Total_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Proveedor_Cementerio_Nivel1">
     <Key>
@@ -917,6 +923,7 @@
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
     <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel1">
     <Key>
@@ -1467,4 +1474,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Anos_Invisible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

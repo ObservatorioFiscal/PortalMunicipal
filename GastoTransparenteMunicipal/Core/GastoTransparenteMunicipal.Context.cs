@@ -85,6 +85,7 @@ namespace Core
         public virtual DbSet<Personal_Ano_Visible> Personal_Ano_Visible { get; set; }
         public virtual DbSet<Proveedor_Ano_Visible> Proveedor_Ano_Visible { get; set; }
         public virtual DbSet<Subsidio_Ano_Visible> Subsidio_Ano_Visible { get; set; }
+        public virtual DbSet<Anos_Invisible> Anos_Invisible { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)
         {

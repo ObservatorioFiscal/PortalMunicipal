@@ -101,6 +101,7 @@
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" Width="1.5" PointX="10.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

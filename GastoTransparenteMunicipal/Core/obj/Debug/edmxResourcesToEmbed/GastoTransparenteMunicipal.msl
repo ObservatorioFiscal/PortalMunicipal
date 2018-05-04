@@ -13,6 +13,7 @@
     <EntitySetMapping Name="Corporacion_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Ano">
         <MappingFragment StoreEntitySet="Corporacion_Ano">
+          <ScalarProperty Name="Cargado" ColumnName="Cargado" />
           <ScalarProperty Name="Semestre" ColumnName="Semestre" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
@@ -49,6 +50,7 @@
     <EntitySetMapping Name="Gasto_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Ano">
         <MappingFragment StoreEntitySet="Gasto_Ano">
+          <ScalarProperty Name="Cargado" ColumnName="Cargado" />
           <ScalarProperty Name="Semestre" ColumnName="Semestre" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
@@ -137,6 +139,7 @@
     <EntitySetMapping Name="Ingreso_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Ano">
         <MappingFragment StoreEntitySet="Ingreso_Ano">
+          <ScalarProperty Name="Cargado" ColumnName="Cargado" />
           <ScalarProperty Name="Semestre" ColumnName="Semestre" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
@@ -279,6 +282,7 @@
     <EntitySetMapping Name="Personal_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Ano">
         <MappingFragment StoreEntitySet="Personal_Ano">
+          <ScalarProperty Name="Cargado" ColumnName="Cargado" />
           <ScalarProperty Name="Semestre" ColumnName="Semestre" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
@@ -476,6 +480,7 @@
     <EntitySetMapping Name="Proveedor_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Ano">
         <MappingFragment StoreEntitySet="Proveedor_Ano">
+          <ScalarProperty Name="Cargado" ColumnName="Cargado" />
           <ScalarProperty Name="Semestre" ColumnName="Semestre" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
@@ -618,6 +623,7 @@
     <EntitySetMapping Name="Subsidio_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Ano">
         <MappingFragment StoreEntitySet="Subsidio_Ano">
+          <ScalarProperty Name="Cargado" ColumnName="Cargado" />
           <ScalarProperty Name="Semestre" ColumnName="Semestre" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
@@ -720,6 +726,15 @@
     <EntitySetMapping Name="Subsidio_Ano_Visible">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Ano_Visible">
         <MappingFragment StoreEntitySet="Subsidio_Ano_Visible">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Anos_Invisible">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Anos_Invisible">
+        <MappingFragment StoreEntitySet="Anos_Invisible">
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
