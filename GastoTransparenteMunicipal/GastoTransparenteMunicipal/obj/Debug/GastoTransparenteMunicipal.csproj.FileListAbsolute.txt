@@ -130,7 +130,6 @@ C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Gast
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csprojResolveAssemblyReference.cache
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csproj.CoreCompileInputs.cache
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.dll
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.pdb
@@ -370,3 +369,4 @@ C:\Users\METRICARTS06\Documents\Visual Studio 2015\Projects\Others\PortalMunicip
 C:\Users\METRICARTS06\Documents\Visual Studio 2015\Projects\Others\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\METRICARTS06\Documents\Visual Studio 2015\Projects\Others\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\METRICARTS06\Documents\Visual Studio 2015\Projects\Others\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\GastoTransparenteMunicipal\obj\Debug\GastoTransparenteMunicipal.csprojAssemblyReference.cache

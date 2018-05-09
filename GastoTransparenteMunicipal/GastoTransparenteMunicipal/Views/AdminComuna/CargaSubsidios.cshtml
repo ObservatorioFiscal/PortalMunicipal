@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Carga Subsidios";
+}
+
+
+<div class="container">
+    <div class="row seccion-destado">
+        @if (ViewBag.aviso)
+        {
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    Esta informacion ya se encuentra cargada, si la vuelve a cargar se reemplaza la anterior.
+                </div>
+            </div>
+        }
+
+        <div class="col-md-12">
+            <h1>
+                Carga de Ingresos año
+                <span class="muntotal">
+                    @ViewBag.ano
+                </span>
+            </h1>
+        </div>
+        <div class="col-md-12">
+            <form action="@Url.Action("CargaSubsidios","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
+                <label>
+                    <span></span>
+                    Adm. y Serv. Municipales
+                    <input type="file" accept=".xls,.xlsx" id="file1" name="file1" />
+                    <input type="hidden" />
+                </label><br />
+
+                <label>
+                    Salud
+                    <input type="file" accept=".xls,.xlsx" id="file2" name="file2" />
+                    <input type="hidden" />
+                </label><br />
+                <label>
+                    Educacion
+                    <input type="file" accept=".xls,.xlsx" id="file3" name="file3" />
+                    <input type="hidden" />
+                </label><br />
+                @if (ViewBag.cementerio)
+                {
+
+                    <label>
+                        Cementerio
+                        <input type="file" accept=".xls,.xlsx" id="file4" name="file4" />
+                        <input type="hidden" />
+                    </label>
+
+                }<br /><br />
+                <input type="button" class="btn" id="boton" value="Confirmar subida de Informacion">
+            </form>
+        </div>
+    </div>
+    <div class="row padding-Div"></div>
+    <div class="row padding-Div"></div>
+    <div class="row padding-Div"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $("#file1").onChange(function () {
+            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
+        });
+        $("#file2").onChange(function () {
+            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
+        });
+        $("#file3").onChange(function () {
+            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
+        });
+        $("#file4").onChange(function () {
+            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
+        });
+
+        //SI TODOS LOS HIDDEN
+
+        $("#boton").onClick(function () {
+            //si todos los type hidden en true, realiza el submit():
+            if (1 = 1) {
+                document.getElementById('formulario').submit();
+            }
+        });
+
+
+    });
+</script>

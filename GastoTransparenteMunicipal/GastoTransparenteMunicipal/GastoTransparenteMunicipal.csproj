@@ -315,6 +315,12 @@
     <Content Include="Views\Cuenta\ResetPassword.cshtml" />
     <Content Include="Views\Shared\ViewAdmin.cshtml" />
     <Content Include="Views\AdminComuna\CargaDatos.cshtml" />
+    <Content Include="Views\AdminComuna\CargaIngresos.cshtml" />
+    <Content Include="Views\AdminComuna\CargaGastos.cshtml" />
+    <Content Include="Views\AdminComuna\CargaProveedores.cshtml" />
+    <Content Include="Views\AdminComuna\CargaSubsidios.cshtml" />
+    <Content Include="Views\AdminComuna\CargaCorporaciones.cshtml" />
+    <Content Include="Views\AdminComuna\CargaRemuneraciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
