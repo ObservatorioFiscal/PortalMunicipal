@@ -122,12 +122,7 @@ namespace GastoTransparenteMunicipal.Controllers
             return this.Content(json, "application/json");
             #endregion
         }
-
         
-
-
-
-
 
         public class d3Object_TreeMap
         {
