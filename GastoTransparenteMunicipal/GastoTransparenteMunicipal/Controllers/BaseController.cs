@@ -22,6 +22,6 @@ namespace GastoTransparenteMunicipal.Controllers
             var municipalityName = RouteData.Values["municipality"].ToString();
             var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb == municipalityName);
             return municipality;
-        }
+        }        
     }
 }

@@ -7,6 +7,10 @@ using System.Web.Mvc;
 using Core;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using NPOI.XSSF.UserModel;
+using System.IO;
+using GastoTransparenteMunicipal.Helpers;
+using System.Data.SqlClient;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -69,6 +73,31 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public ActionResult CargaIngresos(HttpPostedFileBase file)
         {
+            XSSFWorkbook xssfwb;
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
+            int year = 2017;
+            int month = 0;
+
+            Ingreso_Ano ingresoAno = new Ingreso_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            using (Stream fileStream = file.InputStream)
+            {
+                xssfwb = new XSSFWorkbook(fileStream);
+                LoadReport loadReport = new LoadReport();
+                var result = loadReport.LoadInformeIngreso(xssfwb);
+                db.IngresoInforme.AddRange(result);
+                db.Ingreso_Ano.Add(ingresoAno);
+
+                db.SaveChanges();
+
+                object[] parameters =
+                {
+                    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
+                    new SqlParameter("@idAn", ingresoAno.IdAno)          
+                };
+
+                db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
+                db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);                
+            }
             return View();
         }
 

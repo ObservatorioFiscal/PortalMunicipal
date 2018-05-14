@@ -281,7 +281,6 @@
       <LastGenOutput>GastoTransparenteMunicipal.Context.cs</LastGenOutput>
       <DependentUpon>GastoTransparenteMunicipal.edmx</DependentUpon>
     </Content>
-    <Content Include="GastoTransparenteMunicipal.edmx.sql" />
     <Content Include="GastoTransparenteMunicipal.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GastoTransparenteMunicipal.edmx</DependentUpon>

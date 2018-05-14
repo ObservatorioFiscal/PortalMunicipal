@@ -13,7 +13,7 @@ using GastoTransparenteMunicipal.Models;
 namespace GastoTransparenteMunicipal.Controllers
 {
     //[Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;        
@@ -95,6 +95,10 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var roles = await UserManager.GetRolesAsync(user.Id);                                        
+                    var redirectUrl = roles.First().ToUpper();
+                    returnUrl = "/" + redirectUrl + "/" + "AdminComuna";
+                    
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
