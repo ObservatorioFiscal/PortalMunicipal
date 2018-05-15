@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
+    [Obsolete("")]
     public class FeaturedDataController : BaseController
     {
         //****************SUBSIDIOS****************//
