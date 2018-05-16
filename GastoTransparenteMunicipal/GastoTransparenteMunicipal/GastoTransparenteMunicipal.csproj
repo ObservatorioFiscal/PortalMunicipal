@@ -197,7 +197,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\DatosdestacadosController.cs" />
-    <Compile Include="Controllers\FeaturedDataController.cs" />
     <Compile Include="Controllers\GastosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
@@ -207,7 +206,6 @@
     </Compile>
     <Compile Include="Helpers\d3Object.cs" />
     <Compile Include="Helpers\LoadReport.cs" />
-    <Compile Include="Interceptor.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IngresoModel.cs" />
     <Compile Include="Models\GastoModel.cs" />
@@ -297,9 +295,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\FeaturedData\Corporation.cshtml" />
-    <Content Include="Views\FeaturedData\Test.cshtml" />
-    <Content Include="Views\FeaturedData\Subsidy.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\AdminComuna\Index.cshtml" />
@@ -359,9 +354,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administration\CargaInformeProveedores.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\FeaturedData\Providers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />

@@ -74,6 +74,11 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
+        public ActionResult ActivarMunicipio()
+        {
+            return View();
+        }
+
         public ActionResult CreateAccount()
         {
             List<SelectListItem> roles = new List<SelectListItem>();
