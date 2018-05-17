@@ -12,7 +12,7 @@ using System.Web.Mvc;
 namespace GastoTransparenteMunicipal.Controllers
 {
     //[Authorize(Roles = "admin")]  
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         #region login
         private ApplicationSignInManager _signInManager;
@@ -74,10 +74,48 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
-        public ActionResult ActivarMunicipio()
+        public ActionResult Municipio()
         {
-            return View();
+            List<Core.Municipalidad> municipios = db.Municipalidad.Where(r => !r.Activa).ToList();
+            return View(municipios);
         }
+
+        [HttpPost]
+        public JsonResult ActivarMunicipio(string idMunicipio)
+        {
+            bool success = true;
+            try
+            {
+                var municipio = db.Municipalidad.Find(idMunicipio);
+                municipio.Activa = !municipio.Activa;
+                db.SaveChanges();
+
+                return Json(success);
+            }
+            catch(Exception ex)
+            {
+                return Json(!success);
+            }            
+        }
+
+        [HttpPost]
+        public JsonResult ActivarCementerio(string idMunicipio)
+        {
+            bool success = true;
+            try
+            {
+                var municipio = db.Municipalidad.Find(idMunicipio);
+                municipio.Cementerio = !municipio.Cementerio;
+                db.SaveChanges();
+
+                return Json(success);
+            }
+            catch (Exception ex)
+            {
+                return Json(!success);
+            }
+        }
+
 
         public ActionResult CreateAccount()
         {

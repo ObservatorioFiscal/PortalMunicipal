@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Core.Municipalidad>
+
+@{
+    ViewBag.Title = "ActivarMunicipio";
+}
+
+<h2>ActivarMunicipio</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" id="tableMunicipios">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Activa
+        </th>
+        <th>
+            Cementerio
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cementerio)
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<script>
+    function initDataVisualization() {
+            var dataTableMunicipio = $('#tableMunicipios');
+            dataTableMunicipio(dataTableMunicipio);
+        }
+
+        function incivilitiesDataTable() {
+            $(datatable).DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ incivilidades por página",
+                    "zeroRecords": "No se han encontrado datos...",
+                    "info": true,
+                    "search": "Buscar :",
+                    "info": "Página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No se han encontrado datos",
+                    "infoFiltered": "(Filtrado _MAX_ incivilities)",
+                    "decimal": ",",
+                    "thousands": ".",
+                    "paginate": {
+                        "first": "Primera ",
+                        "last": "Última",
+                        "next": "Siguiente",
+                        "previous": " Previa"
+                    }
+                }
+                , "order": [1, 'desc']
+                , "initComplete": function (settings, json) {
+                    $(".goButtton").removeAttr("disabled");
+                    $("#loadingTableAnim").hide();
+                    $(datatable).removeAttr("hidden");
+                }
+            });
+        }
+</script>
