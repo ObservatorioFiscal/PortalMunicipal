@@ -1,0 +1,1409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GastoTransparenteMunicipalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comunas">
+    <Key>
+      <PropertyRef Name="IdComuna" />
+    </Key>
+    <Property Name="IdComuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="250" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Corporacion_Ano">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Corporacion_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Origen" Type="nvarchar" MaxLength="600" />
+    <Property Name="Destino" Type="nvarchar" MaxLength="600" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CorporacionInforme">
+    <Key>
+      <PropertyRef Name="IdInformeCorporacion" />
+    </Key>
+    <Property Name="IdInformeCorporacion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="IdGroupInforme" Type="uniqueidentifier" />
+    <Property Name="ObjetivoDelAporte" Type="nvarchar" MaxLength="600" />
+    <Property Name="Origen" Type="nvarchar" MaxLength="600" />
+    <Property Name="Destino" Type="nvarchar" MaxLength="600" />
+    <Property Name="MontoAportado" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Gasto_Ano">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gasto_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Gasto_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Gasto_Nivel3">
+    <Key>
+      <PropertyRef Name="IdNivel3" />
+    </Key>
+    <Property Name="IdNivel3" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel2" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Gasto_Nivel4">
+    <Key>
+      <PropertyRef Name="IdNivel4" />
+    </Key>
+    <Property Name="IdNivel4" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel3" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="GastoInforme">
+    <Key>
+      <PropertyRef Name="IdGastoInforme" />
+    </Key>
+    <Property Name="IdGastoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO" Type="nvarchar" MaxLength="200" />
+    <Property Name="AREANIVEL1A" Type="nvarchar" MaxLength="200" />
+    <Property Name="AREANIVEL2" Type="nvarchar" MaxLength="200" />
+    <Property Name="CUENTANIVEL1" Type="nvarchar" MaxLength="200" />
+    <Property Name="CUENTANIVEL2" Type="nvarchar" MaxLength="200" />
+    <Property Name="MontoPresupuestadoAnual" Type="float" />
+    <Property Name="MontoGastado" Type="float" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Ingreso_Ano">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ingreso_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Ingreso_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Ingreso_Nivel3">
+    <Key>
+      <PropertyRef Name="IdNivel3" />
+    </Key>
+    <Property Name="IdNivel3" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel2" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Ingreso_Nivel4">
+    <Key>
+      <PropertyRef Name="IdNivel4" />
+    </Key>
+    <Property Name="IdNivel4" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel3" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="10" />
+    <Property Name="MontoGastado" Type="bigint" />
+    <Property Name="MontoPresupuestado" Type="bigint" />
+    <Property Name="PorcentajeGastado" Type="float" />
+    <Property Name="PorcentajePresupuestado" Type="float" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="IngresoInforme">
+    <Key>
+      <PropertyRef Name="IdIngresoInforme" />
+    </Key>
+    <Property Name="IdIngresoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO" Type="nvarchar" MaxLength="200" />
+    <Property Name="AREANIVEL1A" Type="nvarchar" MaxLength="200" />
+    <Property Name="AREANIVEL2" Type="nvarchar" MaxLength="200" />
+    <Property Name="CUENTANIVEL1" Type="nvarchar" MaxLength="200" />
+    <Property Name="CUENTANIVEL2" Type="nvarchar" MaxLength="200" />
+    <Property Name="MontoPresupuestadoAnual" Type="float" />
+    <Property Name="MontoGastado" Type="float" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="IdGroupInformeIngreso" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Municipalidad">
+    <Key>
+      <PropertyRef Name="IdMunicipalidad" />
+    </Key>
+    <Property Name="IdMunicipalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Activa" Type="bit" Nullable="false" />
+    <Property Name="DireccionWeb" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Cementerio" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personal_Adm_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Personal_Adm_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="MontoMujer" Type="bigint" />
+    <Property Name="MontoHombre" Type="bigint" />
+    <Property Name="CantidadMujer" Type="bigint" />
+    <Property Name="CantidadHombre" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Personal_AdmInforme">
+    <Key>
+      <PropertyRef Name="IdInformePersonal" />
+    </Key>
+    <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+    <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+    <Property Name="EDAD" Type="int" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+    <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="GRADO" Type="int" />
+    <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+    <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+    <Property Name="SUELDOHABERES" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Personal_Ano">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personal_Cementerio_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Personal_Cementerio_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="MontoMujer" Type="bigint" />
+    <Property Name="MontoHombre" Type="bigint" />
+    <Property Name="CantidadMujer" Type="bigint" />
+    <Property Name="CantidadHombre" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Personal_CementerioInforme">
+    <Key>
+      <PropertyRef Name="IdInformePersonal" />
+    </Key>
+    <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+    <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+    <Property Name="EDAD" Type="int" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+    <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="GRADO" Type="int" />
+    <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+    <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+    <Property Name="SUELDOHABERES" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Personal_Educacion_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Personal_Educacion_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="MontoMujer" Type="bigint" />
+    <Property Name="MontoHombre" Type="bigint" />
+    <Property Name="CantidadMujer" Type="bigint" />
+    <Property Name="CantidadHombre" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Personal_EducacionInforme">
+    <Key>
+      <PropertyRef Name="IdInformePersonal" />
+    </Key>
+    <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+    <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+    <Property Name="EDAD" Type="int" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+    <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="GRADO" Type="int" />
+    <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+    <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+    <Property Name="SUELDOHABERES" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Personal_Salud_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Personal_Salud_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="MontoMujer" Type="bigint" />
+    <Property Name="MontoHombre" Type="bigint" />
+    <Property Name="CantidadMujer" Type="bigint" />
+    <Property Name="CantidadHombre" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Personal_SaludInforme">
+    <Key>
+      <PropertyRef Name="IdInformePersonal" />
+    </Key>
+    <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
+    <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
+    <Property Name="EDAD" Type="int" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
+    <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="GRADO" Type="int" />
+    <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
+    <Property Name="AREA" Type="nvarchar" MaxLength="500" />
+    <Property Name="SUELDOHABERES" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Personal_Total_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Personal_Total_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="MontoMujer" Type="bigint" />
+    <Property Name="MontoHombre" Type="bigint" />
+    <Property Name="CantidadMujer" Type="bigint" />
+    <Property Name="CantidadHombre" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proveedor_Adm_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proveedor_Adm_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNIvel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Proveedor_AdmInforme">
+    <Key>
+      <PropertyRef Name="IdInformeProveedores" />
+    </Key>
+    <Property Name="IdInformeProveedores" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformeProveedores" Type="uniqueidentifier" />
+    <Property Name="NumeroOrdenCompra" Type="bigint" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
+    <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Proveedor_Ano">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedor_Cementerio_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proveedor_Cementerio_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNIvel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Proveedor_CementerioInforme">
+    <Key>
+      <PropertyRef Name="IdInformeProveedores" />
+    </Key>
+    <Property Name="IdInformeProveedores" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformeProveedores" Type="uniqueidentifier" />
+    <Property Name="NumeroOrdenCompra" Type="bigint" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
+    <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Proveedor_Educacion_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proveedor_Educacion_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNIvel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Proveedor_EducacionInforme">
+    <Key>
+      <PropertyRef Name="IdInformeProveedores" />
+    </Key>
+    <Property Name="IdInformeProveedores" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformeProveedores" Type="uniqueidentifier" />
+    <Property Name="NumeroOrdenCompra" Type="bigint" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
+    <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Proveedor_Salud_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proveedor_Salud_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNIvel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Proveedor_SaludInforme">
+    <Key>
+      <PropertyRef Name="IdInformeProveedores" />
+    </Key>
+    <Property Name="IdInformeProveedores" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformeProveedores" Type="uniqueidentifier" />
+    <Property Name="NumeroOrdenCompra" Type="bigint" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
+    <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Proveedor_Total_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Proveedor_Total_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNIvel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Subsidio_Ano">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Ano" Type="int" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subsidio_Nivel1">
+    <Key>
+      <PropertyRef Name="IdNivel1" />
+    </Key>
+    <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAno" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Subsidio_Nivel2">
+    <Key>
+      <PropertyRef Name="IdNivel2" />
+    </Key>
+    <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel1" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Monto" Type="bigint" />
+    <Property Name="IdAno" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Subsidio_Nivel3">
+    <Key>
+      <PropertyRef Name="IdNivel3" />
+    </Key>
+    <Property Name="IdNivel3" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNivel2" Type="bigint" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="800" />
+    <Property Name="Monto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="SubsidioInforme">
+    <Key>
+      <PropertyRef Name="IdSubsidio" />
+    </Key>
+    <Property Name="IdSubsidio" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupInformeSubsidio" Type="uniqueidentifier" />
+    <Property Name="CATEGORIA" Type="nvarchar" MaxLength="300" />
+    <Property Name="ORGANIZACION" Type="nvarchar" MaxLength="300" />
+    <Property Name="FECHADECRETO" Type="datetime2" Precision="7" />
+    <Property Name="OBJETIVODELAPORTE" Type="nvarchar" MaxLength="600" />
+    <Property Name="MONTOAPORTE" Type="float" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Anos_Invisible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Anos_Invisible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Corporacion_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Corporacion_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Gasto_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Ingreso_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Personal_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Personal_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Proveedor_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Proveedor_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Subsidio_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMunicipalidad" Type="int" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
+  </EntityType>
+  <Association Name="FK__Corporaci__IdAno__18EBB532">
+    <End Role="Corporacion_Ano" Type="Self.Corporacion_Ano" Multiplicity="0..1" />
+    <End Role="Corporacion_Nivel1" Type="Self.Corporacion_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Corporacion_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Corporacion_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Corporaci__IdMun__17F790F9">
+    <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+    <End Role="Corporacion_Ano" Type="Self.Corporacion_Ano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalidad">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Principal>
+      <Dependent Role="Corporacion_Ano">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gasto_Ano__IdMun__19DFD96B">
+    <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+    <End Role="Gasto_Ano" Type="Self.Gasto_Ano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalidad">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Principal>
+      <Dependent Role="Gasto_Ano">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gasto_Niv__IdAno__1AD3FDA4">
+    <End Role="Gasto_Ano" Type="Self.Gasto_Ano" Multiplicity="0..1" />
+    <End Role="Gasto_Nivel1" Type="Self.Gasto_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gasto_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Gasto_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gasto_Niv__IdNiv__1BC821DD">
+    <End Role="Gasto_Nivel1" Type="Self.Gasto_Nivel1" Multiplicity="0..1" />
+    <End Role="Gasto_Nivel2" Type="Self.Gasto_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gasto_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Gasto_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gasto_Niv__IdNiv__1CBC4616">
+    <End Role="Gasto_Nivel2" Type="Self.Gasto_Nivel2" Multiplicity="0..1" />
+    <End Role="Gasto_Nivel3" Type="Self.Gasto_Nivel3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gasto_Nivel2">
+        <PropertyRef Name="IdNivel2" />
+      </Principal>
+      <Dependent Role="Gasto_Nivel3">
+        <PropertyRef Name="IdNivel2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gasto_Niv__IdNiv__1DB06A4F">
+    <End Role="Gasto_Nivel3" Type="Self.Gasto_Nivel3" Multiplicity="0..1" />
+    <End Role="Gasto_Nivel4" Type="Self.Gasto_Nivel4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gasto_Nivel3">
+        <PropertyRef Name="IdNivel3" />
+      </Principal>
+      <Dependent Role="Gasto_Nivel4">
+        <PropertyRef Name="IdNivel3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_A__IdMun__1EA48E88">
+    <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+    <End Role="Ingreso_Ano" Type="Self.Ingreso_Ano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalidad">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Principal>
+      <Dependent Role="Ingreso_Ano">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_N__IdAno__1F98B2C1">
+    <End Role="Ingreso_Ano" Type="Self.Ingreso_Ano" Multiplicity="0..1" />
+    <End Role="Ingreso_Nivel1" Type="Self.Ingreso_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingreso_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Ingreso_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_N__IdNiv__208CD6FA">
+    <End Role="Ingreso_Nivel1" Type="Self.Ingreso_Nivel1" Multiplicity="0..1" />
+    <End Role="Ingreso_Nivel2" Type="Self.Ingreso_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingreso_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Ingreso_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_N__IdNiv__2180FB33">
+    <End Role="Ingreso_Nivel2" Type="Self.Ingreso_Nivel2" Multiplicity="0..1" />
+    <End Role="Ingreso_Nivel3" Type="Self.Ingreso_Nivel3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingreso_Nivel2">
+        <PropertyRef Name="IdNivel2" />
+      </Principal>
+      <Dependent Role="Ingreso_Nivel3">
+        <PropertyRef Name="IdNivel2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_N__IdNiv__22751F6C">
+    <End Role="Ingreso_Nivel3" Type="Self.Ingreso_Nivel3" Multiplicity="0..1" />
+    <End Role="Ingreso_Nivel4" Type="Self.Ingreso_Nivel4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingreso_Nivel3">
+        <PropertyRef Name="IdNivel3" />
+      </Principal>
+      <Dependent Role="Ingreso_Nivel4">
+        <PropertyRef Name="IdNivel3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__236943A5">
+    <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="0..1" />
+    <End Role="Personal_Adm_Nivel1" Type="Self.Personal_Adm_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Adm_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__2645B050">
+    <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="0..1" />
+    <End Role="Personal_Cementerio_Nivel1" Type="Self.Personal_Cementerio_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Cementerio_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__282DF8C2">
+    <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="0..1" />
+    <End Role="Personal_Educacion_Nivel1" Type="Self.Personal_Educacion_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Educacion_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__2A164134">
+    <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="0..1" />
+    <End Role="Personal_Salud_Nivel1" Type="Self.Personal_Salud_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Salud_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__2BFE89A6">
+    <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="0..1" />
+    <End Role="Personal_Total_Nivel1" Type="Self.Personal_Total_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Total_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdMun__25518C17">
+    <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+    <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalidad">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Principal>
+      <Dependent Role="Personal_Ano">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdNiv__245D67DE">
+    <End Role="Personal_Adm_Nivel1" Type="Self.Personal_Adm_Nivel1" Multiplicity="0..1" />
+    <End Role="Personal_Adm_Nivel2" Type="Self.Personal_Adm_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Adm_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Personal_Adm_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdNiv__2739D489">
+    <End Role="Personal_Cementerio_Nivel1" Type="Self.Personal_Cementerio_Nivel1" Multiplicity="0..1" />
+    <End Role="Personal_Cementerio_Nivel2" Type="Self.Personal_Cementerio_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Cementerio_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Personal_Cementerio_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdNiv__29221CFB">
+    <End Role="Personal_Educacion_Nivel1" Type="Self.Personal_Educacion_Nivel1" Multiplicity="0..1" />
+    <End Role="Personal_Educacion_Nivel2" Type="Self.Personal_Educacion_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Educacion_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Personal_Educacion_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdNiv__2B0A656D">
+    <End Role="Personal_Salud_Nivel1" Type="Self.Personal_Salud_Nivel1" Multiplicity="0..1" />
+    <End Role="Personal_Salud_Nivel2" Type="Self.Personal_Salud_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Salud_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Personal_Salud_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdNiv__2CF2ADDF">
+    <End Role="Personal_Total_Nivel1" Type="Self.Personal_Total_Nivel1" Multiplicity="0..1" />
+    <End Role="Personal_Total_Nivel2" Type="Self.Personal_Total_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Total_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Personal_Total_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdAno__2DE6D218">
+    <End Role="Proveedor_Ano" Type="Self.Proveedor_Ano" Multiplicity="0..1" />
+    <End Role="Proveedor_Adm_Nivel1" Type="Self.Proveedor_Adm_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Proveedor_Adm_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdAno__30C33EC3">
+    <End Role="Proveedor_Ano" Type="Self.Proveedor_Ano" Multiplicity="0..1" />
+    <End Role="Proveedor_Cementerio_Nivel1" Type="Self.Proveedor_Cementerio_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Proveedor_Cementerio_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdAno__32AB8735">
+    <End Role="Proveedor_Ano" Type="Self.Proveedor_Ano" Multiplicity="0..1" />
+    <End Role="Proveedor_Educacion_Nivel1" Type="Self.Proveedor_Educacion_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Proveedor_Educacion_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdAno__3493CFA7">
+    <End Role="Proveedor_Ano" Type="Self.Proveedor_Ano" Multiplicity="0..1" />
+    <End Role="Proveedor_Salud_Nivel1" Type="Self.Proveedor_Salud_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Proveedor_Salud_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdAno__367C1819">
+    <End Role="Proveedor_Ano" Type="Self.Proveedor_Ano" Multiplicity="0..1" />
+    <End Role="Proveedor_Total_Nivel1" Type="Self.Proveedor_Total_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Proveedor_Total_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdMun__2FCF1A8A">
+    <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+    <End Role="Proveedor_Ano" Type="Self.Proveedor_Ano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalidad">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Principal>
+      <Dependent Role="Proveedor_Ano">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdNIv__2EDAF651">
+    <End Role="Proveedor_Adm_Nivel1" Type="Self.Proveedor_Adm_Nivel1" Multiplicity="0..1" />
+    <End Role="Proveedor_Adm_Nivel2" Type="Self.Proveedor_Adm_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Adm_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Proveedor_Adm_Nivel2">
+        <PropertyRef Name="IdNIvel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdNIv__31B762FC">
+    <End Role="Proveedor_Cementerio_Nivel1" Type="Self.Proveedor_Cementerio_Nivel1" Multiplicity="0..1" />
+    <End Role="Proveedor_Cementerio_Nivel2" Type="Self.Proveedor_Cementerio_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Cementerio_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Proveedor_Cementerio_Nivel2">
+        <PropertyRef Name="IdNIvel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdNIv__339FAB6E">
+    <End Role="Proveedor_Educacion_Nivel1" Type="Self.Proveedor_Educacion_Nivel1" Multiplicity="0..1" />
+    <End Role="Proveedor_Educacion_Nivel2" Type="Self.Proveedor_Educacion_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Educacion_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Proveedor_Educacion_Nivel2">
+        <PropertyRef Name="IdNIvel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdNIv__3587F3E0">
+    <End Role="Proveedor_Salud_Nivel1" Type="Self.Proveedor_Salud_Nivel1" Multiplicity="0..1" />
+    <End Role="Proveedor_Salud_Nivel2" Type="Self.Proveedor_Salud_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Salud_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Proveedor_Salud_Nivel2">
+        <PropertyRef Name="IdNIvel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__IdNIv__37703C52">
+    <End Role="Proveedor_Total_Nivel1" Type="Self.Proveedor_Total_Nivel1" Multiplicity="0..1" />
+    <End Role="Proveedor_Total_Nivel2" Type="Self.Proveedor_Total_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor_Total_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Proveedor_Total_Nivel2">
+        <PropertyRef Name="IdNIvel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsidio___IdAno__395884C4">
+    <End Role="Subsidio_Ano" Type="Self.Subsidio_Ano" Multiplicity="0..1" />
+    <End Role="Subsidio_Nivel1" Type="Self.Subsidio_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subsidio_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Subsidio_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsidio___IdAno__3A4CA8FD">
+    <End Role="Subsidio_Ano" Type="Self.Subsidio_Ano" Multiplicity="0..1" />
+    <End Role="Subsidio_Nivel2" Type="Self.Subsidio_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subsidio_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Subsidio_Nivel2">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsidio___IdMun__3864608B">
+    <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
+    <End Role="Subsidio_Ano" Type="Self.Subsidio_Ano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalidad">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Principal>
+      <Dependent Role="Subsidio_Ano">
+        <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subsidio___IdNiv__3B40CD36">
+    <End Role="Subsidio_Nivel1" Type="Self.Subsidio_Nivel1" Multiplicity="0..1" />
+    <End Role="Subsidio_Nivel2" Type="Self.Subsidio_Nivel2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subsidio_Nivel1">
+        <PropertyRef Name="IdNivel1" />
+      </Principal>
+      <Dependent Role="Subsidio_Nivel2">
+        <PropertyRef Name="IdNivel1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GastoTransparenteMunicipalModelStoreContainer">
+    <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Corporacion_Ano" EntityType="Self.Corporacion_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Corporacion_Nivel1" EntityType="Self.Corporacion_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CorporacionInforme" EntityType="Self.CorporacionInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gasto_Ano" EntityType="Self.Gasto_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gasto_Nivel1" EntityType="Self.Gasto_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gasto_Nivel2" EntityType="Self.Gasto_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gasto_Nivel3" EntityType="Self.Gasto_Nivel3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gasto_Nivel4" EntityType="Self.Gasto_Nivel4" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GastoInforme" EntityType="Self.GastoInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_Ano" EntityType="Self.Ingreso_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_Nivel1" EntityType="Self.Ingreso_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_Nivel2" EntityType="Self.Ingreso_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_Nivel3" EntityType="Self.Ingreso_Nivel3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_Nivel4" EntityType="Self.Ingreso_Nivel4" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IngresoInforme" EntityType="Self.IngresoInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Municipalidad" EntityType="Self.Municipalidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Adm_Nivel1" EntityType="Self.Personal_Adm_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Adm_Nivel2" EntityType="Self.Personal_Adm_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_AdmInforme" EntityType="Self.Personal_AdmInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Ano" EntityType="Self.Personal_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Cementerio_Nivel1" EntityType="Self.Personal_Cementerio_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Cementerio_Nivel2" EntityType="Self.Personal_Cementerio_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_CementerioInforme" EntityType="Self.Personal_CementerioInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Educacion_Nivel1" EntityType="Self.Personal_Educacion_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Educacion_Nivel2" EntityType="Self.Personal_Educacion_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_EducacionInforme" EntityType="Self.Personal_EducacionInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Salud_Nivel1" EntityType="Self.Personal_Salud_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Salud_Nivel2" EntityType="Self.Personal_Salud_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_SaludInforme" EntityType="Self.Personal_SaludInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Total_Nivel1" EntityType="Self.Personal_Total_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal_Total_Nivel2" EntityType="Self.Personal_Total_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Adm_Nivel1" EntityType="Self.Proveedor_Adm_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Adm_Nivel2" EntityType="Self.Proveedor_Adm_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_AdmInforme" EntityType="Self.Proveedor_AdmInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Ano" EntityType="Self.Proveedor_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Cementerio_Nivel1" EntityType="Self.Proveedor_Cementerio_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Cementerio_Nivel2" EntityType="Self.Proveedor_Cementerio_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_CementerioInforme" EntityType="Self.Proveedor_CementerioInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Educacion_Nivel1" EntityType="Self.Proveedor_Educacion_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Educacion_Nivel2" EntityType="Self.Proveedor_Educacion_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_EducacionInforme" EntityType="Self.Proveedor_EducacionInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Salud_Nivel1" EntityType="Self.Proveedor_Salud_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Salud_Nivel2" EntityType="Self.Proveedor_Salud_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_SaludInforme" EntityType="Self.Proveedor_SaludInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Total_Nivel1" EntityType="Self.Proveedor_Total_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor_Total_Nivel2" EntityType="Self.Proveedor_Total_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subsidio_Ano" EntityType="Self.Subsidio_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subsidio_Nivel1" EntityType="Self.Subsidio_Nivel1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subsidio_Nivel2" EntityType="Self.Subsidio_Nivel2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subsidio_Nivel3" EntityType="Self.Subsidio_Nivel3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubsidioInforme" EntityType="Self.SubsidioInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Anos_Invisible" EntityType="Self.Anos_Invisible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Anos_Invisible].[IdAno] AS [IdAno], 
+    [Anos_Invisible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Anos_Invisible].[Nombre] AS [Nombre]
+    FROM [dbo].[Anos_Invisible] AS [Anos_Invisible]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Corporacion_Ano_Visible" EntityType="Self.Corporacion_Ano_Visible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Corporacion_Ano_Visible].[IdAno] AS [IdAno], 
+    [Corporacion_Ano_Visible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Corporacion_Ano_Visible].[Nombre] AS [Nombre]
+    FROM [dbo].[Corporacion_Ano_Visible] AS [Corporacion_Ano_Visible]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Gasto_Ano_Visible" EntityType="Self.Gasto_Ano_Visible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Gasto_Ano_Visible].[IdAno] AS [IdAno], 
+    [Gasto_Ano_Visible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Gasto_Ano_Visible].[Nombre] AS [Nombre]
+    FROM [dbo].[Gasto_Ano_Visible] AS [Gasto_Ano_Visible]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Ingreso_Ano_Visible" EntityType="Self.Ingreso_Ano_Visible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Ingreso_Ano_Visible].[IdAno] AS [IdAno], 
+    [Ingreso_Ano_Visible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Ingreso_Ano_Visible].[Nombre] AS [Nombre]
+    FROM [dbo].[Ingreso_Ano_Visible] AS [Ingreso_Ano_Visible]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Personal_Ano_Visible" EntityType="Self.Personal_Ano_Visible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Personal_Ano_Visible].[IdAno] AS [IdAno], 
+    [Personal_Ano_Visible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Personal_Ano_Visible].[Nombre] AS [Nombre]
+    FROM [dbo].[Personal_Ano_Visible] AS [Personal_Ano_Visible]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Proveedor_Ano_Visible" EntityType="Self.Proveedor_Ano_Visible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Proveedor_Ano_Visible].[IdAno] AS [IdAno], 
+    [Proveedor_Ano_Visible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Proveedor_Ano_Visible].[Nombre] AS [Nombre]
+    FROM [dbo].[Proveedor_Ano_Visible] AS [Proveedor_Ano_Visible]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Subsidio_Ano_Visible" EntityType="Self.Subsidio_Ano_Visible" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Subsidio_Ano_Visible].[IdAno] AS [IdAno], 
+    [Subsidio_Ano_Visible].[IdMunicipalidad] AS [IdMunicipalidad], 
+    [Subsidio_Ano_Visible].[Nombre] AS [Nombre]
+    FROM [dbo].[Subsidio_Ano_Visible] AS [Subsidio_Ano_Visible]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Corporaci__IdAno__18EBB532" Association="Self.FK__Corporaci__IdAno__18EBB532">
+      <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
+      <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="Self.FK__Corporaci__IdMun__17F790F9">
+      <End Role="Municipalidad" EntitySet="Municipalidad" />
+      <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gasto_Ano__IdMun__19DFD96B" Association="Self.FK__Gasto_Ano__IdMun__19DFD96B">
+      <End Role="Municipalidad" EntitySet="Municipalidad" />
+      <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gasto_Niv__IdAno__1AD3FDA4" Association="Self.FK__Gasto_Niv__IdAno__1AD3FDA4">
+      <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
+      <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gasto_Niv__IdNiv__1BC821DD" Association="Self.FK__Gasto_Niv__IdNiv__1BC821DD">
+      <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
+      <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gasto_Niv__IdNiv__1CBC4616" Association="Self.FK__Gasto_Niv__IdNiv__1CBC4616">
+      <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
+      <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gasto_Niv__IdNiv__1DB06A4F" Association="Self.FK__Gasto_Niv__IdNiv__1DB06A4F">
+      <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
+      <End Role="Gasto_Nivel4" EntitySet="Gasto_Nivel4" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="Self.FK__Ingreso_A__IdMun__1EA48E88">
+      <End Role="Municipalidad" EntitySet="Municipalidad" />
+      <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="Self.FK__Ingreso_N__IdAno__1F98B2C1">
+      <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+      <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_N__IdNiv__208CD6FA" Association="Self.FK__Ingreso_N__IdNiv__208CD6FA">
+      <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
+      <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_N__IdNiv__2180FB33" Association="Self.FK__Ingreso_N__IdNiv__2180FB33">
+      <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
+      <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_N__IdNiv__22751F6C" Association="Self.FK__Ingreso_N__IdNiv__22751F6C">
+      <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
+      <End Role="Ingreso_Nivel4" EntitySet="Ingreso_Nivel4" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__236943A5" Association="Self.FK__Personal___IdAno__236943A5">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__2645B050" Association="Self.FK__Personal___IdAno__2645B050">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__282DF8C2" Association="Self.FK__Personal___IdAno__282DF8C2">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__2A164134" Association="Self.FK__Personal___IdAno__2A164134">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__2BFE89A6" Association="Self.FK__Personal___IdAno__2BFE89A6">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="Self.FK__Personal___IdMun__25518C17">
+      <End Role="Municipalidad" EntitySet="Municipalidad" />
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdNiv__245D67DE" Association="Self.FK__Personal___IdNiv__245D67DE">
+      <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
+      <End Role="Personal_Adm_Nivel2" EntitySet="Personal_Adm_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdNiv__2739D489" Association="Self.FK__Personal___IdNiv__2739D489">
+      <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
+      <End Role="Personal_Cementerio_Nivel2" EntitySet="Personal_Cementerio_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdNiv__29221CFB" Association="Self.FK__Personal___IdNiv__29221CFB">
+      <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
+      <End Role="Personal_Educacion_Nivel2" EntitySet="Personal_Educacion_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdNiv__2B0A656D" Association="Self.FK__Personal___IdNiv__2B0A656D">
+      <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
+      <End Role="Personal_Salud_Nivel2" EntitySet="Personal_Salud_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdNiv__2CF2ADDF" Association="Self.FK__Personal___IdNiv__2CF2ADDF">
+      <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
+      <End Role="Personal_Total_Nivel2" EntitySet="Personal_Total_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdAno__2DE6D218" Association="Self.FK__Proveedor__IdAno__2DE6D218">
+      <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+      <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdAno__30C33EC3" Association="Self.FK__Proveedor__IdAno__30C33EC3">
+      <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+      <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdAno__32AB8735" Association="Self.FK__Proveedor__IdAno__32AB8735">
+      <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+      <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdAno__3493CFA7" Association="Self.FK__Proveedor__IdAno__3493CFA7">
+      <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+      <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdAno__367C1819" Association="Self.FK__Proveedor__IdAno__367C1819">
+      <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+      <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdMun__2FCF1A8A" Association="Self.FK__Proveedor__IdMun__2FCF1A8A">
+      <End Role="Municipalidad" EntitySet="Municipalidad" />
+      <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdNIv__2EDAF651" Association="Self.FK__Proveedor__IdNIv__2EDAF651">
+      <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
+      <End Role="Proveedor_Adm_Nivel2" EntitySet="Proveedor_Adm_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdNIv__31B762FC" Association="Self.FK__Proveedor__IdNIv__31B762FC">
+      <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
+      <End Role="Proveedor_Cementerio_Nivel2" EntitySet="Proveedor_Cementerio_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdNIv__339FAB6E" Association="Self.FK__Proveedor__IdNIv__339FAB6E">
+      <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
+      <End Role="Proveedor_Educacion_Nivel2" EntitySet="Proveedor_Educacion_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdNIv__3587F3E0" Association="Self.FK__Proveedor__IdNIv__3587F3E0">
+      <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
+      <End Role="Proveedor_Salud_Nivel2" EntitySet="Proveedor_Salud_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__IdNIv__37703C52" Association="Self.FK__Proveedor__IdNIv__37703C52">
+      <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
+      <End Role="Proveedor_Total_Nivel2" EntitySet="Proveedor_Total_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsidio___IdAno__395884C4" Association="Self.FK__Subsidio___IdAno__395884C4">
+      <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+      <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsidio___IdAno__3A4CA8FD" Association="Self.FK__Subsidio___IdAno__3A4CA8FD">
+      <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+      <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsidio___IdMun__3864608B" Association="Self.FK__Subsidio___IdMun__3864608B">
+      <End Role="Municipalidad" EntitySet="Municipalidad" />
+      <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subsidio___IdNiv__3B40CD36" Association="Self.FK__Subsidio___IdNiv__3B40CD36">
+      <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
+      <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
