@@ -28,17 +28,32 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
+        <td>            
+            @item.Nombre
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
+            @item.Descripcion
+        </td>
+        <td>            
+            @if (item.Activa)
+            {
+                <input type="checkbox" onclick="MarcarMunicipio(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarMunicipio(@item.IdMunicipalidad)"/>
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Activa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cementerio)
+            @if (item.Cementerio)
+            {
+                <input type="checkbox" onclick="MarcarCementerio(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarCementerio(@item.IdMunicipalidad)"/>
+            }
+            
         </td>
     </tr>
 }
@@ -47,36 +62,37 @@
 
 
 <script>
-    function initDataVisualization() {
-            var dataTableMunicipio = $('#tableMunicipios');
-            dataTableMunicipio(dataTableMunicipio);
-        }
+    function MarcarMunicipio(id) {
+        $.ajax({
+            url: '@Url.Action("ActivarMunicipio","Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
 
-        function incivilitiesDataTable() {
-            $(datatable).DataTable({
-                "language": {
-                    "lengthMenu": "Mostrar _MENU_ incivilidades por página",
-                    "zeroRecords": "No se han encontrado datos...",
-                    "info": true,
-                    "search": "Buscar :",
-                    "info": "Página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No se han encontrado datos",
-                    "infoFiltered": "(Filtrado _MAX_ incivilities)",
-                    "decimal": ",",
-                    "thousands": ".",
-                    "paginate": {
-                        "first": "Primera ",
-                        "last": "Última",
-                        "next": "Siguiente",
-                        "previous": " Previa"
-                    }
-                }
-                , "order": [1, 'desc']
-                , "initComplete": function (settings, json) {
-                    $(".goButtton").removeAttr("disabled");
-                    $("#loadingTableAnim").hide();
-                    $(datatable).removeAttr("hidden");
-                }
-            });
-        }
+    function MarcarCementerio(id) {
+            $.ajax({
+            url: '@Url.Action("ActivarCementerio", "Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
 </script>

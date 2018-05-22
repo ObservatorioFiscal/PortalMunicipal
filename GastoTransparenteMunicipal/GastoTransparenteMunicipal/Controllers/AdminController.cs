@@ -76,7 +76,8 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult Municipio()
         {
-            List<Core.Municipalidad> municipios = db.Municipalidad.Where(r => !r.Activa).ToList();
+            //List<Core.Municipalidad> municipios = db.Municipalidad.Where(r => !r.Activa).ToList();
+            List<Core.Municipalidad> municipios = db.Municipalidad.ToList();
             return View(municipios);
         }
 
@@ -85,8 +86,8 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             bool success = true;
             try
-            {
-                var municipio = db.Municipalidad.Find(idMunicipio);
+            {                
+                var municipio = db.Municipalidad.Find(int.Parse(idMunicipio));
                 municipio.Activa = !municipio.Activa;
                 db.SaveChanges();
 
@@ -104,7 +105,7 @@ namespace GastoTransparenteMunicipal.Controllers
             bool success = true;
             try
             {
-                var municipio = db.Municipalidad.Find(idMunicipio);
+                var municipio = db.Municipalidad.Find(int.Parse(idMunicipio));
                 municipio.Cementerio = !municipio.Cementerio;
                 db.SaveChanges();
 
@@ -120,8 +121,9 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CreateAccount()
         {
             List<SelectListItem> roles = new List<SelectListItem>();
-            foreach (var role in RoleManager.Roles)
-                roles.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            var municipalidades = db.Municipalidad.Where(r => r.Activa).ToList();
+            foreach (var municipalidad in municipalidades)
+                roles.Add(new SelectListItem() { Value = municipalidad.Nombre, Text = municipalidad.Nombre });
 
             ViewBag.Roles = roles;
             ViewBag.Message = "";
@@ -133,8 +135,10 @@ namespace GastoTransparenteMunicipal.Controllers
         public async Task<ActionResult> CreateAccount(RegisterSimpleViewModel model)
         {
             List<SelectListItem> roles = new List<SelectListItem>();
-            foreach (var role in RoleManager.Roles)
-                roles.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            var municipalidades = db.Municipalidad.Where(r => r.Activa).ToList();
+
+            foreach (var municipalidad in municipalidades)
+                roles.Add(new SelectListItem() { Value = municipalidad.Nombre, Text = municipalidad.Nombre });
 
             ViewBag.Roles = roles;
 
