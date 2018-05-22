@@ -4,23 +4,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
     <title>@ViewBag.Title - @ViewBag.logo</title>
     @*@Styles.Render("~/Content/css")*@
-    <link href="~/Content/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-grid.css"   rel="stylesheet" />
     <link href="~/Content/css/bootstrap-reboot.css" rel="stylesheet" />
-    <link href="~/Content/css/font.css" rel="stylesheet" />
-    <link href="~/Content/css/styleBootrap.css" rel="stylesheet" />
-    <link href="~/Content/css/style.css" rel="stylesheet" />
-    <link href="~/Content/css/styleSueldos.css" rel="stylesheet" />
-    <link href="~/Content/css/tinyscrollbar.css" rel="stylesheet" />
-    <link href="~/Content/css/styleTreemap.css" rel="stylesheet" />
+    <link href="~/Content/css/font.css"             rel="stylesheet" />
+    <link href="~/Content/css/styleBootrap.css"     rel="stylesheet" />
+    <link href="~/Content/css/style.css"            rel="stylesheet" />
+    <link href="~/Content/css/styleSueldos.css"     rel="stylesheet" />
+    <link href="~/Content/css/tinyscrollbar.css"    rel="stylesheet" />
+    <link href="~/Content/css/styleTreemap.css"     rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col barra-superior">
-                <div class="row">
+                <div class="row" id="barra-primera">
                     <div class="col">
                         <div class="container">
                             <div class="row">
@@ -28,14 +28,20 @@
                                     <div class="row">
                                         <div class="padding-cero col-10 col-sm-10 col-md-12 align-self-center">
                                             <div class="row">
-                                                <span class="col-8 align-self-center">
-                                                    <img class="img-fluid" src="~/Content/image/logo.svg" alt="" />
+                                                <span class="col-7 align-self-center">
+                                                    @{ 
+                                                        string logo = @ViewBag.logo + ".png";
+                                                    }
+                                                    <a href="@Url.Action("Index","Home")">
+                                                        <img class="logo-top" src="~/Content/image/municipios/@logo" alt="Cuentas Claras Municipales" />
+                                                    </a>
                                                 </span>
-                                                <span class="col-4 align-self-center">
-                                                    <img class="img-fluid" src="~/Content/image/@(ViewBag.logo + ".png")" alt="LOGO MUNICIPALIDAD XXXXXX" />
-                                                </span>
-
                                             </div>
+                                            @*<div class="row">
+                                                <span class="col-12 align-self-center">
+                                                    <a href="@Url.Action("Login","Account")">Iniciar sesion</a>
+                                                </span>                                                
+                                            </div>*@
                                         </div>
                                         <div class="col-2 col-sm-2 col-md-0 align-self-center ">
                                             <a id="menu-mobile">
@@ -65,7 +71,7 @@
 
 
                                 </div>
-                                <div class="col-0 col-sm-0 col-md-7 padding-cero align-self-center">
+                                <div class="col-0 col-sm-0 col-md-7 padding-cero align-self-end" id="menu-Principal">
                                     <nav class="">
                                         <ul class="nav nav-resp align-items-center">
                                             <li class="nav-item borde-menu">
@@ -93,8 +99,21 @@
                     <div class="col">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 padding-cero">
+                                <div class="col-md-3 col-0 padding-cero">
+                                    <ul class="nav justify-content-start align-items-center">
+                                        <li class="nav-item menu-auxiliar">
+                                            <a href="@Url.Action("Index","Home")">
+                                                <img class="nav-link nav-link-sub img-fluid" src="~/Content/image/municipios/@logo" alt="Cuentas Claras Municipales" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9 col-12 padding-cero">
                                     <ul class="nav justify-content-end align-items-center">
+
+                                        <li class="nav-item menu-auxiliar">
+                                            <a class="nav-link nav-link-sub"><b class="amarillo">DATOS DESTACADOS</b></a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link nav-link-sub @ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores</a>
                                         </li>
@@ -162,7 +181,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-1 align-self-center">
                             <a href="#">
                                 <span class="md-36 blanco icon-twitter"></span>
@@ -170,6 +188,11 @@
                             <a href="#">
                                 <span class="md-36 blanco icon-facebook"></span>
                             </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center"><small> Desarrollado por Observatorio del Gasto Fiscal en chile</small> </p>
                         </div>
                     </div>
                 </div>
@@ -184,6 +207,35 @@
 
     <script>
         $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 25) {
+                    $(".logo-top").css("padding", "0")
+                    //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 0.95)")
+                    $(".menu-auxiliar").css("opacity", "1")
+
+                    var URLactual = window.location.pathname;
+                    if (URLactual.includes("DatosDestacados")) {
+                        $("#barra-primera").css("height", "0")
+                        $("#barra-primera").css("opacity", "0")
+                    }
+                    
+
+                    
+                }
+                if ($(this).scrollTop() < 25) {
+                    $(".logo-top").css("padding", "15px 0")
+                    //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 1)")
+                    
+                    $(".menu-auxiliar").css("opacity", "0")
+                    var URLactual = window.location.pathname;
+                    if (URLactual.includes("DatosDestacados")) {
+                        $("#barra-primera").css("height", "auto")
+                        $("#barra-primera").css("opacity", "1")
+                    }
+                }
+            });
+
+
             $("#menu-mobile").click(
                 function () {
                     if ($("#menu-mobile-contenido").hasClass("hidden")) {

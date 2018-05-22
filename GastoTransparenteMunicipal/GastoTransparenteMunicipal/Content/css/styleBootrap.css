@@ -81,11 +81,12 @@
   color:#f1c330;
 }
 
-.nav-link-sub{
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 0 1.4rem;
-  min-height: 50px;
+.nav-link-sub {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 1.4rem;
+    min-height: 50px;
+    max-height: 50px;
 }
 
 .btn {
@@ -239,3 +240,16 @@
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     }
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}

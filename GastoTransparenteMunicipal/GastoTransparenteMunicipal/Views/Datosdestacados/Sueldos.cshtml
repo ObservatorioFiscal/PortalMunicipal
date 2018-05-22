@@ -15,7 +15,7 @@
                         <small>
                             de
                             <span class="select">
-                                <select id="categoria">
+                                <select id="categoria" class="muntotal" name="name">
                                     @*<option value="@OrigenData.MunicipioTotal">Municipio Total</option>*@
                                     <option value="@OrigenData.Adm">Adm. y Serv. Municipales</option>
                                     <option value="@OrigenData.Salud">Salud</option>
@@ -41,25 +41,25 @@
                         <div class="col-12 col-sm-4">
                             <div class="row">
                                 <div id="padre1" onclick="cambioPadre(1)" class="padres align-self-center col-6 col-sm-12 borde-papa">
-                                    <h5>&nbsp;&nbsp;<span class="md-36 icon-Recurso9"></span>&nbsp; Estamento <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Corresponde a la categoría que tiene el funcionario en el escalafón municipal.</span></span></h5>
+                                    <h5>&nbsp;&nbsp;<span class="md-36 icon-Recurso9"></span>&nbsp; Estamento <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Corresponde a la categoría que tiene el funcionario en el escalafón municipal.</span></span></h5>
                                 </div>
                                 <div id="padre2" onclick="cambioPadre(2)" class="padres align-self-center col-6 col-sm-12 no-papa">
-                                    <h5><span class="md-36 icon-Recurso13"></span> Profesiones <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Se refiere al título profesional estándar que ostentan los funcionarios del municipio. En el caso de los funcionarios que no poseen título profesional, se agrupan en la categoría "No profesionales".</span></span></h5>
+                                    <h5><span class="md-36 icon-Recurso13"></span> Profesiones <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Se refiere al título profesional estándar que ostentan los funcionarios del municipio. En el caso de los funcionarios que no poseen título profesional, se agrupan en la categoría "No profesionales".</span></span></h5>
                                 </div>
                                 <div id="padre3" onclick="cambioPadre(3)" class="padres align-self-center col-6 col-sm-12 no-papa">
-                                    <h5><span class="md-36 icon-Recurso10"></span> Nivel Educación <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Está asociado a una clasificación del nivel de escolaridad que alcanzaron los funcionarios del municipio.</span></span></h5>
+                                    <h5><span class="md-36 icon-Recurso10"></span> Nivel Educación <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Está asociado a una clasificación del nivel de escolaridad que alcanzaron los funcionarios del municipio.</span></span></h5>
                                 </div>
                                 <div id="padre4" onclick="cambioPadre(4)" class="padres align-self-center col-6 col-sm-12 no-papa">
-                                    <h5><span class="md-36 icon-Recurso8"></span> Rango etario <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Corresponde a intervalos de edades donde están clasificados los funcionarios, con el fin de observar de forma más simple cómo se distribuyen las edades del personal.</span></span></h5>
+                                    <h5><span class="md-36 icon-Recurso8"></span> Rango etario <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Corresponde a intervalos de edades donde están clasificados los funcionarios, con el fin de observar de forma más simple cómo se distribuyen las edades del personal.</span></span></h5>
                                 </div>
                                 <div id="padre5" onclick="cambioPadre(5)" class="padres align-self-center col-6 col-sm-12 no-papa">
-                                    <h5><span class="md-36 icon-Recurso11"></span> Calidad jurídica <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Son clasificaciones del tipo de contratación que posee el funcionario, en las cuales se incluyen aquellas que están contempladas y regidas en el Estatuto de Funcionarios Municipales, como aquellas regidas por otras leyes como el Código del Trabajo.</span></span></h5>
+                                    <h5><span class="md-36 icon-Recurso11"></span> Calidad jurídica <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Son clasificaciones del tipo de contratación que posee el funcionario, en las cuales se incluyen aquellas que están contempladas y regidas en el Estatuto de Funcionarios Municipales, como aquellas regidas por otras leyes como el Código del Trabajo.</span></span></h5>
                                 </div>
                                 <div id="padre6" onclick="cambioPadre(6)" class="padres align-self-center col-6 col-sm-12 no-papa">
-                                    <h5><span class="md-36 icon-Recurso4"></span> Antigüedad <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Contiene intervalos de años de antigüedad de los funcionarios en el municipio, con el fin de observar de forma más simple cómo se distribuyen los años de antigüedad del personal. En caso que el funcionario haya reingresado al municipio 1 vez o más, se toma la antigüedad a contar de la última fecha de ingreso.</span></span></h5>
+                                    <h5><span class="md-36 icon-Recurso4"></span> Antigüedad <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Contiene intervalos de años de antigüedad de los funcionarios en el municipio, con el fin de observar de forma más simple cómo se distribuyen los años de antigüedad del personal. En caso que el funcionario haya reingresado al municipio 1 vez o más, se toma la antigüedad a contar de la última fecha de ingreso.</span></span></h5>
                                 </div>
                                 <div id="padre7" onclick="cambioPadre(7)" class="padres align-self-center col-6 col-sm-12 no-papa">
-                                    <h5><span class="md-36 icon-Recurso12"></span> Grado <span class="cssToolTip"><span class="md-12 icon-Recurso-help"></span><span class="oculto">Corresponde al nivel que tienen los funcionarios en la escala de remuneraciones que rige en el sector municipal.</span></span></h5>
+                                    <h5><span class="md-36 icon-Recurso12"></span> Grado <span class="cssToolTip"><span class="md-12 icon-Recurso-help amarillo"></span><span class="oculto">Corresponde al nivel que tienen los funcionarios en la escala de remuneraciones que rige en el sector municipal.</span></span></h5>
                                 </div>
 
                             </div>

@@ -57,6 +57,7 @@
       <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
       <Parameter Name="IdAn" Mode="In" Type="Int64" />
     </FunctionImport>
+    <EntitySet Name="Comunas" EntityType="GastoTransparenteMunicipalModel.Comunas" />
     <EntitySet Name="Corporacion_Ano" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano" />
     <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
     <EntitySet Name="CorporacionInforme" EntityType="GastoTransparenteMunicipalModel.CorporacionInforme" />
@@ -108,159 +109,174 @@
     <EntitySet Name="Subsidio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel2" />
     <EntitySet Name="Subsidio_Nivel3" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel3" />
     <EntitySet Name="SubsidioInforme" EntityType="GastoTransparenteMunicipalModel.SubsidioInforme" />
-    <AssociationSet Name="FK__Corporaci__IdAno__71D1E811" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__71D1E811">
+    <EntitySet Name="Corporacion_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano_Visible" />
+    <EntitySet Name="Gasto_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano_Visible" />
+    <EntitySet Name="Ingreso_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano_Visible" />
+    <EntitySet Name="Personal_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Personal_Ano_Visible" />
+    <EntitySet Name="Proveedor_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Proveedor_Ano_Visible" />
+    <EntitySet Name="Subsidio_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Subsidio_Ano_Visible" />
+    <AssociationSet Name="FK__Corporaci__IdAno__18EBB532" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532">
       <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
       <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Corporaci__IdMun__70DDC3D8" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__70DDC3D8">
+    <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Gasto_Ano__IdMun__72C60C4A" Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__72C60C4A">
+    <AssociationSet Name="FK__Gasto_Ano__IdMun__19DFD96B" Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Gasto_Niv__IdAno__73BA3083" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__73BA3083">
+    <AssociationSet Name="FK__Gasto_Niv__IdAno__1AD3FDA4" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4">
       <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
       <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Gasto_Niv__IdNiv__74AE54BC" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__74AE54BC">
+    <AssociationSet Name="FK__Gasto_Niv__IdNiv__1BC821DD" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD">
       <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
       <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Gasto_Niv__IdNiv__75A278F5" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__75A278F5">
+    <AssociationSet Name="FK__Gasto_Niv__IdNiv__1CBC4616" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1CBC4616">
       <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
       <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
     </AssociationSet>
-    <AssociationSet Name="FK__Gasto_Niv__IdNiv__76969D2E" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__76969D2E">
+    <AssociationSet Name="FK__Gasto_Niv__IdNiv__1DB06A4F" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F">
       <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
       <End Role="Gasto_Nivel4" EntitySet="Gasto_Nivel4" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ingreso_A__IdMun__778AC167" Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__778AC167">
+    <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ingreso_N__IdAno__787EE5A0" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__787EE5A0">
+    <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1">
       <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
       <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ingreso_N__IdNiv__797309D9" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__797309D9">
+    <AssociationSet Name="FK__Ingreso_N__IdNiv__208CD6FA" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA">
       <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
       <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ingreso_N__IdNiv__7A672E12" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__7A672E12">
+    <AssociationSet Name="FK__Ingreso_N__IdNiv__2180FB33" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__2180FB33">
       <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
       <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ingreso_N__IdNiv__7B5B524B" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__7B5B524B">
+    <AssociationSet Name="FK__Ingreso_N__IdNiv__22751F6C" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C">
       <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
       <End Role="Ingreso_Nivel4" EntitySet="Ingreso_Nivel4" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdMun__7E37BEF6" Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__7E37BEF6">
+    <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Personal_Ano" EntitySet="Personal_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdMun__08B54D69" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__08B54D69">
+    <AssociationSet Name="FK__Proveedor__IdMun__2FCF1A8A" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdMun__114A936A" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__114A936A">
+    <AssociationSet Name="FK__Subsidio___IdMun__3864608B" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdAno__7C4F7684" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__7C4F7684">
+    <AssociationSet Name="FK__Personal___IdAno__236943A5" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5">
       <End Role="Personal_Ano" EntitySet="Personal_Ano" />
       <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdNiv__7D439ABD" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__7D439ABD">
+    <AssociationSet Name="FK__Personal___IdNiv__245D67DE" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE">
       <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
       <End Role="Personal_Adm_Nivel2" EntitySet="Personal_Adm_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdAno__01142BA1" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__01142BA1">
-      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-      <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdAno__02FC7413" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__02FC7413">
-      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-      <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdAno__04E4BC85" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__04E4BC85">
-      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-      <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdAno__7F2BE32F" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__7F2BE32F">
+    <AssociationSet Name="FK__Personal___IdAno__2645B050" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050">
       <End Role="Personal_Ano" EntitySet="Personal_Ano" />
       <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdNiv__00200768" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__00200768">
+    <AssociationSet Name="FK__Personal___IdAno__282DF8C2" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__2A164134" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdAno__2BFE89A6" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6">
+      <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+      <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Personal___IdNiv__2739D489" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489">
       <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
       <End Role="Personal_Cementerio_Nivel2" EntitySet="Personal_Cementerio_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdNiv__02084FDA" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__02084FDA">
+    <AssociationSet Name="FK__Personal___IdNiv__29221CFB" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__29221CFB">
       <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
       <End Role="Personal_Educacion_Nivel2" EntitySet="Personal_Educacion_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdNiv__03F0984C" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__03F0984C">
+    <AssociationSet Name="FK__Personal___IdNiv__2B0A656D" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D">
       <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
       <End Role="Personal_Salud_Nivel2" EntitySet="Personal_Salud_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Personal___IdNiv__05D8E0BE" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__05D8E0BE">
+    <AssociationSet Name="FK__Personal___IdNiv__2CF2ADDF" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF">
       <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
       <End Role="Personal_Total_Nivel2" EntitySet="Personal_Total_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdAno__06CD04F7" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__06CD04F7">
+    <AssociationSet Name="FK__Proveedor__IdAno__2DE6D218" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218">
       <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
       <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdNIv__07C12930" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__07C12930">
+    <AssociationSet Name="FK__Proveedor__IdNIv__2EDAF651" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__2EDAF651">
       <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
       <End Role="Proveedor_Adm_Nivel2" EntitySet="Proveedor_Adm_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdAno__09A971A2" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__09A971A2">
+    <AssociationSet Name="FK__Proveedor__IdAno__30C33EC3" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3">
       <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
       <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdAno__0B91BA14" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0B91BA14">
+    <AssociationSet Name="FK__Proveedor__IdAno__32AB8735" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735">
       <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
       <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdAno__0D7A0286" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0D7A0286">
+    <AssociationSet Name="FK__Proveedor__IdAno__3493CFA7" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7">
       <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
       <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdAno__0F624AF8" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0F624AF8">
+    <AssociationSet Name="FK__Proveedor__IdAno__367C1819" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819">
       <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
       <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdNIv__0A9D95DB" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0A9D95DB">
+    <AssociationSet Name="FK__Proveedor__IdNIv__31B762FC" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__31B762FC">
       <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
       <End Role="Proveedor_Cementerio_Nivel2" EntitySet="Proveedor_Cementerio_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdNIv__0C85DE4D" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0C85DE4D">
+    <AssociationSet Name="FK__Proveedor__IdNIv__339FAB6E" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__339FAB6E">
       <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
       <End Role="Proveedor_Educacion_Nivel2" EntitySet="Proveedor_Educacion_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdNIv__0E6E26BF" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0E6E26BF">
+    <AssociationSet Name="FK__Proveedor__IdNIv__3587F3E0" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__3587F3E0">
       <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
       <End Role="Proveedor_Salud_Nivel2" EntitySet="Proveedor_Salud_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Proveedor__IdNIv__10566F31" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__10566F31">
+    <AssociationSet Name="FK__Proveedor__IdNIv__37703C52" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__37703C52">
       <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
       <End Role="Proveedor_Total_Nivel2" EntitySet="Proveedor_Total_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdAno__123EB7A3" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__123EB7A3">
+    <AssociationSet Name="FK__Subsidio___IdAno__395884C4" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4">
       <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdAno__1332DBDC" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC">
+    <AssociationSet Name="FK__Subsidio___IdAno__3A4CA8FD" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD">
       <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subsidio___IdNiv__14270015" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015">
+    <AssociationSet Name="FK__Subsidio___IdNiv__3B40CD36" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36">
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
+    <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
   </EntityContainer>
+  <EntityType Name="Comunas">
+    <Key>
+      <PropertyRef Name="IdComuna" />
+    </Key>
+    <Property Name="IdComuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Corporacion_Ano">
     <Key>
       <PropertyRef Name="IdAno" />
@@ -269,9 +285,11 @@
     <Property Name="IdMunicipalidad" Type="Int32" />
     <Property Name="Ano" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <Property Name="Mes" Type="Int32" />
-    <NavigationProperty Name="Corporacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__71D1E811" FromRole="Corporacion_Ano" ToRole="Corporacion_Nivel1" />
-    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__70DDC3D8" FromRole="Corporacion_Ano" ToRole="Municipalidad" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="Corporacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" FromRole="Corporacion_Ano" ToRole="Corporacion_Nivel1" />
+    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Corporacion_Ano" ToRole="Municipalidad" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Corporacion_Nivel1">
     <Key>
@@ -282,7 +300,7 @@
     <Property Name="Origen" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
     <Property Name="Destino" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__71D1E811" FromRole="Corporacion_Nivel1" ToRole="Corporacion_Ano" />
+    <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" FromRole="Corporacion_Nivel1" ToRole="Corporacion_Ano" />
   </EntityType>
   <EntityType Name="CorporacionInforme">
     <Key>
@@ -304,9 +322,11 @@
     <Property Name="IdMunicipalidad" Type="Int32" />
     <Property Name="Ano" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <Property Name="Mes" Type="Int32" />
-    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__72C60C4A" FromRole="Gasto_Ano" ToRole="Municipalidad" />
-    <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__73BA3083" FromRole="Gasto_Ano" ToRole="Gasto_Nivel1" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Gasto_Ano" ToRole="Municipalidad" />
+    <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" FromRole="Gasto_Ano" ToRole="Gasto_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Gasto_Nivel1">
     <Key>
@@ -321,8 +341,8 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__73BA3083" FromRole="Gasto_Nivel1" ToRole="Gasto_Ano" />
-    <NavigationProperty Name="Gasto_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__74AE54BC" FromRole="Gasto_Nivel1" ToRole="Gasto_Nivel2" />
+    <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" FromRole="Gasto_Nivel1" ToRole="Gasto_Ano" />
+    <NavigationProperty Name="Gasto_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD" FromRole="Gasto_Nivel1" ToRole="Gasto_Nivel2" />
   </EntityType>
   <EntityType Name="Gasto_Nivel2">
     <Key>
@@ -337,8 +357,8 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__74AE54BC" FromRole="Gasto_Nivel2" ToRole="Gasto_Nivel1" />
-    <NavigationProperty Name="Gasto_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__75A278F5" FromRole="Gasto_Nivel2" ToRole="Gasto_Nivel3" />
+    <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD" FromRole="Gasto_Nivel2" ToRole="Gasto_Nivel1" />
+    <NavigationProperty Name="Gasto_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1CBC4616" FromRole="Gasto_Nivel2" ToRole="Gasto_Nivel3" />
   </EntityType>
   <EntityType Name="Gasto_Nivel3">
     <Key>
@@ -353,8 +373,8 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Gasto_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__75A278F5" FromRole="Gasto_Nivel3" ToRole="Gasto_Nivel2" />
-    <NavigationProperty Name="Gasto_Nivel4" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__76969D2E" FromRole="Gasto_Nivel3" ToRole="Gasto_Nivel4" />
+    <NavigationProperty Name="Gasto_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1CBC4616" FromRole="Gasto_Nivel3" ToRole="Gasto_Nivel2" />
+    <NavigationProperty Name="Gasto_Nivel4" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F" FromRole="Gasto_Nivel3" ToRole="Gasto_Nivel4" />
   </EntityType>
   <EntityType Name="Gasto_Nivel4">
     <Key>
@@ -369,7 +389,7 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Gasto_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__76969D2E" FromRole="Gasto_Nivel4" ToRole="Gasto_Nivel3" />
+    <NavigationProperty Name="Gasto_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F" FromRole="Gasto_Nivel4" ToRole="Gasto_Nivel3" />
   </EntityType>
   <EntityType Name="GastoInforme">
     <Key>
@@ -394,9 +414,11 @@
     <Property Name="IdMunicipalidad" Type="Int32" />
     <Property Name="Ano" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <Property Name="Mes" Type="Int32" />
-    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__778AC167" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
-    <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__787EE5A0" FromRole="Ingreso_Ano" ToRole="Ingreso_Nivel1" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
+    <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" FromRole="Ingreso_Ano" ToRole="Ingreso_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel1">
     <Key>
@@ -411,8 +433,8 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__787EE5A0" FromRole="Ingreso_Nivel1" ToRole="Ingreso_Ano" />
-    <NavigationProperty Name="Ingreso_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__797309D9" FromRole="Ingreso_Nivel1" ToRole="Ingreso_Nivel2" />
+    <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" FromRole="Ingreso_Nivel1" ToRole="Ingreso_Ano" />
+    <NavigationProperty Name="Ingreso_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA" FromRole="Ingreso_Nivel1" ToRole="Ingreso_Nivel2" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel2">
     <Key>
@@ -427,8 +449,8 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__797309D9" FromRole="Ingreso_Nivel2" ToRole="Ingreso_Nivel1" />
-    <NavigationProperty Name="Ingreso_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__7A672E12" FromRole="Ingreso_Nivel2" ToRole="Ingreso_Nivel3" />
+    <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA" FromRole="Ingreso_Nivel2" ToRole="Ingreso_Nivel1" />
+    <NavigationProperty Name="Ingreso_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__2180FB33" FromRole="Ingreso_Nivel2" ToRole="Ingreso_Nivel3" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel3">
     <Key>
@@ -443,8 +465,8 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ingreso_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__7A672E12" FromRole="Ingreso_Nivel3" ToRole="Ingreso_Nivel2" />
-    <NavigationProperty Name="Ingreso_Nivel4" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__7B5B524B" FromRole="Ingreso_Nivel3" ToRole="Ingreso_Nivel4" />
+    <NavigationProperty Name="Ingreso_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__2180FB33" FromRole="Ingreso_Nivel3" ToRole="Ingreso_Nivel2" />
+    <NavigationProperty Name="Ingreso_Nivel4" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C" FromRole="Ingreso_Nivel3" ToRole="Ingreso_Nivel4" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel4">
     <Key>
@@ -459,7 +481,7 @@
     <Property Name="PorcentajeGastado" Type="Double" />
     <Property Name="PorcentajePresupuestado" Type="Double" />
     <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ingreso_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__7B5B524B" FromRole="Ingreso_Nivel4" ToRole="Ingreso_Nivel3" />
+    <NavigationProperty Name="Ingreso_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C" FromRole="Ingreso_Nivel4" ToRole="Ingreso_Nivel3" />
   </EntityType>
   <EntityType Name="IngresoInforme">
     <Key>
@@ -483,12 +505,15 @@
     <Property Name="IdMunicipalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__70DDC3D8" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
-    <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__72C60C4A" FromRole="Municipalidad" ToRole="Gasto_Ano" />
-    <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__778AC167" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
-    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__7E37BEF6" FromRole="Municipalidad" ToRole="Personal_Ano" />
-    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__08B54D69" FromRole="Municipalidad" ToRole="Proveedor_Ano" />
-    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__114A936A" FromRole="Municipalidad" ToRole="Subsidio_Ano" />
+    <Property Name="Activa" Type="Boolean" Nullable="false" />
+    <Property Name="DireccionWeb" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Cementerio" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
+    <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
+    <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
+    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Municipalidad" ToRole="Personal_Ano" />
+    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Municipalidad" ToRole="Proveedor_Ano" />
+    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Municipalidad" ToRole="Subsidio_Ano" />
   </EntityType>
   <EntityType Name="Personal_Adm_Nivel1">
     <Key>
@@ -498,8 +523,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__7C4F7684" FromRole="Personal_Adm_Nivel1" ToRole="Personal_Ano" />
-    <NavigationProperty Name="Personal_Adm_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__7D439ABD" FromRole="Personal_Adm_Nivel1" ToRole="Personal_Adm_Nivel2" />
+    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" FromRole="Personal_Adm_Nivel1" ToRole="Personal_Ano" />
+    <NavigationProperty Name="Personal_Adm_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE" FromRole="Personal_Adm_Nivel1" ToRole="Personal_Adm_Nivel2" />
   </EntityType>
   <EntityType Name="Personal_Adm_Nivel2">
     <Key>
@@ -512,7 +537,7 @@
     <Property Name="MontoHombre" Type="Int64" />
     <Property Name="CantidadMujer" Type="Int64" />
     <Property Name="CantidadHombre" Type="Int64" />
-    <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__7D439ABD" FromRole="Personal_Adm_Nivel2" ToRole="Personal_Adm_Nivel1" />
+    <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE" FromRole="Personal_Adm_Nivel2" ToRole="Personal_Adm_Nivel1" />
   </EntityType>
   <EntityType Name="Personal_AdmInforme">
     <Key>
@@ -540,13 +565,15 @@
     <Property Name="IdMunicipalidad" Type="Int32" />
     <Property Name="Ano" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <Property Name="Mes" Type="Int32" />
-    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__7E37BEF6" FromRole="Personal_Ano" ToRole="Municipalidad" />
-    <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__7C4F7684" FromRole="Personal_Ano" ToRole="Personal_Adm_Nivel1" />
-    <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__01142BA1" FromRole="Personal_Ano" ToRole="Personal_Educacion_Nivel1" />
-    <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__02FC7413" FromRole="Personal_Ano" ToRole="Personal_Salud_Nivel1" />
-    <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__04E4BC85" FromRole="Personal_Ano" ToRole="Personal_Total_Nivel1" />
-    <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__7F2BE32F" FromRole="Personal_Ano" ToRole="Personal_Cementerio_Nivel1" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Personal_Ano" ToRole="Municipalidad" />
+    <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" FromRole="Personal_Ano" ToRole="Personal_Adm_Nivel1" />
+    <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Ano" ToRole="Personal_Cementerio_Nivel1" />
+    <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Ano" ToRole="Personal_Educacion_Nivel1" />
+    <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Ano" ToRole="Personal_Salud_Nivel1" />
+    <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Ano" ToRole="Personal_Total_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Personal_Cementerio_Nivel1">
     <Key>
@@ -556,8 +583,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__7F2BE32F" FromRole="Personal_Cementerio_Nivel1" ToRole="Personal_Ano" />
-    <NavigationProperty Name="Personal_Cementerio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__00200768" FromRole="Personal_Cementerio_Nivel1" ToRole="Personal_Cementerio_Nivel2" />
+    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Cementerio_Nivel1" ToRole="Personal_Ano" />
+    <NavigationProperty Name="Personal_Cementerio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489" FromRole="Personal_Cementerio_Nivel1" ToRole="Personal_Cementerio_Nivel2" />
   </EntityType>
   <EntityType Name="Personal_Cementerio_Nivel2">
     <Key>
@@ -570,7 +597,7 @@
     <Property Name="MontoHombre" Type="Int64" />
     <Property Name="CantidadMujer" Type="Int64" />
     <Property Name="CantidadHombre" Type="Int64" />
-    <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__00200768" FromRole="Personal_Cementerio_Nivel2" ToRole="Personal_Cementerio_Nivel1" />
+    <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489" FromRole="Personal_Cementerio_Nivel2" ToRole="Personal_Cementerio_Nivel1" />
   </EntityType>
   <EntityType Name="Personal_CementerioInforme">
     <Key>
@@ -598,8 +625,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__01142BA1" FromRole="Personal_Educacion_Nivel1" ToRole="Personal_Ano" />
-    <NavigationProperty Name="Personal_Educacion_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__02084FDA" FromRole="Personal_Educacion_Nivel1" ToRole="Personal_Educacion_Nivel2" />
+    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Educacion_Nivel1" ToRole="Personal_Ano" />
+    <NavigationProperty Name="Personal_Educacion_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__29221CFB" FromRole="Personal_Educacion_Nivel1" ToRole="Personal_Educacion_Nivel2" />
   </EntityType>
   <EntityType Name="Personal_Educacion_Nivel2">
     <Key>
@@ -612,7 +639,7 @@
     <Property Name="MontoHombre" Type="Int64" />
     <Property Name="CantidadMujer" Type="Int64" />
     <Property Name="CantidadHombre" Type="Int64" />
-    <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__02084FDA" FromRole="Personal_Educacion_Nivel2" ToRole="Personal_Educacion_Nivel1" />
+    <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__29221CFB" FromRole="Personal_Educacion_Nivel2" ToRole="Personal_Educacion_Nivel1" />
   </EntityType>
   <EntityType Name="Personal_EducacionInforme">
     <Key>
@@ -640,8 +667,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__02FC7413" FromRole="Personal_Salud_Nivel1" ToRole="Personal_Ano" />
-    <NavigationProperty Name="Personal_Salud_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__03F0984C" FromRole="Personal_Salud_Nivel1" ToRole="Personal_Salud_Nivel2" />
+    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Salud_Nivel1" ToRole="Personal_Ano" />
+    <NavigationProperty Name="Personal_Salud_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D" FromRole="Personal_Salud_Nivel1" ToRole="Personal_Salud_Nivel2" />
   </EntityType>
   <EntityType Name="Personal_Salud_Nivel2">
     <Key>
@@ -654,7 +681,7 @@
     <Property Name="MontoHombre" Type="Int64" />
     <Property Name="CantidadMujer" Type="Int64" />
     <Property Name="CantidadHombre" Type="Int64" />
-    <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__03F0984C" FromRole="Personal_Salud_Nivel2" ToRole="Personal_Salud_Nivel1" />
+    <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D" FromRole="Personal_Salud_Nivel2" ToRole="Personal_Salud_Nivel1" />
   </EntityType>
   <EntityType Name="Personal_SaludInforme">
     <Key>
@@ -682,8 +709,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__04E4BC85" FromRole="Personal_Total_Nivel1" ToRole="Personal_Ano" />
-    <NavigationProperty Name="Personal_Total_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__05D8E0BE" FromRole="Personal_Total_Nivel1" ToRole="Personal_Total_Nivel2" />
+    <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Total_Nivel1" ToRole="Personal_Ano" />
+    <NavigationProperty Name="Personal_Total_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF" FromRole="Personal_Total_Nivel1" ToRole="Personal_Total_Nivel2" />
   </EntityType>
   <EntityType Name="Personal_Total_Nivel2">
     <Key>
@@ -696,7 +723,7 @@
     <Property Name="MontoHombre" Type="Int64" />
     <Property Name="CantidadMujer" Type="Int64" />
     <Property Name="CantidadHombre" Type="Int64" />
-    <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__05D8E0BE" FromRole="Personal_Total_Nivel2" ToRole="Personal_Total_Nivel1" />
+    <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF" FromRole="Personal_Total_Nivel2" ToRole="Personal_Total_Nivel1" />
   </EntityType>
   <EntityType Name="Proveedor_Adm_Nivel1">
     <Key>
@@ -706,8 +733,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__06CD04F7" FromRole="Proveedor_Adm_Nivel1" ToRole="Proveedor_Ano" />
-    <NavigationProperty Name="Proveedor_Adm_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__07C12930" FromRole="Proveedor_Adm_Nivel1" ToRole="Proveedor_Adm_Nivel2" />
+    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218" FromRole="Proveedor_Adm_Nivel1" ToRole="Proveedor_Ano" />
+    <NavigationProperty Name="Proveedor_Adm_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__2EDAF651" FromRole="Proveedor_Adm_Nivel1" ToRole="Proveedor_Adm_Nivel2" />
   </EntityType>
   <EntityType Name="Proveedor_Adm_Nivel2">
     <Key>
@@ -719,7 +746,7 @@
     <Property Name="Monto" Type="Int64" />
     <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__07C12930" FromRole="Proveedor_Adm_Nivel2" ToRole="Proveedor_Adm_Nivel1" />
+    <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__2EDAF651" FromRole="Proveedor_Adm_Nivel2" ToRole="Proveedor_Adm_Nivel1" />
   </EntityType>
   <EntityType Name="Proveedor_AdmInforme">
     <Key>
@@ -742,13 +769,15 @@
     <Property Name="IdMunicipalidad" Type="Int32" />
     <Property Name="Ano" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <Property Name="Mes" Type="Int32" />
-    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__08B54D69" FromRole="Proveedor_Ano" ToRole="Municipalidad" />
-    <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__06CD04F7" FromRole="Proveedor_Ano" ToRole="Proveedor_Adm_Nivel1" />
-    <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__09A971A2" FromRole="Proveedor_Ano" ToRole="Proveedor_Cementerio_Nivel1" />
-    <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0B91BA14" FromRole="Proveedor_Ano" ToRole="Proveedor_Educacion_Nivel1" />
-    <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0D7A0286" FromRole="Proveedor_Ano" ToRole="Proveedor_Salud_Nivel1" />
-    <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0F624AF8" FromRole="Proveedor_Ano" ToRole="Proveedor_Total_Nivel1" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Proveedor_Ano" ToRole="Municipalidad" />
+    <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218" FromRole="Proveedor_Ano" ToRole="Proveedor_Adm_Nivel1" />
+    <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3" FromRole="Proveedor_Ano" ToRole="Proveedor_Cementerio_Nivel1" />
+    <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735" FromRole="Proveedor_Ano" ToRole="Proveedor_Educacion_Nivel1" />
+    <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7" FromRole="Proveedor_Ano" ToRole="Proveedor_Salud_Nivel1" />
+    <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819" FromRole="Proveedor_Ano" ToRole="Proveedor_Total_Nivel1" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Proveedor_Cementerio_Nivel1">
     <Key>
@@ -758,8 +787,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__09A971A2" FromRole="Proveedor_Cementerio_Nivel1" ToRole="Proveedor_Ano" />
-    <NavigationProperty Name="Proveedor_Cementerio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0A9D95DB" FromRole="Proveedor_Cementerio_Nivel1" ToRole="Proveedor_Cementerio_Nivel2" />
+    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3" FromRole="Proveedor_Cementerio_Nivel1" ToRole="Proveedor_Ano" />
+    <NavigationProperty Name="Proveedor_Cementerio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__31B762FC" FromRole="Proveedor_Cementerio_Nivel1" ToRole="Proveedor_Cementerio_Nivel2" />
   </EntityType>
   <EntityType Name="Proveedor_Cementerio_Nivel2">
     <Key>
@@ -771,7 +800,7 @@
     <Property Name="Monto" Type="Int64" />
     <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0A9D95DB" FromRole="Proveedor_Cementerio_Nivel2" ToRole="Proveedor_Cementerio_Nivel1" />
+    <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__31B762FC" FromRole="Proveedor_Cementerio_Nivel2" ToRole="Proveedor_Cementerio_Nivel1" />
   </EntityType>
   <EntityType Name="Proveedor_CementerioInforme">
     <Key>
@@ -794,8 +823,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0B91BA14" FromRole="Proveedor_Educacion_Nivel1" ToRole="Proveedor_Ano" />
-    <NavigationProperty Name="Proveedor_Educacion_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0C85DE4D" FromRole="Proveedor_Educacion_Nivel1" ToRole="Proveedor_Educacion_Nivel2" />
+    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735" FromRole="Proveedor_Educacion_Nivel1" ToRole="Proveedor_Ano" />
+    <NavigationProperty Name="Proveedor_Educacion_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__339FAB6E" FromRole="Proveedor_Educacion_Nivel1" ToRole="Proveedor_Educacion_Nivel2" />
   </EntityType>
   <EntityType Name="Proveedor_Educacion_Nivel2">
     <Key>
@@ -807,7 +836,7 @@
     <Property Name="Monto" Type="Int64" />
     <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0C85DE4D" FromRole="Proveedor_Educacion_Nivel2" ToRole="Proveedor_Educacion_Nivel1" />
+    <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__339FAB6E" FromRole="Proveedor_Educacion_Nivel2" ToRole="Proveedor_Educacion_Nivel1" />
   </EntityType>
   <EntityType Name="Proveedor_EducacionInforme">
     <Key>
@@ -830,8 +859,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0D7A0286" FromRole="Proveedor_Salud_Nivel1" ToRole="Proveedor_Ano" />
-    <NavigationProperty Name="Proveedor_Salud_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0E6E26BF" FromRole="Proveedor_Salud_Nivel1" ToRole="Proveedor_Salud_Nivel2" />
+    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7" FromRole="Proveedor_Salud_Nivel1" ToRole="Proveedor_Ano" />
+    <NavigationProperty Name="Proveedor_Salud_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__3587F3E0" FromRole="Proveedor_Salud_Nivel1" ToRole="Proveedor_Salud_Nivel2" />
   </EntityType>
   <EntityType Name="Proveedor_Salud_Nivel2">
     <Key>
@@ -843,7 +872,7 @@
     <Property Name="Monto" Type="Int64" />
     <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__0E6E26BF" FromRole="Proveedor_Salud_Nivel2" ToRole="Proveedor_Salud_Nivel1" />
+    <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__3587F3E0" FromRole="Proveedor_Salud_Nivel2" ToRole="Proveedor_Salud_Nivel1" />
   </EntityType>
   <EntityType Name="Proveedor_SaludInforme">
     <Key>
@@ -866,8 +895,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__0F624AF8" FromRole="Proveedor_Total_Nivel1" ToRole="Proveedor_Ano" />
-    <NavigationProperty Name="Proveedor_Total_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__10566F31" FromRole="Proveedor_Total_Nivel1" ToRole="Proveedor_Total_Nivel2" />
+    <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819" FromRole="Proveedor_Total_Nivel1" ToRole="Proveedor_Ano" />
+    <NavigationProperty Name="Proveedor_Total_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__37703C52" FromRole="Proveedor_Total_Nivel1" ToRole="Proveedor_Total_Nivel2" />
   </EntityType>
   <EntityType Name="Proveedor_Total_Nivel2">
     <Key>
@@ -879,7 +908,7 @@
     <Property Name="Monto" Type="Int64" />
     <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__10566F31" FromRole="Proveedor_Total_Nivel2" ToRole="Proveedor_Total_Nivel1" />
+    <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__37703C52" FromRole="Proveedor_Total_Nivel2" ToRole="Proveedor_Total_Nivel1" />
   </EntityType>
   <EntityType Name="Subsidio_Ano">
     <Key>
@@ -889,10 +918,12 @@
     <Property Name="IdMunicipalidad" Type="Int32" />
     <Property Name="Ano" Type="Int32" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-    <Property Name="Mes" Type="Int32" />
-    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__114A936A" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
-    <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__123EB7A3" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
-    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
+    <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
+    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel1">
     <Key>
@@ -902,8 +933,8 @@
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
-    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__123EB7A3" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Ano" />
-    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Nivel2" />
+    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Ano" />
+    <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Nivel2" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel2">
     <Key>
@@ -914,8 +945,8 @@
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
     <Property Name="IdAno" Type="Int64" />
-    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__1332DBDC" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Ano" />
-    <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__14270015" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Nivel1" />
+    <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Ano" />
+    <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Nivel1" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel3">
     <Key>
@@ -939,7 +970,55 @@
     <Property Name="MONTOAPORTE" Type="Double" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
   </EntityType>
-  <Association Name="FK__Corporaci__IdAno__71D1E811">
+  <EntityType Name="Corporacion_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Gasto_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Ingreso_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Personal_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Proveedor_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Subsidio_Ano_Visible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__Corporaci__IdAno__18EBB532">
     <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Corporacion_Nivel1" Role="Corporacion_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -951,7 +1030,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Corporaci__IdMun__70DDC3D8">
+  <Association Name="FK__Corporaci__IdMun__17F790F9">
     <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="*" />
     <ReferentialConstraint>
@@ -963,7 +1042,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Gasto_Ano__IdMun__72C60C4A">
+  <Association Name="FK__Gasto_Ano__IdMun__19DFD96B">
     <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Gasto_Ano" Role="Gasto_Ano" Multiplicity="*" />
     <ReferentialConstraint>
@@ -975,7 +1054,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Gasto_Niv__IdAno__73BA3083">
+  <Association Name="FK__Gasto_Niv__IdAno__1AD3FDA4">
     <End Type="GastoTransparenteMunicipalModel.Gasto_Ano" Role="Gasto_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel1" Role="Gasto_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -987,7 +1066,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Gasto_Niv__IdNiv__74AE54BC">
+  <Association Name="FK__Gasto_Niv__IdNiv__1BC821DD">
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel1" Role="Gasto_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel2" Role="Gasto_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -999,7 +1078,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Gasto_Niv__IdNiv__75A278F5">
+  <Association Name="FK__Gasto_Niv__IdNiv__1CBC4616">
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel2" Role="Gasto_Nivel2" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel3" Role="Gasto_Nivel3" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1011,7 +1090,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Gasto_Niv__IdNiv__76969D2E">
+  <Association Name="FK__Gasto_Niv__IdNiv__1DB06A4F">
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel3" Role="Gasto_Nivel3" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel4" Role="Gasto_Nivel4" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1023,7 +1102,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ingreso_A__IdMun__778AC167">
+  <Association Name="FK__Ingreso_A__IdMun__1EA48E88">
     <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Ano" Role="Ingreso_Ano" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1035,7 +1114,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ingreso_N__IdAno__787EE5A0">
+  <Association Name="FK__Ingreso_N__IdAno__1F98B2C1">
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Ano" Role="Ingreso_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel1" Role="Ingreso_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1047,7 +1126,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ingreso_N__IdNiv__797309D9">
+  <Association Name="FK__Ingreso_N__IdNiv__208CD6FA">
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel1" Role="Ingreso_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel2" Role="Ingreso_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1059,7 +1138,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ingreso_N__IdNiv__7A672E12">
+  <Association Name="FK__Ingreso_N__IdNiv__2180FB33">
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel2" Role="Ingreso_Nivel2" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel3" Role="Ingreso_Nivel3" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1071,7 +1150,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ingreso_N__IdNiv__7B5B524B">
+  <Association Name="FK__Ingreso_N__IdNiv__22751F6C">
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel3" Role="Ingreso_Nivel3" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel4" Role="Ingreso_Nivel4" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1083,7 +1162,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdMun__7E37BEF6">
+  <Association Name="FK__Personal___IdMun__25518C17">
     <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1095,7 +1174,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdMun__08B54D69">
+  <Association Name="FK__Proveedor__IdMun__2FCF1A8A">
     <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1107,7 +1186,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsidio___IdMun__114A936A">
+  <Association Name="FK__Subsidio___IdMun__3864608B">
     <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Ano" Role="Subsidio_Ano" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1119,7 +1198,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdAno__7C4F7684">
+  <Association Name="FK__Personal___IdAno__236943A5">
     <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" Role="Personal_Adm_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1131,7 +1210,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdNiv__7D439ABD">
+  <Association Name="FK__Personal___IdNiv__245D67DE">
     <End Type="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" Role="Personal_Adm_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2" Role="Personal_Adm_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1143,43 +1222,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdAno__01142BA1">
-    <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
-    <End Type="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1" Role="Personal_Educacion_Nivel1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Personal_Ano">
-        <PropertyRef Name="IdAno" />
-      </Principal>
-      <Dependent Role="Personal_Educacion_Nivel1">
-        <PropertyRef Name="IdAno" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Personal___IdAno__02FC7413">
-    <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
-    <End Type="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1" Role="Personal_Salud_Nivel1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Personal_Ano">
-        <PropertyRef Name="IdAno" />
-      </Principal>
-      <Dependent Role="Personal_Salud_Nivel1">
-        <PropertyRef Name="IdAno" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Personal___IdAno__04E4BC85">
-    <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
-    <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" Role="Personal_Total_Nivel1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Personal_Ano">
-        <PropertyRef Name="IdAno" />
-      </Principal>
-      <Dependent Role="Personal_Total_Nivel1">
-        <PropertyRef Name="IdAno" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Personal___IdAno__7F2BE32F">
+  <Association Name="FK__Personal___IdAno__2645B050">
     <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1" Role="Personal_Cementerio_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1191,7 +1234,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdNiv__00200768">
+  <Association Name="FK__Personal___IdAno__282DF8C2">
+    <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
+    <End Type="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1" Role="Personal_Educacion_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Educacion_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__2A164134">
+    <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
+    <End Type="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1" Role="Personal_Salud_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Salud_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdAno__2BFE89A6">
+    <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
+    <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" Role="Personal_Total_Nivel1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal_Ano">
+        <PropertyRef Name="IdAno" />
+      </Principal>
+      <Dependent Role="Personal_Total_Nivel1">
+        <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Personal___IdNiv__2739D489">
     <End Type="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1" Role="Personal_Cementerio_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel2" Role="Personal_Cementerio_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1203,7 +1282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdNiv__02084FDA">
+  <Association Name="FK__Personal___IdNiv__29221CFB">
     <End Type="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1" Role="Personal_Educacion_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel2" Role="Personal_Educacion_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1215,7 +1294,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdNiv__03F0984C">
+  <Association Name="FK__Personal___IdNiv__2B0A656D">
     <End Type="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1" Role="Personal_Salud_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Salud_Nivel2" Role="Personal_Salud_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1227,7 +1306,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Personal___IdNiv__05D8E0BE">
+  <Association Name="FK__Personal___IdNiv__2CF2ADDF">
     <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" Role="Personal_Total_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel2" Role="Personal_Total_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1239,7 +1318,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdAno__06CD04F7">
+  <Association Name="FK__Proveedor__IdAno__2DE6D218">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1" Role="Proveedor_Adm_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1251,7 +1330,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdNIv__07C12930">
+  <Association Name="FK__Proveedor__IdNIv__2EDAF651">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1" Role="Proveedor_Adm_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel2" Role="Proveedor_Adm_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1263,7 +1342,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdAno__09A971A2">
+  <Association Name="FK__Proveedor__IdAno__30C33EC3">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel1" Role="Proveedor_Cementerio_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1275,7 +1354,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdAno__0B91BA14">
+  <Association Name="FK__Proveedor__IdAno__32AB8735">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel1" Role="Proveedor_Educacion_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1287,7 +1366,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdAno__0D7A0286">
+  <Association Name="FK__Proveedor__IdAno__3493CFA7">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel1" Role="Proveedor_Salud_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1299,7 +1378,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdAno__0F624AF8">
+  <Association Name="FK__Proveedor__IdAno__367C1819">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel1" Role="Proveedor_Total_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1311,7 +1390,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdNIv__0A9D95DB">
+  <Association Name="FK__Proveedor__IdNIv__31B762FC">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel1" Role="Proveedor_Cementerio_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel2" Role="Proveedor_Cementerio_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1323,7 +1402,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdNIv__0C85DE4D">
+  <Association Name="FK__Proveedor__IdNIv__339FAB6E">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel1" Role="Proveedor_Educacion_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel2" Role="Proveedor_Educacion_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1335,7 +1414,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdNIv__0E6E26BF">
+  <Association Name="FK__Proveedor__IdNIv__3587F3E0">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel1" Role="Proveedor_Salud_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel2" Role="Proveedor_Salud_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1347,7 +1426,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Proveedor__IdNIv__10566F31">
+  <Association Name="FK__Proveedor__IdNIv__37703C52">
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel1" Role="Proveedor_Total_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel2" Role="Proveedor_Total_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1359,7 +1438,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsidio___IdAno__123EB7A3">
+  <Association Name="FK__Subsidio___IdAno__395884C4">
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Ano" Role="Subsidio_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel1" Role="Subsidio_Nivel1" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1371,7 +1450,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsidio___IdAno__1332DBDC">
+  <Association Name="FK__Subsidio___IdAno__3A4CA8FD">
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Ano" Role="Subsidio_Ano" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel2" Role="Subsidio_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1383,7 +1462,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subsidio___IdNiv__14270015">
+  <Association Name="FK__Subsidio___IdNiv__3B40CD36">
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel1" Role="Subsidio_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Subsidio_Nivel2" Role="Subsidio_Nivel2" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1395,4 +1474,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Anos_Invisible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

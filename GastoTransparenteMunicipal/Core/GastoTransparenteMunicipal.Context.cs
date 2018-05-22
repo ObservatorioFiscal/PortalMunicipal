@@ -27,6 +27,7 @@ namespace Core
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Comunas> Comunas { get; set; }
         public virtual DbSet<Corporacion_Ano> Corporacion_Ano { get; set; }
         public virtual DbSet<Corporacion_Nivel1> Corporacion_Nivel1 { get; set; }
         public virtual DbSet<CorporacionInforme> CorporacionInforme { get; set; }
@@ -78,6 +79,13 @@ namespace Core
         public virtual DbSet<Subsidio_Nivel2> Subsidio_Nivel2 { get; set; }
         public virtual DbSet<Subsidio_Nivel3> Subsidio_Nivel3 { get; set; }
         public virtual DbSet<SubsidioInforme> SubsidioInforme { get; set; }
+        public virtual DbSet<Corporacion_Ano_Visible> Corporacion_Ano_Visible { get; set; }
+        public virtual DbSet<Gasto_Ano_Visible> Gasto_Ano_Visible { get; set; }
+        public virtual DbSet<Ingreso_Ano_Visible> Ingreso_Ano_Visible { get; set; }
+        public virtual DbSet<Personal_Ano_Visible> Personal_Ano_Visible { get; set; }
+        public virtual DbSet<Proveedor_Ano_Visible> Proveedor_Ano_Visible { get; set; }
+        public virtual DbSet<Subsidio_Ano_Visible> Subsidio_Ano_Visible { get; set; }
+        public virtual DbSet<Anos_Invisible> Anos_Invisible { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)
         {
