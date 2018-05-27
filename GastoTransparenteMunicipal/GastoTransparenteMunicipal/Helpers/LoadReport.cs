@@ -19,6 +19,130 @@ namespace GastoTransparenteMunicipal.Helpers
             this.IdGroupInforme = Guid.NewGuid();
         }
 
+        public List<Gasto_Glosa> LoadGastoGlosaSalud(IWorkbook excelInforme)
+        {
+            List<Gasto_Glosa> gastoGlosas = new List<Gasto_Glosa>();
+
+            ISheet sheet = excelInforme.GetSheetAt(0);
+
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Gasto_Glosa gastoGlosa = new Gasto_Glosa();
+                    gastoGlosa.NombreCuentaNivel1 = row.GetCell(0).StringCellValue;
+                    gastoGlosa.NombreCuentaNivel2 = row.GetCell(1).StringCellValue;
+                    gastoGlosa.TipoCodigo = 1;
+                    gastoGlosa.TipoNombre = "SALUD";
+
+                    var lastCellNumber = row.LastCellNum;
+                    for (int i = 3; i < lastCellNumber; i++)
+                    {
+                        Gasto_GlosaCodigo gastoGlosaCodigo = new Gasto_GlosaCodigo();
+                        gastoGlosaCodigo.GlosaId = gastoGlosa.GlosaId;
+                        gastoGlosaCodigo.Codigo = row.GetCell(i).StringCellValue;
+                        gastoGlosa.Gasto_GlosaCodigo.Add(gastoGlosaCodigo);
+                    }
+                    gastoGlosas.Add(gastoGlosa);
+                }
+            }
+            return gastoGlosas;
+        }
+
+        public List<Gasto_Glosa> LoadGastoGlosaEducacion(IWorkbook excelInforme)
+        {
+            List<Gasto_Glosa> gastoGlosas = new List<Gasto_Glosa>();
+
+            ISheet sheet = excelInforme.GetSheetAt(0);
+
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Gasto_Glosa gastoGlosa = new Gasto_Glosa();
+                    gastoGlosa.NombreCuentaNivel1 = row.GetCell(0).StringCellValue;
+                    gastoGlosa.NombreCuentaNivel2 = row.GetCell(1).StringCellValue;
+                    gastoGlosa.TipoCodigo = 2;
+                    gastoGlosa.TipoNombre = "EDUCACION";
+
+                    var lastCellNumber = row.LastCellNum;
+                    for (int i = 3; i < lastCellNumber; i++)
+                    {
+                        Gasto_GlosaCodigo gastoGlosaCodigo = new Gasto_GlosaCodigo();
+                        gastoGlosaCodigo.GlosaId = gastoGlosa.GlosaId;
+                        gastoGlosaCodigo.Codigo = row.GetCell(i).StringCellValue;
+                        gastoGlosa.Gasto_GlosaCodigo.Add(gastoGlosaCodigo);
+                    }
+                    gastoGlosas.Add(gastoGlosa);
+                }
+            }
+            return gastoGlosas;
+        }
+
+        public List<Gasto_Glosa> LoadGastoGlosaAdmServicios(IWorkbook excelInforme)
+        {
+            List<Gasto_Glosa> gastoGlosas = new List<Gasto_Glosa>();
+
+            ISheet sheet = excelInforme.GetSheetAt(0);
+
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Gasto_Glosa gastoGlosa = new Gasto_Glosa();
+                    gastoGlosa.NombreCuentaNivel1 = row.GetCell(0).StringCellValue;
+                    gastoGlosa.NombreCuentaNivel2 = row.GetCell(1).StringCellValue;
+                    gastoGlosa.TipoCodigo = 3;
+                    gastoGlosa.TipoNombre = "Adm. Servicios";
+
+                    var lastCellNumber = row.LastCellNum;
+                    for (int i = 3; i < lastCellNumber; i++)
+                    {
+                        Gasto_GlosaCodigo gastoGlosaCodigo = new Gasto_GlosaCodigo();
+                        gastoGlosaCodigo.GlosaId = gastoGlosa.GlosaId;
+                        gastoGlosaCodigo.Codigo = row.GetCell(i).StringCellValue;
+                        gastoGlosa.Gasto_GlosaCodigo.Add(gastoGlosaCodigo);
+                    }
+                    gastoGlosas.Add(gastoGlosa);
+                }
+            }
+            return gastoGlosas;
+        }
+
+        public List<Gasto_Glosa> LoadGastoGlosaACementerio(IWorkbook excelInforme)
+        {
+            List<Gasto_Glosa> gastoGlosas = new List<Gasto_Glosa>();
+
+            ISheet sheet = excelInforme.GetSheetAt(0);
+
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    Gasto_Glosa gastoGlosa = new Gasto_Glosa();
+                    gastoGlosa.NombreCuentaNivel1 = row.GetCell(0).StringCellValue;
+                    gastoGlosa.NombreCuentaNivel2 = row.GetCell(1).StringCellValue;
+                    gastoGlosa.TipoCodigo = 4;
+                    gastoGlosa.TipoNombre = "Cementerio";
+
+                    var lastCellNumber = row.LastCellNum;
+                    for (int i = 3; i < lastCellNumber; i++)
+                    {
+                        Gasto_GlosaCodigo gastoGlosaCodigo = new Gasto_GlosaCodigo();
+                        gastoGlosaCodigo.GlosaId = gastoGlosa.GlosaId;
+                        gastoGlosaCodigo.Codigo = row.GetCell(i).StringCellValue;
+                        gastoGlosa.Gasto_GlosaCodigo.Add(gastoGlosaCodigo);
+                    }
+                    gastoGlosas.Add(gastoGlosa);
+                }
+            }
+            return gastoGlosas;
+        }
+
         public List<GastoInforme> LoadInformeGasto(IWorkbook excelInforme)
         {
             List<GastoInforme> InformeGastos = new List<GastoInforme>();                        
@@ -30,6 +154,26 @@ namespace GastoTransparenteMunicipal.Helpers
                 {
                     GastoInforme informeGasto = Mapper.Map<IRow, GastoInforme>(row);                    
                     informeGasto.UpdatedOn = this.UpdatedOn;
+                    informeGasto.IdGroupInformeGasto = this.IdGroupInforme;
+
+                    InformeGastos.Add(informeGasto);
+                }
+            }
+
+            return InformeGastos;
+        }
+
+        public List<GastoInformev2> LoadInformeGastov2 (IWorkbook excelInforme)
+        {
+            List<GastoInformev2> InformeGastos = new List<GastoInformev2>();
+            ISheet sheet = excelInforme.GetSheetAt(0);
+            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
+            {
+                var row = sheet.GetRow(rowPosition);
+                if (row != null)
+                {
+                    GastoInformev2 informeGasto = Mapper.Map<IRow, GastoInformev2>(row);
+                    informeGasto.UpdatedOnUTC = this.UpdatedOn;
                     informeGasto.IdGroupInformeGasto = this.IdGroupInforme;
 
                     InformeGastos.Add(informeGasto);

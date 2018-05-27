@@ -312,6 +312,8 @@
     <Content Include="Views\Admin\Municipio.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Cuenta\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\AdminComuna\CargaGlosaGastos.cshtml" />
+    <Content Include="Views\AdminComuna\CargaGastosv2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

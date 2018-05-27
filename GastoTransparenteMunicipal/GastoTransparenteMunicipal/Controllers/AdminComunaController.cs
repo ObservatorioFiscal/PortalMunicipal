@@ -11,6 +11,7 @@ using NPOI.XSSF.UserModel;
 using System.IO;
 using GastoTransparenteMunicipal.Helpers;
 using System.Data.SqlClient;
+using NPOI.SS.UserModel;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -70,6 +71,7 @@ namespace GastoTransparenteMunicipal.Controllers
             }
             return View();
         }
+
         [HttpPost]
         public ActionResult CargaIngresos(HttpPostedFileBase file)
         {
@@ -101,6 +103,34 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
+        public ActionResult CargaGlosaGastos()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CargaGlosaGastos(HttpPostedFileBase file)
+        {
+            bool isValid = true;
+            try
+            {
+                LoadReport loadReport = new LoadReport();
+                XSSFWorkbook excelGlosa;
+                using (Stream fileStream = file.InputStream)
+                {
+                    excelGlosa = new XSSFWorkbook(fileStream);
+                    var gastoGlosas = loadReport.LoadGastoGlosaSalud(excelGlosa);
+                    db.Gasto_Glosa.AddRange(gastoGlosas);
+                    var result = await db.SaveChangesAsync();
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }            
+        }
+
         public ActionResult CargaGastos(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
@@ -122,6 +152,37 @@ namespace GastoTransparenteMunicipal.Controllers
                 default:
                     ViewBag.ano = gasto.Ano;
                     break;
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CargaGastosv2(HttpPostedFileBase file)
+        {
+            XSSFWorkbook xssfwb;
+            int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
+            int year = 2017;
+            int month = 0;
+
+            Gasto_Ano gastoAno = new Gasto_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            using (Stream fileStream = file.InputStream)
+            {
+                xssfwb = new XSSFWorkbook(fileStream);
+                LoadReport loadReport = new LoadReport();
+                var result = loadReport.LoadInformeGastov2(xssfwb);
+                db.GastoInformev2.AddRange(result);
+                db.Gasto_Ano.Add(gastoAno);
+
+                var resultSave = await db.SaveChangesAsync();
+
+                //object[] parameters =
+                //{
+                //    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
+                //    new SqlParameter("@idAn", ingresoAno.IdAno)
+                //};
+
+                //db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
+                //db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
             }
             return View();
         }
