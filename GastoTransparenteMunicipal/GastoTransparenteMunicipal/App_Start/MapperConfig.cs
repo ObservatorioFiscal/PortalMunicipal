@@ -26,9 +26,9 @@ namespace GastoTransparenteMunicipal
 
                 cfg.CreateMap<IRow, Core.GastoInformev2>()
                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                .ForMember(dst => dst.Cuenta, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                .ForMember(dst => dst.MontoPrespuestado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue))
-                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(4).NumericCellValue));                
+                .ForMember(dst => dst.Cuenta, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.MontoPrespuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));                
 
                 cfg.CreateMap<IRow, Core.IngresoInforme>()
                 .ForMember(dst => dst.TIPO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
