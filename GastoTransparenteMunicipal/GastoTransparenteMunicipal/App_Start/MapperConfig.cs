@@ -26,14 +26,14 @@ namespace GastoTransparenteMunicipal
 
                 cfg.CreateMap<IRow, Core.IngresoInformev2>()
                  .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                 .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
-                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue));                 
+                 .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => Math.Round(e.GetCell(1).NumericCellValue / 1000000.0, 0)))
+                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(2).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.GastoInformev2>()
                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.Cuenta, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
-                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));                
+                .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => Math.Round(e.GetCell(2).NumericCellValue / 1000000.0, 0)))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(3).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.IngresoInforme>()
                 .ForMember(dst => dst.TIPO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
