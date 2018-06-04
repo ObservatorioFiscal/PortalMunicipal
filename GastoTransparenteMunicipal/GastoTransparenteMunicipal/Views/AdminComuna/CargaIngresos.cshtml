@@ -28,30 +28,30 @@
                 <label>
                     <span></span>
                     Adm. y Serv. Municipales     
-                    <input type="file" accept=".xls,.xlsx" id="file1" name="file1" />
+                    <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
                     <input type="hidden" />
                 </label><br />
                 
                 <label>
                     Salud
-                    <input type="file" accept=".xls,.xlsx" id="file2" name="file2" />
+                    <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
                     <input type="hidden" />
                 </label><br />
                 <label>
                     Educacion
-                    <input type="file" accept=".xls,.xlsx" id="file3" name="file3" />
+                    <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
                     <input type="hidden" />
                 </label><br />
                 @if (ViewBag.cementerio)
                 {
 
                 <label>Cementerio                   
-                    <input type="file" accept=".xls,.xlsx" id="file4" name="file4" />
+                    <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
                     <input type="hidden" />
                 </label>
 
                 }<br /><br />
-                <input type="button" class="btn" id="boton" value="Confirmar subida de Informacion" >
+                <input type="submit" class="btn" id="boton" value="Confirmar subida de Informacion" >
             </form>
         </div>
     </div>

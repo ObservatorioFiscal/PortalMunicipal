@@ -46,6 +46,8 @@ namespace GastoTransparenteMunicipal.Controllers
             return Json(auxiliar, JsonRequestBehavior.AllowGet);
         }
 
+        #region Ingresos
+
         public ActionResult CargaIngresos(int id)
         {         
             var municipalidad = GetCurrentIdMunicipality();
@@ -73,7 +75,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CargaIngresos(HttpPostedFileBase file)
+        public async Task<ActionResult> CargaIngresos(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
@@ -81,35 +83,63 @@ namespace GastoTransparenteMunicipal.Controllers
             int month = 0;
 
             Ingreso_Ano ingresoAno = new Ingreso_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
-            using (Stream fileStream = file.InputStream)
+            LoadReport loadReport = new LoadReport();
+
+            if (fileAdm != null && fileSalud != null && fileEducacion != null)
             {
-                xssfwb = new XSSFWorkbook(fileStream);
-                LoadReport loadReport = new LoadReport();
-                var result = loadReport.LoadInformeIngreso(xssfwb);
-                db.IngresoInforme.AddRange(result);
                 db.Ingreso_Ano.Add(ingresoAno);
 
-                db.SaveChanges();
-
-                object[] parameters =
+                using (Stream fileStream = fileAdm.InputStream)
                 {
-                    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
-                    new SqlParameter("@idAn", ingresoAno.IdAno)          
-                };
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
+                    db.IngresoInformev2.AddRange(result);    
+                }
 
-                db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
-                db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);                
+                using (Stream fileStream = fileSalud.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);
+                    db.IngresoInformev2.AddRange(result);
+                }
+
+                using (Stream fileStream = fileEducacion.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);
+                    db.IngresoInformev2.AddRange(result);
+                }
+
+                if(fileCementerio != null)
+                {
+                    using (Stream fileStream = fileCementerio.InputStream)
+                    {
+                        xssfwb = new XSSFWorkbook(fileStream);
+                        var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);
+                        db.IngresoInformev2.AddRange(result);
+                    }
+                }
             }
+
+            var resultSave = await db.SaveChangesAsync();
+            //object[] parameters =
+            //{
+            //    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
+            //    new SqlParameter("@idAn", ingresoAno.IdAno)
+            //};
+
+            //db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
+            //db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
             return View();
         }
 
-        public ActionResult CargaGlosaGastos()
+        public ActionResult CargaDiccionarioIngresos()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<ActionResult> CargaGlosaGastos(HttpPostedFileBase file)
+        public async Task<ActionResult> CargaDiccionarioIngresos(HttpPostedFileBase file)
         {
             bool isValid = true;
             try
@@ -119,7 +149,39 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = file.InputStream)
                 {
                     excelGlosa = new XSSFWorkbook(fileStream);
-                    var gastoGlosas = loadReport.LoadGastoGlosaSalud(excelGlosa);
+                    var ingresoGlosas = loadReport.LoadIngresoGlosa(excelGlosa);
+                    db.Ingreso_Glosa.AddRange(ingresoGlosas);
+                    var result = await db.SaveChangesAsync();
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        #endregion
+
+        #region Gastos
+
+        public ActionResult CargaDiccionarioGastos()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CargaDiccionarioGastos(HttpPostedFileBase file)
+        {
+            bool isValid = true;
+            try
+            {
+                LoadReport loadReport = new LoadReport();
+                XSSFWorkbook excelGlosa;
+                using (Stream fileStream = file.InputStream)
+                {
+                    excelGlosa = new XSSFWorkbook(fileStream);
+                    var gastoGlosas = loadReport.LoadGastoGlosa(excelGlosa);
                     db.Gasto_Glosa.AddRange(gastoGlosas);
                     var result = await db.SaveChangesAsync();
                 }
@@ -157,7 +219,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CargaGastosv2(HttpPostedFileBase file)
+        public async Task<ActionResult> CargaGastos(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
@@ -165,27 +227,55 @@ namespace GastoTransparenteMunicipal.Controllers
             int month = 0;
 
             Gasto_Ano gastoAno = new Gasto_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
-            using (Stream fileStream = file.InputStream)
+            LoadReport loadReport = new LoadReport();
+
+            if (fileAdm != null && fileSalud != null && fileEducacion != null)
             {
-                xssfwb = new XSSFWorkbook(fileStream);
-                LoadReport loadReport = new LoadReport();
-                var result = loadReport.LoadInformeGastov2(xssfwb);
-                db.GastoInformev2.AddRange(result);
                 db.Gasto_Ano.Add(gastoAno);
 
-                var resultSave = await db.SaveChangesAsync();
+                using (Stream fileStream = fileAdm.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeGastov2(xssfwb, "ADM. Y SERVICIOS", 1);
+                    db.GastoInformev2.AddRange(result);
+                }
 
-                //object[] parameters =
-                //{
-                //    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
-                //    new SqlParameter("@idAn", ingresoAno.IdAno)
-                //};
+                using (Stream fileStream = fileSalud.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeGastov2(xssfwb, "SALUD", 2);
+                    db.GastoInformev2.AddRange(result);
+                }
 
-                //db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
-                //db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
+                using (Stream fileStream = fileEducacion.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeGastov2(xssfwb, "EDUCACION", 3);
+                    db.GastoInformev2.AddRange(result);
+                }
+
+                if (fileCementerio != null)
+                {
+                    using (Stream fileStream = fileCementerio.InputStream)
+                    {
+                        xssfwb = new XSSFWorkbook(fileStream);
+                        var result = loadReport.LoadInformeGastov2(xssfwb, "CEMENTERIO", 4);
+                        db.GastoInformev2.AddRange(result);
+                    }
+                }
             }
+            //object[] parameters =
+            //{
+            //    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
+            //    new SqlParameter("@idAn", ingresoAno.IdAno)
+            //};
+
+            //db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
+            //db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
+            var resultSave = await db.SaveChangesAsync();
             return View();
         }
+        #endregion
 
         #region Proveedores
         public ActionResult CargaProveedores(int id)

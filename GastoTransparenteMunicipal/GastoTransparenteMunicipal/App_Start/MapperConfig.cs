@@ -24,10 +24,15 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => e.GetCell(5).NumericCellValue))
                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
 
+                cfg.CreateMap<IRow, Core.IngresoInformev2>()
+                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
+                 .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
+                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue));                 
+
                 cfg.CreateMap<IRow, Core.GastoInformev2>()
                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.Cuenta, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                .ForMember(dst => dst.MontoPrespuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));                
 
                 cfg.CreateMap<IRow, Core.IngresoInforme>()
