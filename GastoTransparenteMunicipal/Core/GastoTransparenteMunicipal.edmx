@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="GastoTransparenteMunicipalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GastoTransparenteMunicipalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Comunas">
           <Key>
             <PropertyRef Name="IdComuna" />
@@ -58,6 +58,22 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gasto_Glosa">
+          <Key>
+            <PropertyRef Name="GlosaId" />
+          </Key>
+          <Property Name="GlosaId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCuentaNivel1" Type="nvarchar" MaxLength="250" />
+          <Property Name="NombreCuentaNivel2" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Gasto_GlosaCodigo">
+          <Key>
+            <PropertyRef Name="GlosaCodigoId" />
+          </Key>
+          <Property Name="GlosaCodigoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GlosaId" Type="bigint" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Gasto_Nivel1">
           <Key>
@@ -130,6 +146,20 @@
           <Property Name="UpdatedOn" Type="datetime" />
           <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="GastoInformev2">
+          <Key>
+            <PropertyRef Name="IdGastoInforme" />
+          </Key>
+          <Property Name="IdGastoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
+          <Property Name="Cuenta" Type="nvarchar" MaxLength="250" />
+          <Property Name="MontoPresupuestado" Type="float" />
+          <Property Name="MontoGastado" Type="float" />
+          <Property Name="UpdatedOnUTC" Type="datetime" />
+          <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
+          <Property Name="TipoCodigo" Type="int" />
+          <Property Name="TipoNombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Ingreso_Ano">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -141,6 +171,23 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingreso_Glosa">
+          <Key>
+            <PropertyRef Name="GlosaId" />
+          </Key>
+          <Property Name="GlosaId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreAreaNivel2" Type="nvarchar" MaxLength="250" />
+          <Property Name="NombreCuentaNivel1" Type="nvarchar" MaxLength="250" />
+          <Property Name="NombreCuentaNivel2" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Ingreso_GlosaCodigo">
+          <Key>
+            <PropertyRef Name="GlosaCodigoId" />
+          </Key>
+          <Property Name="GlosaCodigoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GlosaId" Type="bigint" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Ingreso_Nivel1">
           <Key>
@@ -212,6 +259,19 @@
           <Property Name="MontoGastado" Type="float" />
           <Property Name="UpdatedOn" Type="datetime" />
           <Property Name="IdGroupInformeIngreso" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="IngresoInformev2">
+          <Key>
+            <PropertyRef Name="IdGastoInforme" />
+          </Key>
+          <Property Name="IdGastoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
+          <Property Name="MontoPresupuestado" Type="float" />
+          <Property Name="MontoGastado" Type="float" />
+          <Property Name="UpdatedOnUTC" Type="datetime" />
+          <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
+          <Property Name="TipoCodigo" Type="int" />
+          <Property Name="TipoNombre" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Municipalidad">
           <Key>
@@ -630,8 +690,8 @@
           <Property Name="MONTOAPORTE" Type="float" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Anos_Invisible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Anos_Invisible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Anos_Invisible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -640,8 +700,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Anos_Invisibl
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Corporacion_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Corporacion_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Corporacion_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -650,8 +710,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Corporacion_A
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Gasto_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -660,8 +720,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Vis
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ingreso_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -670,8 +730,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_V
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Personal_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Personal_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Personal_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -680,8 +740,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Personal_Ano_
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Proveedor_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Proveedor_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Proveedor_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -690,8 +750,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Proveedor_Ano
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Subsidio_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -733,6 +793,18 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Principal>
             <Dependent Role="Gasto_Ano">
               <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Gasto_Glo__Glosa__477199F1">
+          <End Role="Gasto_Glosa" Type="Self.Gasto_Glosa" Multiplicity="0..1" />
+          <End Role="Gasto_GlosaCodigo" Type="Self.Gasto_GlosaCodigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gasto_Glosa">
+              <PropertyRef Name="GlosaId" />
+            </Principal>
+            <Dependent Role="Gasto_GlosaCodigo">
+              <PropertyRef Name="GlosaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -793,6 +865,18 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Principal>
             <Dependent Role="Ingreso_Ano">
               <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ingreso_G__Glosa__7073AF84">
+          <End Role="Ingreso_Glosa" Type="Self.Ingreso_Glosa" Multiplicity="0..1" />
+          <End Role="Ingreso_GlosaCodigo" Type="Self.Ingreso_GlosaCodigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingreso_Glosa">
+              <PropertyRef Name="GlosaId" />
+            </Principal>
+            <Dependent Role="Ingreso_GlosaCodigo">
+              <PropertyRef Name="GlosaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1162,17 +1246,23 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Corporacion_Nivel1" EntityType="Self.Corporacion_Nivel1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CorporacionInforme" EntityType="Self.CorporacionInforme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Ano" EntityType="Self.Gasto_Ano" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gasto_Glosa" EntityType="Self.Gasto_Glosa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gasto_GlosaCodigo" EntityType="Self.Gasto_GlosaCodigo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Nivel1" EntityType="Self.Gasto_Nivel1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Nivel2" EntityType="Self.Gasto_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Nivel3" EntityType="Self.Gasto_Nivel3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Nivel4" EntityType="Self.Gasto_Nivel4" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GastoInforme" EntityType="Self.GastoInforme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GastoInformev2" EntityType="Self.GastoInformev2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Ano" EntityType="Self.Ingreso_Ano" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingreso_Glosa" EntityType="Self.Ingreso_Glosa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingreso_GlosaCodigo" EntityType="Self.Ingreso_GlosaCodigo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Nivel1" EntityType="Self.Ingreso_Nivel1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Nivel2" EntityType="Self.Ingreso_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Nivel3" EntityType="Self.Ingreso_Nivel3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Nivel4" EntityType="Self.Ingreso_Nivel4" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IngresoInforme" EntityType="Self.IngresoInforme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IngresoInformev2" EntityType="Self.IngresoInformev2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipalidad" EntityType="Self.Municipalidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal_Adm_Nivel1" EntityType="Self.Personal_Adm_Nivel1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal_Adm_Nivel2" EntityType="Self.Personal_Adm_Nivel2" Schema="dbo" store:Type="Tables" />
@@ -1270,6 +1360,10 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
           </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="Self.FK__Gasto_Glo__Glosa__477199F1">
+            <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
+            <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
+          </AssociationSet>
           <AssociationSet Name="FK__Gasto_Niv__IdAno__1AD3FDA4" Association="Self.FK__Gasto_Niv__IdAno__1AD3FDA4">
             <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
             <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
@@ -1289,6 +1383,10 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="Self.FK__Ingreso_A__IdMun__1EA48E88">
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="Self.FK__Ingreso_G__Glosa__7073AF84">
+            <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
+            <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
           </AssociationSet>
           <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="Self.FK__Ingreso_N__IdAno__1F98B2C1">
             <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
@@ -1683,6 +1781,20 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
           </AssociationSet>
           <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
+          <EntitySet Name="Ingreso_Glosa" EntityType="GastoTransparenteMunicipalModel.Ingreso_Glosa" />
+          <EntitySet Name="Gasto_Glosa" EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" />
+          <EntitySet Name="Gasto_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" />
+          <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1">
+            <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
+            <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
+          </AssociationSet>
+          <EntitySet Name="GastoInformev2" EntityType="GastoTransparenteMunicipalModel.GastoInformev2" />
+          <EntitySet Name="Ingreso_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" />
+          <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84">
+            <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
+            <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
+          </AssociationSet>
+          <EntitySet Name="IngresoInformev2" EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" />
           </EntityContainer>
         <EntityType Name="Comunas">
           <Key>
@@ -2897,6 +3009,94 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="IdMunicipalidad" Type="Int32" />
           <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Ingreso_Glosa">
+          <Key>
+            <PropertyRef Name="GlosaId" />
+          </Key>
+          <Property Name="GlosaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreAreaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ingreso_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" FromRole="Ingreso_Glosa" ToRole="Ingreso_GlosaCodigo" />
+        </EntityType>
+        <EntityType Name="Gasto_Glosa">
+          <Key>
+            <PropertyRef Name="GlosaId" />
+          </Key>
+          <Property Name="GlosaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gasto_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" FromRole="Gasto_Glosa" ToRole="Gasto_GlosaCodigo" />
+        </EntityType>
+        <EntityType Name="Gasto_GlosaCodigo">
+          <Key>
+            <PropertyRef Name="GlosaCodigoId" />
+          </Key>
+          <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GlosaId" Type="Int64" />
+          <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gasto_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" FromRole="Gasto_GlosaCodigo" ToRole="Gasto_Glosa" />
+        </EntityType>
+        <Association Name="FK__Gasto_Glo__Glosa__477199F1">
+          <End Type="GastoTransparenteMunicipalModel.Gasto_Glosa" Role="Gasto_Glosa" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" Role="Gasto_GlosaCodigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gasto_Glosa">
+              <PropertyRef Name="GlosaId" />
+            </Principal>
+            <Dependent Role="Gasto_GlosaCodigo">
+              <PropertyRef Name="GlosaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GastoInformev2">
+          <Key>
+            <PropertyRef Name="IdGastoInforme" />
+          </Key>
+          <Property Name="IdGastoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Cuenta" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MontoPresupuestado" Type="Double" />
+          <Property Name="MontoGastado" Type="Double" />
+          <Property Name="UpdatedOnUTC" Type="DateTime" Precision="3" />
+          <Property Name="IdGroupInformeGasto" Type="Guid" />
+          <Property Name="TipoCodigo" Type="Int32" />
+          <Property Name="TipoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ingreso_GlosaCodigo">
+          <Key>
+            <PropertyRef Name="GlosaCodigoId" />
+          </Key>
+          <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GlosaId" Type="Int64" />
+          <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ingreso_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" FromRole="Ingreso_GlosaCodigo" ToRole="Ingreso_Glosa" />
+        </EntityType>
+        <Association Name="FK__Ingreso_G__Glosa__7073AF84">
+          <End Type="GastoTransparenteMunicipalModel.Ingreso_Glosa" Role="Ingreso_Glosa" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" Role="Ingreso_GlosaCodigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingreso_Glosa">
+              <PropertyRef Name="GlosaId" />
+            </Principal>
+            <Dependent Role="Ingreso_GlosaCodigo">
+              <PropertyRef Name="GlosaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="IngresoInformev2">
+          <Key>
+            <PropertyRef Name="IdGastoInforme" />
+          </Key>
+          <Property Name="IdGastoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="MontoPresupuestado" Type="Double" />
+          <Property Name="MontoGastado" Type="Double" />
+          <Property Name="UpdatedOnUTC" Type="DateTime" Precision="3" />
+          <Property Name="IdGroupInformeGasto" Type="Guid" />
+          <Property Name="TipoCodigo" Type="Int32" />
+          <Property Name="TipoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3643,7 +3843,73 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Ingreso_Glosa">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Glosa">
+              <MappingFragment StoreEntitySet="Ingreso_Glosa">
+                <ScalarProperty Name="NombreCuentaNivel2" ColumnName="NombreCuentaNivel2" />
+                <ScalarProperty Name="NombreCuentaNivel1" ColumnName="NombreCuentaNivel1" />
+                <ScalarProperty Name="NombreAreaNivel2" ColumnName="NombreAreaNivel2" />
+                <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gasto_Glosa">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Glosa">
+              <MappingFragment StoreEntitySet="Gasto_Glosa">
+                <ScalarProperty Name="NombreCuentaNivel2" ColumnName="NombreCuentaNivel2" />
+                <ScalarProperty Name="NombreCuentaNivel1" ColumnName="NombreCuentaNivel1" />
+                <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gasto_GlosaCodigo">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo">
+              <MappingFragment StoreEntitySet="Gasto_GlosaCodigo">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+                <ScalarProperty Name="GlosaCodigoId" ColumnName="GlosaCodigoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GastoInformev2">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.GastoInformev2">
+              <MappingFragment StoreEntitySet="GastoInformev2">
+                <ScalarProperty Name="TipoNombre" ColumnName="TipoNombre" />
+                <ScalarProperty Name="TipoCodigo" ColumnName="TipoCodigo" />
+                <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
+                <ScalarProperty Name="UpdatedOnUTC" ColumnName="UpdatedOnUTC" />
+                <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+                <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+                <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingreso_GlosaCodigo">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo">
+              <MappingFragment StoreEntitySet="Ingreso_GlosaCodigo">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+                <ScalarProperty Name="GlosaCodigoId" ColumnName="GlosaCodigoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IngresoInformev2">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.IngresoInformev2">
+              <MappingFragment StoreEntitySet="IngresoInformev2">
+                <ScalarProperty Name="TipoNombre" ColumnName="TipoNombre" />
+                <ScalarProperty Name="TipoCodigo" ColumnName="TipoCodigo" />
+                <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
+                <ScalarProperty Name="UpdatedOnUTC" ColumnName="UpdatedOnUTC" />
+                <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+                <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

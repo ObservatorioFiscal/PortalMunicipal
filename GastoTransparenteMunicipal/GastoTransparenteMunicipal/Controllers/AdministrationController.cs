@@ -10,6 +10,7 @@ using Core;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
+    [Obsolete("")]
     public class AdministrationController : BaseController
     {
         // GET: Administration

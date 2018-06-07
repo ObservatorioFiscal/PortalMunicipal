@@ -78,8 +78,7 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.Message = "";            
             
             return View(model);
-        }
-
+        }        
 
         [HttpPost]
         [AllowAnonymous]
@@ -106,6 +105,11 @@ namespace GastoTransparenteMunicipal.Controllers
             }
 
             ViewBag.Message = result.Errors;
+            return View();
+        }
+
+        public ActionResult ResetPasswordConfirmation()
+        {
             return View();
         }
     }

@@ -15,6 +15,7 @@
     <link href="~/Content/css/styleSueldos.css"     rel="stylesheet" />
     <link href="~/Content/css/tinyscrollbar.css"    rel="stylesheet" />
     <link href="~/Content/css/styleTreemap.css"     rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />        
 </head>
 <body>
     <div class="container-fluid">
@@ -29,11 +30,9 @@
                                         <div class="padding-cero col-10 col-sm-10 col-md-12 align-self-center">
                                             <div class="row">
                                                 <span class="col-7 align-self-center">
-                                                    @{ 
-                                                        string logo = @ViewBag.logo + ".png";
-                                                    }
+                                                    
                                                     <a href="@Url.Action("Index","Home")">
-                                                        <img class="logo-top" src="~/Content/image/municipios/@logo" alt="Cuentas Claras Municipales" />
+                                                        <img class="logo-top img-fluid" src="~/Content/image/municipios/@ViewBag.logo" alt="Cuentas Claras Municipales" />
                                                     </a>
                                                 </span>
                                             </div>
@@ -103,14 +102,13 @@
                                     <ul class="nav justify-content-start align-items-center">
                                         <li class="nav-item menu-auxiliar">
                                             <a href="@Url.Action("Index","Home")">
-                                                <img class="nav-link nav-link-sub img-fluid" src="~/Content/image/municipios/@logo" alt="Cuentas Claras Municipales" />
+                                                <img class="nav-link nav-link-sub img-fluid" src="~/Content/image/municipios/@ViewBag.logo" alt="Cuentas Claras Municipales" />
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="col-md-9 col-12 padding-cero">
                                     <ul class="nav justify-content-end align-items-center">
-
                                         <li class="nav-item menu-auxiliar">
                                             <a class="nav-link nav-link-sub"><b class="amarillo">DATOS DESTACADOS</b></a>
                                         </li>
@@ -143,13 +141,13 @@
                     <div class="row">
                         <div class="col-md-3 align-self-center">
                             <ul>
-                                <li class="blanco"><a href="@Url.Action(" Index","Home")" class="@ViewBag.Inicio">Inicio</a></li>
-                                <li class="blanco"><a href="@Url.Action("index","Ingresos")" class="@ViewBag.Ingresos">Ingresos</a></li>
-                                <li class="blanco"><a href="@Url.Action("index","Gastos")" class="@ViewBag.Gastos">Gastos</a></li>
+                                <li class="blanco"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio">Inicio</a></li>
+                                <li class="blanco"><a href="@Url.Action("Index","Ingresos")" class="@ViewBag.Ingresos">Ingresos</a></li>
+                                <li class="blanco"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gastos">Gastos</a></li>
                                 <li class="blanco"><a href="@Url.Action("Dueldos","DatosDestacados")" class="@ViewBag.Sueldo">Remuneraciones</a></li>
                                 <li class="blanco"><a href="@Url.Action("Proveedores","DatosDestacados")" class="@ViewBag.Proveedores">Proveedores</a></li>
-                                <li class="blanco"><a href="@Url.Action(" Corporaciones","DatosDestacados")" class="@ViewBag.Corporaciones">Corporaciones</a></li>
-                                <li class="blanco"><a href="@Url.Action("subsidios","DatosDestacados")" class="@ViewBag.Subsidios">Subsidios</a></li>
+                                <li class="blanco"><a href="@Url.Action("Corporaciones","DatosDestacados")" class="@ViewBag.Corporaciones">Corporaciones</a></li>
+                                <li class="blanco"><a href="@Url.Action("Subsidios","DatosDestacados")" class="@ViewBag.Subsidios">Subsidios</a></li>
                                 <li class="blanco"><a href="@Url.Action("About","Home")" class="@ViewBag.About">El Proyecto</a></li>
                             </ul>
                         </div>
@@ -158,25 +156,16 @@
                                 <div class="col-12">
                                     <p>Una iniciativa conjunta de:</p>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-6">
                                     <img src="~/Content/image/iniciativa.png" class="img-fluid" usemap="#iniciativa" />
                                     <map name="iniciativa">
                                         <area shape="rect" coords="1,1,240,56" alt=" Observatorio del Gasto Fiscal en Chile" href="rectangulo.html" />
                                         <area shape="rect" coords="260,1,390,56" alt="Consejo para la Transparencia" href="rectangulo.html" />
                                     </map>
                                 </div>
-                                @*<div class="col-md-3">
-                                        <img src="~/Content/image/icono.png" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img src="~/Content/image/icono.png" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img src="~/Content/image/icono.png" class="img-fluid" alt="">
-                                    </div>*@
                                 <div class="col-md-3">
                                     <a href="">
-                                        <img class="text-center img-fluid" src="~/Content/image/@(ViewBag.logo + ".png")" alt="Municipalidad">
+                                        <img class="text-center img-fluid" src="~/Content/image/municipiosblanco/@ViewBag.logo" alt="Municipalidad">
                                     </a>
                                 </div>
                             </div>
@@ -192,7 +181,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <p class="text-center"><small> Desarrollado por Observatorio del Gasto Fiscal en chile</small> </p>
+                            <p class="text-center"><small> Desarrollado por <a class="amarillo" href="https://observatoriofiscal.cl/" target="_blank">Observatorio del Gasto Fiscal en chile</a> y <a class="amarillo" href="https://www.consejotransparencia.cl/" target="_blank">Consejo para la transparencia</a>.</small> </p>
                         </div>
                     </div>
                 </div>
@@ -201,7 +190,7 @@
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
 
     @RenderSection("scripts", required: false)
 

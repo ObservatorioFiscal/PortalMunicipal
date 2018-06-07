@@ -316,9 +316,11 @@
     <Content Include="Views\AdminComuna\CargaSubsidios.cshtml" />
     <Content Include="Views\AdminComuna\CargaCorporaciones.cshtml" />
     <Content Include="Views\AdminComuna\CargaRemuneraciones.cshtml" />
+    <Content Include="Views\AdminComuna\AbrirNuevoAno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\image\municipiosblanco\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Income\" />
     <Folder Include="Views\Spending\" />

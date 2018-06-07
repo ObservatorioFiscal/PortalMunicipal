@@ -15,7 +15,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             ViewBag.Ingreso = "active";
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Ingreso_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Destacado = "hidden";
             return View();
@@ -269,8 +269,8 @@ namespace GastoTransparenteMunicipal.Controllers
 
             public void addElementoNV1222(string name, string size, string size2, string nivel, string tipo, string color, string id, string porcentaje1, string porcentaje2, string descripcion)
             {
-                int numero = int.Parse(size);
-                int numero2 = int.Parse(size2);
+                long numero = long.Parse(size);
+                long numero2 = long.Parse(size2);
                 string valueTooltip = string.Format(new System.Globalization.CultureInfo("is-IS"), "{0:N0}", numero);
                 string valueTooltip2 = string.Format(new System.Globalization.CultureInfo("is-IS"), "{0:N0}", numero2);
                 string auxElem = @"{
