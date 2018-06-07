@@ -34,8 +34,8 @@ namespace GastoTransparenteMunicipal.Controllers
             {
                 case "1":
                     List<Gasto_Nivel1> lista1 = db.Gasto_Ano.Find(year).Gasto_Nivel1.Where(r => r.Tipo == FUNCIONALECONOMICO && r.MontoGastado>0).OrderByDescending(r => r.MontoGastado).ToList();
-
-                    d3.Load(lista1, "0");
+                    
+                    d3.Load(lista1, "0");        
                     break;
                 case "2":
                     List<Gasto_Nivel2> lista2 = db.Gasto_Nivel2.Where(r => r.IdNivel1 == PADRE && r.Tipo == FUNCIONALECONOMICO && r.MontoGastado > 0).OrderByDescending(r => r.MontoGastado).ToList();
@@ -122,12 +122,7 @@ namespace GastoTransparenteMunicipal.Controllers
             return this.Content(json, "application/json");
             #endregion
         }
-
         
-
-
-
-
 
         public class d3Object_TreeMap
         {
@@ -275,8 +270,8 @@ namespace GastoTransparenteMunicipal.Controllers
 
             public void addElementoNV1222(string name, string size, string size2, string nivel, string tipo, string color, string id, string porcentaje1, string porcentaje2, string descripcion)
             {
-                int numero = int.Parse(size);
-                int numero2 = int.Parse(size2);
+                long numero = long.Parse(size);
+                long numero2 = long.Parse(size2);
                 string valueTooltip = string.Format(new System.Globalization.CultureInfo("is-IS"), "{0:N0}", numero);
                 string valueTooltip2 = string.Format(new System.Globalization.CultureInfo("is-IS"), "{0:N0}", numero2);
                 string auxElem = @"{

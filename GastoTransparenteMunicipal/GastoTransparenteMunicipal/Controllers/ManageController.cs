@@ -10,6 +10,7 @@ using GastoTransparenteMunicipal.Models;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
+    [Obsolete("")]
     [Authorize]
     public class ManageController : Controller
     {

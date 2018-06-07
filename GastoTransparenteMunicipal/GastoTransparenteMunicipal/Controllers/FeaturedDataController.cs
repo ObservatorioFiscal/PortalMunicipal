@@ -19,12 +19,12 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
-            subsidioModel.Load(db,year);
+            subsidioModel.Load(db, year);
             return subsidioModel.JsonSubsidio;
         }
 
 
-        public ActionResult SubsidyChartNivel2(int year,int orden)
+        public ActionResult SubsidyChartNivel2(int year, int orden)
         {
             var idMunicipality = GetCurrentIdMunicipality();
             SubsidioModel subsidioModel = new SubsidioModel();
@@ -55,7 +55,7 @@ namespace GastoTransparenteMunicipal.Controllers
                             Monto = r.Monto
                         }), JsonRequestBehavior.AllowGet);
         }
-        
+
         public string SubsidyChartNivel3(int IdNivel2)
         {
             SubsidioModel subsidioModel = new SubsidioModel();
@@ -67,7 +67,7 @@ namespace GastoTransparenteMunicipal.Controllers
         //****************PROVEEDORES****************//
         //****************************************//
 
-        
+
         public string Providers(int year, int origenData)
         {
             var idMunicipality = GetCurrentIdMunicipality();
@@ -77,7 +77,7 @@ namespace GastoTransparenteMunicipal.Controllers
             return proveedorModel.JsonProveedor;
         }
 
-        public string ProvidersTable(int year, int origenData,int orden)
+        public string ProvidersTable(int year, int origenData, int orden)
         {
             ProveedorModel proveedorModel = new ProveedorModel();
             proveedorModel.ListaCompleta(db, year, origenData, orden);
@@ -94,7 +94,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         //****************CORPORACION****************//
         //****************************************//
-        
+
         public string CorporationAjax(int year)
         {
             CorporacionModel corporacion = new CorporacionModel();
@@ -108,26 +108,26 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult PersonalSalary(int year, int origenData)
         {
             var idMunicipality = GetCurrentIdMunicipality();
-            
+
             Personal_Ano personal_Ano = db.Personal_Ano.Find(year);
 
             switch (origenData)
             {
                 case OrigenData.Adm:
-                    return this.Json(personal_Ano.Personal_Adm_Nivel1.OrderBy(r=>r.Nombre).Select(r =>
-                                    new
-                                    {
-                                        Item = r.CodTipo,
-                                        Lista = r.Personal_Adm_Nivel2.OrderBy(l => l.Nombre).Select(l =>
-                                        new
-                                        {
-                                            Nombre = l.Nombre,
-                                            CMujer = l.CantidadMujer,
-                                            CHombre = l.CantidadHombre,
-                                            MMujer = l.MontoMujer,
-                                            MHombre = l.MontoHombre
-                                        })
-                                    }), JsonRequestBehavior.AllowGet);
+                    return this.Json(personal_Ano.Personal_Adm_Nivel1.OrderBy(r => r.Nombre).Select(r =>
+                                      new
+                                      {
+                                          Item = r.CodTipo,
+                                          Lista = r.Personal_Adm_Nivel2.OrderBy(l => l.Nombre).Select(l =>
+                                          new
+                                          {
+                                              Nombre = l.Nombre,
+                                              CMujer = l.CantidadMujer,
+                                              CHombre = l.CantidadHombre,
+                                              MMujer = l.MontoMujer,
+                                              MHombre = l.MontoHombre
+                                          })
+                                      }), JsonRequestBehavior.AllowGet);
                 case OrigenData.Salud:
                     return this.Json(personal_Ano.Personal_Salud_Nivel1.OrderBy(r => r.Nombre).Select(r =>
                                     new
@@ -178,15 +178,15 @@ namespace GastoTransparenteMunicipal.Controllers
                                     new
                                     {
                                         Item = r.CodTipo,
-                                        Lista = r.Personal_Total_Nivel2.OrderBy(l=>l.Nombre).Select(l =>
-                                        new
-                                        {
-                                            Nombre = l.Nombre,
-                                            CMujer = l.CantidadMujer,
-                                            CHombre = l.CantidadHombre,
-                                            MMujer = l.MontoMujer,
-                                            MHombre = l.MontoHombre
-                                        })
+                                        Lista = r.Personal_Total_Nivel2.OrderBy(l => l.Nombre).Select(l =>
+                                          new
+                                          {
+                                              Nombre = l.Nombre,
+                                              CMujer = l.CantidadMujer,
+                                              CHombre = l.CantidadHombre,
+                                              MMujer = l.MontoMujer,
+                                              MHombre = l.MontoHombre
+                                          })
                                     }), JsonRequestBehavior.AllowGet);
                 default:
                     return this.Json(false, JsonRequestBehavior.AllowGet);

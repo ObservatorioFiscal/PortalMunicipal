@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Core.Municipalidad>
+
+@{
+    ViewBag.Title = "ActivarMunicipio";
+}
+
+<h2>ActivarMunicipio</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" id="tableMunicipios">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Activa
+        </th>
+        <th>
+            Cementerio
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>            
+            @item.Nombre
+        </td>
+        <td>
+            @item.Descripcion
+        </td>
+        <td>            
+            @if (item.Activa)
+            {
+                <input type="checkbox" onclick="MarcarMunicipio(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarMunicipio(@item.IdMunicipalidad)"/>
+            }
+        </td>
+        <td>
+            @if (item.Cementerio)
+            {
+                <input type="checkbox" onclick="MarcarCementerio(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarCementerio(@item.IdMunicipalidad)"/>
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<script>
+    function MarcarMunicipio(id) {
+        $.ajax({
+            url: '@Url.Action("ActivarMunicipio","Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
+
+    function MarcarCementerio(id) {
+            $.ajax({
+            url: '@Url.Action("ActivarCementerio", "Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
+</script>
