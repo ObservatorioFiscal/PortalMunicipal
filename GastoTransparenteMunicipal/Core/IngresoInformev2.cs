@@ -12,11 +12,10 @@ namespace Core
     using System;
     using System.Collections.Generic;
     
-    public partial class GastoInformev2
+    public partial class IngresoInformev2
     {
         public long IdGastoInforme { get; set; }
         public string Codigo { get; set; }
-        public string Cuenta { get; set; }
         public Nullable<double> MontoPresupuestado { get; set; }
         public Nullable<double> MontoGastado { get; set; }
         public Nullable<System.DateTime> UpdatedOnUTC { get; set; }

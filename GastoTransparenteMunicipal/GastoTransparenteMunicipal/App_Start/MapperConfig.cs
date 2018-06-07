@@ -24,11 +24,16 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => e.GetCell(5).NumericCellValue))
                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
 
+                cfg.CreateMap<IRow, Core.IngresoInformev2>()
+                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
+                 .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
+                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue));
+
                 cfg.CreateMap<IRow, Core.GastoInformev2>()
                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.Cuenta, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                .ForMember(dst => dst.MontoPrespuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
-                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));                
+                .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.IngresoInforme>()
                 .ForMember(dst => dst.TIPO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
@@ -45,59 +50,59 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.ORGANIZACION, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
                 .ForMember(dst => dst.MONTOAPORTE, src => src.MapFrom(e => e.GetCell(3).NumericCellValue))
                 .ForMember(dst => dst.OBJETIVODELAPORTE, src => src.MapFrom(e => e.GetCell(4).StringCellValue));
-            
+
                 cfg.CreateMap<IRow, Core.Personal_AdmInforme>()
-                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
-                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
-                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
-                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
-                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(6).NumericCellValue))
-                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(7).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
-                .ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
+                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
+                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
+                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
+                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(6).StringCellValue))
+                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(7).NumericCellValue))
+                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(8).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
+                //.ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.Personal_SaludInforme>()
-                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
-                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
-                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
-                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
-                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(6).NumericCellValue))
-                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(7).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
-                .ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
+                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
+                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
+                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
+                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(6).StringCellValue))
+                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(7).NumericCellValue))
+                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(8).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
+                //.ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.Personal_EducacionInforme>()
-                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
-                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
-                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
-                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
-                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(6).NumericCellValue))
-                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(7).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
-                .ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
+                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
+                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
+                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
+                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(6).StringCellValue))
+                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(7).NumericCellValue))
+                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(8).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
+                //.ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.Personal_CementerioInforme>()
-                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
-                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
-                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
-                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
-                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
-                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(6).NumericCellValue))
-                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(7).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
-                .ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
+                .ForMember(dst => dst.GENERO, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
+                .ForMember(dst => dst.EDAD, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
+                .ForMember(dst => dst.CALIDADJURIDICA, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
+                .ForMember(dst => dst.PROFESION, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
+                .ForMember(dst => dst.NIVELACADEMICO, src => src.MapFrom(e => e.GetCell(5).StringCellValue))
+                .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(6).StringCellValue))
+                .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(7).NumericCellValue))
+                .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(8).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
+                //.ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.Proveedor_AdmInforme>()
                 .ForMember(dst => dst.NumeroOrdenCompra, src => src.MapFrom(e => e.GetCell(0).NumericCellValue))
                 .ForMember(dst => dst.Glosa, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))                
+                .ForMember(dst => dst.Proveedor, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
                 .ForMember(dst => dst.Monto, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.Proveedor_SaludInforme>()
@@ -127,34 +132,34 @@ namespace GastoTransparenteMunicipal
 
                 #region proveedores
 
-                cfg.CreateMap<Core.Proveedor_Adm_Nivel1 , Proveedor_Nivel1>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Total_Nivel1 , Proveedor_Nivel1>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Salud_Nivel1 , Proveedor_Nivel1>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Educacion_Nivel1 , Proveedor_Nivel1>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Cementerio_Nivel1 , Proveedor_Nivel1>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Adm_Nivel2 , Proveedor_Nivel2>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Total_Nivel2  ,Proveedor_Nivel2>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Salud_Nivel2 , Proveedor_Nivel2>()
-                .ReverseMap();                                
-                                                             
-                cfg.CreateMap<Core.Proveedor_Educacion_Nivel2 , Proveedor_Nivel2>()
-                .ReverseMap();                                
-                                                              
-                cfg.CreateMap<Core.Proveedor_Cementerio_Nivel2 , Proveedor_Nivel2>()
+                cfg.CreateMap<Core.Proveedor_Adm_Nivel1, Proveedor_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Total_Nivel1, Proveedor_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Salud_Nivel1, Proveedor_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Educacion_Nivel1, Proveedor_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Cementerio_Nivel1, Proveedor_Nivel1>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Adm_Nivel2, Proveedor_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Total_Nivel2, Proveedor_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Salud_Nivel2, Proveedor_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Educacion_Nivel2, Proveedor_Nivel2>()
+                .ReverseMap();
+
+                cfg.CreateMap<Core.Proveedor_Cementerio_Nivel2, Proveedor_Nivel2>()
                 .ReverseMap();
                 #endregion
 

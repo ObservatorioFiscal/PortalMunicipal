@@ -24,33 +24,31 @@
             </h1>
         </div>
         <div class="col-md-12">
-            <form action="@Url.Action("CargaGastosv2","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
+            <form action="@Url.Action("CargaGastos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
                 <label>
                     <span></span>
                     Adm. y Serv. Municipales
-                    <input type="file" accept=".xls,.xlsx" id="file" name="file" />
+                    <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
                     <input type="hidden" />
                 </label><br />
 
                 <label>
                     Salud
-                    <input type="file" accept=".xls,.xlsx" id="file2" name="file2" />
+                    <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
                     <input type="hidden" />
                 </label><br />
                 <label>
                     Educacion
-                    <input type="file" accept=".xls,.xlsx" id="file3" name="file3" />
+                    <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
                     <input type="hidden" />
                 </label><br />
                 @if (ViewBag.cementerio)
                 {
-
                     <label>
                         Cementerio
-                        <input type="file" accept=".xls,.xlsx" id="file4" name="file4" />
+                        <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
                         <input type="hidden" />
                     </label>
-
                 }<br /><br />
                 @*<input type="button" class="btn" id="boton" value="Confirmar subida de Informacion">*@
                 <button type="submit">Confirmar subida de Informacion</button>
@@ -65,17 +63,17 @@
 <script>
     $(document).ready(function () {
 
-        $("#file1").onChange(function () {
+        $("#fileAdm").onChange(function () {
             // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
         });
 
-        $("#file2").onChange(function () {
+        $("#fileSalud").onChange(function () {
             // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
         });
-        $("#file3").onChange(function () {
+        $("#fileEducacion").onChange(function () {
             // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
         });
-        $("#file4").onChange(function () {
+        $("#fileCementerio").onChange(function () {
             // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
         });
 

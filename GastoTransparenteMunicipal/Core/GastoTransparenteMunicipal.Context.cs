@@ -86,8 +86,11 @@ namespace Core
         public virtual DbSet<Proveedor_Ano_Visible> Proveedor_Ano_Visible { get; set; }
         public virtual DbSet<Subsidio_Ano_Visible> Subsidio_Ano_Visible { get; set; }
         public virtual DbSet<Anos_Invisible> Anos_Invisible { get; set; }
-        public virtual DbSet<Gasto_Glosa> Gasto_Glosa { get; set; }
         public virtual DbSet<Gasto_GlosaCodigo> Gasto_GlosaCodigo { get; set; }
+        public virtual DbSet<Ingreso_Glosa> Ingreso_Glosa { get; set; }
+        public virtual DbSet<Ingreso_GlosaCodigo> Ingreso_GlosaCodigo { get; set; }
+        public virtual DbSet<IngresoInformev2> IngresoInformev2 { get; set; }
+        public virtual DbSet<Gasto_Glosa> Gasto_Glosa { get; set; }
         public virtual DbSet<GastoInformev2> GastoInformev2 { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)

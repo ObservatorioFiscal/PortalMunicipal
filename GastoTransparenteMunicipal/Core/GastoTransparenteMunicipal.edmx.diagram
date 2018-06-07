@@ -102,10 +102,14 @@
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" Width="1.5" PointX="10.375" PointY="15.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" Width="1.5" PointX="16.375" PointY="12.875" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" Width="1.5" PointX="18.625" PointY="13.125" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__73501C2F" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.GastoInformev2" Width="1.5" PointX="12.375" PointY="16.75" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Ingreso_Glosa" Width="1.5" PointX="14.75" PointY="16.875" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" Width="1.5" PointX="17" PointY="17" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" Width="1.5" PointX="0.75" PointY="17.75" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" Width="1.5" PointX="16.375" PointY="13.125" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.GastoInformev2" Width="1.5" PointX="18.375" PointY="0.75" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,19 +12,20 @@ namespace Core
     using System;
     using System.Collections.Generic;
     
-    public partial class Gasto_Glosa
+    public partial class Ingreso_Glosa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Gasto_Glosa()
+        public Ingreso_Glosa()
         {
-            this.Gasto_GlosaCodigo = new HashSet<Gasto_GlosaCodigo>();
+            this.Ingreso_GlosaCodigo = new HashSet<Ingreso_GlosaCodigo>();
         }
     
         public long GlosaId { get; set; }
+        public string NombreAreaNivel2 { get; set; }
         public string NombreCuentaNivel1 { get; set; }
         public string NombreCuentaNivel2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gasto_GlosaCodigo> Gasto_GlosaCodigo { get; set; }
+        public virtual ICollection<Ingreso_GlosaCodigo> Ingreso_GlosaCodigo { get; set; }
     }
 }

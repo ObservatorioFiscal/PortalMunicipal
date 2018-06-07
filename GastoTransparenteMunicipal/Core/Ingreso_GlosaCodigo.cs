@@ -12,16 +12,12 @@ namespace Core
     using System;
     using System.Collections.Generic;
     
-    public partial class GastoInformev2
+    public partial class Ingreso_GlosaCodigo
     {
-        public long IdGastoInforme { get; set; }
+        public long GlosaCodigoId { get; set; }
+        public Nullable<long> GlosaId { get; set; }
         public string Codigo { get; set; }
-        public string Cuenta { get; set; }
-        public Nullable<double> MontoPresupuestado { get; set; }
-        public Nullable<double> MontoGastado { get; set; }
-        public Nullable<System.DateTime> UpdatedOnUTC { get; set; }
-        public Nullable<System.Guid> IdGroupInformeGasto { get; set; }
-        public Nullable<int> TipoCodigo { get; set; }
-        public string TipoNombre { get; set; }
+    
+        public virtual Ingreso_Glosa Ingreso_Glosa { get; set; }
     }
 }
