@@ -532,24 +532,26 @@ namespace GastoTransparenteMunicipal.Controllers
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.Nombre;
             ViewBag.cementerio = municipalidad.Cementerio;
-            Gasto_Ano gasto = db.Gasto_Ano.Find(id);
-            Personal_Ano ingr = db.Personal_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
-            ViewBag.aviso = ingr.Cargado;
-            switch (ingr.Semestre)
-            {
-                case 1:
-                    ViewBag.ano = ingr.Ano + "a marzo";
-                    break;
-                case 2:
-                    ViewBag.ano = ingr.Ano + "a junio";
-                    break;
-                case 3:
-                    ViewBag.ano = ingr.Ano + "a septiembre";
-                    break;
-                default:
-                    ViewBag.ano = ingr.Ano;
-                    break;
-            }
+            //Gasto_Ano gasto = db.Gasto_Ano.Find(id);
+            //Personal_Ano ingr = db.Personal_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
+            //ViewBag.aviso = ingr.Cargado;
+            //switch (ingr.Semestre)
+            //{
+            //    case 1:
+            //        ViewBag.ano = ingr.Ano + "a marzo";
+            //        break;
+            //    case 2:
+            //        ViewBag.ano = ingr.Ano + "a junio";
+            //        break;
+            //    case 3:
+            //        ViewBag.ano = ingr.Ano + "a septiembre";
+            //        break;
+            //    default:
+            //        ViewBag.ano = ingr.Ano;
+            //        break;
+            //}
+            ViewBag.aviso = false;
+            ViewBag.ano = 2017;
             return View();
         }
 
