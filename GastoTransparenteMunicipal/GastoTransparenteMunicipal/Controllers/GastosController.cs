@@ -14,7 +14,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Index()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Ingreso_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Gasto = "active";
             ViewBag.Destacado = "hidden";

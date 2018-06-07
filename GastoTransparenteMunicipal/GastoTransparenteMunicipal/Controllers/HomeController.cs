@@ -11,16 +11,17 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Index()
         {
             var value = GetCurrentMunicipality();
-            ViewBag.logo = value;
+            ViewBag.logo = value + ".png";
             ViewBag.Inicio = "active";
             ViewBag.Destacado = "hidden";
+            
             return View();
         }
 
         public ActionResult About()
         {
             var value = GetCurrentMunicipality();
-            ViewBag.logo = value;
+            ViewBag.logo = value + ".png";
             ViewBag.Destacado = "hidden";
             return View();
         }

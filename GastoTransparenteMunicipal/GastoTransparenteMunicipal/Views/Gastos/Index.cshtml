@@ -235,8 +235,7 @@
                     .on("click", function (d) {
                         nivel = document.getElementById("NIVEL").value;
                         if (nivel < "4") {
-                            $(".caja").remove();
-                            tooltip.style("visibility", "hidden");
+                            tooltip.style("opacity", "0");
                             idpapa = document.getElementById("IDPAPA").value;
                             nombretipo = document.getElementById("FUNCECONO").value;
 

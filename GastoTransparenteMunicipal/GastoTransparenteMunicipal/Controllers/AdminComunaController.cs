@@ -225,6 +225,22 @@ namespace GastoTransparenteMunicipal.Controllers
             }
             return View();
         }
+
+        public ActionResult AbrirNuevoAno()
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.Anos = new SelectList(db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            return View();
+        }
+
+        public ActionResult AbrirNuevoAno(FormCollection data)
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.Anos = new SelectList(db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            return View();
+        }
     }
 
 }
