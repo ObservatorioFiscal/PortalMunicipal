@@ -15,7 +15,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Sueldos()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb+".png";
             ViewBag.Anos = new SelectList(db.Personal_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Sueldos = "active";
             return View();
@@ -25,7 +25,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Proveedores()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Proveedor_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Proveedores = "active";
             return View();
@@ -35,7 +35,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Subsidios()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Subsidio_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Subsidios = "active";
             return View();
@@ -45,7 +45,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Corporaciones()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Corporacion_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Corporaciones = "active";
             return View();

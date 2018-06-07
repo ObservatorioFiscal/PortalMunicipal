@@ -166,7 +166,7 @@ h6{
 }
 
 .logo-top {
-    padding: 15px 0px;
+    padding: 10px 0px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
@@ -229,7 +229,7 @@ h6{
 .relative{
     display: block;
     position: absolute;
-    top: 25%;
+    top: 14%;
     left: 0;
     width: 100%;
 }
@@ -253,11 +253,22 @@ h6{
 @media (min-width: 768px) {
 
 	.relative{
-		top: 30%;
+		top: 17%;
 	}
   	.small-display {
     	display: block;
   	}
+}
+
+@media (min-width: 992px) {
+
+    .relative {
+        top: 28%;
+    }
+
+    .small-display {
+        display: block;
+    }
 }
 
 
@@ -459,3 +470,64 @@ h6{
             padding: 0;
             line-height: 1.2;
         }
+
+
+
+
+
+.arrows {
+    position: relative;
+    /*position: absolute;*/
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%,-50%);
+}
+
+    .arrows:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-left: 7px solid rgba(255,255,255,0.7);
+        border-bottom: 7px solid rgba(255,255,255,0.7);
+        transform: translate(7px,12)rotate(-45deg);
+        animation: arrows 3s linear infinite;
+    }
+
+    .arrows:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-left: 7px solid rgba(255,255,255,0.7);
+        border-bottom: 7px solid rgba(255,255,255,0.7);
+        transform: translate(13px,0px)rotate(-45deg);
+        animation: arrows 3s linear infinite 1s;
+    }
+
+@keyframes arrows {
+    0% {
+        border-left: 7px solid rgba(255,255,255,0);
+        border-bottom: 7px solid rgba(255,255,255,0);
+        transform: translate(-3px,13px)rotate(-45deg);
+    }
+
+    10%, 90% {
+        border-left: 7px solid rgba(255,255,255,0);
+        border-bottom: 7px solid rgba(255,255,255,0);
+    }
+
+    50% {
+        border-left: 7px solid rgba(255,255,255,0.7);
+        border-bottom: 7px solid rgba(255,255,255,0.7);
+        transform: translate(-3px,0)rotate(-45deg);
+    }
+
+    100% {
+        border-left: 7px solid rgba(255,255,255,0);
+        border-bottom: 7px solid rgba(255,255,255,0);
+        transform: translate(-3px,13px)rotate(-45deg);
+    }
+}

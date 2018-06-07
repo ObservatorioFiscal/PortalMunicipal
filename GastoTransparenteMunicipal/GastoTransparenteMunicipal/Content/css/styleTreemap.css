@@ -97,7 +97,6 @@
     justify-content: space-between;
     flex-direction: column;
     color: #ffffff;
-    padding: 10px;
     font-size: 14px;
     overflow: hidden;
     cursor: pointer;
@@ -107,6 +106,9 @@
     .node:hover {
         background-color: #F1C330 !important;
         color: rgb(13, 43, 80);
+    }
+    .node h5{
+        padding:10px;
     }
 
 .seleccionc {
