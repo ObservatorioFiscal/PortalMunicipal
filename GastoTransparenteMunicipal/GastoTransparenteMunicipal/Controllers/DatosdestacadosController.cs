@@ -18,6 +18,9 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb+".png";
             ViewBag.Anos = new SelectList(db.Personal_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Sueldos = "active";
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
             return View();
         }
 
@@ -28,6 +31,9 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Proveedor_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Proveedores = "active";
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
             return View();
         }
 
@@ -38,6 +44,9 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Subsidio_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Subsidios = "active";
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
             return View();
         }
 
@@ -48,6 +57,9 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Anos = new SelectList(db.Corporacion_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.Corporaciones = "active";
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
             return View();
         }
 

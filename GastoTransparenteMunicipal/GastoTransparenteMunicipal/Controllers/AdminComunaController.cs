@@ -12,6 +12,7 @@ using System.IO;
 using GastoTransparenteMunicipal.Helpers;
 using System.Data.SqlClient;
 using NPOI.SS.UserModel;
+using System.Data.Entity;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -25,11 +26,16 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaDatos()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.Destacado = "hidden";
+            ViewBag.administracion = true;
             ViewBag.Anos = new SelectList(db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
             return View();
         }
-
+        
         public JsonResult CargadosPost(int aux)
         {
             Gasto_Ano gasto = db.Gasto_Ano.Find(aux);
@@ -46,12 +52,124 @@ namespace GastoTransparenteMunicipal.Controllers
             return Json(auxiliar, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult AbrirPeriodo()
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            var lista = db.Gasto_Ano.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad);
+            List<decimal> final = new List<decimal>();
+            int anoactual = DateTime.Now.Year;
+            for (var item = 2010; item < anoactual; item++)
+            {
+                if (!lista.Where(r=>r.Semestre==0).Select(r => r.Ano).Contains(item))
+                {
+                    final.Add(item);
+                }
+            }
+            if (!lista.Select(r => r.Ano).Contains(anoactual))
+            {
+                if (!lista.Where(r => r.Ano == anoactual).Select(r => r.Semestre).Contains(0))
+                {
+                    final.Add(anoactual);
+                }
+            }
+            final.Reverse(); // año mas alto.
+            decimal ultimoano = final.First();
+            List<decimal?> lista2 = lista.Where(r => r.Ano == ultimoano).Select(r => r.Semestre).ToList();
+            Dictionary<int, string> dic = new Dictionary<int, string>();
+            if (final.First()== DateTime.Now.Year){
+                int mes = DateTime.Now.Month;
+                if (!lista2.Contains(1) && mes > 3){
+                    dic.Add(1, "a Marzo");
+                }
+                if (!lista2.Contains(2) && mes > 6){
+                    dic.Add(1, "a Junio");
+                }
+                if (!lista2.Contains(3) && mes > 9){
+                    dic.Add(1, "a Septiembre");
+                }
+            }
+            else{
+                dic.Add(0, "Completo");
+            }
+            ViewBag.periodo = new SelectList(dic,"key","value");
+            ViewBag.ano = new SelectList(final);
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.Destacado = "hidden";
+            ViewBag.idMuni = municipalidad.IdMunicipalidad;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AbrirPeriodo(int periodo, int ano)
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            Municipalidad muni = db.Municipalidad.Find(municipalidad.IdMunicipalidad);
+            ViewBag.idMuni = muni.IdMunicipalidad;
+            Corporacion_Ano corp = new Corporacion_Ano
+            {
+                IdMunicipalidad = muni.IdMunicipalidad,Ano = ano,UpdatedOn = DateTime.Now,Activo = false,Semestre = periodo,Cargado = false
+            };
+            Personal_Ano pers = new Personal_Ano
+            {
+                IdMunicipalidad = muni.IdMunicipalidad,Ano = ano,UpdatedOn = DateTime.Now,Activo = false,Semestre = periodo,Cargado = false
+            };
+            Proveedor_Ano prov = new Proveedor_Ano
+            {
+                IdMunicipalidad = muni.IdMunicipalidad,Ano = ano,UpdatedOn = DateTime.Now,Activo = false,Semestre = periodo,Cargado = false
+            };
+            Subsidio_Ano subs = new Subsidio_Ano
+            {
+                IdMunicipalidad = muni.IdMunicipalidad,Ano = ano,UpdatedOn = DateTime.Now,Activo = false,Semestre = periodo,Cargado = false
+            };
+            Ingreso_Ano ingr = new Ingreso_Ano
+            {
+                IdMunicipalidad = muni.IdMunicipalidad,Ano = ano,UpdatedOn = DateTime.Now,Activo = false,Semestre = periodo,Cargado = false
+            };
+            Gasto_Ano gast = new Gasto_Ano
+            {
+                IdMunicipalidad = muni.IdMunicipalidad,Ano = ano,UpdatedOn = DateTime.Now,Activo = false,Semestre = periodo,Cargado = false
+            };
+            muni.Corporacion_Ano.Add(corp);
+            muni.Personal_Ano.Add(pers);
+            muni.Proveedor_Ano.Add(prov);
+            muni.Subsidio_Ano.Add(subs);
+            muni.Ingreso_Ano.Add(ingr);
+            muni.Gasto_Ano.Add(gast);
+            db.Entry(muni).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("CargaDatos");
+        }
+
+        public JsonResult FiltroMeses(int ano, int idMuni)
+        {
+            var lista = db.Gasto_Ano.Where(r => r.Ano == ano && r.IdMunicipalidad == idMuni).Select(r => r.Semestre);
+            
+            List<decimal> final = new List<decimal>();
+            int mes = DateTime.Now.Month;
+            
+            if (!lista.Contains(1) && mes>3)
+            {
+                final.Add(1);
+            }
+            if (!lista.Contains(2) && mes > 6)
+            {
+                final.Add(2);
+            }
+            if (!lista.Contains(3) && mes > 9)
+            {
+                final.Add(3);
+            }
+            return Json(final, JsonRequestBehavior.AllowGet);
+        }
+
         #region Ingresos
 
         public ActionResult CargaIngresos(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Ingreso_Ano ingr = db.Ingreso_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
@@ -196,7 +314,8 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaGastos(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             ViewBag.aviso = gasto.Cargado;
@@ -281,7 +400,8 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaProveedores(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Proveedor_Ano ingr = db.Proveedor_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
@@ -475,7 +595,8 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaSubsidios(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Subsidio_Ano ingr = db.Subsidio_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
@@ -547,7 +668,8 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaCorporaciones(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Corporacion_Ano ingr = db.Corporacion_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
@@ -620,26 +742,9 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaRemuneraciones(int id)
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.logo = municipalidad.Nombre;
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
-            //Gasto_Ano gasto = db.Gasto_Ano.Find(id);
-            //Personal_Ano ingr = db.Personal_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
-            //ViewBag.aviso = ingr.Cargado;
-            //switch (ingr.Semestre)
-            //{
-            //    case 1:
-            //        ViewBag.ano = ingr.Ano + "a marzo";
-            //        break;
-            //    case 2:
-            //        ViewBag.ano = ingr.Ano + "a junio";
-            //        break;
-            //    case 3:
-            //        ViewBag.ano = ingr.Ano + "a septiembre";
-            //        break;
-            //    default:
-            //        ViewBag.ano = ingr.Ano;
-            //        break;
-            //}
             ViewBag.aviso = false;
             ViewBag.ano = 2017;
 

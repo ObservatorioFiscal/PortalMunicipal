@@ -167,27 +167,15 @@ h6{
 
 .logo-top {
     padding: 10px 0px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
     transition: all 0.5s ease
 }
 
 #barra-primera,
 .menu-auxiliar {
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
     transition: all 0.2s ease
 }
 
 .menu-auxiliar {
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
     transition: all 0.2s ease; 
     opacity:0;
 }
@@ -530,4 +518,9 @@ h6{
         border-bottom: 7px solid rgba(255,255,255,0);
         transform: translate(-3px,13px)rotate(-45deg);
     }
+}
+
+
+.form-group{
+    margin:20px 0px;
 }

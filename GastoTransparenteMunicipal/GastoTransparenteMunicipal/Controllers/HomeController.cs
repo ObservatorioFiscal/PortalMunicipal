@@ -10,21 +10,27 @@ namespace GastoTransparenteMunicipal.Controllers
     {
         public ActionResult Index()
         {
-            var value = GetCurrentMunicipality();
-            ViewBag.logo = value + ".png";
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.activos = new List<bool>
+            {
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Inicio = "active";
             ViewBag.Destacado = "hidden";
-            
             return View();
         }
 
         public ActionResult About()
         {
-            var value = GetCurrentMunicipality();
-            ViewBag.logo = value + ".png";
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.activos = new List<bool>
+            {
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Destacado = "hidden";
             return View();
         }
-
     }
 }

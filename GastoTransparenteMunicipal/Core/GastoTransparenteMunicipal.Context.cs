@@ -32,17 +32,23 @@ namespace Core
         public virtual DbSet<Corporacion_Nivel1> Corporacion_Nivel1 { get; set; }
         public virtual DbSet<CorporacionInforme> CorporacionInforme { get; set; }
         public virtual DbSet<Gasto_Ano> Gasto_Ano { get; set; }
+        public virtual DbSet<Gasto_Glosa> Gasto_Glosa { get; set; }
+        public virtual DbSet<Gasto_GlosaCodigo> Gasto_GlosaCodigo { get; set; }
         public virtual DbSet<Gasto_Nivel1> Gasto_Nivel1 { get; set; }
         public virtual DbSet<Gasto_Nivel2> Gasto_Nivel2 { get; set; }
         public virtual DbSet<Gasto_Nivel3> Gasto_Nivel3 { get; set; }
         public virtual DbSet<Gasto_Nivel4> Gasto_Nivel4 { get; set; }
         public virtual DbSet<GastoInforme> GastoInforme { get; set; }
+        public virtual DbSet<GastoInformev2> GastoInformev2 { get; set; }
         public virtual DbSet<Ingreso_Ano> Ingreso_Ano { get; set; }
+        public virtual DbSet<Ingreso_Glosa> Ingreso_Glosa { get; set; }
+        public virtual DbSet<Ingreso_GlosaCodigo> Ingreso_GlosaCodigo { get; set; }
         public virtual DbSet<Ingreso_Nivel1> Ingreso_Nivel1 { get; set; }
         public virtual DbSet<Ingreso_Nivel2> Ingreso_Nivel2 { get; set; }
         public virtual DbSet<Ingreso_Nivel3> Ingreso_Nivel3 { get; set; }
         public virtual DbSet<Ingreso_Nivel4> Ingreso_Nivel4 { get; set; }
         public virtual DbSet<IngresoInforme> IngresoInforme { get; set; }
+        public virtual DbSet<IngresoInformev2> IngresoInformev2 { get; set; }
         public virtual DbSet<Municipalidad> Municipalidad { get; set; }
         public virtual DbSet<Personal_Adm_Nivel1> Personal_Adm_Nivel1 { get; set; }
         public virtual DbSet<Personal_Adm_Nivel2> Personal_Adm_Nivel2 { get; set; }
@@ -79,19 +85,13 @@ namespace Core
         public virtual DbSet<Subsidio_Nivel2> Subsidio_Nivel2 { get; set; }
         public virtual DbSet<Subsidio_Nivel3> Subsidio_Nivel3 { get; set; }
         public virtual DbSet<SubsidioInforme> SubsidioInforme { get; set; }
+        public virtual DbSet<Anos_Invisible> Anos_Invisible { get; set; }
         public virtual DbSet<Corporacion_Ano_Visible> Corporacion_Ano_Visible { get; set; }
         public virtual DbSet<Gasto_Ano_Visible> Gasto_Ano_Visible { get; set; }
         public virtual DbSet<Ingreso_Ano_Visible> Ingreso_Ano_Visible { get; set; }
         public virtual DbSet<Personal_Ano_Visible> Personal_Ano_Visible { get; set; }
         public virtual DbSet<Proveedor_Ano_Visible> Proveedor_Ano_Visible { get; set; }
         public virtual DbSet<Subsidio_Ano_Visible> Subsidio_Ano_Visible { get; set; }
-        public virtual DbSet<Anos_Invisible> Anos_Invisible { get; set; }
-        public virtual DbSet<Gasto_GlosaCodigo> Gasto_GlosaCodigo { get; set; }
-        public virtual DbSet<Ingreso_Glosa> Ingreso_Glosa { get; set; }
-        public virtual DbSet<Ingreso_GlosaCodigo> Ingreso_GlosaCodigo { get; set; }
-        public virtual DbSet<IngresoInformev2> IngresoInformev2 { get; set; }
-        public virtual DbSet<Gasto_Glosa> Gasto_Glosa { get; set; }
-        public virtual DbSet<GastoInformev2> GastoInformev2 { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)
         {

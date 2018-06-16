@@ -3,3 +3,5 @@ GastoTransparenteMunicipal/Core/bin
 GastoTransparenteMunicipal/Core/obj
 GastoTransparenteMunicipal/GastoTransparenteMunicipal/bin
 GastoTransparenteMunicipal/GastoTransparenteMunicipal/obj
+GastoTransparenteMunicipal/.vs/config/applicationhost.config
+*.config

@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="GastoTransparenteMunicipalModelStoreContainer" CdmEntityContainer="GastoTransparenteMunicipalEntities">
+    <FunctionImportMapping FunctionImportName="SP_InformeCorporaciones" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeCorporaciones" />
+    <FunctionImportMapping FunctionImportName="SP_InformeGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGasto" />
+    <FunctionImportMapping FunctionImportName="SP_InformeIngreso" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngreso" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdm" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerio" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacion" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotal" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSalud" />
+    <FunctionImportMapping FunctionImportName="SP_InformeSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidio" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal" />
     <EntitySetMapping Name="Comunas">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Comunas">
         <MappingFragment StoreEntitySet="Comunas">
@@ -57,6 +71,24 @@
           <ScalarProperty Name="Ano" ColumnName="Ano" />
           <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gasto_Glosa">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Glosa">
+        <MappingFragment StoreEntitySet="Gasto_Glosa">
+          <ScalarProperty Name="NombreCuentaNivel2" ColumnName="NombreCuentaNivel2" />
+          <ScalarProperty Name="NombreCuentaNivel1" ColumnName="NombreCuentaNivel1" />
+          <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gasto_GlosaCodigo">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo">
+        <MappingFragment StoreEntitySet="Gasto_GlosaCodigo">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+          <ScalarProperty Name="GlosaCodigoId" ColumnName="GlosaCodigoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -136,6 +168,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GastoInformev2">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.GastoInformev2">
+        <MappingFragment StoreEntitySet="GastoInformev2">
+          <ScalarProperty Name="TipoNombre" ColumnName="TipoNombre" />
+          <ScalarProperty Name="TipoCodigo" ColumnName="TipoCodigo" />
+          <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
+          <ScalarProperty Name="UpdatedOnUTC" ColumnName="UpdatedOnUTC" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Ingreso_Ano">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Ano">
         <MappingFragment StoreEntitySet="Ingreso_Ano">
@@ -146,6 +193,25 @@
           <ScalarProperty Name="Ano" ColumnName="Ano" />
           <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingreso_Glosa">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Glosa">
+        <MappingFragment StoreEntitySet="Ingreso_Glosa">
+          <ScalarProperty Name="NombreCuentaNivel2" ColumnName="NombreCuentaNivel2" />
+          <ScalarProperty Name="NombreCuentaNivel1" ColumnName="NombreCuentaNivel1" />
+          <ScalarProperty Name="NombreAreaNivel2" ColumnName="NombreAreaNivel2" />
+          <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingreso_GlosaCodigo">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo">
+        <MappingFragment StoreEntitySet="Ingreso_GlosaCodigo">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
+          <ScalarProperty Name="GlosaCodigoId" ColumnName="GlosaCodigoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -225,9 +291,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="IngresoInformev2">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.IngresoInformev2">
+        <MappingFragment StoreEntitySet="IngresoInformev2">
+          <ScalarProperty Name="TipoNombre" ColumnName="TipoNombre" />
+          <ScalarProperty Name="TipoCodigo" ColumnName="TipoCodigo" />
+          <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
+          <ScalarProperty Name="UpdatedOnUTC" ColumnName="UpdatedOnUTC" />
+          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
+          <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Municipalidad">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
         <MappingFragment StoreEntitySet="Municipalidad">
+          <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
+          <ScalarProperty Name="Act_Subsidio" ColumnName="Act_Subsidio" />
+          <ScalarProperty Name="Act_Proveedor" ColumnName="Act_Proveedor" />
+          <ScalarProperty Name="Act_Personal" ColumnName="Act_Personal" />
           <ScalarProperty Name="Cementerio" ColumnName="Cementerio" />
           <ScalarProperty Name="DireccionWeb" ColumnName="DireccionWeb" />
           <ScalarProperty Name="Activa" ColumnName="Activa" />
@@ -678,6 +762,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Anos_Invisible">
+      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Anos_Invisible">
+        <MappingFragment StoreEntitySet="Anos_Invisible">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Corporacion_Ano_Visible">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Ano_Visible">
         <MappingFragment StoreEntitySet="Corporacion_Ano_Visible">
@@ -729,48 +822,6 @@
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
           <ScalarProperty Name="IdAno" ColumnName="IdAno" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Anos_Invisible">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Anos_Invisible">
-        <MappingFragment StoreEntitySet="Anos_Invisible">
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
-          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Gasto_Glosa">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Glosa">
-        <MappingFragment StoreEntitySet="Gasto_Glosa">
-          <ScalarProperty Name="TipoNombre" ColumnName="TipoNombre" />
-          <ScalarProperty Name="TipoCodigo" ColumnName="TipoCodigo" />
-          <ScalarProperty Name="NombreCuentaNivel2" ColumnName="NombreCuentaNivel2" />
-          <ScalarProperty Name="NombreCuentaNivel1" ColumnName="NombreCuentaNivel1" />
-          <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Gasto_GlosaCodigo">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo">
-        <MappingFragment StoreEntitySet="Gasto_GlosaCodigo">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="GlosaId" ColumnName="GlosaId" />
-          <ScalarProperty Name="GlosaCodigoId" ColumnName="GlosaCodigoId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GastoInformev2">
-      <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.GastoInformev2">
-        <MappingFragment StoreEntitySet="GastoInformev2">
-          <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
-          <ScalarProperty Name="UpdatedOnUTC" ColumnName="UpdatedOnUTC" />
-          <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-          <ScalarProperty Name="MontoPrespuestado" ColumnName="MontoPrespuestado" />
-          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

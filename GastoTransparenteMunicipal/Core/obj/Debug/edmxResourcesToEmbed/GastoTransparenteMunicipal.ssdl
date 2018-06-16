@@ -61,8 +61,6 @@
     <Property Name="GlosaId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NombreCuentaNivel1" Type="nvarchar" MaxLength="250" />
     <Property Name="NombreCuentaNivel2" Type="nvarchar" MaxLength="250" />
-    <Property Name="TipoCodigo" Type="smallint" />
-    <Property Name="TipoNombre" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Gasto_GlosaCodigo">
     <Key>
@@ -150,10 +148,12 @@
     <Property Name="IdGastoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
     <Property Name="Cuenta" Type="nvarchar" MaxLength="250" />
-    <Property Name="MontoPrespuestado" Type="float" />
+    <Property Name="MontoPresupuestado" Type="float" />
     <Property Name="MontoGastado" Type="float" />
     <Property Name="UpdatedOnUTC" Type="datetime" />
     <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
+    <Property Name="TipoCodigo" Type="int" />
+    <Property Name="TipoNombre" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Ingreso_Ano">
     <Key>
@@ -166,6 +166,23 @@
     <Property Name="Activo" Type="bit" Nullable="false" />
     <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
     <Property Name="Cargado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ingreso_Glosa">
+    <Key>
+      <PropertyRef Name="GlosaId" />
+    </Key>
+    <Property Name="GlosaId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreAreaNivel2" Type="nvarchar" MaxLength="250" />
+    <Property Name="NombreCuentaNivel1" Type="nvarchar" MaxLength="250" />
+    <Property Name="NombreCuentaNivel2" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Ingreso_GlosaCodigo">
+    <Key>
+      <PropertyRef Name="GlosaCodigoId" />
+    </Key>
+    <Property Name="GlosaCodigoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GlosaId" Type="bigint" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel1">
     <Key>
@@ -238,6 +255,19 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="IdGroupInformeIngreso" Type="uniqueidentifier" />
   </EntityType>
+  <EntityType Name="IngresoInformev2">
+    <Key>
+      <PropertyRef Name="IdGastoInforme" />
+    </Key>
+    <Property Name="IdGastoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="40" />
+    <Property Name="MontoPresupuestado" Type="float" />
+    <Property Name="MontoGastado" Type="float" />
+    <Property Name="UpdatedOnUTC" Type="datetime" />
+    <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
+    <Property Name="TipoCodigo" Type="int" />
+    <Property Name="TipoNombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Municipalidad">
     <Key>
       <PropertyRef Name="IdMunicipalidad" />
@@ -248,6 +278,10 @@
     <Property Name="Activa" Type="bit" Nullable="false" />
     <Property Name="DireccionWeb" Type="nvarchar" MaxLength="300" Nullable="false" />
     <Property Name="Cementerio" Type="bit" Nullable="false" />
+    <Property Name="Act_Personal" Type="bit" Nullable="false" />
+    <Property Name="Act_Proveedor" Type="bit" Nullable="false" />
+    <Property Name="Act_Subsidio" Type="bit" Nullable="false" />
+    <Property Name="Act_Corporacion" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Personal_Adm_Nivel1">
     <Key>
@@ -761,7 +795,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Gasto_Glo__Glosa__73501C2F">
+  <Association Name="FK__Gasto_Glo__Glosa__477199F1">
     <End Role="Gasto_Glosa" Type="Self.Gasto_Glosa" Multiplicity="0..1" />
     <End Role="Gasto_GlosaCodigo" Type="Self.Gasto_GlosaCodigo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -830,6 +864,18 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
       </Principal>
       <Dependent Role="Ingreso_Ano">
         <PropertyRef Name="IdMunicipalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_G__Glosa__7073AF84">
+    <End Role="Ingreso_Glosa" Type="Self.Ingreso_Glosa" Multiplicity="0..1" />
+    <End Role="Ingreso_GlosaCodigo" Type="Self.Ingreso_GlosaCodigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingreso_Glosa">
+        <PropertyRef Name="GlosaId" />
+      </Principal>
+      <Dependent Role="Ingreso_GlosaCodigo">
+        <PropertyRef Name="GlosaId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1193,6 +1239,62 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_InformeCorporaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupInforme" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeGasto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeIngreso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportIngreso" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalAdm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalCementerio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalEducacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalMunicipioTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalSalud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeSubsidio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportSubsidio" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorAdm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorCementerio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorEducacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorSalud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
   <EntityContainer Name="GastoTransparenteMunicipalModelStoreContainer">
     <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Corporacion_Ano" EntityType="Self.Corporacion_Ano" Schema="dbo" store:Type="Tables" />
@@ -1208,11 +1310,14 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
     <EntitySet Name="GastoInforme" EntityType="Self.GastoInforme" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GastoInformev2" EntityType="Self.GastoInformev2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingreso_Ano" EntityType="Self.Ingreso_Ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_Glosa" EntityType="Self.Ingreso_Glosa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingreso_GlosaCodigo" EntityType="Self.Ingreso_GlosaCodigo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingreso_Nivel1" EntityType="Self.Ingreso_Nivel1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingreso_Nivel2" EntityType="Self.Ingreso_Nivel2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingreso_Nivel3" EntityType="Self.Ingreso_Nivel3" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingreso_Nivel4" EntityType="Self.Ingreso_Nivel4" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IngresoInforme" EntityType="Self.IngresoInforme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IngresoInformev2" EntityType="Self.IngresoInformev2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Municipalidad" EntityType="Self.Municipalidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Personal_Adm_Nivel1" EntityType="Self.Personal_Adm_Nivel1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Personal_Adm_Nivel2" EntityType="Self.Personal_Adm_Nivel2" Schema="dbo" store:Type="Tables" />
@@ -1310,7 +1415,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
     </AssociationSet>
-    <AssociationSet Name="FK__Gasto_Glo__Glosa__73501C2F" Association="Self.FK__Gasto_Glo__Glosa__73501C2F">
+    <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="Self.FK__Gasto_Glo__Glosa__477199F1">
       <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
       <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
     </AssociationSet>
@@ -1333,6 +1438,10 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
     <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="Self.FK__Ingreso_A__IdMun__1EA48E88">
       <End Role="Municipalidad" EntitySet="Municipalidad" />
       <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="Self.FK__Ingreso_G__Glosa__7073AF84">
+      <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
+      <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
     </AssociationSet>
     <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="Self.FK__Ingreso_N__IdAno__1F98B2C1">
       <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />

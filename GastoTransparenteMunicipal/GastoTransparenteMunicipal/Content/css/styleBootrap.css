@@ -89,6 +89,18 @@
     max-height: 50px;
 }
 
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color:white
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -109,6 +121,7 @@
   color: #fff;
   background-color: #002851cc;
   border-color: #002851;
+  cursor:pointer;
 }
 
 .btn-xs {

@@ -200,17 +200,13 @@
     <Compile Include="Controllers\FeaturedDataController.cs" />
     <Compile Include="Controllers\GastosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SpendingController.cs" />
-    <Compile Include="Controllers\TestingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\d3Object.cs" />
     <Compile Include="Helpers\LoadReport.cs" />
-    <Compile Include="Interceptor.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IngresoModel.cs" />
     <Compile Include="Models\GastoModel.cs" />
@@ -317,13 +313,11 @@
     <Content Include="Views\AdminComuna\CargaCorporaciones.cshtml" />
     <Content Include="Views\AdminComuna\CargaRemuneraciones.cshtml" />
     <Content Include="Views\AdminComuna\AbrirNuevoAno.cshtml" />
+    <Content Include="Views\AdminComuna\AbrirPeriodo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\municipiosblanco\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\Income\" />
-    <Folder Include="Views\Spending\" />
     <Folder Include="Views\Testing\" />
   </ItemGroup>
   <ItemGroup>

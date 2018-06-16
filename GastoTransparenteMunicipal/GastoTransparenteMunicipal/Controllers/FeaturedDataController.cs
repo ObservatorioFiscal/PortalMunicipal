@@ -108,9 +108,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult PersonalSalary(int year, int origenData)
         {
             var idMunicipality = GetCurrentIdMunicipality();
-
             Personal_Ano personal_Ano = db.Personal_Ano.Find(year);
-
             switch (origenData)
             {
                 case OrigenData.Adm:

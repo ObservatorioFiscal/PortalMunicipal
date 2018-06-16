@@ -30,17 +30,11 @@
                                         <div class="padding-cero col-10 col-sm-10 col-md-12 align-self-center">
                                             <div class="row">
                                                 <span class="col-7 align-self-center">
-                                                    
                                                     <a href="@Url.Action("Index","Home")">
                                                         <img class="logo-top img-fluid" src="~/Content/image/municipios/@ViewBag.logo" alt="Cuentas Claras Municipales" />
                                                     </a>
                                                 </span>
                                             </div>
-                                            @*<div class="row">
-                                                <span class="col-12 align-self-center">
-                                                    <a href="@Url.Action("Login","Account")">Iniciar sesion</a>
-                                                </span>                                                
-                                            </div>*@
                                         </div>
                                         <div class="col-2 col-sm-2 col-md-0 align-self-center ">
                                             <a id="menu-mobile">
@@ -51,18 +45,37 @@
                                             <hr>
                                             <nav>
                                                 <ul style="padding: 0;">
-                                                    <li class="nav-item"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio"> Inicio </a></li>
-                                                    <li class="nav-item"><a href="@Url.Action("Index", "Ingresos")" class="@ViewBag.Ingreso">Ingresos </a></li>
-                                                    <li class="nav-item"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gasto">Gastos </a></li>
-                                                    <li  class="nav-item">
-                                                        Datos destacado
-                                                        <ul>
-                                                            <li class="nav-item"><a class="@ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores </a></li>
-                                                            <li class="nav-item"><a class="@ViewBag.Subsidios" href="@Url.Action("Subsidios","DatosDestacados")">Subsidios </a></li>
-                                                            <li class="nav-item"><a class="@ViewBag.Corporaciones" href="@Url.Action("Corporaciones","DatosDestacados")">Corporaciones </a></li>
-                                                            <li class="nav-item"><a class="@ViewBag.Sueldos" href="@Url.Action("Sueldos","DatosDestacados")">Remuneraciones </a></li>
-                                                        </ul>
-                                                    </li>
+                                                    @if (ViewBag.administracion != true)
+                                                    {
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio"> Inicio </a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index", "Ingresos")" class="@ViewBag.Ingreso">Ingresos </a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gasto">Gastos </a></li>
+
+                                                        if (ViewBag.activos[0] || ViewBag.activos[1] || ViewBag.activos[2] || ViewBag.activos[3])
+                                                        {
+                                                            <li class="nav-item">
+                                                                Datos destacado
+                                                                <ul>
+                                                                    @if (ViewBag.activos[0])
+                                                                    {
+                                                                        <li class="nav-item"><a class="@ViewBag.Proveedores" href="@Url.Action("Proveedores", "DatosDestacados")">Proveedores </a></li>
+                                                                    }
+                                                                    @if (ViewBag.activos[1])
+                                                                    {
+                                                                        <li class="nav-item"><a class="@ViewBag.Subsidios" href="@Url.Action("Subsidios", "DatosDestacados")">Subsidios </a></li>
+                                                                    }
+                                                                    @if (ViewBag.activos[2])
+                                                                    {
+                                                                        <li class="nav-item"><a class="@ViewBag.Corporaciones" href="@Url.Action("Corporaciones", "DatosDestacados")">Corporaciones </a></li>
+                                                                    }
+                                                                    @if (ViewBag.activos[3])
+                                                                    {
+                                                                        <li class="nav-item"><a class="@ViewBag.Sueldos" href="@Url.Action("Sueldos", "DatosDestacados")">Remuneraciones </a></li>
+                                                                    }
+                                                                </ul>
+                                                            </li>
+                                                        }
+                                                    }
                                                 </ul>
                                             </nav>
                                         </div>
@@ -73,20 +86,27 @@
                                 <div class="col-0 col-sm-0 col-md-7 padding-cero align-self-end" id="menu-Principal">
                                     <nav class="">
                                         <ul class="nav nav-resp align-items-center">
-                                            <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Inicio" href="@Url.Action("Index","Home")">Inicio</a>
-                                            </li>
-                                            <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Ingreso" href="@Url.Action("Index","Ingresos")">Ingresos</a>
-                                            </li>
-                                            <li class="nav-item borde-menu">
-                                                <a class="nav-link @ViewBag.Gasto" href="@Url.Action("Index","Gastos")">Gastos</a>
-                                            </li>
-                                            <li class="nav-item destacado">
-                                                <a class="nav-link" href="#">
-                                                    Datos<br> destacados <span class="md-12 icon-Recurso-20 menuflecha"></span>
-                                                </a>
-                                            </li>
+                                            @if (ViewBag.administracion != true)
+                                            {
+                                                <li class="nav-item borde-menu">
+                                                    <a class="nav-link @ViewBag.Inicio" href="@Url.Action("Index","Home")">Inicio</a>
+                                                </li>
+                                                <li class="nav-item borde-menu">
+                                                    <a class="nav-link @ViewBag.Ingreso" href="@Url.Action("Index","Ingresos")">Ingresos</a>
+                                                </li>
+                                                <li class="nav-item borde-menu">
+                                                    <a class="nav-link @ViewBag.Gasto" href="@Url.Action("Index","Gastos")">Gastos</a>
+                                                </li>
+
+                                                if (ViewBag.activos[0] || ViewBag.activos[1] || ViewBag.activos[2] || ViewBag.activos[3])
+                                                {
+                                                    <li class="nav-item destacado">
+                                                        <a class="nav-link" href="#">
+                                                            Datos<br> destacados <span class="md-12 icon-Recurso-20 menuflecha"></span>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            }
                                         </ul>
                                     </nav>
                                 </div>
@@ -94,43 +114,60 @@
                         </div>
                     </div>
                 </div>
-                <div class="row @ViewBag.Destacado destacado destacadocolor" id="destacado-barra">
-                    <div class="col">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-3 col-0 padding-cero">
-                                    <ul class="nav justify-content-start align-items-center">
-                                        <li class="nav-item menu-auxiliar">
-                                            <a href="@Url.Action("Index","Home")">
-                                                <img class="nav-link nav-link-sub img-fluid" src="~/Content/image/municipios/@ViewBag.logo" alt="Cuentas Claras Municipales" />
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-9 col-12 padding-cero">
-                                    <ul class="nav justify-content-end align-items-center">
-                                        <li class="nav-item menu-auxiliar">
-                                            <a class="nav-link nav-link-sub"><b class="amarillo">DATOS DESTACADOS</b></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Proveedores" href="@Url.Action("Proveedores","DatosDestacados")">Proveedores</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Subsidios" href="@Url.Action("Subsidios","DatosDestacados")">Subsidios</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Corporaciones" href="@Url.Action("Corporaciones","DatosDestacados")">Corporaciones</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link nav-link-sub @ViewBag.Sueldos" href="@Url.Action("Sueldos","DatosDestacados")">Remuneraciones</a>
-                                        </li>
-                                    </ul>
+                @if(ViewBag.administracion != true) { 
+                    if (ViewBag.activos[0] || ViewBag.activos[1] || ViewBag.activos[2] || ViewBag.activos[3])
+                    {
+                        <div class="row @ViewBag.Destacado destacado destacadocolor" id="destacado-barra">
+                            <div class="col">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3 col-0 padding-cero">
+                                            <ul class="nav justify-content-start align-items-center">
+                                                <li class="nav-item menu-auxiliar">
+                                                    <a href="@Url.Action("Index", "Home")">
+                                                        <img class="nav-link nav-link-sub img-fluid" src="~/Content/image/municipios/@ViewBag.logo" alt="Cuentas Claras Municipales" />
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-9 col-12 padding-cero">
+                                            <ul class="nav justify-content-end align-items-center">
+                                                <li class="nav-item menu-auxiliar">
+                                                    <a class="nav-link nav-link-sub"><b class="amarillo">DATOS DESTACADOS</b></a>
+                                                </li>
+                                                @if (ViewBag.activos[0])
+                                                {
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav-link-sub @ViewBag.Proveedores" href="@Url.Action("Proveedores", "DatosDestacados")">Proveedores</a>
+                                                    </li>
+                                                }
+                                                @if (ViewBag.activos[1])
+                                                {
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav-link-sub @ViewBag.Subsidios" href="@Url.Action("Subsidios", "DatosDestacados")">Subsidios</a>
+                                                    </li>
+                                                }
+                                                @if (ViewBag.activos[2])
+                                                {
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav-link-sub @ViewBag.Corporaciones" href="@Url.Action("Corporaciones", "DatosDestacados")">Corporaciones</a>
+                                                    </li>
+                                                }
+                                                @if (ViewBag.activos[3])
+                                                {
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav-link-sub @ViewBag.Sueldos" href="@Url.Action("Sueldos", "DatosDestacados")">Remuneraciones</a>
+                                                    </li>
+                                                }
+                                                </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
+                }
                 </div>
-            </div>
         </div>
 
         @RenderBody()

@@ -62,17 +62,23 @@
     <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
     <EntitySet Name="CorporacionInforme" EntityType="GastoTransparenteMunicipalModel.CorporacionInforme" />
     <EntitySet Name="Gasto_Ano" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano" />
+    <EntitySet Name="Gasto_Glosa" EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" />
+    <EntitySet Name="Gasto_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" />
     <EntitySet Name="Gasto_Nivel1" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel1" />
     <EntitySet Name="Gasto_Nivel2" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel2" />
     <EntitySet Name="Gasto_Nivel3" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel3" />
     <EntitySet Name="Gasto_Nivel4" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel4" />
     <EntitySet Name="GastoInforme" EntityType="GastoTransparenteMunicipalModel.GastoInforme" />
+    <EntitySet Name="GastoInformev2" EntityType="GastoTransparenteMunicipalModel.GastoInformev2" />
     <EntitySet Name="Ingreso_Ano" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano" />
+    <EntitySet Name="Ingreso_Glosa" EntityType="GastoTransparenteMunicipalModel.Ingreso_Glosa" />
+    <EntitySet Name="Ingreso_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" />
     <EntitySet Name="Ingreso_Nivel1" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel1" />
     <EntitySet Name="Ingreso_Nivel2" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel2" />
     <EntitySet Name="Ingreso_Nivel3" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel3" />
     <EntitySet Name="Ingreso_Nivel4" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel4" />
     <EntitySet Name="IngresoInforme" EntityType="GastoTransparenteMunicipalModel.IngresoInforme" />
+    <EntitySet Name="IngresoInformev2" EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" />
     <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
     <EntitySet Name="Personal_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" />
     <EntitySet Name="Personal_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2" />
@@ -109,6 +115,7 @@
     <EntitySet Name="Subsidio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel2" />
     <EntitySet Name="Subsidio_Nivel3" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel3" />
     <EntitySet Name="SubsidioInforme" EntityType="GastoTransparenteMunicipalModel.SubsidioInforme" />
+    <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
     <EntitySet Name="Corporacion_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano_Visible" />
     <EntitySet Name="Gasto_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano_Visible" />
     <EntitySet Name="Ingreso_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano_Visible" />
@@ -131,6 +138,10 @@
       <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
       <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
     </AssociationSet>
+    <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1">
+      <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
+      <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
+    </AssociationSet>
     <AssociationSet Name="FK__Gasto_Niv__IdNiv__1BC821DD" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD">
       <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
       <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
@@ -150,6 +161,10 @@
     <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1">
       <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
       <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84">
+      <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
+      <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
     </AssociationSet>
     <AssociationSet Name="FK__Ingreso_N__IdNiv__208CD6FA" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA">
       <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
@@ -267,14 +282,6 @@
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
-    <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
-    <EntitySet Name="Gasto_Glosa" EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" />
-    <EntitySet Name="Gasto_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" />
-    <AssociationSet Name="FK__Gasto_Glo__Glosa__73501C2F" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__73501C2F">
-      <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
-      <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
-    </AssociationSet>
-    <EntitySet Name="GastoInformev2" EntityType="GastoTransparenteMunicipalModel.GastoInformev2" />
   </EntityContainer>
   <EntityType Name="Comunas">
     <Key>
@@ -294,9 +301,9 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Corporacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" FromRole="Corporacion_Ano" ToRole="Corporacion_Nivel1" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Corporacion_Ano" ToRole="Municipalidad" />
-    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Corporacion_Nivel1">
     <Key>
@@ -331,9 +338,27 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Gasto_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" FromRole="Gasto_Ano" ToRole="Gasto_Nivel1" />
-    <Property Name="Cargado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gasto_Glosa">
+    <Key>
+      <PropertyRef Name="GlosaId" />
+    </Key>
+    <Property Name="GlosaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gasto_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" FromRole="Gasto_Glosa" ToRole="Gasto_GlosaCodigo" />
+  </EntityType>
+  <EntityType Name="Gasto_GlosaCodigo">
+    <Key>
+      <PropertyRef Name="GlosaCodigoId" />
+    </Key>
+    <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GlosaId" Type="Int64" />
+    <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gasto_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" FromRole="Gasto_GlosaCodigo" ToRole="Gasto_Glosa" />
   </EntityType>
   <EntityType Name="Gasto_Nivel1">
     <Key>
@@ -413,6 +438,20 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="IdGroupInformeGasto" Type="Guid" />
   </EntityType>
+  <EntityType Name="GastoInformev2">
+    <Key>
+      <PropertyRef Name="IdGastoInforme" />
+    </Key>
+    <Property Name="IdGastoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Cuenta" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MontoPresupuestado" Type="Double" />
+    <Property Name="MontoGastado" Type="Double" />
+    <Property Name="UpdatedOnUTC" Type="DateTime" Precision="3" />
+    <Property Name="IdGroupInformeGasto" Type="Guid" />
+    <Property Name="TipoCodigo" Type="Int32" />
+    <Property Name="TipoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Ingreso_Ano">
     <Key>
       <PropertyRef Name="IdAno" />
@@ -423,9 +462,28 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" FromRole="Ingreso_Ano" ToRole="Ingreso_Nivel1" />
-    <Property Name="Cargado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ingreso_Glosa">
+    <Key>
+      <PropertyRef Name="GlosaId" />
+    </Key>
+    <Property Name="GlosaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreAreaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ingreso_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" FromRole="Ingreso_Glosa" ToRole="Ingreso_GlosaCodigo" />
+  </EntityType>
+  <EntityType Name="Ingreso_GlosaCodigo">
+    <Key>
+      <PropertyRef Name="GlosaCodigoId" />
+    </Key>
+    <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GlosaId" Type="Int64" />
+    <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ingreso_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" FromRole="Ingreso_GlosaCodigo" ToRole="Ingreso_Glosa" />
   </EntityType>
   <EntityType Name="Ingreso_Nivel1">
     <Key>
@@ -505,6 +563,19 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="IdGroupInformeIngreso" Type="Guid" />
   </EntityType>
+  <EntityType Name="IngresoInformev2">
+    <Key>
+      <PropertyRef Name="IdGastoInforme" />
+    </Key>
+    <Property Name="IdGastoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="MontoPresupuestado" Type="Double" />
+    <Property Name="MontoGastado" Type="Double" />
+    <Property Name="UpdatedOnUTC" Type="DateTime" Precision="3" />
+    <Property Name="IdGroupInformeGasto" Type="Guid" />
+    <Property Name="TipoCodigo" Type="Int32" />
+    <Property Name="TipoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Municipalidad">
     <Key>
       <PropertyRef Name="IdMunicipalidad" />
@@ -515,6 +586,10 @@
     <Property Name="Activa" Type="Boolean" Nullable="false" />
     <Property Name="DireccionWeb" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Cementerio" Type="Boolean" Nullable="false" />
+    <Property Name="Act_Personal" Type="Boolean" Nullable="false" />
+    <Property Name="Act_Proveedor" Type="Boolean" Nullable="false" />
+    <Property Name="Act_Subsidio" Type="Boolean" Nullable="false" />
+    <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
     <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
     <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
@@ -574,13 +649,13 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Personal_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" FromRole="Personal_Ano" ToRole="Personal_Adm_Nivel1" />
     <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Ano" ToRole="Personal_Cementerio_Nivel1" />
     <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Ano" ToRole="Personal_Educacion_Nivel1" />
     <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Ano" ToRole="Personal_Salud_Nivel1" />
     <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Ano" ToRole="Personal_Total_Nivel1" />
-    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Personal_Cementerio_Nivel1">
     <Key>
@@ -778,13 +853,13 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Proveedor_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218" FromRole="Proveedor_Ano" ToRole="Proveedor_Adm_Nivel1" />
     <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3" FromRole="Proveedor_Ano" ToRole="Proveedor_Cementerio_Nivel1" />
     <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735" FromRole="Proveedor_Ano" ToRole="Proveedor_Educacion_Nivel1" />
     <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7" FromRole="Proveedor_Ano" ToRole="Proveedor_Salud_Nivel1" />
     <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819" FromRole="Proveedor_Ano" ToRole="Proveedor_Total_Nivel1" />
-    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Proveedor_Cementerio_Nivel1">
     <Key>
@@ -927,10 +1002,10 @@
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Cargado" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
     <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
     <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
-    <Property Name="Cargado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel1">
     <Key>
@@ -976,6 +1051,14 @@
     <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
     <Property Name="MONTOAPORTE" Type="Double" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Anos_Invisible">
+    <Key>
+      <PropertyRef Name="IdAno" />
+    </Key>
+    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMunicipalidad" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Corporacion_Ano_Visible">
     <Key>
@@ -1073,6 +1156,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Gasto_Glo__Glosa__477199F1">
+    <End Type="GastoTransparenteMunicipalModel.Gasto_Glosa" Role="Gasto_Glosa" Multiplicity="0..1" />
+    <End Type="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" Role="Gasto_GlosaCodigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gasto_Glosa">
+        <PropertyRef Name="GlosaId" />
+      </Principal>
+      <Dependent Role="Gasto_GlosaCodigo">
+        <PropertyRef Name="GlosaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Gasto_Niv__IdNiv__1BC821DD">
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel1" Role="Gasto_Nivel1" Multiplicity="0..1" />
     <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel2" Role="Gasto_Nivel2" Multiplicity="*" />
@@ -1130,6 +1225,18 @@
       </Principal>
       <Dependent Role="Ingreso_Nivel1">
         <PropertyRef Name="IdAno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingreso_G__Glosa__7073AF84">
+    <End Type="GastoTransparenteMunicipalModel.Ingreso_Glosa" Role="Ingreso_Glosa" Multiplicity="0..1" />
+    <End Type="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" Role="Ingreso_GlosaCodigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingreso_Glosa">
+        <PropertyRef Name="GlosaId" />
+      </Principal>
+      <Dependent Role="Ingreso_GlosaCodigo">
+        <PropertyRef Name="GlosaId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1481,56 +1588,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Anos_Invisible">
-    <Key>
-      <PropertyRef Name="IdAno" />
-    </Key>
-    <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdMunicipalidad" Type="Int32" />
-    <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="Gasto_Glosa">
-    <Key>
-      <PropertyRef Name="GlosaId" />
-    </Key>
-    <Property Name="GlosaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="TipoCodigo" Type="Int16" />
-    <Property Name="TipoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Gasto_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__73501C2F" FromRole="Gasto_Glosa" ToRole="Gasto_GlosaCodigo" />
-  </EntityType>
-  <EntityType Name="Gasto_GlosaCodigo">
-    <Key>
-      <PropertyRef Name="GlosaCodigoId" />
-    </Key>
-    <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GlosaId" Type="Int64" />
-    <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Gasto_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__73501C2F" FromRole="Gasto_GlosaCodigo" ToRole="Gasto_Glosa" />
-  </EntityType>
-  <Association Name="FK__Gasto_Glo__Glosa__73501C2F">
-    <End Type="GastoTransparenteMunicipalModel.Gasto_Glosa" Role="Gasto_Glosa" Multiplicity="0..1" />
-    <End Type="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" Role="Gasto_GlosaCodigo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Gasto_Glosa">
-        <PropertyRef Name="GlosaId" />
-      </Principal>
-      <Dependent Role="Gasto_GlosaCodigo">
-        <PropertyRef Name="GlosaId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="GastoInformev2">
-    <Key>
-      <PropertyRef Name="IdGastoInforme" />
-    </Key>
-    <Property Name="IdGastoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Cuenta" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="MontoPrespuestado" Type="Double" />
-    <Property Name="MontoGastado" Type="Double" />
-    <Property Name="UpdatedOnUTC" Type="DateTime" Precision="3" />
-    <Property Name="IdGroupInformeGasto" Type="Guid" />
-  </EntityType>
 </Schema>
