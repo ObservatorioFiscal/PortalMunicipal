@@ -100,8 +100,15 @@ namespace GastoTransparenteMunicipal.Controllers
             string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
             var result = await UserManager.ResetPasswordAsync(user.Id, code, model.Password);
             if (result.Succeeded)
-            {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            {                
+                var roles = await UserManager.GetRolesAsync(user.Id);
+                var roleName = roles[0].ToString();
+
+                roleName = roleName.Substring(0, 1).ToUpper() + roleName.Substring(1);
+                var login = await SignInManager.PasswordSignInAsync(model.Email, model.Password, false , shouldLockout: false);
+                Url.RequestContext.RouteData.Values["municipality"] = roleName;
+
+                return RedirectToAction("CargaDatos", "AdminComuna");
             }
 
             ViewBag.Message = result.Errors;

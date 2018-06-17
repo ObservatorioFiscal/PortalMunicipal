@@ -138,6 +138,12 @@ namespace GastoTransparenteMunicipal.Controllers
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Enviar correo electrónico con este vínculo
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+
+                var roles = await UserManager.GetRolesAsync(user.Id);
+                var roleName = roles[0].ToString();
+                roleName = roleName.Substring(0, 1).ToUpper() + roleName.Substring(1);
+                Url.RequestContext.RouteData.Values["municipality"] = roleName;
+
                 var callbackUrl = Url.Action("ResetPassword", "Cuenta", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 await UserManager.SendEmailAsync(user.Id, "Restablecer contraseña", "Para restablecer la contraseña, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
                 TempData["ViewBagLink"] = callbackUrl;

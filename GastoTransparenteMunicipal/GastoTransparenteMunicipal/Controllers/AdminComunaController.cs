@@ -16,6 +16,7 @@ using System.Data.Entity;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
+    [AuthorizeComuna]
     public class AdminComunaController : BaseController
     {
         public ActionResult Index()
@@ -26,6 +27,8 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CargaDatos()
         {
             var municipalidad = GetCurrentIdMunicipality();
+            db.SP_InformeIngreso(Guid.NewGuid(),2);
+
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Destacado = "hidden";
             ViewBag.administracion = true;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -216,12 +217,14 @@ namespace GastoTransparenteMunicipal.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, Guid.NewGuid().ToString() );
+                var result = await UserManager.CreateAsync(user, Guid.NewGuid().ToString() );                                                           
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddToRolesAsync(user.Id, model.RoleName);
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Cuenta", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+
+                    Url.RequestContext.RouteData.Values["municipality"] = model.RoleName;
+                    var callbackUrl = Url.Action("ConfirmEmail", "Cuenta", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);                    
                     await UserManager.SendEmailAsync(user.Id, "Creacion cuenta", "Para continuar con la creación de su cuenta, haga click en el siguiente enlace y siga las instrucciones <a href=\"" + callbackUrl + "\">aquí</a>");
 
                     ViewBag.Message = "Se ha enviado un correo con las instrucciones para la creacion de la cuenta al email ingresado";                        
