@@ -25,29 +25,37 @@
         </div>
         <div class="col-md-12">
             <form action="@Url.Action("CargaIngresos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
-                <label>
-                    <span></span>
+                <label>                    
                     Adm. y Serv. Municipales     
                     <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
                     <input type="hidden" id="fileStatusAdm" />
+                    <span id="successAdm"class="md-36 icon-Recurso15" style="display:none"></span>        
+                    <span id="errorAdm" class="md-36 icon-Recurso14" style="display:none"></span>
                 </label><br />
                 
                 <label>
                     Salud
                     <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
                     <input type="hidden" id="fileStatusSalud"/>
+                    <span id="successSalud" class="md-36 icon-Recurso15" style="display:none"></span>
+                    <span id="errorSalud" class="md-36 icon-Recurso14" style="display:none"></span>
                 </label><br />
                 <label>
                     Educacion
                     <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
                     <input type="hidden"  id="fileStatusEducacion"/>
+                    <span id="successEducacion" class="md-36 icon-Recurso15" style="display:none"></span>
+                    <span id="errorEducacion" class="md-36 icon-Recurso14" style="display:none"></span>
                 </label><br />
+                <input type="hidden" id="existCementerio" value="@ViewBag.cementerio" />
                 @if (ViewBag.cementerio)
                 {
 
                 <label>Cementerio                   
                     <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
                     <input type="hidden" id="fileStatusCementerio" />
+                    <span id="successCementerio" class="md-36 icon-Recurso15" style="display:none"></span>
+                    <span id="errorCementerio" class="md-36 icon-Recurso14" style="display:none"></span>                    
                 </label>
 
                 }<br /><br />
@@ -100,23 +108,77 @@
                 processData: false,
                 success: function (response) {
                     $("#" + result).val(response);
-                    checkStatus();
+                    checkSingleStatus(name,response);
+                    checkAllStatus();
                 }
             });
         }
 
-        function checkStatus() {       
+        function checkAllStatus() {       
             var isValidAdm = $('#fileStatusAdm').val();
             var isValidSalud = $('#fileStatusSalud').val();
-            var isValidEducacion = $('#fileStatusEducacion').val();
+            var isValidEducacion = $('#fileStatusEducacion').val();            
             var isValidCementerio = $('#fileStatusCementerio').val();
-            console.log(isValidAdm);
-            if (isValidAdm == "true" && isValidSalud == "true" && isValidEducacion == "true"){// && isValidCementerio == true) {
-                $('#boton').prop("disabled", false);
-            } else {
-                $('#boton').prop("disabled", true);
+
+            var existCementerio = $('#existCementerio').val();            
+            if (existCementerio == "true") {
+                if (isValidAdm == "true" && isValidSalud == "true" && isValidEducacion == "true" && isValidCementerio == "true") {
+                    $('#boton').prop("disabled", false);
+                } else {
+                    $('#boton').prop("disabled", true);
+                }
+            }
+            else{
+                if (isValidAdm == "true" && isValidSalud == "true" && isValidEducacion == "true") {
+                    $('#boton').prop("disabled", false);
+                } else {
+                    $('#boton').prop("disabled", true);
+                }
             }
         }        
+
+        function checkSingleStatus(item, result) {            
+            if (item == "fileAdm") {
+                if (result == true) {
+                    $('#successAdm').css("display", "block");
+                    $('#errorAdm').css("display", "none");
+                }
+                else {
+                    $('#successAdm').css("display", "none");
+                    $('#errorAdm').css("display", "block");                   
+                }
+            }
+            if (item == "fileSalud") {
+                if (result == true) {
+                    $('#successSalud').css("display", "block");
+                    $('#errorSalud').css("display", "none");
+                }
+                else {
+                    $('#successSalud').css("display", "none");
+                    $('#errorSalud').css("display", "block");
+                }
+            }
+            if (item == "fileEducacion") {
+                if (result == true) {
+                    $('#successEducacion').css("display", "block");
+                    $('#errorEducacion').css("display", "none");
+                }
+                else {
+                    $('#successAdm').css("display", "none");
+                    $('#errorAdm').css("display", "block");
+                }
+            }
+            if (item == "fileCementerio") {
+                if (result == true) {
+                    $('#successCementerio').css("display", "block");
+                    $('#errorCementerio').css("display", "none");
+                }
+                else {
+                    $('#successCementerio').css("display", "none");
+                    $('#errorCementerio').css("display", "block");
+                }
+            }
+        }
     });
 </script>
 }
