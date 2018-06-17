@@ -55,6 +55,50 @@
             }
             
         </td>
+        <td>
+            @if (item.Act_Personal)
+            {
+                <input type="checkbox" onclick="MarcarPersonal(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarPersonal(@item.IdMunicipalidad)" />
+            }
+
+        </td>
+        <td>
+            @if (item.Act_Proveedor)
+            {
+                <input type="checkbox" onclick="MarcarProveedor(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarProveedor(@item.IdMunicipalidad)" />
+            }
+
+        </td>
+        <td>
+            @if (item.Act_Subsidio)
+            {
+                <input type="checkbox" onclick="MarcarSubsidio(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarSubsidio(@item.IdMunicipalidad)" />
+            }
+
+        </td>
+        <td>
+            @if (item.Act_Corporacion)
+            {
+                <input type="checkbox" onclick="MarcarCorporacion(@item.IdMunicipalidad)" checked />
+            }
+            else
+            {
+                <input type="checkbox" onclick="MarcarCorporacion(@item.IdMunicipalidad)" />
+            }
+
+        </td>
     </tr>
 }
 
@@ -95,4 +139,70 @@
             }
         });
     }
+    function MarcarPersonal(id) {
+            $.ajax({
+            url: '@Url.Action("ActivarPersonal", "Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
+    function MarcarProveedor(id) {
+            $.ajax({
+            url: '@Url.Action("ActivarProveedor", "Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
+    function MarcarSubsidio(id) {
+            $.ajax({
+            url: '@Url.Action("ActivarSubsidio", "Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
+    function MarcarCorporacion(id) {
+            $.ajax({
+            url: '@Url.Action("ActivarCorporacion", "Admin")',
+            type: 'POST',
+            data: {
+                'idMunicipio': id
+            },
+            dataType: 'json',
+            success: function (data) {
+                //alert('Data: ' + data);
+            },
+            error: function (request, error) {
+                //alert("Request: " + JSON.stringify(request));
+            }
+        });
+    }
 </script>
+
+

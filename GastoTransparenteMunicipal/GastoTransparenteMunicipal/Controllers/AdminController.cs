@@ -117,6 +117,77 @@ namespace GastoTransparenteMunicipal.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult ActivarPersonal(string idMunicipio)
+        {
+            bool success = true;
+            try
+            {
+                var municipio = db.Municipalidad.Find(int.Parse(idMunicipio));
+                municipio.Act_Personal = !municipio.Act_Personal;
+                db.SaveChanges();
+
+                return Json(success);
+            }
+            catch (Exception ex)
+            {
+                return Json(!success);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ActivarProveedor(string idMunicipio)
+        {
+            bool success = true;
+            try
+            {
+                var municipio = db.Municipalidad.Find(int.Parse(idMunicipio));
+                municipio.Act_Proveedor = !municipio.Act_Proveedor;
+                db.SaveChanges();
+
+                return Json(success);
+            }
+            catch (Exception ex)
+            {
+                return Json(!success);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ActivarSubsidio(string idMunicipio)
+        {
+            bool success = true;
+            try
+            {
+                var municipio = db.Municipalidad.Find(int.Parse(idMunicipio));
+                municipio.Act_Subsidio = !municipio.Act_Subsidio;
+                db.SaveChanges();
+
+                return Json(success);
+            }
+            catch (Exception ex)
+            {
+                return Json(!success);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ActivarCorporacion(string idMunicipio)
+        {
+            bool success = true;
+            try
+            {
+                var municipio = db.Municipalidad.Find(int.Parse(idMunicipio));
+                municipio.Act_Corporacion = !municipio.Act_Corporacion;
+                db.SaveChanges();
+
+                return Json(success);
+            }
+            catch (Exception ex)
+            {
+                return Json(!success);
+            }
+        }
 
         public ActionResult CreateAccount()
         {
