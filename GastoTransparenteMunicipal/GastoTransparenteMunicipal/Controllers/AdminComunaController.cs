@@ -172,8 +172,11 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
-            Ingreso_Ano ingr = db.Ingreso_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
+            Ingreso_Ano ingr = db.Ingreso_Ano.Single(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
+
             ViewBag.aviso = ingr.Cargado;
+            ViewBag.id = ingr.IdAno;
+
             switch (ingr.Semestre)
             {
                 case 1:
@@ -193,20 +196,18 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CargaIngresos(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
+        public async Task<ActionResult> CargaIngresos(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
-            int year = 2017;
-            int month = 0;
+            Ingreso_Ano ingresoAno = db.Ingreso_Ano.Find(id);
+            ingresoAno.Cargado = true;
+            ingresoAno.UpdatedOn = DateTime.UtcNow;
 
-            Ingreso_Ano ingresoAno = new Ingreso_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
             LoadReport loadReport = new LoadReport();
 
             if (fileAdm != null && fileSalud != null && fileEducacion != null)
-            {
-                db.Ingreso_Ano.Add(ingresoAno);
-
+            {             
                 using (Stream fileStream = fileAdm.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
@@ -239,7 +240,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            var resultSave = await db.SaveChangesAsync();
+            db.SaveChanges();
+            db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
+            //var resultSave = await db.SaveChangesAsync();            
             //object[] parameters =
             //{
             //    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
@@ -406,7 +409,9 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
+
             ViewBag.aviso = gasto.Cargado;
+            ViewBag.id = gasto  .IdAno;
             switch (gasto.Semestre)
             {
                 case 1:
@@ -426,14 +431,17 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CargaGastos(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
+        public async Task<ActionResult> CargaGastos(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
-            int year = 2017;
-            int month = 0;
+            //int year = 2017;
+            //int month = 0;
 
-            Gasto_Ano gastoAno = new Gasto_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            //Gasto_Ano gastoAno = new Gasto_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            Gasto_Ano gastoAno = db.Gasto_Ano.Find(id);
+            gastoAno.Cargado = true;
+            gastoAno.UpdatedOn = DateTime.UtcNow;
             LoadReport loadReport = new LoadReport();
 
             if (fileAdm != null && fileSalud != null && fileEducacion != null)
@@ -471,6 +479,10 @@ namespace GastoTransparenteMunicipal.Controllers
                     }
                 }
             }
+
+            db.SaveChanges();
+            db.SP_InformeGasto(loadReport.IdGroupInforme, gastoAno.IdAno);
+
             //object[] parameters =
             //{
             //    new SqlParameter("@idGroupReportIngreso", loadReport.IdGroupInforme),
@@ -479,7 +491,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
             //db.Database.ExecuteSqlCommandAsync("EXEC SP_InformeIngreso @idGroupReportIngreso @idAn", parameters);
             //db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
-            var resultSave = await db.SaveChangesAsync();
+            //var resultSave = await db.SaveChangesAsync();
             return View();
         }
        
@@ -579,8 +591,11 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
+
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Proveedor_Ano ingr = db.Proveedor_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
+            ViewBag.id = ingr.IdAno;
+
             ViewBag.aviso = ingr.Cargado;
             switch (ingr.Semestre)
             {
@@ -601,15 +616,19 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CargaProveedores(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
+        public ActionResult CargaProveedores(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
 
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
-            int year = 2017;
-            int month = 0;
+            //int year = 2017;
+            //int month = 0;
             LoadReport loadReport = new LoadReport();
-            Proveedor_Ano proveedorAno = new Proveedor_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            //Proveedor_Ano proveedorAno = new Proveedor_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            Proveedor_Ano proveedorAno = db.Proveedor_Ano.Find(id);
+            proveedorAno.Cargado = true;
+            proveedorAno.UpdatedOn = DateTime.UtcNow;
+
             if (fileAdm != null && fileSalud != null && fileEducacion != null)
             {
                 db.Proveedor_Ano.Add(proveedorAno);
@@ -782,6 +801,8 @@ namespace GastoTransparenteMunicipal.Controllers
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Subsidio_Ano ingr = db.Subsidio_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
             ViewBag.aviso = ingr.Cargado;
+            ViewBag.id = ingr.IdAno;
+
             switch (ingr.Semestre)
             {
                 case 1:
@@ -823,14 +844,16 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CargaSubsidios(HttpPostedFileBase file)
+        public ActionResult CargaSubsidios(int id,HttpPostedFileBase file)
         {
             XSSFWorkbook xssfwb;
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
-            int year = 2017;
-            int month = 0;
-            Subsidio_Ano subsidioAno = new Subsidio_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
-
+            //int year = 2017;
+            //int month = 0;
+            //Subsidio_Ano subsidioAno = new Subsidio_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            Subsidio_Ano subsidioAno = db.Subsidio_Ano.Find(id);
+            subsidioAno.Cargado = true;
+            subsidioAno.UpdatedOn = DateTime.UtcNow;            
             using (Stream fileStream = file.InputStream)
             {
                 xssfwb = new XSSFWorkbook(fileStream);
@@ -856,6 +879,8 @@ namespace GastoTransparenteMunicipal.Controllers
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
             Corporacion_Ano ingr = db.Corporacion_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
             ViewBag.aviso = ingr.Cargado;
+            ViewBag.id = ingr.IdAno;
+
             switch (ingr.Semestre)
             {
                 case 1:
@@ -897,7 +922,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CargaCorporaciones(HttpPostedFileBase file)
+        public ActionResult CargaCorporaciones(int id,HttpPostedFileBase file)
         {
             XSSFWorkbook xssfwb;
             int idMunicipality = GetCurrentIdMunicipality().IdMunicipalidad;
@@ -905,7 +930,11 @@ namespace GastoTransparenteMunicipal.Controllers
             int month = 0;
 
             DateTime data = DateTime.Now;
-            Corporacion_Ano corporacionAno = new Corporacion_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            //Corporacion_Ano corporacionAno = new Corporacion_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            Corporacion_Ano corporacionAno = db.Corporacion_Ano.Find(id);
+            corporacionAno.Cargado = true;
+            corporacionAno.UpdatedOn = DateTime.UtcNow;
+
             using (Stream fileStream = file.InputStream)
             {
                 xssfwb = new XSSFWorkbook(fileStream);
@@ -928,10 +957,28 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.cementerio = municipalidad.Cementerio;
-            ViewBag.aviso = false;
-            ViewBag.ano = 2017;
+                                    
+            Gasto_Ano gasto = db.Gasto_Ano.Find(id);
+            Personal_Ano ingr = db.Personal_Ano.First(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad);
+            ViewBag.aviso = ingr.Cargado;
+            ViewBag.id = ingr.IdAno;
 
-            return View();
+            switch (ingr.Semestre)
+            {
+                case 1:
+                    ViewBag.ano = ingr.Ano + "a marzo";
+                    break;
+                case 2:
+                    ViewBag.ano = ingr.Ano + "a junio";
+                    break;
+                case 3:
+                    ViewBag.ano = ingr.Ano + "a septiembre";
+                    break;
+                default:
+                    ViewBag.ano = ingr.Ano;
+                    break;
+            }
+            return View();            
         }
 
         [HttpPost]
@@ -1026,7 +1073,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CargaRemuneraciones(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
+        public ActionResult CargaRemuneraciones(int id, HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
 
@@ -1036,7 +1083,10 @@ namespace GastoTransparenteMunicipal.Controllers
 
             DateTime data = DateTime.Now;
             LoadReport loadReport = new LoadReport();
-            Personal_Ano personalAno = new Personal_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            //Personal_Ano personalAno = new Personal_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
+            Personal_Ano personalAno = db.Personal_Ano.Find(id);
+            personalAno.Cargado = true;
+            personalAno.UpdatedOn = DateTime.UtcNow;
 
             if (fileAdm != null || fileSalud != null || fileEducacion != null)
             {

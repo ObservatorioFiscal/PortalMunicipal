@@ -25,6 +25,7 @@
         </div>
         <div class="col-md-12">
             <form action="@Url.Action("CargaIngresos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
+                <input type="hidden" id="id" value="@ViewBag.id" />
                 <label>                    
                     Adm. y Serv. Municipales     
                     <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />

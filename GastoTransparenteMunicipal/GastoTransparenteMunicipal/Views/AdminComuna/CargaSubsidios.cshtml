@@ -25,6 +25,7 @@
         </div>
         <div class="col-md-12">
             <form action="@Url.Action("CargaSubsidios","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
+                <input type="hidden" id="id" value="@ViewBag.id" />
                 <label>
                     <span></span>
                     Archivo
