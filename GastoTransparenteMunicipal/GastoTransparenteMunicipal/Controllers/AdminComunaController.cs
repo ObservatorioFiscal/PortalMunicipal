@@ -279,6 +279,94 @@ namespace GastoTransparenteMunicipal.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult ValidadorCargaIngresosAdm()
+        {            
+            bool isValid = true;
+            HttpPostedFileBase fileAdm = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileAdm.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorCargaIngresosSalud()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileSalud = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileSalud.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);                    
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorCargaIngresosEducacion()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileEducacion = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileEducacion.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);                    
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorCargaIngresosCementerio()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileCementerio = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileCementerio.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);                    
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }      
+        }
+
         #endregion
 
         #region Gastos
