@@ -27,32 +27,13 @@
             <form action="@Url.Action("CargaCorporaciones","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
                 <label>
                     <span></span>
-                    Adm. y Serv. Municipales
-                    <input type="file" accept=".xls,.xlsx" id="file1" name="file1" />
-                    <input type="hidden" />
+                    Archivo
+                    <input type="file" accept=".xls,.xlsx" id="file" name="file" />
+                    <input type="hidden" id="fileStatus" />
+                    <span id="success" class="md-36 icon-Recurso15" style="display:none"></span>
+                    <span id="error" class="md-36 icon-Recurso14" style="display:none"></span>
                 </label><br />
-
-                <label>
-                    Salud
-                    <input type="file" accept=".xls,.xlsx" id="file2" name="file2" />
-                    <input type="hidden" />
-                </label><br />
-                <label>
-                    Educacion
-                    <input type="file" accept=".xls,.xlsx" id="file3" name="file3" />
-                    <input type="hidden" />
-                </label><br />
-                @if (ViewBag.cementerio)
-                {
-
-                    <label>
-                        Cementerio
-                        <input type="file" accept=".xls,.xlsx" id="file4" name="file4" />
-                        <input type="hidden" />
-                    </label>
-
-                }<br /><br />
-                <input type="button" class="btn" id="boton" value="Confirmar subida de Informacion">
+                <input type="submit" class="btn" id="boton" value="Confirmar subida de Informacion">
             </form>
         </div>
     </div>
@@ -61,32 +42,66 @@
     <div class="row padding-Div"></div>
 </div>
 
-<script>
+@section scripts{
+    <script>
     $(document).ready(function () {
 
-        $("#file1").onChange(function () {
-            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
-        });
-
-        $("#file2").onChange(function () {
-            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
-        });
-        $("#file3").onChange(function () {
-            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
-        });
-        $("#file4").onChange(function () {
-            // Ir a Controlador Leer archivo y ver si corresponde el formato.. si es correcto llenar el hidden con un BOOL
-        });
+        $("#file").on("change", function () {
+            upload('@Url.Action("ValidadorCargaCorporaciones", "AdminComuna")', 'file', 'fileStatus')
+        });       
 
         //SI TODOS LOS HIDDEN
 
-        $("#boton").onClick(function () {
+        $("#boton").on("click",function () {
             //si todos los type hidden en true, realiza el submit():
-            if (1 = 1) {
+            if (1 == 1) {
                 document.getElementById('formulario').submit();
             }
         });
 
+        function upload(urlPath, name, result) {
+            var isValid = undefined;
+            var formData = new FormData();
+            var file = document.getElementById(name).files[0];
+            formData.append(name, file);
+            $.ajax({
+                type: 'post',
+                url: urlPath,
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    $("#" + result).val(response);
+                    checkSingleStatus(name,response);
+                    checkAllStatus();
+                }
+            });
+        }
 
+        function checkAllStatus() {
+            var isValid = $('#fileStatus').val();
+    
+            if (isValid == "true") {
+                $('#boton').prop("disabled", false);
+            } else {
+                $('#boton').prop("disabled", true);
+            }
+            
+        }
+
+        function checkSingleStatus(item, result) {
+            if (item == "file") {
+                if (result == true) {
+                    $('#success').css("display", "block");
+                    $('#error').css("display", "none");
+                }
+                else {
+                    $('#success').css("display", "none");
+                    $('#error').css("display", "block");
+                }
+            }         
+        }
     });
-</script>
+    </script>
+}

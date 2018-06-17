@@ -482,6 +482,94 @@ namespace GastoTransparenteMunicipal.Controllers
             var resultSave = await db.SaveChangesAsync();
             return View();
         }
+       
+        [HttpPost]
+        public JsonResult ValidadorGastoIngresosAdm()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileAdm = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileAdm.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorGastoIngresosSalud()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileSalud = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileSalud.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+                                   
+        [HttpPost]                 
+        public JsonResult ValidadorGastoIngresosEducacion()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileEducacion = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileEducacion.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+                                   
+        [HttpPost]                 
+        public JsonResult ValidadorGastoIngresosCementerio()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileCementerio = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileCementerio.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
         #endregion
 
         #region Proveedores
@@ -513,93 +601,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public JsonResult ValidadorCargaProveedoresAdm(HttpPostedFileBase admServicios)
-        {
-            bool isValid = true;
-            try
-            {
-                XSSFWorkbook xssfwb;
-                LoadReport loadReport = new LoadReport();
-                using (Stream fileStream = admServicios.InputStream)
-                {
-                    xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
-                }
-                return Json(isValid);
-            }
-            catch (Exception ex)
-            {
-                return Json(!isValid);
-            }
-        }
-
-        [HttpPost]
-        public JsonResult ValidadorCargaProveedoresSalud(HttpPostedFileBase salud)
-        {
-            bool isValid = true;
-            try
-            {
-                XSSFWorkbook xssfwb;
-                LoadReport loadReport = new LoadReport();
-
-                using (Stream fileStream = salud.InputStream)
-                {
-                    xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
-                }
-                return Json(isValid);
-            }
-            catch (Exception ex)
-            {
-                return Json(!isValid);
-            }
-        }
-
-        [HttpPost]
-        public JsonResult ValidadorCargaProveedoresEducacion(HttpPostedFileBase educacion)
-        {
-            bool isValid = true;
-            try
-            {
-                XSSFWorkbook xssfwb;
-                LoadReport loadReport = new LoadReport();
-                using (Stream fileStream = educacion.InputStream)
-                {
-                    xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
-                }
-                return Json(isValid);
-            }
-            catch (Exception ex)
-            {
-                return Json(!isValid);
-            }
-        }
-
-        [HttpPost]
-        public JsonResult ValidadorCargaProveedoresCementerio(HttpPostedFileBase cementerio)
-        {
-            bool isValid = true;
-            try
-            {
-                XSSFWorkbook xssfwb;
-                LoadReport loadReport = new LoadReport();
-                using (Stream fileStream = cementerio.InputStream)
-                {
-                    xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
-                }
-                return Json(isValid);
-            }
-
-            catch (Exception ex)
-            {
-                return Json(!isValid);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult CargaProveedores(HttpPostedFileBase admServicios, HttpPostedFileBase salud, HttpPostedFileBase educacion, HttpPostedFileBase cementerio)
+        public ActionResult CargaProveedores(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
 
@@ -608,7 +610,7 @@ namespace GastoTransparenteMunicipal.Controllers
             int month = 0;
             LoadReport loadReport = new LoadReport();
             Proveedor_Ano proveedorAno = new Proveedor_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
-            if (admServicios != null || salud != null || educacion != null || cementerio != null)
+            if (fileAdm != null && fileSalud != null && fileEducacion != null)
             {
                 db.Proveedor_Ano.Add(proveedorAno);
                 db.SaveChanges();
@@ -618,9 +620,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 return View();
             }
 
-            if (admServicios != null)
+            if (fileAdm != null)
             {
-                using (Stream fileStream = admServicios.InputStream)
+                using (Stream fileStream = fileAdm.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
 
@@ -632,9 +634,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            if (salud != null)
+            if (fileSalud != null)
             {
-                using (Stream fileStream = salud.InputStream)
+                using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
@@ -645,9 +647,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            if (educacion != null)
+            if (fileEducacion != null)
             {
-                using (Stream fileStream = educacion.InputStream)
+                using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
@@ -658,9 +660,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            if (cementerio != null)
+            if (fileCementerio != null)
             {
-                using (Stream fileStream = cementerio.InputStream)
+                using (Stream fileStream = fileCementerio.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
@@ -676,6 +678,97 @@ namespace GastoTransparenteMunicipal.Controllers
             db.SP_ProveedorTotal(loadReport.IdGroupInforme, proveedorAno.IdAno);
 
             return View();
+        }
+
+
+        [HttpPost]
+        public JsonResult ValidadorCargaProveedoresAdm()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileAdm = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileAdm.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorCargaProveedoresSalud()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileSalud = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+
+                using (Stream fileStream = fileSalud.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorCargaProveedoresEducacion()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileEducacion = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileEducacion.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
+                }
+                return Json(isValid);
+            }
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidadorCargaProveedoresCementerio()
+        {
+            bool isValid = true;
+            HttpPostedFileBase fileCementerio = Request.Files[0];
+            try
+            {
+                XSSFWorkbook xssfwb;
+                LoadReport loadReport = new LoadReport();
+                using (Stream fileStream = fileCementerio.InputStream)
+                {
+                    xssfwb = new XSSFWorkbook(fileStream);
+                    var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
+                }
+                return Json(isValid);
+            }
+
+            catch (Exception ex)
+            {
+                return Json(!isValid);
+            }
         }
         #endregion
 
@@ -708,9 +801,10 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public JsonResult ValidadorCargaSubsidios(HttpPostedFileBase file)
+        public JsonResult ValidadorCargaSubsidios()
         {
             bool isValid = true;
+            HttpPostedFileBase file = Request.Files[0];
             try
             {
                 XSSFWorkbook xssfwb;
@@ -781,9 +875,10 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public JsonResult ValidadorCargaCorporaciones(HttpPostedFileBase file)
+        public JsonResult ValidadorCargaCorporaciones()
         {
             bool isValid = true;
+            HttpPostedFileBase file = Request.Files[0];
             try
             {
                 XSSFWorkbook xssfwb;
@@ -840,14 +935,15 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public JsonResult ValidadorCargaRemuneracionesAdm(HttpPostedFileBase admServicios)
+        public JsonResult ValidadorCargaRemuneracionesAdm()
         {
             bool isValid = true;
+            HttpPostedFileBase fileAdm = Request.Files[0];
             try
             {
                 XSSFWorkbook xssfwb;
                 LoadReport loadReport = new LoadReport();
-                using (Stream fileStream = admServicios.InputStream)
+                using (Stream fileStream = fileAdm.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);
@@ -861,15 +957,16 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public JsonResult ValidadorCargaRemuneracionesSalud(HttpPostedFileBase salud)
+        public JsonResult ValidadorCargaRemuneracionesSalud()
         {
             bool isValid = true;
+            HttpPostedFileBase fileSalud = Request.Files[0];
             try
             {
                 XSSFWorkbook xssfwb;
                 LoadReport loadReport = new LoadReport();
 
-                using (Stream fileStream = salud.InputStream)
+                using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalSalud(xssfwb);
@@ -884,14 +981,15 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public JsonResult ValidadorCargaRemuneracionesEducacion(HttpPostedFileBase educacion)
+        public JsonResult ValidadorCargaRemuneracionesEducacion()
         {
             bool isValid = true;
+            HttpPostedFileBase fileEducacion = Request.Files[0];
             try
             {
                 XSSFWorkbook xssfwb;
                 LoadReport loadReport = new LoadReport();
-                using (Stream fileStream = educacion.InputStream)
+                using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalEducacion(xssfwb);
@@ -905,15 +1003,16 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult ValidadorCargaRemuneracionesCementerio(HttpPostedFileBase cementerio)
+        public ActionResult ValidadorCargaRemuneracionesCementerio()
         {
             bool isValid = true;
+            HttpPostedFileBase fileCementerio = Request.Files[0];
             try
             {
                 XSSFWorkbook xssfwb;
                 LoadReport loadReport = new LoadReport();
 
-                using (Stream fileStream = cementerio.InputStream)
+                using (Stream fileStream = fileCementerio.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalCementerio(xssfwb);
@@ -927,7 +1026,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CargaRemuneraciones(HttpPostedFileBase admServicios, HttpPostedFileBase salud, HttpPostedFileBase educacion, HttpPostedFileBase cementerio)
+        public ActionResult CargaRemuneraciones(HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             XSSFWorkbook xssfwb;
 
@@ -939,7 +1038,7 @@ namespace GastoTransparenteMunicipal.Controllers
             LoadReport loadReport = new LoadReport();
             Personal_Ano personalAno = new Personal_Ano { IdMunicipalidad = idMunicipality, Ano = year, Semestre = month, UpdatedOn = DateTime.Now };
 
-            if (admServicios != null || salud != null || educacion != null || cementerio != null)
+            if (fileAdm != null || fileSalud != null || fileEducacion != null)
             {
                 db.Personal_Ano.Add(personalAno);
                 db.SaveChanges();
@@ -949,9 +1048,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 return View();
             }
 
-            if (admServicios != null)
+            if (fileAdm != null)
             {
-                using (Stream fileStream = admServicios.InputStream)
+                using (Stream fileStream = fileAdm.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
 
@@ -963,9 +1062,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            if (salud != null)
+            if (fileSalud != null)
             {
-                using (Stream fileStream = salud.InputStream)
+                using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalSalud(xssfwb);
@@ -976,9 +1075,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            if (educacion != null)
+            if (fileEducacion != null)
             {
-                using (Stream fileStream = educacion.InputStream)
+                using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalEducacion(xssfwb);
@@ -989,9 +1088,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
             }
 
-            if (cementerio != null)
+            if (fileCementerio != null)
             {
-                using (Stream fileStream = cementerio.InputStream)
+                using (Stream fileStream = fileCementerio.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalCementerio(xssfwb);
