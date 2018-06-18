@@ -289,8 +289,7 @@
           <Property Name="Act_Corporacion" Type="bit" Nullable="false" />
           <Property Name="TotalGastado" Type="float" />
           <Property Name="TotalPresupuestado" Type="float" />
-          <Property Name="Ano" Type="int" />
-          <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="Periodo" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Personal_Adm_Nivel1">
           <Key>
@@ -698,8 +697,8 @@
           <Property Name="MONTOAPORTE" Type="float" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Anos_Invisible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Anos_Invisible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Anos_Invisible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -708,8 +707,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Anos_Invisibl
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Corporacion_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Corporacion_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Corporacion_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -718,8 +717,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Corporacion_A
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Gasto_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -728,8 +727,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Gasto_Ano_Vis
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ingreso_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -738,8 +737,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Ingreso_Ano_V
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Personal_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Personal_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Personal_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -748,8 +747,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Personal_Ano_
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Proveedor_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Proveedor_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Proveedor_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -758,8 +757,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Proveedor_Ano
           <Property Name="IdMunicipalidad" Type="int" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="17" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_Visible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_Visible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Subsidio_Ano_Visible">
           <Key>
             <PropertyRef Name="IdAno" />
@@ -1248,6 +1247,24 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_DeleteCorporacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteGasto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteIngreso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SP_DeletePersonal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteSubsidio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
         <Function Name="SP_InformeCorporaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
           <Parameter Name="IdGroupInforme" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IdAno" Type="bigint" Mode="In" />
@@ -1837,6 +1854,9 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
             <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
           </AssociationSet>
+          <FunctionImport Name="SP_SumaGastoByIdAno" ReturnType="Collection(GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result)">
+          <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
           <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
           <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9">
             <End Role="Municipalidad" EntitySet="Municipalidad" />
@@ -1862,10 +1882,22 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
           </AssociationSet>
-          <FunctionImport Name="SumaGastoByIdAno">
+          <FunctionImport Name="SP_DeleteCorporacion">
             <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
-          <FunctionImport Name="SP_SumaGastoByIdAno" ReturnType="Collection(GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result)">
+          <FunctionImport Name="SP_DeleteGasto">
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteIngreso">
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeletePersonal">
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteProveedor">
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteSubsidio">
             <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
           </EntityContainer>
@@ -3081,6 +3113,12 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SP_SumaGastoByIdAno_Result">
+          <Property Type="Int64" Name="TotalGastado" Nullable="true" />
+          <Property Type="Int64" Name="TotalPresupuestado" Nullable="true" />
+          <Property Type="Int64" Name="IdAno" Nullable="true" />
+          <Property Type="Int32" Name="IdMunicipalidad" Nullable="true" />
+        </ComplexType>
         <EntityType Name="Municipalidad">
           <Key>
             <PropertyRef Name="IdMunicipalidad" />
@@ -3097,8 +3135,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
           <Property Name="TotalGastado" Type="Double" />
           <Property Name="TotalPresupuestado" Type="Double" />
-          <Property Name="Ano" Type="Int32" />
-          <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Periodo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
           <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
           <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
@@ -3178,12 +3215,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="SP_SumaGastoByIdAno_Result">
-          <Property Type="Int64" Name="TotalGastado" Nullable="true" />
-          <Property Type="Int64" Name="TotalPresupuestado" Nullable="true" />
-          <Property Type="Int64" Name="IdAno" Nullable="true" />
-          <Property Type="Int32" Name="IdMunicipalidad" Nullable="true" />
-        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3998,11 +4029,20 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_SumaGastoByIdAno" FunctionName="GastoTransparenteMunicipalModel.Store.SP_SumaGastoByIdAno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result">
+                <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
+                <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
+                <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <EntitySetMapping Name="Municipalidad">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
               <MappingFragment StoreEntitySet="Municipalidad">
-                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
-                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
                 <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
                 <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
                 <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
@@ -4018,16 +4058,12 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_SumaGastoByIdAno" FunctionName="GastoTransparenteMunicipalModel.Store.SP_SumaGastoByIdAno">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result">
-                <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
-                <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
-                <ScalarProperty Name="IdAno" ColumnName="IdAno" />
-                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_DeleteCorporacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteCorporacion" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteGasto" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteIngreso" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteIngreso" />
+          <FunctionImportMapping FunctionImportName="SP_DeletePersonal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeletePersonal" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteProveedor" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteProveedor" />
+          <FunctionImportMapping FunctionImportName="SP_DeleteSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteSubsidio" />
           </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

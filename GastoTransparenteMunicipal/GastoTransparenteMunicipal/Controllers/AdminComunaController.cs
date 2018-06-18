@@ -56,6 +56,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 for (int i = 1; i < gastos.Count; i++)
                 {
                     gastos[i].Activo = false;
+                    db.SP_DeleteGasto(gastos[i].IdAno);
                 }
             }
 
@@ -66,6 +67,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 for (int i = 1; i < ingresos.Count; i++)
                 {
                     ingresos[i].Activo = false;
+                    db.SP_DeleteIngreso(ingresos[i].IdAno);
                 }
             }
 
@@ -76,6 +78,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 for (int i = 1; i < proveedors.Count; i++)
                 {
                     proveedors[i].Activo = false;
+                    db.SP_DeleteProveedor(proveedors[i].IdAno);
                 }
             }
 
@@ -86,6 +89,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 for (int i = 1; i < subsidios.Count; i++)
                 {
                     subsidios[i].Activo = false;
+                    db.SP_DeleteSubsidio(subsidios[i].IdAno);
                 }
             }
 
@@ -96,6 +100,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 for (int i = 1; i < corporacions.Count; i++)
                 {
                     corporacions[i].Activo = false;
+                    db.SP_DeleteCorporacion(corporacions[i].IdAno);
                 }
             }
 
@@ -106,6 +111,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 for (int i = 1; i < personals.Count; i++)
                 {
                     personals[i].Activo = false;
+                    db.SP_DeletePersonal(personals[i].IdAno);
                 }
             }
 
@@ -115,9 +121,9 @@ namespace GastoTransparenteMunicipal.Controllers
             var municipalidad = gasto.Municipalidad;
             municipalidad.TotalGastado = suma.TotalGastado;
             municipalidad.TotalPresupuestado = suma.TotalPresupuestado;
-            municipalidad.Ano = gasto.Ano;
-            municipalidad.Semestre = gasto.Semestre;
-            db.SaveChanges();
+            //municipalidad.Ano = gasto.Ano;
+            //municipalidad.Semestre = gasto.Semestre;
+            db.SaveChanges();            
 
             return View();
         }

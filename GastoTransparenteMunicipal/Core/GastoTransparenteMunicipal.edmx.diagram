@@ -110,7 +110,7 @@
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
