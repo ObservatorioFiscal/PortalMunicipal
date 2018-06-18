@@ -194,6 +194,8 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             List<SelectListItem> roles = new List<SelectListItem>();
             var municipalidades = db.Municipalidad.Where(r => r.Activa).ToList();
+            roles.Add(new SelectListItem() { Value = "admin", Text = "Administrador" });
+
             foreach (var municipalidad in municipalidades)
                 roles.Add(new SelectListItem() { Value = municipalidad.Nombre, Text = municipalidad.Nombre });
 
@@ -208,6 +210,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             List<SelectListItem> roles = new List<SelectListItem>();
             var municipalidades = db.Municipalidad.Where(r => r.Activa).ToList();
+            roles.Add(new SelectListItem() { Value = "admin", Text = "Administrador" });
 
             foreach (var municipalidad in municipalidades)
                 roles.Add(new SelectListItem() { Value = municipalidad.Nombre, Text = municipalidad.Nombre });
