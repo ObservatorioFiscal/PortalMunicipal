@@ -29,10 +29,10 @@ namespace Core
         public Nullable<decimal> Semestre { get; set; }
         public bool Cargado { get; set; }
     
-        public virtual Municipalidad Municipalidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subsidio_Nivel1> Subsidio_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subsidio_Nivel2> Subsidio_Nivel2 { get; set; }
+        public virtual Municipalidad Municipalidad { get; set; }
     }
 }

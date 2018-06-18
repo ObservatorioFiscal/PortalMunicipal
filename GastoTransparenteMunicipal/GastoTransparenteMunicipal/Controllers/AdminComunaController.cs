@@ -16,7 +16,7 @@ using System.Data.Entity;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
-    [AuthorizeComuna]
+    //[AuthorizeComuna]
     public class AdminComunaController : BaseController
     {
         public ActionResult Index()
@@ -26,9 +26,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult CargaDatos()
         {
-            var municipalidad = GetCurrentIdMunicipality();
-            db.SP_InformeIngreso(Guid.NewGuid(),2);
-
+            var municipalidad = GetCurrentIdMunicipality();            
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Destacado = "hidden";
             ViewBag.administracion = true;
@@ -38,7 +36,92 @@ namespace GastoTransparenteMunicipal.Controllers
             };
             return View();
         }
-        
+
+        [HttpPost]
+        public ActionResult CargaDatos(int id)
+        {
+            Gasto_Ano gasto = db.Gasto_Ano.Find(id);
+
+            var gastos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
+            var ingresos = db.Ingreso_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
+            var proveedors = db.Proveedor_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
+            var subsidios = db.Subsidio_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
+            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
+            var personals = db.Personal_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
+
+            if (gastos.Count > 0)
+            {
+                var gastoAux = gastos.First();
+                gastoAux.Activo = true;
+                for (int i = 1; i < gastos.Count; i++)
+                {
+                    gastos[i].Activo = false;
+                }
+            }
+
+            if (ingresos.Count > 0)
+            {
+                var ingreso = ingresos.First();
+                ingreso.Activo = true;
+                for (int i = 1; i < ingresos.Count; i++)
+                {
+                    ingresos[i].Activo = false;
+                }
+            }
+
+            if (proveedors.Count > 0)
+            {
+                var proveedor = proveedors.First();
+                proveedor.Activo = true;
+                for (int i = 1; i < proveedors.Count; i++)
+                {
+                    proveedors[i].Activo = false;
+                }
+            }
+
+            if (subsidios.Count > 0)
+            {
+                var subsidio = subsidios.First();
+                subsidio.Activo = true;
+                for (int i = 1; i < subsidios.Count; i++)
+                {
+                    subsidios[i].Activo = false;
+                }
+            }
+
+            if (corporacions.Count > 0)
+            {
+                var corporacion = corporacions.First();
+                corporacion.Activo = true;
+                for (int i = 1; i < corporacions.Count; i++)
+                {
+                    corporacions[i].Activo = false;
+                }
+            }
+
+            if (personals.Count > 0)
+            {
+                var personal = personals.First();
+                personal.Activo = true;
+                for (int i = 1; i < personals.Count; i++)
+                {
+                    personals[i].Activo = false;
+                }
+            }
+
+            db.SaveChanges();
+
+            var suma = db.SP_SumaGastoByIdAno(id).First();
+            var municipalidad = gasto.Municipalidad;
+            municipalidad.TotalGastado = suma.TotalGastado;
+            municipalidad.TotalPresupuestado = suma.TotalPresupuestado;
+            municipalidad.Ano = gasto.Ano;
+            municipalidad.Semestre = gasto.Semestre;
+            db.SaveChanges();
+
+            return View();
+        }
+
         public JsonResult CargadosPost(int aux)
         {
             Gasto_Ano gasto = db.Gasto_Ano.Find(aux);

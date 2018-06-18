@@ -28,8 +28,8 @@ namespace Core
         public Nullable<decimal> Semestre { get; set; }
         public bool Cargado { get; set; }
     
-        public virtual Municipalidad Municipalidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ingreso_Nivel1> Ingreso_Nivel1 { get; set; }
+        public virtual Municipalidad Municipalidad { get; set; }
     }
 }

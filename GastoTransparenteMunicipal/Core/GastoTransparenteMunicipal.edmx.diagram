@@ -27,7 +27,6 @@
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel4" Width="1.5" PointX="12" PointY="42.5" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.IngresoInforme" Width="1.5" PointX="11.75" PointY="6.75" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" Width="1.5" PointX="11.75" PointY="10.75" />
-        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Municipalidad" Width="1.5" PointX="0.75" PointY="24.25" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" Width="1.5" PointX="5.25" PointY="36" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2" Width="1.5" PointX="7.5" PointY="35.875" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Personal_AdmInforme" Width="1.5" PointX="0.75" PointY="13.75" />
@@ -71,22 +70,16 @@
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Proveedor_Ano_Visible" Width="1.5" PointX="17.75" PointY="9.75" />
         <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Subsidio_Ano_Visible" Width="1.5" PointX="17.75" PointY="12.75" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1CBC4616" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__2180FB33" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" />
-        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" />
@@ -110,6 +103,13 @@
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" />
         <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36" />
+        <EntityTypeShape EntityType="GastoTransparenteMunicipalModel.Municipalidad" Width="1.5" PointX="0.75" PointY="26.625" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" />
+        <AssociationConnector Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

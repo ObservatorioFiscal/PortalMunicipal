@@ -287,6 +287,10 @@
           <Property Name="Act_Proveedor" Type="bit" Nullable="false" />
           <Property Name="Act_Subsidio" Type="bit" Nullable="false" />
           <Property Name="Act_Corporacion" Type="bit" Nullable="false" />
+          <Property Name="TotalGastado" Type="float" />
+          <Property Name="TotalPresupuestado" Type="float" />
+          <Property Name="Ano" Type="int" />
+          <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
         </EntityType>
         <EntityType Name="Personal_Adm_Nivel1">
           <Key>
@@ -1300,6 +1304,9 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IdAn" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="SP_SumaGastoByIdAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+          <Parameter Name="IdAno" Type="bigint" Mode="In" />
+        </Function>
         <EntityContainer Name="GastoTransparenteMunicipalModelStoreContainer">
           <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Corporacion_Ano" EntityType="Self.Corporacion_Ano" Schema="dbo" store:Type="Tables" />
@@ -1652,7 +1659,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Ingreso_Nivel4" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel4" />
           <EntitySet Name="IngresoInforme" EntityType="GastoTransparenteMunicipalModel.IngresoInforme" />
           <EntitySet Name="IngresoInformev2" EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" />
-          <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
           <EntitySet Name="Personal_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" />
           <EntitySet Name="Personal_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2" />
           <EntitySet Name="Personal_AdmInforme" EntityType="GastoTransparenteMunicipalModel.Personal_AdmInforme" />
@@ -1699,14 +1705,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
             <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Ano__IdMun__19DFD96B" Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
-          </AssociationSet>
           <AssociationSet Name="FK__Gasto_Niv__IdAno__1AD3FDA4" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4">
             <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
             <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
@@ -1727,10 +1725,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
             <End Role="Gasto_Nivel4" EntitySet="Gasto_Nivel4" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
-          </AssociationSet>
           <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1">
             <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
             <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
@@ -1750,18 +1744,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <AssociationSet Name="FK__Ingreso_N__IdNiv__22751F6C" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C">
             <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
             <End Role="Ingreso_Nivel4" EntitySet="Ingreso_Nivel4" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdMun__2FCF1A8A" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Subsidio___IdMun__3864608B" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
           </AssociationSet>
           <AssociationSet Name="FK__Personal___IdAno__236943A5" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5">
             <End Role="Personal_Ano" EntitySet="Personal_Ano" />
@@ -1855,6 +1837,37 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
             <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
           </AssociationSet>
+          <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
+          <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Ano__IdMun__19DFD96B" Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdMun__2FCF1A8A" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subsidio___IdMun__3864608B" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+          </AssociationSet>
+          <FunctionImport Name="SumaGastoByIdAno">
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SumaGastoByIdAno" ReturnType="Collection(GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result)">
+            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="Comunas">
           <Key>
@@ -1912,8 +1925,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Gasto_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" FromRole="Gasto_Ano" ToRole="Gasto_Nivel1" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Gasto_Ano" ToRole="Municipalidad" />
         </EntityType>
         <EntityType Name="Gasto_Glosa">
           <Key>
@@ -2036,8 +2049,8 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" FromRole="Ingreso_Ano" ToRole="Ingreso_Nivel1" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
         </EntityType>
         <EntityType Name="Ingreso_Glosa">
           <Key>
@@ -2149,27 +2162,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="TipoCodigo" Type="Int32" />
           <Property Name="TipoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Municipalidad">
-          <Key>
-            <PropertyRef Name="IdMunicipalidad" />
-          </Key>
-          <Property Name="IdMunicipalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Activa" Type="Boolean" Nullable="false" />
-          <Property Name="DireccionWeb" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Cementerio" Type="Boolean" Nullable="false" />
-          <Property Name="Act_Personal" Type="Boolean" Nullable="false" />
-          <Property Name="Act_Proveedor" Type="Boolean" Nullable="false" />
-          <Property Name="Act_Subsidio" Type="Boolean" Nullable="false" />
-          <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
-          <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
-          <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
-          <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Municipalidad" ToRole="Personal_Ano" />
-          <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Municipalidad" ToRole="Proveedor_Ano" />
-          <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Municipalidad" ToRole="Subsidio_Ano" />
-        </EntityType>
         <EntityType Name="Personal_Adm_Nivel1">
           <Key>
             <PropertyRef Name="IdNivel1" />
@@ -2223,12 +2215,12 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Personal_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" FromRole="Personal_Ano" ToRole="Personal_Adm_Nivel1" />
           <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Ano" ToRole="Personal_Cementerio_Nivel1" />
           <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Ano" ToRole="Personal_Educacion_Nivel1" />
           <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Ano" ToRole="Personal_Salud_Nivel1" />
           <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Ano" ToRole="Personal_Total_Nivel1" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Personal_Ano" ToRole="Municipalidad" />
         </EntityType>
         <EntityType Name="Personal_Cementerio_Nivel1">
           <Key>
@@ -2427,12 +2419,12 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Proveedor_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218" FromRole="Proveedor_Ano" ToRole="Proveedor_Adm_Nivel1" />
           <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3" FromRole="Proveedor_Ano" ToRole="Proveedor_Cementerio_Nivel1" />
           <NavigationProperty Name="Proveedor_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735" FromRole="Proveedor_Ano" ToRole="Proveedor_Educacion_Nivel1" />
           <NavigationProperty Name="Proveedor_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7" FromRole="Proveedor_Ano" ToRole="Proveedor_Salud_Nivel1" />
           <NavigationProperty Name="Proveedor_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819" FromRole="Proveedor_Ano" ToRole="Proveedor_Total_Nivel1" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Proveedor_Ano" ToRole="Municipalidad" />
         </EntityType>
         <EntityType Name="Proveedor_Cementerio_Nivel1">
           <Key>
@@ -2576,9 +2568,9 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
           <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
         </EntityType>
         <EntityType Name="Subsidio_Nivel1">
           <Key>
@@ -2693,30 +2685,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corporaci__IdMun__17F790F9">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Corporacion_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Gasto_Ano__IdMun__19DFD96B">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Gasto_Ano" Role="Gasto_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Gasto_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Gasto_Niv__IdAno__1AD3FDA4">
           <End Type="GastoTransparenteMunicipalModel.Gasto_Ano" Role="Gasto_Ano" Multiplicity="0..1" />
           <End Type="GastoTransparenteMunicipalModel.Gasto_Nivel1" Role="Gasto_Nivel1" Multiplicity="*" />
@@ -2777,18 +2745,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ingreso_A__IdMun__1EA48E88">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Ingreso_Ano" Role="Ingreso_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Ingreso_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Ingreso_N__IdAno__1F98B2C1">
           <End Type="GastoTransparenteMunicipalModel.Ingreso_Ano" Role="Ingreso_Ano" Multiplicity="0..1" />
           <End Type="GastoTransparenteMunicipalModel.Ingreso_Nivel1" Role="Ingreso_Nivel1" Multiplicity="*" />
@@ -2846,42 +2802,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Principal>
             <Dependent Role="Ingreso_Nivel4">
               <PropertyRef Name="IdNivel3" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Personal___IdMun__25518C17">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Personal_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Proveedor__IdMun__2FCF1A8A">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Proveedor_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Subsidio___IdMun__3864608B">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Subsidio_Ano" Role="Subsidio_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Subsidio_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3161,6 +3081,109 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Municipalidad">
+          <Key>
+            <PropertyRef Name="IdMunicipalidad" />
+          </Key>
+          <Property Name="IdMunicipalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Activa" Type="Boolean" Nullable="false" />
+          <Property Name="DireccionWeb" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Cementerio" Type="Boolean" Nullable="false" />
+          <Property Name="Act_Personal" Type="Boolean" Nullable="false" />
+          <Property Name="Act_Proveedor" Type="Boolean" Nullable="false" />
+          <Property Name="Act_Subsidio" Type="Boolean" Nullable="false" />
+          <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
+          <Property Name="TotalGastado" Type="Double" />
+          <Property Name="TotalPresupuestado" Type="Double" />
+          <Property Name="Ano" Type="Int32" />
+          <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+          <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
+          <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
+          <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
+          <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Municipalidad" ToRole="Personal_Ano" />
+          <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Municipalidad" ToRole="Proveedor_Ano" />
+          <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Municipalidad" ToRole="Subsidio_Ano" />
+        </EntityType>
+        <Association Name="FK__Corporaci__IdMun__17F790F9">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Corporacion_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Gasto_Ano__IdMun__19DFD96B">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Gasto_Ano" Role="Gasto_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Gasto_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ingreso_A__IdMun__1EA48E88">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Ingreso_Ano" Role="Ingreso_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Ingreso_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Personal___IdMun__25518C17">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Personal_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__IdMun__2FCF1A8A">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Proveedor_Ano" Role="Proveedor_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Proveedor_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subsidio___IdMun__3864608B">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Subsidio_Ano" Role="Subsidio_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Subsidio_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_SumaGastoByIdAno_Result">
+          <Property Type="Int64" Name="TotalGastado" Nullable="true" />
+          <Property Type="Int64" Name="TotalPresupuestado" Nullable="true" />
+          <Property Type="Int64" Name="IdAno" Nullable="true" />
+          <Property Type="Int32" Name="IdMunicipalidad" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3468,22 +3491,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
                 <ScalarProperty Name="MontoPresupuestado" ColumnName="MontoPresupuestado" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Municipalidad">
-            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
-              <MappingFragment StoreEntitySet="Municipalidad">
-                <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
-                <ScalarProperty Name="Act_Subsidio" ColumnName="Act_Subsidio" />
-                <ScalarProperty Name="Act_Proveedor" ColumnName="Act_Proveedor" />
-                <ScalarProperty Name="Act_Personal" ColumnName="Act_Personal" />
-                <ScalarProperty Name="Cementerio" ColumnName="Cementerio" />
-                <ScalarProperty Name="DireccionWeb" ColumnName="DireccionWeb" />
-                <ScalarProperty Name="Activa" ColumnName="Activa" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3991,6 +3998,36 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Municipalidad">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
+              <MappingFragment StoreEntitySet="Municipalidad">
+                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
+                <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
+                <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
+                <ScalarProperty Name="Act_Subsidio" ColumnName="Act_Subsidio" />
+                <ScalarProperty Name="Act_Proveedor" ColumnName="Act_Proveedor" />
+                <ScalarProperty Name="Act_Personal" ColumnName="Act_Personal" />
+                <ScalarProperty Name="Cementerio" ColumnName="Cementerio" />
+                <ScalarProperty Name="DireccionWeb" ColumnName="DireccionWeb" />
+                <ScalarProperty Name="Activa" ColumnName="Activa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_SumaGastoByIdAno" FunctionName="GastoTransparenteMunicipalModel.Store.SP_SumaGastoByIdAno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result">
+                <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
+                <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
+                <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

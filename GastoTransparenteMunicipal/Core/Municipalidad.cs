@@ -35,6 +35,10 @@ namespace Core
         public bool Act_Proveedor { get; set; }
         public bool Act_Subsidio { get; set; }
         public bool Act_Corporacion { get; set; }
+        public Nullable<double> TotalGastado { get; set; }
+        public Nullable<double> TotalPresupuestado { get; set; }
+        public Nullable<int> Ano { get; set; }
+        public Nullable<decimal> Semestre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Corporacion_Ano> Corporacion_Ano { get; set; }
