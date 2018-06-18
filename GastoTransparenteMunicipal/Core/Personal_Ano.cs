@@ -32,6 +32,7 @@ namespace Core
         public Nullable<decimal> Semestre { get; set; }
         public bool Cargado { get; set; }
     
+        public virtual Municipalidad Municipalidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personal_Adm_Nivel1> Personal_Adm_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -42,6 +43,5 @@ namespace Core
         public virtual ICollection<Personal_Salud_Nivel1> Personal_Salud_Nivel1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personal_Total_Nivel1> Personal_Total_Nivel1 { get; set; }
-        public virtual Municipalidad Municipalidad { get; set; }
     }
 }

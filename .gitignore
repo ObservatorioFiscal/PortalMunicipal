@@ -5,3 +5,4 @@ GastoTransparenteMunicipal/GastoTransparenteMunicipal/bin
 GastoTransparenteMunicipal/GastoTransparenteMunicipal/obj
 GastoTransparenteMunicipal/.vs/config/applicationhost.config
 *.config
+GastoTransparenteMunicipal/GastoTransparenteMunicipal/Controllers/AdminComunaController.cs

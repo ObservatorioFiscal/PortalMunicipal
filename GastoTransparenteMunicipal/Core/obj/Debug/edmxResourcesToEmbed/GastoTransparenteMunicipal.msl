@@ -15,6 +15,16 @@
     <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion" />
     <FunctionImportMapping FunctionImportName="SP_ProveedorSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud" />
     <FunctionImportMapping FunctionImportName="SP_ProveedorTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal" />
+    <FunctionImportMapping FunctionImportName="SP_SumaGastoByIdAno" FunctionName="GastoTransparenteMunicipalModel.Store.SP_SumaGastoByIdAno">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result">
+          <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
+          <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
+          <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+          <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <EntitySetMapping Name="Comunas">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Comunas">
         <MappingFragment StoreEntitySet="Comunas">
@@ -308,6 +318,9 @@
     <EntitySetMapping Name="Municipalidad">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
         <MappingFragment StoreEntitySet="Municipalidad">
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
+          <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
           <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
           <ScalarProperty Name="Act_Subsidio" ColumnName="Act_Subsidio" />
           <ScalarProperty Name="Act_Proveedor" ColumnName="Act_Proveedor" />

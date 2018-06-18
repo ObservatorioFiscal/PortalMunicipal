@@ -282,6 +282,9 @@
     <Property Name="Act_Proveedor" Type="bit" Nullable="false" />
     <Property Name="Act_Subsidio" Type="bit" Nullable="false" />
     <Property Name="Act_Corporacion" Type="bit" Nullable="false" />
+    <Property Name="TotalGastado" Type="float" />
+    <Property Name="TotalPresupuestado" Type="float" />
+    <Property Name="Periodo" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Personal_Adm_Nivel1">
     <Key>
@@ -1294,6 +1297,9 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
   <Function Name="SP_ProveedorTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
     <Parameter Name="IdGroupReportGasto" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="IdAn" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_SumaGastoByIdAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
   </Function>
   <EntityContainer Name="GastoTransparenteMunicipalModelStoreContainer">
     <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />

@@ -49,6 +49,7 @@ namespace Core
         public virtual DbSet<Ingreso_Nivel4> Ingreso_Nivel4 { get; set; }
         public virtual DbSet<IngresoInforme> IngresoInforme { get; set; }
         public virtual DbSet<IngresoInformev2> IngresoInformev2 { get; set; }
+        public virtual DbSet<Municipalidad> Municipalidad { get; set; }
         public virtual DbSet<Personal_Adm_Nivel1> Personal_Adm_Nivel1 { get; set; }
         public virtual DbSet<Personal_Adm_Nivel2> Personal_Adm_Nivel2 { get; set; }
         public virtual DbSet<Personal_AdmInforme> Personal_AdmInforme { get; set; }
@@ -91,7 +92,6 @@ namespace Core
         public virtual DbSet<Personal_Ano_Visible> Personal_Ano_Visible { get; set; }
         public virtual DbSet<Proveedor_Ano_Visible> Proveedor_Ano_Visible { get; set; }
         public virtual DbSet<Subsidio_Ano_Visible> Subsidio_Ano_Visible { get; set; }
-        public virtual DbSet<Municipalidad> Municipalidad { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)
         {

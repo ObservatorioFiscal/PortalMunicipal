@@ -57,6 +57,12 @@
       <Parameter Name="IdGroupReportGasto" Mode="In" Type="Guid" />
       <Parameter Name="IdAn" Mode="In" Type="Int64" />
     </FunctionImport>
+    <FunctionImport Name="SumaGastoByIdAno">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SumaGastoByIdAno" ReturnType="Collection(GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result)">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
     <EntitySet Name="Comunas" EntityType="GastoTransparenteMunicipalModel.Comunas" />
     <EntitySet Name="Corporacion_Ano" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano" />
     <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
@@ -283,6 +289,12 @@
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
   </EntityContainer>
+  <ComplexType Name="SP_SumaGastoByIdAno_Result">
+    <Property Type="Int64" Name="TotalGastado" Nullable="true" />
+    <Property Type="Int64" Name="TotalPresupuestado" Nullable="true" />
+    <Property Type="Int64" Name="IdAno" Nullable="true" />
+    <Property Type="Int32" Name="IdMunicipalidad" Nullable="true" />
+  </ComplexType>
   <EntityType Name="Comunas">
     <Key>
       <PropertyRef Name="IdComuna" />
@@ -590,6 +602,9 @@
     <Property Name="Act_Proveedor" Type="Boolean" Nullable="false" />
     <Property Name="Act_Subsidio" Type="Boolean" Nullable="false" />
     <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
+    <Property Name="TotalGastado" Type="Double" />
+    <Property Name="TotalPresupuestado" Type="Double" />
+    <Property Name="Periodo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
     <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
     <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
