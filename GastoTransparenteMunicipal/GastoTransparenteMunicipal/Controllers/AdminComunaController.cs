@@ -309,8 +309,26 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Eliminar(int id)
+        public ActionResult Eliminar(int ano, long idMuni)
         {
+
+            var gasto = db.Gasto_Ano.Find(ano);
+
+            var gastos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
+            var ingresos = db.Ingreso_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
+            var proveedors = db.Proveedor_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
+            var subsidios = db.Subsidio_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
+            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
+            var personals = db.Personal_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
+
+            db.SP_DeleteGasto(gastos == null ? 0 : gastos.IdAno);
+            db.SP_DeleteIngreso(ingresos == null ? 0 : ingresos.IdAno);
+            db.SP_DeleteProveedor(proveedors == null ? 0 : proveedors.IdAno);
+            db.SP_DeleteSubsidio(subsidios == null ? 0 : subsidios.IdAno);
+            db.SP_DeleteCorporacion(corporacions == null ? 0 : corporacions.IdAno);
+            db.SP_DeletePersonal(personals == null ? 0 : personals.IdAno);
+
+
             var municipalidad = GetCurrentIdMunicipality();
             var invisibles = db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
             var visibles = db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
