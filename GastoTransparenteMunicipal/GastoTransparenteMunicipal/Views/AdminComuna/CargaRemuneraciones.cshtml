@@ -17,7 +17,7 @@
 
         <div class="col-md-12">
             <h1>
-                Carga de Ingresos año
+                Carga de Remuneraciones año
                 <span class="muntotal">
                     @ViewBag.ano
                 </span>
@@ -59,7 +59,7 @@
                         <span id="errorCementerio" class="md-36 icon-Recurso14" style="display:none"></span>
                     </label>
                 }<br /><br />
-                <input type="submit" class="btn" id="boton" value="Confirmar subida de Informacion">
+                <input type="button" class="btn" id="boton" value="Confirmar subida de Informacion" disabled>
             </form>
         </div>
     </div>
@@ -166,8 +166,8 @@
                     $('#errorEducacion').css("display", "none");
                 }
                 else {
-                    $('#successAdm').css("display", "none");
-                    $('#errorAdm').css("display", "block");
+                    $('#successEducacion').css("display", "none");
+                    $('#errorEducacion').css("display", "block");
                 }
             }
             if (item == "fileCementerio") {

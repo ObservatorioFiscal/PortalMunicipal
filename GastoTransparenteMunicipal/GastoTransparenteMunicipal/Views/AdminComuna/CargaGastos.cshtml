@@ -17,7 +17,7 @@
 
         <div class="col-md-12">
             <h1>
-                Carga de Ingresos año
+                Carga de Gastos año
                 <span class="muntotal">
                     @ViewBag.ano
                 </span>
@@ -120,9 +120,10 @@
             var isValidAdm = $('#fileStatusAdm').val();
             var isValidSalud = $('#fileStatusSalud').val();
             var isValidEducacion = $('#fileStatusEducacion').val();
-            var isValidCementerio = $('#fileStatusCementerio').val();
-
+            var isValidCementerio = $('#fileStatusCementerio').val();            
             var existCementerio = $('#existCementerio').val();
+
+            console.log(isValidAdm + isValidSalud + isValidEducacion + isValidCementerio + existCementerio);
             if (existCementerio == "true") {
                 if (isValidAdm == "true" && isValidSalud == "true" && isValidEducacion == "true" && isValidCementerio == "true") {
                     $('#boton').prop("disabled", false);
@@ -166,8 +167,8 @@
                     $('#errorEducacion').css("display", "none");
                 }
                 else {
-                    $('#successAdm').css("display", "none");
-                    $('#errorAdm').css("display", "block");
+                    $('#successEducacion').css("display", "none");
+                    $('#errorEducacion').css("display", "block");
                 }
             }
             if (item == "fileCementerio") {
