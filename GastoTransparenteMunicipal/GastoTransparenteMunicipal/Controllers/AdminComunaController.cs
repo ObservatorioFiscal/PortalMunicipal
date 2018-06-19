@@ -40,6 +40,10 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public ActionResult CargaDatos(int id)
         {
+            var timeout = db.Database.CommandTimeout;
+            db.Database.CommandTimeout = 2400;
+            db.SaveChanges();
+
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
 
             var gastos = db.Gasto_Ano.Where(            r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
@@ -309,22 +313,24 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Eliminar(int ano, long idMuni)
+        public ActionResult Eliminar(int ano)
         {
+            var timeout = db.Database.CommandTimeout;
+            db.Database.CommandTimeout = 2400;
+            db.SaveChanges();
 
             var gasto = db.Gasto_Ano.Find(ano);
+            var gastos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
+            var ingresos = db.Ingreso_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
+            var proveedors = db.Proveedor_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
+            var subsidios = db.Subsidio_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
+            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
+            var personals = db.Personal_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
 
-            var gastos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
-            var ingresos = db.Ingreso_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
-            var proveedors = db.Proveedor_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
-            var subsidios = db.Subsidio_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
-            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
-            var personals = db.Personal_Ano.Where(r => r.Ano == gasto.Ano).FirstOrDefault();
-
+            db.SP_DeleteSubsidio(subsidios == null ? 0 : subsidios.IdAno);
             db.SP_DeleteGasto(gastos == null ? 0 : gastos.IdAno);
             db.SP_DeleteIngreso(ingresos == null ? 0 : ingresos.IdAno);
-            db.SP_DeleteProveedor(proveedors == null ? 0 : proveedors.IdAno);
-            db.SP_DeleteSubsidio(subsidios == null ? 0 : subsidios.IdAno);
+            db.SP_DeleteProveedor(proveedors == null ? 0 : proveedors.IdAno);            
             db.SP_DeleteCorporacion(corporacions == null ? 0 : corporacions.IdAno);
             db.SP_DeletePersonal(personals == null ? 0 : personals.IdAno);
 
