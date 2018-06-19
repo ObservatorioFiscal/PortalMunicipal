@@ -42,13 +42,12 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
 
-            var gastos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
-            var ingresos = db.Ingreso_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
-            var proveedors = db.Proveedor_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
-            var subsidios = db.Subsidio_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
-            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
-            var personals = db.Personal_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado == true).OrderByDescending(r => r.UpdatedOn).ToList();
-
+            var gastos = db.Gasto_Ano.Where(            r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var ingresos = db.Ingreso_Ano.Where(        r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var proveedors = db.Proveedor_Ano.Where(    r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var subsidios = db.Subsidio_Ano.Where(      r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var personals = db.Personal_Ano.Where(      r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
             if (gastos.Count > 0)
             {
                 var gastoAux = gastos.First();
@@ -59,7 +58,6 @@ namespace GastoTransparenteMunicipal.Controllers
                     db.SP_DeleteGasto(gastos[i].IdAno);
                 }
             }
-
             if (ingresos.Count > 0)
             {
                 var ingreso = ingresos.First();
@@ -70,7 +68,6 @@ namespace GastoTransparenteMunicipal.Controllers
                     db.SP_DeleteIngreso(ingresos[i].IdAno);
                 }
             }
-
             if (proveedors.Count > 0)
             {
                 var proveedor = proveedors.First();
@@ -81,7 +78,6 @@ namespace GastoTransparenteMunicipal.Controllers
                     db.SP_DeleteProveedor(proveedors[i].IdAno);
                 }
             }
-
             if (subsidios.Count > 0)
             {
                 var subsidio = subsidios.First();
@@ -92,7 +88,6 @@ namespace GastoTransparenteMunicipal.Controllers
                     db.SP_DeleteSubsidio(subsidios[i].IdAno);
                 }
             }
-
             if (corporacions.Count > 0)
             {
                 var corporacion = corporacions.First();
@@ -103,7 +98,6 @@ namespace GastoTransparenteMunicipal.Controllers
                     db.SP_DeleteCorporacion(corporacions[i].IdAno);
                 }
             }
-
             if (personals.Count > 0)
             {
                 var personal = personals.First();
@@ -117,15 +111,53 @@ namespace GastoTransparenteMunicipal.Controllers
 
             db.SaveChanges();
 
-            var suma = db.SP_SumaGastoByIdAno(id).First();
-            var municipalidad = gasto.Municipalidad;
-            municipalidad.TotalGastado = suma.TotalGastado;
-            municipalidad.TotalPresupuestado = suma.TotalPresupuestado;
-            //municipalidad.Ano = gasto.Ano;
-            //municipalidad.Semestre = gasto.Semestre;
-            db.SaveChanges();            
-
+            if(gasto.Ano==DateTime.Now.Year || gasto.Semestre != 0) { 
+                var suma = db.SP_SumaGastoByIdAno(id).First();
+                Municipalidad municipalidad = db.Municipalidad.Find(gasto.IdMunicipalidad);
+                switch (gasto.Semestre)
+                {
+                    case 0:
+                        municipalidad.Periodo = "El" + gasto.Ano +" "; 
+                        break;
+                    case 1:
+                        municipalidad.Periodo = "A Marzo de " + gasto.Ano + " ";
+                        break;
+                    case 2:
+                        municipalidad.Periodo = "A Junio de " + gasto.Ano + " ";
+                        break;
+                    case 3:
+                        municipalidad.Periodo = "A Septiembre de " + gasto.Ano + " ";
+                        break;
+                }
+                municipalidad.TotalGastado = "$"+ Ppuntos(suma.TotalGastado.Value);
+                municipalidad.TotalPresupuestado = "$" + Ppuntos(suma.TotalPresupuestado.Value);
+                db.SaveChanges();
+            }
             return View();
+        }
+
+        string Ppuntos(long aux2 )
+        {
+            string aux = Convert.ToString(aux2);
+            aux.Reverse();
+            string puntos = "";
+            for (var i=0; i < aux.Length; i++)
+            {
+                if ((i + 1) % 3 == 0)
+                {
+                    puntos = puntos + i +".";
+                }
+                else
+                {
+                    puntos = puntos + i;
+                }
+            }
+            if (puntos[puntos.Length - 1] == '.')
+            {
+                puntos= puntos.Remove(aux.Length - 1);
+            }
+            puntos.Reverse();
+            return puntos;
         }
 
         public JsonResult CargadosPost(int aux)
@@ -254,6 +286,48 @@ namespace GastoTransparenteMunicipal.Controllers
             }
             return Json(final, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Eliminar()
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            var invisibles = db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            var visibles = db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            foreach(var item in visibles.ToList())
+            {
+                Anos_Invisible uno = new Anos_Invisible
+                {
+                    IdAno = item.IdAno,
+                    IdMunicipalidad = item.IdMunicipalidad,
+                    Nombre = item.Nombre
+                };
+                invisibles.Add(uno);
+            }
+            ViewBag.Anos = new SelectList(invisibles.OrderBy(r=>r.Nombre), "IdAno", "Nombre");
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.Destacado = "hidden";
+            ViewBag.administracion = true;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Eliminar(int id)
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            var invisibles = db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            var visibles = db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            foreach (var item in visibles.ToList())
+            {
+                Anos_Invisible uno = new Anos_Invisible
+                {
+                    IdAno = item.IdAno,
+                    IdMunicipalidad = item.IdMunicipalidad,
+                    Nombre = item.Nombre
+                };
+                invisibles.Add(uno);
+            }
+            ViewBag.Anos = new SelectList(invisibles.OrderBy(r => r.Nombre), "IdAno", "Nombre");
+            return View();
+        }
+
 
         #region Ingresos
 

@@ -287,9 +287,9 @@
           <Property Name="Act_Proveedor" Type="bit" Nullable="false" />
           <Property Name="Act_Subsidio" Type="bit" Nullable="false" />
           <Property Name="Act_Corporacion" Type="bit" Nullable="false" />
-          <Property Name="TotalGastado" Type="float" />
-          <Property Name="TotalPresupuestado" Type="float" />
           <Property Name="Periodo" Type="nvarchar" MaxLength="20" />
+          <Property Name="TotalGastado" Type="nvarchar" MaxLength="20" />
+          <Property Name="TotalPresupuestado" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Personal_Adm_Nivel1">
           <Key>
@@ -2181,9 +2181,9 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Act_Proveedor" Type="Boolean" Nullable="false" />
           <Property Name="Act_Subsidio" Type="Boolean" Nullable="false" />
           <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
-          <Property Name="TotalGastado" Type="Double" />
-          <Property Name="TotalPresupuestado" Type="Double" />
           <Property Name="Periodo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TotalGastado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPresupuestado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
           <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
           <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
@@ -3505,9 +3505,9 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySetMapping Name="Municipalidad">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
               <MappingFragment StoreEntitySet="Municipalidad">
-                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
                 <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
                 <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
                 <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
                 <ScalarProperty Name="Act_Subsidio" ColumnName="Act_Subsidio" />
                 <ScalarProperty Name="Act_Proveedor" ColumnName="Act_Proveedor" />

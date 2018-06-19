@@ -72,11 +72,13 @@ namespace GastoTransparenteMunicipal.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            ViewBag.logo = "municipio.png";
             return View();
         }
 
         public ActionResult Municipio()
         {
+            ViewBag.logo = "municipio.png";
             //List<Core.Municipalidad> municipios = db.Municipalidad.Where(r => !r.Activa).ToList();
             List<Core.Municipalidad> municipios = db.Municipalidad.ToList();
             return View(municipios);
@@ -192,6 +194,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult CreateAccount()
         {
+            ViewBag.logo = "municipio.png";
             List<SelectListItem> roles = new List<SelectListItem>();
             var municipalidades = db.Municipalidad.Where(r => r.Activa).ToList();
             roles.Add(new SelectListItem() { Value = "admin", Text = "Administrador" });
