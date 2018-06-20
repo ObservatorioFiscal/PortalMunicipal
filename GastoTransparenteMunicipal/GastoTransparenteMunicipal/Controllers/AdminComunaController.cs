@@ -393,6 +393,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
+            db.Configuration.AutoDetectChangesEnabled = false;
             db.SaveChanges();
 
             if (fileAdm == null || fileSalud == null || fileEducacion == null)
@@ -445,6 +446,9 @@ namespace GastoTransparenteMunicipal.Controllers
 
             db.SaveChanges();
             db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
+
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
 
             return RedirectToAction("CargaDatos");
         }
@@ -630,6 +634,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
+            db.Configuration.AutoDetectChangesEnabled = false;
             db.SaveChanges();
 
             if (fileAdm == null || fileSalud == null || fileEducacion == null)
@@ -682,6 +687,8 @@ namespace GastoTransparenteMunicipal.Controllers
             db.SaveChanges();
             db.SP_InformeGasto(loadReport.IdGroupInforme, gastoAno.IdAno);
 
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
             return RedirectToAction("CargaDatos");
         }
        
@@ -810,6 +817,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
+            db.Configuration.AutoDetectChangesEnabled = false;
             db.SaveChanges();
 
             if (fileAdm == null || fileSalud == null || fileEducacion == null)
@@ -884,9 +892,11 @@ namespace GastoTransparenteMunicipal.Controllers
             db.SaveChanges();
             db.SP_ProveedorTotal(loadReport.IdGroupInforme, proveedorAno.IdAno);
 
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
+
             return RedirectToAction("CargaDatos");
         }
-
 
         [HttpPost]
         public JsonResult ValidadorCargaProveedoresAdm()
@@ -1012,10 +1022,6 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public JsonResult ValidadorCargaSubsidios()
         {
-            var timeout = db.Database.CommandTimeout;
-            db.Database.CommandTimeout = 2400;
-            db.SaveChanges();
-
             bool isValid = true;
             HttpPostedFileBase file = Request.Files[0];
             try
@@ -1029,7 +1035,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 }
                 return Json(isValid);
             }
-            catch
+            catch(Exception ex)
             {
                 return Json(!isValid);
             }
@@ -1038,6 +1044,11 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public ActionResult CargaSubsidios(int id,HttpPostedFileBase file)
         {
+            var timeout = db.Database.CommandTimeout;
+            db.Database.CommandTimeout = 2400;
+            db.Configuration.AutoDetectChangesEnabled = false;
+            db.SaveChanges();
+
             if (file == null)
             {
                 return View();
@@ -1060,7 +1071,11 @@ namespace GastoTransparenteMunicipal.Controllers
                 db.SaveChanges();
 
                 db.SP_InformeSubsidio(loadReport.IdGroupInforme, subsidioAno.IdAno);
-            }            
+            }
+
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
+
             return RedirectToAction("CargaDatos");
         }
         #endregion
@@ -1122,6 +1137,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
+            db.Configuration.AutoDetectChangesEnabled = false;
             db.SaveChanges();
 
             if (file == null)
@@ -1148,6 +1164,10 @@ namespace GastoTransparenteMunicipal.Controllers
 
                 db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);
             }
+
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
+
             return RedirectToAction("CargaDatos");
         }
         #endregion
@@ -1279,6 +1299,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
+            db.Configuration.AutoDetectChangesEnabled = false;
             db.SaveChanges();
 
             if (fileAdm == null || fileSalud == null || fileEducacion == null)
@@ -1349,6 +1370,9 @@ namespace GastoTransparenteMunicipal.Controllers
             }
 
             db.SP_InformePersonalMunicipioTotal(loadReport.IdGroupInforme, personalAno.IdAno);
+
+            db.ChangeTracker.DetectChanges();
+            db.SaveChanges();
 
             return RedirectToAction("CargaDatos");
         }

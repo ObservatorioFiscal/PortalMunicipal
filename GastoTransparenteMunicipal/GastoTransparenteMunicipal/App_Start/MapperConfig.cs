@@ -21,19 +21,19 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.AREANIVEL2, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
                 .ForMember(dst => dst.CUENTANIVEL1, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
                 .ForMember(dst => dst.CUENTANIVEL2, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
-                .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => e.GetCell(5).NumericCellValue))
-                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
+                .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => Math.Round(e.GetCell(5).NumericCellValue/1000000.0,0)))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(6).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.IngresoInformev2>()
                  .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
-                 .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(1).NumericCellValue))
-                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue));
+                 .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => Math.Round(e.GetCell(1).NumericCellValue / 1000000.0, 0)))
+                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(2).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.GastoInformev2>()
                 .ForMember(dst => dst.Codigo, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.Cuenta, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
-                .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => e.GetCell(2).NumericCellValue))
-                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(3).NumericCellValue));
+                .ForMember(dst => dst.MontoPresupuestado, src => src.MapFrom(e => Math.Round(e.GetCell(2).NumericCellValue / 1000000.0, 0)))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(3).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.IngresoInforme>()
                 .ForMember(dst => dst.TIPO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
@@ -41,8 +41,8 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.AREANIVEL2, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
                 .ForMember(dst => dst.CUENTANIVEL1, src => src.MapFrom(e => e.GetCell(3).StringCellValue))
                 .ForMember(dst => dst.CUENTANIVEL2, src => src.MapFrom(e => e.GetCell(4).StringCellValue))
-                .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => e.GetCell(5).NumericCellValue))
-                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => e.GetCell(6).NumericCellValue));
+                .ForMember(dst => dst.MontoPresupuestadoAnual, src => src.MapFrom(e => Math.Round(e.GetCell(5).NumericCellValue / 1000000.0, 0)))
+                .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(6).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.SubsidioInforme>()
                 .ForMember(dst => dst.FECHADECRETO, src => src.MapFrom(e => e.GetCell(0).DateCellValue))
@@ -84,7 +84,6 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.ESTAMENTO, src => src.MapFrom(e => e.GetCell(6).StringCellValue))
                 .ForMember(dst => dst.GRADO, src => src.MapFrom(e => e.GetCell(7).NumericCellValue))
                 .ForMember(dst => dst.ANTIGUEDAD, src => src.MapFrom(e => e.GetCell(8).CellType == CellType.String ? e.GetCell(7).StringCellValue : e.GetCell(7).NumericCellValue.ToString()))
-                //.ForMember(dst => dst.AREA, src => src.MapFrom(e => e.GetCell(8).StringCellValue))
                 .ForMember(dst => dst.SUELDOHABERES, src => src.MapFrom(e => e.GetCell(9).NumericCellValue));
 
                 cfg.CreateMap<IRow, Core.Personal_CementerioInforme>()

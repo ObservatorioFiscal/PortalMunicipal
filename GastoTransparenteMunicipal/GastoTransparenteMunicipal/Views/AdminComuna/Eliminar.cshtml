@@ -16,13 +16,13 @@
             {
                 <div class="form-group">
                     Año
-                    @Html.DropDownList("ano", (SelectList)ViewBag.ano, null, new { @class = "form-control", @id = "ano" })
+                    @Html.DropDownList("ano", (SelectList)ViewBag.Anos, null, new { @class = "form-control", @id = "ano" })
                 </div>
                 <input type="hidden" id="anoactual" value="@DateTime.Now.Year" />
                 <input type="hidden" id="idMuni" value="@ViewBag.idMuni" />
                 <div class="form-group">
                     <p class="text-right">
-                        <input type="submit" class="btn btn-primary" value="Abrir Periodo" />
+                        <input type="submit" class="btn btn-primary" value="Eliminar Periodo" />
                     </p>
                 </div>
             }
