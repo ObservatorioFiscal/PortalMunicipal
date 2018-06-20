@@ -13,6 +13,8 @@ using GastoTransparenteMunicipal.Helpers;
 using System.Data.SqlClient;
 using NPOI.SS.UserModel;
 using System.Data.Entity;
+using System.Data;
+using FastMember;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -1297,6 +1299,32 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public ActionResult CargaRemuneraciones(int id, HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
+          
+            #region Formato 1
+            ////using (DataTable table = new DataTable())
+            ////{
+            ////    using (var reader = ObjectReader.Create(result, "IdInformePersonal", "IdGroupInformePersonal", "GENERO", "EDAD", "CALIDADJURIDICA", "PROFESION", "NIVELACADEMICO", "ESTAMENTO", "GRADO", "ANTIGUEDAD", "AREA", "SUELDOHABERES", "UpdatedOn"))                    
+            ////    {
+            ////        using (var sqlBulk = new SqlBulkCopy("Server=tcp:serverobservatorio.database.windows.net,1433;Initial Catalog=GastoTransparenteMunicipal;Persist Security Info=False;User ID=adminserverprueba;Password=Observatori02016;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            ////        {
+            ////            sqlBulk.DestinationTableName = "Personal_AdmInforme";
+            ////            sqlBulk.WriteToServer(reader);
+            ////        }
+            ////    }                                            
+            ////}
+            #endregion
+            #region Formato 2
+            //ConvertTo convert = new ConvertTo();
+            //using (DataTable table = convert.DataTable<Personal_AdmInforme>(result))
+            //{
+            //    using (var sqlBulk = new SqlBulkCopy(connectionString))
+            //    {
+            //        sqlBulk.DestinationTableName = "Personal_AdmInforme";
+            //        sqlBulk.WriteToServer(table);
+            //    }                        
+            //}
+            #endregion
+    
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
             db.Configuration.AutoDetectChangesEnabled = false;
@@ -1311,11 +1339,11 @@ namespace GastoTransparenteMunicipal.Controllers
             var gasto = db.Gasto_Ano.Find(id);
             var personalAno = db.Personal_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre == gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).First();
             personalAno.Cargado = true;
-            personalAno.UpdatedOn = DateTime.UtcNow;            
+            personalAno.UpdatedOn = DateTime.UtcNow;
 
             XSSFWorkbook xssfwb;
-            
-            LoadReport loadReport = new LoadReport();           
+
+            LoadReport loadReport = new LoadReport();
             if (fileAdm != null)
             {
                 using (Stream fileStream = fileAdm.InputStream)
@@ -1376,6 +1404,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
             return RedirectToAction("CargaDatos");
         }
+       
         #endregion
 
     }
