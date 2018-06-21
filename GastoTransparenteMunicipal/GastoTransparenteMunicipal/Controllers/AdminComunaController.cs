@@ -391,7 +391,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CargaIngresos(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
+        public ActionResult CargaIngresos(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
@@ -418,21 +418,24 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
-                    db.IngresoInformev2.AddRange(result);
+                    //db.IngresoInformev2.AddRange(result);
+                    SaveBulk(result, "IngresoInformev2");
                 }
 
                 using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);
-                    db.IngresoInformev2.AddRange(result);
+                    //db.IngresoInformev2.AddRange(result);
+                    SaveBulk(result, "IngresoInformev2");
                 }
 
                 using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);
-                    db.IngresoInformev2.AddRange(result);
+                    //db.IngresoInformev2.AddRange(result);
+                    SaveBulk(result, "IngresoInformev2");
                 }
 
                 if (fileCementerio != null)
@@ -441,7 +444,8 @@ namespace GastoTransparenteMunicipal.Controllers
                     {
                         xssfwb = new XSSFWorkbook(fileStream);
                         var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);
-                        db.IngresoInformev2.AddRange(result);
+                        //db.IngresoInformev2.AddRange(result);
+                        SaveBulk(result, "IngresoInformev2");
                     }
                 }
             }
@@ -473,6 +477,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     excelGlosa = new XSSFWorkbook(fileStream);
                     var ingresoGlosas = loadReport.LoadIngresoGlosa(excelGlosa);
                     db.Ingreso_Glosa.AddRange(ingresoGlosas);
+                    //SaveBulk(ingresoGlosas, "Ingreso_Glosa");
                     var result = await db.SaveChangesAsync();
                 }
                 return Json(isValid);
@@ -593,6 +598,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     excelGlosa = new XSSFWorkbook(fileStream);
                     var gastoGlosas = loadReport.LoadGastoGlosa(excelGlosa);
                     db.Gasto_Glosa.AddRange(gastoGlosas);
+                    //SaveBulk(gastoGlosas, "Gasto_Glosa");
                     var result = await db.SaveChangesAsync();
                 }
                 return Json(isValid);
@@ -632,7 +638,7 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CargaGastos(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
+        public ActionResult CargaGastos(int id,HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
@@ -658,21 +664,24 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "ADM. Y SERVICIOS", 1);
-                    db.GastoInformev2.AddRange(result);
+                    //db.GastoInformev2.AddRange(result);
+                    SaveBulk(result, "GastoInformev2");
                 }
 
                 using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "SALUD", 2);
-                    db.GastoInformev2.AddRange(result);
+                    //db.GastoInformev2.AddRange(result);
+                    SaveBulk(result, "GastoInformev2");
                 }
 
                 using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "EDUCACION", 3);
-                    db.GastoInformev2.AddRange(result);
+                    //db.GastoInformev2.AddRange(result);
+                    SaveBulk(result, "GastoInformev2");
                 }
 
                 if (fileCementerio != null)
@@ -681,7 +690,8 @@ namespace GastoTransparenteMunicipal.Controllers
                     {
                         xssfwb = new XSSFWorkbook(fileStream);
                         var result = loadReport.LoadInformeGastov2(xssfwb, "CEMENTERIO", 4);
-                        db.GastoInformev2.AddRange(result);
+                        //db.GastoInformev2.AddRange(result);
+                        SaveBulk(result, "GastoInformev2");
                     }
                 }
             }
@@ -844,9 +854,9 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
 
                     var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
-                    db.Proveedor_AdmInforme.AddRange(result);
-                    db.SaveChanges();
-
+                    //db.Proveedor_AdmInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Proveedor_AdmInforme");
                     db.SP_ProveedorAdm(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
             }
@@ -857,9 +867,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
-                    db.Proveedor_SaludInforme.AddRange(result);
-                    db.SaveChanges();
-
+                    //db.Proveedor_SaludInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Proveedor_SaludInforme");
                     db.SP_ProveedorSalud(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
             }
@@ -870,9 +880,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
-                    db.Proveedor_EducacionInforme.AddRange(result);
-                    db.SaveChanges();
-
+                    //db.Proveedor_EducacionInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Proveedor_EducacionInforme");
                     db.SP_ProveedorEducacion(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
             }
@@ -883,9 +893,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
-                    db.Proveedor_CementerioInforme.AddRange(result);
-                    db.SaveChanges();
-
+                    //db.Proveedor_CementerioInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Proveedor_CementerioInforme");
                     db.SP_ProveedorCementerio(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
 
@@ -1069,9 +1079,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 xssfwb = new XSSFWorkbook(fileStream);
                 LoadReport loadReport = new LoadReport();
                 var result = loadReport.LoadInformeSubsidio(xssfwb);
-                db.SubsidioInforme.AddRange(result);                
-                db.SaveChanges();
-
+                //db.SubsidioInforme.AddRange(result);                
+                //db.SaveChanges();
+                SaveBulk(result, "SubsidioInforme");
                 db.SP_InformeSubsidio(loadReport.IdGroupInforme, subsidioAno.IdAno);
             }
 
@@ -1161,9 +1171,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 xssfwb = new XSSFWorkbook(fileStream);
                 LoadReport loadReport = new LoadReport();
                 var result = loadReport.LoadInformeCorporaciones(xssfwb);
-                db.CorporacionInforme.AddRange(result);
-                db.SaveChanges();
-
+                //db.CorporacionInforme.AddRange(result);
+                //db.SaveChanges();
+                SaveBulk(result, "CorporacionInforme");
                 db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);
             }
 
@@ -1299,32 +1309,6 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public ActionResult CargaRemuneraciones(int id, HttpPostedFileBase fileAdm, HttpPostedFileBase fileSalud, HttpPostedFileBase fileEducacion, HttpPostedFileBase fileCementerio)
         {
-          
-            #region Formato 1
-            ////using (DataTable table = new DataTable())
-            ////{
-            ////    using (var reader = ObjectReader.Create(result, "IdInformePersonal", "IdGroupInformePersonal", "GENERO", "EDAD", "CALIDADJURIDICA", "PROFESION", "NIVELACADEMICO", "ESTAMENTO", "GRADO", "ANTIGUEDAD", "AREA", "SUELDOHABERES", "UpdatedOn"))                    
-            ////    {
-            ////        using (var sqlBulk = new SqlBulkCopy("Server=tcp:serverobservatorio.database.windows.net,1433;Initial Catalog=GastoTransparenteMunicipal;Persist Security Info=False;User ID=adminserverprueba;Password=Observatori02016;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            ////        {
-            ////            sqlBulk.DestinationTableName = "Personal_AdmInforme";
-            ////            sqlBulk.WriteToServer(reader);
-            ////        }
-            ////    }                                            
-            ////}
-            #endregion
-            #region Formato 2
-            //ConvertTo convert = new ConvertTo();
-            //using (DataTable table = convert.DataTable<Personal_AdmInforme>(result))
-            //{
-            //    using (var sqlBulk = new SqlBulkCopy(connectionString))
-            //    {
-            //        sqlBulk.DestinationTableName = "Personal_AdmInforme";
-            //        sqlBulk.WriteToServer(table);
-            //    }                        
-            //}
-            #endregion
-    
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
             db.Configuration.AutoDetectChangesEnabled = false;
@@ -1351,9 +1335,9 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
 
                     var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);
-                    db.Personal_AdmInforme.AddRange(result);
-
-                    db.SaveChanges();
+                    //db.Personal_AdmInforme.AddRange(result);
+                    //db.SaveChanges();                    
+                    SaveBulk(result, "Personal_AdmInforme");
                     db.SP_InformePersonalAdm(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
             }
@@ -1364,9 +1348,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalSalud(xssfwb);
-                    db.Personal_SaludInforme.AddRange(result);
-
-                    db.SaveChanges();
+                    //db.Personal_SaludInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Personal_SaludInforme");
                     db.SP_InformePersonalSalud(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
             }
@@ -1377,9 +1361,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalEducacion(xssfwb);
-                    db.Personal_EducacionInforme.AddRange(result);
-
-                    db.SaveChanges();
+                    //db.Personal_EducacionInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Personal_EducacionInforme");
                     db.SP_InformePersonalEducacion(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
             }
@@ -1390,9 +1374,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalCementerio(xssfwb);
-                    db.Personal_CementerioInforme.AddRange(result);
-
-                    db.SaveChanges();
+                    //db.Personal_CementerioInforme.AddRange(result);
+                    //db.SaveChanges();
+                    SaveBulk(result, "Personal_CementerioInforme");
                     db.SP_InformePersonalCementerio(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
             }
