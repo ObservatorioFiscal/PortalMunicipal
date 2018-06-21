@@ -602,9 +602,9 @@
     <Property Name="Act_Proveedor" Type="Boolean" Nullable="false" />
     <Property Name="Act_Subsidio" Type="Boolean" Nullable="false" />
     <Property Name="Act_Corporacion" Type="Boolean" Nullable="false" />
-    <Property Name="TotalGastado" Type="Double" />
-    <Property Name="TotalPresupuestado" Type="Double" />
     <Property Name="Periodo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TotalGastado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TotalPresupuestado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
     <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
     <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />

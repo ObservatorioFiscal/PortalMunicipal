@@ -318,9 +318,9 @@
     <EntitySetMapping Name="Municipalidad">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Municipalidad">
         <MappingFragment StoreEntitySet="Municipalidad">
-          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
           <ScalarProperty Name="TotalPresupuestado" ColumnName="TotalPresupuestado" />
           <ScalarProperty Name="TotalGastado" ColumnName="TotalGastado" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
           <ScalarProperty Name="Act_Corporacion" ColumnName="Act_Corporacion" />
           <ScalarProperty Name="Act_Subsidio" ColumnName="Act_Subsidio" />
           <ScalarProperty Name="Act_Proveedor" ColumnName="Act_Proveedor" />
