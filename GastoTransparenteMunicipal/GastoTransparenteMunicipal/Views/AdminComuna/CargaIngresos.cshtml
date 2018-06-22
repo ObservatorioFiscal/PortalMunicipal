@@ -21,44 +21,67 @@
                 <span class="muntotal">
                     @ViewBag.ano
                 </span>
+                <br /><br />
             </h1>
         </div>
         <div class="col-md-12">
             <form action="@Url.Action("CargaIngresos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id" value="@ViewBag.id" />
-                <label>                    
-                    Adm. y Serv. Municipales     
-                    <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
-                    <input type="hidden" id="fileStatusAdm" />
-                    <span id="successAdm"class="md-36 icon-Recurso15" style="display:none"></span>        
-                    <span id="errorAdm" class="md-36 icon-Recurso14" style="display:none"></span>
-                </label><br />
-                
-                <label>
-                    Salud
-                    <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
-                    <input type="hidden" id="fileStatusSalud"/>
-                    <span id="successSalud" class="md-36 icon-Recurso15" style="display:none"></span>
-                    <span id="errorSalud" class="md-36 icon-Recurso14" style="display:none"></span>
-                </label><br />
-                <label>
-                    Educacion
-                    <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
-                    <input type="hidden"  id="fileStatusEducacion"/>
-                    <span id="successEducacion" class="md-36 icon-Recurso15" style="display:none"></span>
-                    <span id="errorEducacion" class="md-36 icon-Recurso14" style="display:none"></span>
-                </label><br />
+                <h4 class="inline">
+                    <img src="~/Content/image/mal.png" id="errorAdm" style="display:none" alt="archivo correcto" />
+                    <img src="~/Content/image/bien.png" id="successAdm" style="display:none" alt="archivo con errores" />
+                    Adm. y Serv. Municipales &nbsp;&nbsp;&nbsp;
+                </h4>
+                <p class="inline">
+                    <small>
+                        <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
+                        <input type="hidden" id="fileStatusAdm" />
+                    </small>
+                </p>
+                <hr />
+                <br />
+                <h4 class="inline">
+                    <img src="~/Content/image/mal.png" id="errorSalud" style="display:none" alt="archivo correcto" />
+                    <img src="~/Content/image/bien.png" id="successSalud" style="display:none" alt="archivo con errores" />
+                    Salud &nbsp;&nbsp;&nbsp;
+                </h4>
+                <p class="inline">
+                    <small>
+                        <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
+                        <input type="hidden" id="fileStatusSalud" />
+                    </small>
+                </p>
+                <hr />
+                <br />
+                <h4 class="inline">
+                    <img src="~/Content/image/mal.png" id="errorEducacion" style="display:none" alt="archivo correcto" />
+                    <img src="~/Content/image/bien.png" id="successEducacion" style="display:none" alt="archivo con errores" />
+                    Educacion &nbsp;&nbsp;&nbsp;
+                </h4>
+                <p class="inline">
+                    <small>
+                        <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
+                        <input type="hidden" id="fileStatusEducacion" />
+                    </small>
+                </p>
+                <hr />
+                <br />
+
                 <input type="hidden" id="existCementerio" value="@ViewBag.cementerio" />
                 @if (ViewBag.cementerio)
                 {
-
-                <label>Cementerio                   
-                    <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
-                    <input type="hidden" id="fileStatusCementerio" />
-                    <span id="successCementerio" class="md-36 icon-Recurso15" style="display:none"></span>
-                    <span id="errorCementerio" class="md-36 icon-Recurso14" style="display:none"></span>                    
-                </label>
-
+                    <h4 class="inline">
+                        <img src="~/Content/image/mal.png" id="errorCementerio" style="display:none" alt="archivo correcto" />
+                        <img src="~/Content/image/bien.png" id="successCementerio" style="display:none" alt="archivo con errores" />
+                        Cementerio &nbsp;&nbsp;&nbsp;
+                    </h4>
+                    <p class="inline">
+                        <small>
+                            <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
+                            <input type="hidden" id="fileStatusCementerio" />
+                        </small>
+                    </p>
+                    <hr />
                 }<br /><br />
                 <input type="button" class="btn" id="boton" value="Confirmar subida de Informacion" disabled>
             </form>

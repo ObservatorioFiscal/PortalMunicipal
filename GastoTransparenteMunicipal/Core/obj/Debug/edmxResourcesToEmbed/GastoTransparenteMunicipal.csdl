@@ -63,6 +63,24 @@
     <FunctionImport Name="SP_SumaGastoByIdAno" ReturnType="Collection(GastoTransparenteMunicipalModel.SP_SumaGastoByIdAno_Result)">
       <Parameter Name="IdAno" Mode="In" Type="Int64" />
     </FunctionImport>
+    <FunctionImport Name="SP_DeleteCorporacion">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_DeleteGasto">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_DeleteIngreso">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_DeletePersonal">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_DeleteProveedor">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_DeleteSubsidio">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
     <EntitySet Name="Comunas" EntityType="GastoTransparenteMunicipalModel.Comunas" />
     <EntitySet Name="Corporacion_Ano" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano" />
     <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
@@ -288,6 +306,233 @@
       <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
       <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
     </AssociationSet>
+    <FunctionImport Name="SP_InformeGastoArea">
+      <Parameter Name="IdAno" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroDecimales" Mode="In" Type="Int32" />
+      <Parameter Name="IdGroupInformeGasto" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformeGastoCuenta">
+      <Parameter Name="IdAno" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroDecimales" Mode="In" Type="Int32" />
+      <Parameter Name="IdGroupInformeGasto" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformeIngresoArea">
+      <Parameter Name="IdAno" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroDecimales" Mode="In" Type="Int32" />
+      <Parameter Name="IdGroupInformeGasto" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformeIngresoCuenta">
+      <Parameter Name="IdAno" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroDecimales" Mode="In" Type="Int32" />
+      <Parameter Name="IdGroupInformeGasto" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformePersonalAdmNivel1">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformePersonalCementerioNivel1">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformePersonalEducacionNivel1">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformePersonalMunicipioTotalNivel1">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformePersonalSaludNivel1">
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformeSubsidioNivel1">
+      <Parameter Name="IdGroupInformeSubsidio" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformeSubsidioNivel2">
+      <Parameter Name="IdGroupInformeSubsidio" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InformeSubsidioNivel3">
+      <Parameter Name="IdGroupInformeSubsidio" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_CalidadJuridica">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_Estamento">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_Grado">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_NivelAdm">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_Profesion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_RangoAntiguedad">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalAdm_RangoEtario">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_CalidadJuridica">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_Estamento">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_Grado">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_NivelCementerio">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_Profesion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_RangoAntiguedad">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalCementerio_RangoEtario">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_CalidadJuridica">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_Estamento">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_Grado">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_NivelEducacion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_Profesion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_RangoAntiguedad">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalEducacion_RangoEtario">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_CalidadJuridica">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_Estamento">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_Grado">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_NivelEducacion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_Profesion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_RangoAntiguedad">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalMunicipioTotal_RangoEtario">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_CalidadJuridica">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_Estamento">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_Grado">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_NivelSalud">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_Profesion">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_RangoAntiguedad">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PersonalSalud_RangoEtario">
+      <Parameter Name="IdGroupInformePersonal" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorAdm_Nivel1">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorAdm_Nivel2">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorCementerio_Nivel1">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorCementerio_Nivel2">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorEducacion_Nivel1">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorEducacion_Nivel2">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorSalud_Nivel1">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorSalud_Nivel2">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorTotal_Nivel1">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ProveedorTotal_Nivel2">
+      <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
+      <Parameter Name="IdAno" Mode="In" Type="Int64" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_SumaGastoByIdAno_Result">
     <Property Type="Int64" Name="TotalGastado" Nullable="true" />
@@ -619,7 +864,7 @@
     <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CodTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" FromRole="Personal_Adm_Nivel1" ToRole="Personal_Ano" />
     <NavigationProperty Name="Personal_Adm_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE" FromRole="Personal_Adm_Nivel1" ToRole="Personal_Adm_Nivel2" />
   </EntityType>
@@ -644,10 +889,10 @@
     <Property Name="IdGroupInformePersonal" Type="Guid" />
     <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="EDAD" Type="Int32" />
-    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GRADO" Type="Int32" />
     <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -679,7 +924,7 @@
     <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CodTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Cementerio_Nivel1" ToRole="Personal_Ano" />
     <NavigationProperty Name="Personal_Cementerio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489" FromRole="Personal_Cementerio_Nivel1" ToRole="Personal_Cementerio_Nivel2" />
   </EntityType>
@@ -704,10 +949,10 @@
     <Property Name="IdGroupInformePersonal" Type="Guid" />
     <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="EDAD" Type="Int32" />
-    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GRADO" Type="Int32" />
     <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -721,7 +966,7 @@
     <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CodTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Educacion_Nivel1" ToRole="Personal_Ano" />
     <NavigationProperty Name="Personal_Educacion_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__29221CFB" FromRole="Personal_Educacion_Nivel1" ToRole="Personal_Educacion_Nivel2" />
   </EntityType>
@@ -746,10 +991,10 @@
     <Property Name="IdGroupInformePersonal" Type="Guid" />
     <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="EDAD" Type="Int32" />
-    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GRADO" Type="Int32" />
     <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -763,7 +1008,7 @@
     <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CodTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Salud_Nivel1" ToRole="Personal_Ano" />
     <NavigationProperty Name="Personal_Salud_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D" FromRole="Personal_Salud_Nivel1" ToRole="Personal_Salud_Nivel2" />
   </EntityType>
@@ -788,10 +1033,10 @@
     <Property Name="IdGroupInformePersonal" Type="Guid" />
     <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="EDAD" Type="Int32" />
-    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ESTAMENTO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GRADO" Type="Int32" />
     <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
     <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -805,7 +1050,7 @@
     <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdAno" Type="Int64" />
     <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="CodTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CodTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Total_Nivel1" ToRole="Personal_Ano" />
     <NavigationProperty Name="Personal_Total_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF" FromRole="Personal_Total_Nivel1" ToRole="Personal_Total_Nivel2" />
   </EntityType>
@@ -1028,7 +1273,7 @@
     </Key>
     <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdAno" Type="Int64" />
-    <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
     <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Ano" />
     <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36" FromRole="Subsidio_Nivel1" ToRole="Subsidio_Nivel2" />
@@ -1039,7 +1284,7 @@
     </Key>
     <Property Name="IdNivel2" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdNivel1" Type="Int64" />
-    <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
     <Property Name="IdAno" Type="Int64" />
     <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Nivel2" ToRole="Subsidio_Ano" />
@@ -1051,7 +1296,7 @@
     </Key>
     <Property Name="IdNivel3" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdNivel2" Type="Int64" />
-    <Property Name="Nombre" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Monto" Type="Int64" />
   </EntityType>
   <EntityType Name="SubsidioInforme">
@@ -1062,8 +1307,8 @@
     <Property Name="IdGroupInformeSubsidio" Type="Guid" />
     <Property Name="CATEGORIA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="ORGANIZACION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="FECHADECRETO" Type="DateTime" Precision="7" />
-    <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="FECHADECRETO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MONTOAPORTE" Type="Double" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
   </EntityType>

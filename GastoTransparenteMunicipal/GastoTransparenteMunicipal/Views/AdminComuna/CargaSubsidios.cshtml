@@ -26,14 +26,18 @@
         <div class="col-md-12">
             <form action="@Url.Action("CargaSubsidios","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id" value="@ViewBag.id" />
-                <label>
-                    <span></span>
-                    Archivo
-                    <input type="file" accept=".xls,.xlsx" id="file" name="file" />
-                    <input type="hidden" id="fileStatus" />
-                    <span id="success" class="md-36 icon-Recurso15" style="display:none"></span>
-                    <span id="error" class="md-36 icon-Recurso14" style="display:none"></span>
-                </label><br />
+                <h4 class="inline">
+                    <img src="~/Content/image/mal.png" id="error" style="display:none" alt="archivo correcto" />
+                    <img src="~/Content/image/bien.png" id="success" style="display:none" alt="archivo con errores" />
+                    Municipio Total &nbsp;&nbsp;&nbsp;
+                </h4>
+                <p class="inline">
+                    <small>
+                        <input type="file" accept=".xls,.xlsx" id="file" name="file" />
+                        <input type="hidden" id="fileStatus" />
+                    </small>
+                </p>
+                <hr />
                 <input type="submit" class="btn" id="boton" value="Confirmar subida de Informacion">
             </form>
         </div>

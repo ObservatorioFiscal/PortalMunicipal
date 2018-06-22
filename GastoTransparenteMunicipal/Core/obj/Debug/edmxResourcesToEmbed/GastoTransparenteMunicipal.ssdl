@@ -293,7 +293,7 @@
     <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAno" Type="bigint" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Personal_Adm_Nivel2">
     <Key>
@@ -315,10 +315,10 @@
     <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
     <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
     <Property Name="EDAD" Type="int" />
-    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
     <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
     <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
     <Property Name="GRADO" Type="int" />
     <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
     <Property Name="AREA" Type="nvarchar" MaxLength="500" />
@@ -344,7 +344,7 @@
     <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAno" Type="bigint" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Personal_Cementerio_Nivel2">
     <Key>
@@ -366,10 +366,10 @@
     <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
     <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
     <Property Name="EDAD" Type="int" />
-    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
     <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
     <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
     <Property Name="GRADO" Type="int" />
     <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
     <Property Name="AREA" Type="nvarchar" MaxLength="500" />
@@ -383,7 +383,7 @@
     <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAno" Type="bigint" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Personal_Educacion_Nivel2">
     <Key>
@@ -405,10 +405,10 @@
     <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
     <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
     <Property Name="EDAD" Type="int" />
-    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
     <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
     <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
     <Property Name="GRADO" Type="int" />
     <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
     <Property Name="AREA" Type="nvarchar" MaxLength="500" />
@@ -422,7 +422,7 @@
     <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAno" Type="bigint" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Personal_Salud_Nivel2">
     <Key>
@@ -444,10 +444,10 @@
     <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
     <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
     <Property Name="EDAD" Type="int" />
-    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="20" />
+    <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
     <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
     <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
     <Property Name="GRADO" Type="int" />
     <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
     <Property Name="AREA" Type="nvarchar" MaxLength="500" />
@@ -461,7 +461,7 @@
     <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAno" Type="bigint" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-    <Property Name="CodTipo" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodTipo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Personal_Total_Nivel2">
     <Key>
@@ -657,7 +657,7 @@
     </Key>
     <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAno" Type="bigint" />
-    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Nombre" Type="nvarchar(max)" />
     <Property Name="Monto" Type="bigint" />
   </EntityType>
   <EntityType Name="Subsidio_Nivel2">
@@ -666,7 +666,7 @@
     </Key>
     <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdNivel1" Type="bigint" />
-    <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
+    <Property Name="Nombre" Type="nvarchar(max)" />
     <Property Name="Monto" Type="bigint" />
     <Property Name="IdAno" Type="bigint" />
   </EntityType>
@@ -676,7 +676,7 @@
     </Key>
     <Property Name="IdNivel3" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdNivel2" Type="bigint" />
-    <Property Name="Nombre" Type="nvarchar" MaxLength="800" />
+    <Property Name="Nombre" Type="nvarchar(max)" />
     <Property Name="Monto" Type="bigint" />
   </EntityType>
   <EntityType Name="SubsidioInforme">
@@ -687,8 +687,8 @@
     <Property Name="IdGroupInformeSubsidio" Type="uniqueidentifier" />
     <Property Name="CATEGORIA" Type="nvarchar" MaxLength="300" />
     <Property Name="ORGANIZACION" Type="nvarchar" MaxLength="300" />
-    <Property Name="FECHADECRETO" Type="datetime2" Precision="7" />
-    <Property Name="OBJETIVODELAPORTE" Type="nvarchar" MaxLength="600" />
+    <Property Name="FECHADECRETO" Type="nvarchar" MaxLength="50" />
+    <Property Name="OBJETIVODELAPORTE" Type="nvarchar(max)" />
     <Property Name="MONTOAPORTE" Type="float" />
     <Property Name="UpdatedOn" Type="datetime" />
   </EntityType>
@@ -1242,6 +1242,24 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_DeleteCorporacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_DeleteGasto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_DeleteIngreso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_DeletePersonal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_DeleteProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_DeleteSubsidio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
   <Function Name="SP_InformeCorporaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
     <Parameter Name="IdGroupInforme" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="IdAno" Type="bigint" Mode="In" />
@@ -1300,6 +1318,239 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
   </Function>
   <Function Name="SP_SumaGastoByIdAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
     <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="CapitalizeFirstLetter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+    <Parameter Name="string" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeGastoArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="int" Mode="In" />
+    <Parameter Name="NumeroDecimales" Type="int" Mode="In" />
+    <Parameter Name="IdGroupInformeGasto" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeGastoCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="int" Mode="In" />
+    <Parameter Name="NumeroDecimales" Type="int" Mode="In" />
+    <Parameter Name="IdGroupInformeGasto" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeIngresoArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="int" Mode="In" />
+    <Parameter Name="NumeroDecimales" Type="int" Mode="In" />
+    <Parameter Name="IdGroupInformeGasto" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeIngresoCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="int" Mode="In" />
+    <Parameter Name="NumeroDecimales" Type="int" Mode="In" />
+    <Parameter Name="IdGroupInformeGasto" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalAdmNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalCementerioNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalEducacionNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalMunicipioTotalNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformePersonalSaludNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeSubsidioNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeSubsidio" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeSubsidioNivel2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeSubsidio" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_InformeSubsidioNivel3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeSubsidio" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_Estamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_Grado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_NivelAdm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_Profesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalAdm_RangoEtario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_Estamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_Grado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_NivelCementerio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_Profesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalCementerio_RangoEtario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_Estamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_Grado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_NivelEducacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_Profesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalEducacion_RangoEtario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_Estamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_Grado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_NivelEducacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_Profesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalMunicipioTotal_RangoEtario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_Estamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_Grado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_NivelSalud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_Profesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_PersonalSalud_RangoEtario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorAdm_Nivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorAdm_Nivel2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorCementerio_Nivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorCementerio_Nivel2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorEducacion_Nivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorEducacion_Nivel2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorSalud_Nivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorSalud_Nivel2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorTotal_Nivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SP_ProveedorTotal_Nivel2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGroupInformeProveedores" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAno" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="UpperFirstLetters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+    <Parameter Name="string" Type="varchar(max)" Mode="In" />
   </Function>
   <EntityContainer Name="GastoTransparenteMunicipalModelStoreContainer">
     <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />

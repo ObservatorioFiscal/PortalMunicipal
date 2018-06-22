@@ -45,7 +45,7 @@ namespace GastoTransparenteMunicipal
                 .ForMember(dst => dst.MontoGastado, src => src.MapFrom(e => Math.Round(e.GetCell(6).NumericCellValue / 1000000.0, 0)));
 
                 cfg.CreateMap<IRow, Core.SubsidioInforme>()
-                .ForMember(dst => dst.FECHADECRETO, src => src.MapFrom(e => e.GetCell(0).DateCellValue))
+                .ForMember(dst => dst.FECHADECRETO, src => src.MapFrom(e => e.GetCell(0).StringCellValue))
                 .ForMember(dst => dst.CATEGORIA, src => src.MapFrom(e => e.GetCell(1).StringCellValue))
                 .ForMember(dst => dst.ORGANIZACION, src => src.MapFrom(e => e.GetCell(2).StringCellValue))
                 .ForMember(dst => dst.MONTOAPORTE, src => src.MapFrom(e => e.GetCell(3).NumericCellValue))

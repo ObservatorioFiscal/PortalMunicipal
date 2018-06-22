@@ -93,12 +93,13 @@
 .btn[disabled],
 fieldset[disabled] .btn {
     pointer-events: none;
-    cursor: not-allowed;
+    cursor: no-drop !important;
     opacity: 0.65;
     filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color:white
+    background-color: white;
+    color: #dfe0ff !important;
 }
 
 .btn {
@@ -123,6 +124,12 @@ fieldset[disabled] .btn {
   border-color: #002851;
   cursor:pointer;
 }
+
+.btn-transparente {
+    background-color: transparent !important;
+    color: #0D2B50 !important;
+}
+
 
 .btn-xs {
     background-color: #153256;

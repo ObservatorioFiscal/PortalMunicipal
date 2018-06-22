@@ -78,6 +78,8 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult Municipio()
         {
+            ViewBag.Destacado = "hidden";
+            ViewBag.administracion = true;
             ViewBag.logo = "municipio.png";
             //List<Core.Municipalidad> municipios = db.Municipalidad.Where(r => !r.Activa).ToList();
             List<Core.Municipalidad> municipios = db.Municipalidad.ToList();

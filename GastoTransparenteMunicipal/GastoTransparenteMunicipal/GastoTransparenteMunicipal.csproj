@@ -206,6 +206,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AuthorizeComuna.cs" />
+    <Compile Include="Helpers\ConvertTo.cs" />
     <Compile Include="Helpers\d3Object.cs" />
     <Compile Include="Helpers\LoadReport.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -297,9 +298,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\FeaturedData\Corporation.cshtml" />
-    <Content Include="Views\FeaturedData\Test.cshtml" />
-    <Content Include="Views\FeaturedData\Subsidy.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\AdminComuna\Index.cshtml" />
@@ -318,10 +316,12 @@
     <Content Include="Views\Admin\Municipio.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\AdminComuna\Eliminar.cshtml" />
+    <Content Include="Views\AdminComuna\CargaDatosOk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\municipiosblanco\" />
+    <Folder Include="Views\FeaturedData\" />
     <Folder Include="Views\Testing\" />
   </ItemGroup>
   <ItemGroup>
@@ -365,9 +365,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Administration\CargaInformeProveedores.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\FeaturedData\Providers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />

@@ -32,7 +32,7 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.Destacado = "hidden";
             ViewBag.administracion = true;
             ViewBag.Anos = new SelectList(db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
-            ViewBag.activos = new List<bool>{
+            ViewBag.activos = new bool[4]{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
             };
             return View();
@@ -47,82 +47,116 @@ namespace GastoTransparenteMunicipal.Controllers
 
             Gasto_Ano gasto = db.Gasto_Ano.Find(id);
 
-            var gastos = db.Gasto_Ano.Where(            r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
-            var ingresos = db.Ingreso_Ano.Where(        r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
-            var proveedors = db.Proveedor_Ano.Where(    r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
-            var subsidios = db.Subsidio_Ano.Where(      r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
-            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
-            var personals = db.Personal_Ano.Where(      r => r.Ano == gasto.Ano && r.Semestre != gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var gastos = db.Gasto_Ano.Where(            r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var ingresos = db.Ingreso_Ano.Where(        r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var proveedors = db.Proveedor_Ano.Where(    r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var subsidios = db.Subsidio_Ano.Where(      r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+            var personals = db.Personal_Ano.Where(      r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
             if (gastos.Count > 0)
             {
-                var gastoAux = gastos.First();
-                gastoAux.Activo = true;
-                for (int i = 1; i < gastos.Count; i++)
+                for (int i = 0; i < gastos.Count; i++)
                 {
-                    gastos[i].Activo = false;
-                    db.SP_DeleteGasto(gastos[i].IdAno);
+                    if(gastos[i].Semestre== gasto.Semestre)
+                    {
+                        gastos[i].Activo = true;
+                    }
+                    else
+                    {
+                        gastos[i].Activo = false;
+                        db.SP_DeleteGasto(gastos[i].IdAno);
+                    }
                 }
             }
             if (ingresos.Count > 0)
             {
-                var ingreso = ingresos.First();
-                ingreso.Activo = true;
-                for (int i = 1; i < ingresos.Count; i++)
+                for (int i = 0; i < ingresos.Count; i++)
                 {
-                    ingresos[i].Activo = false;
-                    db.SP_DeleteIngreso(ingresos[i].IdAno);
+                    if (ingresos[i].Semestre == gasto.Semestre)
+                    {
+                        ingresos[i].Activo = true;
+                    }
+                    else
+                    {
+                        ingresos[i].Activo = false;
+                        db.SP_DeleteIngreso(ingresos[i].IdAno);
+                    }
+                    
                 }
             }
             if (proveedors.Count > 0)
             {
-                var proveedor = proveedors.First();
-                proveedor.Activo = true;
-                for (int i = 1; i < proveedors.Count; i++)
+                for (int i = 0; i < proveedors.Count; i++)
                 {
-                    proveedors[i].Activo = false;
-                    db.SP_DeleteProveedor(proveedors[i].IdAno);
+                    if (proveedors[i].Semestre == gasto.Semestre)
+                    {
+                        proveedors[i].Activo = true;
+                    }
+                    else
+                    {
+                        proveedors[i].Activo = false;
+                        db.SP_DeleteProveedor(proveedors[i].IdAno);
+                    }
+
                 }
             }
             if (subsidios.Count > 0)
             {
-                var subsidio = subsidios.First();
-                subsidio.Activo = true;
-                for (int i = 1; i < subsidios.Count; i++)
+                for (int i = 0; i < subsidios.Count; i++)
                 {
-                    subsidios[i].Activo = false;
-                    db.SP_DeleteSubsidio(subsidios[i].IdAno);
+                    if (subsidios[i].Semestre == gasto.Semestre)
+                    {
+                        subsidios[i].Activo = true;
+                    }
+                    else
+                    {
+                        subsidios[i].Activo = false;
+                        db.SP_DeleteSubsidio(subsidios[i].IdAno);
+                    }
+
                 }
             }
             if (corporacions.Count > 0)
             {
-                var corporacion = corporacions.First();
-                corporacion.Activo = true;
-                for (int i = 1; i < corporacions.Count; i++)
+                for (int i = 0; i < corporacions.Count; i++)
                 {
-                    corporacions[i].Activo = false;
-                    db.SP_DeleteCorporacion(corporacions[i].IdAno);
+                    if (corporacions[i].Semestre == gasto.Semestre)
+                    {
+                        corporacions[i].Activo = true;
+                    }
+                    else
+                    {
+                        corporacions[i].Activo = false;
+                        db.SP_DeleteCorporacion(corporacions[i].IdAno);
+                    }
+
                 }
             }
             if (personals.Count > 0)
             {
-                var personal = personals.First();
-                personal.Activo = true;
-                for (int i = 1; i < personals.Count; i++)
+                for (int i = 0; i < personals.Count; i++)
                 {
-                    personals[i].Activo = false;
-                    db.SP_DeletePersonal(personals[i].IdAno);
+                    if (personals[i].Semestre == gasto.Semestre)
+                    {
+                        personals[i].Activo = true;
+                    }
+                    else
+                    {
+                        personals[i].Activo = false;
+                        db.SP_DeletePersonal(personals[i].IdAno);
+                    }
+
                 }
             }
-
             db.SaveChanges();
 
-            if(gasto.Ano==DateTime.Now.Year || gasto.Semestre != 0) { 
+            if(gasto.Ano==DateTime.Now.Year || gasto.Semestre == 0) { 
                 var suma = db.SP_SumaGastoByIdAno(id).First();
                 Municipalidad municipalidad = db.Municipalidad.Find(gasto.IdMunicipalidad);
                 switch (gasto.Semestre)
                 {
                     case 0:
-                        municipalidad.Periodo = "El" + gasto.Ano +" "; 
+                        municipalidad.Periodo = "El " + gasto.Ano +" "; 
                         break;
                     case 1:
                         municipalidad.Periodo = "A Marzo de " + gasto.Ano + " ";
@@ -141,34 +175,51 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
+        public ActionResult CargaDatosOk()
+        {
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.Destacado = "hidden";
+            ViewBag.administracion = true;
+            return View();
+        }
+
+
+
         string Ppuntos(long aux2 )
         {
             string aux = Convert.ToString(aux2);
-            aux.Reverse();
+            char[] charArray = aux.ToCharArray();
+            Array.Reverse(charArray);
+            aux = new string(charArray);
+
+
             string puntos = "";
             for (var i=0; i < aux.Length; i++)
             {
-                if ((i + 1) % 3 == 0)
+                if ((i+1) % 3 == 0 )
                 {
-                    puntos = puntos + i +".";
+                    puntos = puntos + aux[i] + ".";
                 }
                 else
                 {
-                    puntos = puntos + i;
+                    puntos = puntos + aux[i];
                 }
             }
             if (puntos[puntos.Length - 1] == '.')
             {
-                puntos= puntos.Remove(aux.Length - 1);
+                puntos= puntos.Remove(puntos.Length - 1);
             }
-            puntos.Reverse();
-            return puntos;
+
+            char[] charArray2 = puntos.ToCharArray();
+            Array.Reverse(charArray2);
+            return new string(charArray2); ;
         }
 
         public JsonResult CargadosPost(int aux)
         {
             Gasto_Ano gasto = db.Gasto_Ano.Find(aux);
-            List<bool> lista = new List<bool>
+            bool[] lista = new bool[]
             {
                 gasto.Cargado,
                 db.Ingreso_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true),
@@ -177,8 +228,8 @@ namespace GastoTransparenteMunicipal.Controllers
                 db.Corporacion_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true),
                 db.Personal_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true)
             };
-            var auxiliar = lista;
-            return Json(auxiliar, JsonRequestBehavior.AllowGet);
+            
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult AbrirPeriodo()
@@ -314,7 +365,7 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Eliminar(int ano)
+        public ActionResult Eliminar(int ano, string pass)
         {
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
@@ -353,7 +404,7 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Destacado = "hidden";
             ViewBag.administracion = true;
-            return View();
+            return RedirectToAction("CargaDatos");
         }
 
 

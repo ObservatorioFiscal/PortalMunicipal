@@ -25,6 +25,12 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_DeleteCorporacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteCorporacion" />
+    <FunctionImportMapping FunctionImportName="SP_DeleteGasto" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteGasto" />
+    <FunctionImportMapping FunctionImportName="SP_DeleteIngreso" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteIngreso" />
+    <FunctionImportMapping FunctionImportName="SP_DeletePersonal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeletePersonal" />
+    <FunctionImportMapping FunctionImportName="SP_DeleteProveedor" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteProveedor" />
+    <FunctionImportMapping FunctionImportName="SP_DeleteSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteSubsidio" />
     <EntitySetMapping Name="Comunas">
       <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Comunas">
         <MappingFragment StoreEntitySet="Comunas">
@@ -838,5 +844,62 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_InformeGastoArea" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGastoArea" />
+    <FunctionImportMapping FunctionImportName="SP_InformeGastoCuenta" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGastoCuenta" />
+    <FunctionImportMapping FunctionImportName="SP_InformeIngresoArea" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngresoArea" />
+    <FunctionImportMapping FunctionImportName="SP_InformeIngresoCuenta" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngresoCuenta" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalAdmNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdmNivel1" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerioNivel1" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacionNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacionNivel1" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotalNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotalNivel1" />
+    <FunctionImportMapping FunctionImportName="SP_InformePersonalSaludNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSaludNivel1" />
+    <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel1" />
+    <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel2" />
+    <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel3" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel3" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_CalidadJuridica" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Estamento" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Grado" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_NivelAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_NivelAdm" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Profesion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_RangoAntiguedad" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalAdm_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_RangoEtario" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_CalidadJuridica" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Estamento" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Grado" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_NivelCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_NivelCementerio" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Profesion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoAntiguedad" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoEtario" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_CalidadJuridica" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Estamento" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Grado" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_NivelEducacion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Profesion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoAntiguedad" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoEtario" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_CalidadJuridica" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Estamento" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Grado" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_NivelEducacion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Profesion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoAntiguedad" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoEtario" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_CalidadJuridica" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Estamento" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Grado" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_NivelSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_NivelSalud" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Profesion" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoAntiguedad" />
+    <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoEtario" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorAdm_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm_Nivel1" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorAdm_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm_Nivel2" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio_Nivel1" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio_Nivel2" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion_Nivel1" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion_Nivel2" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorSalud_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud_Nivel1" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorSalud_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud_Nivel2" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorTotal_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal_Nivel1" />
+    <FunctionImportMapping FunctionImportName="SP_ProveedorTotal_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal_Nivel2" />
   </EntityContainerMapping>
 </Mapping>

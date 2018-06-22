@@ -18,7 +18,7 @@ namespace Core
         public Nullable<System.Guid> IdGroupInformeSubsidio { get; set; }
         public string CATEGORIA { get; set; }
         public string ORGANIZACION { get; set; }
-        public Nullable<System.DateTime> FECHADECRETO { get; set; }
+        public string FECHADECRETO { get; set; }
         public string OBJETIVODELAPORTE { get; set; }
         public Nullable<double> MONTOAPORTE { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
