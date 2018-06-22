@@ -197,6 +197,7 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult CreateAccount()
         {
             ViewBag.logo = "municipio.png";
+            ViewBag.administracion = true;
             List<SelectListItem> roles = new List<SelectListItem>();
             var municipalidades = db.Municipalidad.Where(r => r.Activa).ToList();
             roles.Add(new SelectListItem() { Value = "admin", Text = "Administrador" });
@@ -244,7 +245,11 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     ViewBag.Message = result.Errors;
                 }
-            }           
+            }
+            else
+            {
+                ViewBag.Message = "Faltan datos, Complete los datos como corresponde";
+            }
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }
