@@ -24,6 +24,10 @@
                 <div class="form-group">
                     Contraseña<small>(pass de tu usuario)</small>
                     <input type="password" id="pass" name="pass" class="form-control" />
+                    @if (ViewBag.ErrorPassword != "")
+                    {
+                        <label>@ViewBag.ErrorPassword</label>
+                    }
                 </div>
 
                 <input type="hidden" id="anoactual" value="@DateTime.Now.Year" />

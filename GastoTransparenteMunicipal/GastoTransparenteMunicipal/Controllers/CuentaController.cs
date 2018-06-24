@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
-    public class CuentaController : Controller
+    public class CuentaController : BaseController
     {
         #region login
         private ApplicationSignInManager _signInManager;
@@ -71,6 +71,10 @@ namespace GastoTransparenteMunicipal.Controllers
         public async Task<ActionResult> ResetPassword(string userId)
         {
             //var id = userId.ToString();
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+
             var user = await UserManager.FindByIdAsync(userId);
             ResetPasswordViewModel model = new ResetPasswordViewModel();
             model.Email = user.Email;

@@ -52,12 +52,31 @@ namespace GastoTransparenteMunicipal.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public bool CheckAccount(string UserName, string Password)
+        {
+            bool isValidUser = true;
+            var user = UserManager.Find(UserName, Password);
+            if (user == null)
+            {
+                return !isValidUser;
+            }
+            else
+            {
+                return isValidUser;
+            }
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
             return View();
         }
 
@@ -97,7 +116,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 case SignInStatus.Success:
                     var roles = await UserManager.GetRolesAsync(user.Id);                                        
                     var redirectUrl = roles.First().ToUpper();
-                    returnUrl = "/" + redirectUrl + "/" + "AdminComuna";
+                    returnUrl = "/" + redirectUrl + "/" + "AdminComuna/CargaDatos" ;
                     
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -114,6 +133,10 @@ namespace GastoTransparenteMunicipal.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+
             return View();
         }
 
@@ -157,6 +180,10 @@ namespace GastoTransparenteMunicipal.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.administracion = true;
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+
             return View();
         }
 

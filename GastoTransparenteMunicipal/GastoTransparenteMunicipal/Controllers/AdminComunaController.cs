@@ -20,6 +20,8 @@ namespace GastoTransparenteMunicipal.Controllers
     //[AuthorizeComuna]
     public class AdminComunaController : BaseController
     {
+        private const string errorPassword = "ErrorPassword";
+
         public ActionResult Index()
         {
             return View();
@@ -345,6 +347,9 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult Eliminar()
         {
+            var tempdata = TempData[errorPassword];
+            ViewBag.ErrorPassword = tempdata == null ? "" : tempdata as string;
+
             var municipalidad = GetCurrentIdMunicipality();
             var invisibles = db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
             var visibles = db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
@@ -367,6 +372,17 @@ namespace GastoTransparenteMunicipal.Controllers
         [HttpPost]
         public ActionResult Eliminar(int ano, string pass)
         {
+            var currentUser = User.Identity.Name;
+            var controller = DependencyResolver.Current.GetService<AccountController>();
+            controller.ControllerContext = new ControllerContext(this.Request.RequestContext, controller);
+            
+            var isValidUser = controller.CheckAccount(currentUser, pass);
+            if(!isValidUser)
+            {
+                TempData[errorPassword] = "Contraseña incorrecta";
+                return RedirectToAction("Eliminar");
+            }
+
             var timeout = db.Database.CommandTimeout;
             db.Database.CommandTimeout = 2400;
             db.SaveChanges();
