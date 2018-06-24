@@ -55,6 +55,7 @@ namespace GastoTransparenteMunicipal.Controllers
             var subsidios = db.Subsidio_Ano.Where(      r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
             var corporacions = db.Corporacion_Ano.Where(r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
             var personals = db.Personal_Ano.Where(      r => r.Ano == gasto.Ano &&  r.IdMunicipalidad == gasto.IdMunicipalidad).ToList();
+
             if (gastos.Count > 0)
             {
                 for (int i = 0; i < gastos.Count; i++)
@@ -152,7 +153,8 @@ namespace GastoTransparenteMunicipal.Controllers
             }
             db.SaveChanges();
 
-            if(gasto.Ano==DateTime.Now.Year || gasto.Semestre == 0) { 
+            var maxAno = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).OrderByDescending(r => r.Ano).FirstOrDefault();            
+            if (maxAno == null || gasto.Ano== maxAno.Ano) { 
                 var suma = db.SP_SumaGastoByIdAno(id).First();
                 Municipalidad municipalidad = db.Municipalidad.Find(gasto.IdMunicipalidad);
                 switch (gasto.Semestre)
@@ -388,6 +390,45 @@ namespace GastoTransparenteMunicipal.Controllers
             db.SaveChanges();
 
             var gasto = db.Gasto_Ano.Find(ano);
+            Municipalidad municipalidad = db.Municipalidad.Find(gasto.IdMunicipalidad);
+
+            var anos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).OrderByDescending(r => r.Ano).ToList();
+            var maxAno = anos.First();
+            if (gasto.Ano == maxAno.Ano)
+            {
+                if(anos.Count >= 2)
+                {
+                    var newMaxAno = anos.Skip(1).First();
+                    var suma = db.SP_SumaGastoByIdAno(newMaxAno.IdAno).First();                    
+                    switch (gasto.Semestre)
+                    {
+                        case 0:
+                            municipalidad.Periodo = "El " + gasto.Ano + " ";
+                            break;
+                        case 1:
+                            municipalidad.Periodo = "A Marzo de " + gasto.Ano + " ";
+                            break;
+                        case 2:
+                            municipalidad.Periodo = "A Junio de " + gasto.Ano + " ";
+                            break;
+                        case 3:
+                            municipalidad.Periodo = "A Septiembre de " + gasto.Ano + " ";
+                            break;
+                    }
+                    municipalidad.TotalGastado = "$" + Ppuntos(suma.TotalGastado.Value);
+                    municipalidad.TotalPresupuestado = "$" + Ppuntos(suma.TotalPresupuestado.Value);
+                    db.SaveChanges();
+                } 
+                else
+                {
+                    municipalidad.TotalGastado = "$" + 0;
+                    municipalidad.TotalPresupuestado = "$" + 0;
+                    db.SaveChanges();
+                }
+            }
+
+
+
             var gastos = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
             var ingresos = db.Ingreso_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
             var proveedors = db.Proveedor_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).FirstOrDefault();
