@@ -215,7 +215,7 @@
                         @if (Request.IsAuthenticated)
                         {
                             <div class="col-12">
-                                <p class="text-center">Bienvenido @this.User.Identity.Name <a class="blanco" style="text-decoration:underline" href="javascript:document.getElementById('logoutForm').submit()"> Cerrar sesión</a></p>
+                                <p class="text-center">Bienvenido @this.User.Identity.Name <a class="blanco" style="text-decoration:underline" href="@Url.Action("Account","LogOff");"> Cerrar sesión</a></p>
                             </div>
                         }
                         <div class="col-md-3 align-self-center">

@@ -204,6 +204,14 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
         #region 
         ////
         //// GET: /Account/VerifyCode

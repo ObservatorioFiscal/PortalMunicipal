@@ -12,7 +12,7 @@ using System.Web.Routing;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
-    //[Authorize(Roles = "admin")]  
+    [Authorize(Roles = "admin")]  
     public class AdminController : BaseController
     {
         #region login
@@ -222,31 +222,41 @@ namespace GastoTransparenteMunicipal.Controllers
                 roles.Add(new SelectListItem() { Value = municipalidad.Nombre, Text = municipalidad.Nombre });
 
             ViewBag.Roles = roles;
-
+            
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, Guid.NewGuid().ToString() );                                                           
-                if (result.Succeeded)
+                var exist = UserManager.FindByEmail(model.Email);
+                if (exist == null)
                 {
-                    result = await UserManager.AddToRolesAsync(user.Id, model.RoleName);
-                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                    var result = await UserManager.CreateAsync(user, Guid.NewGuid().ToString());
+                    if (result.Succeeded)
+                    {
+                        result = await UserManager.AddToRolesAsync(user.Id, model.RoleName);
+                        string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                    Url.RequestContext.RouteData.Values["municipality"] = model.RoleName;
-                    var callbackUrl = Url.Action("ConfirmEmail", "Cuenta", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);                    
-                    await UserManager.SendEmailAsync(user.Id, "Creacion cuenta", "Para continuar con la creación de su cuenta, haga click en el siguiente enlace y siga las instrucciones <a href=\"" + callbackUrl + "\">aquí</a>");
+                        Url.RequestContext.RouteData.Values["municipality"] = model.RoleName;
+                        var callbackUrl = Url.Action("ConfirmEmail", "Cuenta", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        await UserManager.SendEmailAsync(user.Id, "Creacion cuenta", "Para continuar con la creación de su cuenta, haga click en el siguiente enlace y siga las instrucciones <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    ViewBag.Message = "Se ha enviado un correo con las instrucciones para la creacion de la cuenta al email ingresado";
-                    ViewBag.logo = "municipio.png";
-                    ViewBag.administracion = true;
-                    return View();
+                        ViewBag.Message = "Se ha enviado un correo con las instrucciones para la creacion de la cuenta al email ingresado";
+                        ViewBag.logo = "municipio.png";
+                        ViewBag.administracion = true;
+                        return View();
+                    }
+                    else
+                    {
+                        ViewBag.logo = "municipio.png";
+                        ViewBag.administracion = true;
+                        ViewBag.Message = result.Errors;
+                    }
                 }
                 //AddErrors(result);
                 else
                 {
                     ViewBag.logo = "municipio.png";
                     ViewBag.administracion = true;
-                    ViewBag.Message = result.Errors;
+                    ViewBag.Message = "Usuario ya existe";
                 }
             }
             else
