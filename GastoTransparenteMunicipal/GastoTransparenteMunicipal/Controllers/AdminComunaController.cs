@@ -17,13 +17,18 @@ using System.Data;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
-    //[AuthorizeComuna]
+    [AuthorizeComuna]
     public class AdminComunaController : BaseController
     {
         private const string errorPassword = "ErrorPassword";
 
         public ActionResult Index()
         {
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.administracion = true;
+            var anoscargados = db.Gasto_Ano.Where(r => r.Activo == true);
+
             return View();
         }
 
@@ -33,6 +38,7 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Destacado = "hidden";
             ViewBag.administracion = true;
+            ViewBag.admimuni = true;
             ViewBag.Anos = new SelectList(db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
             ViewBag.activos = new bool[4]{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
@@ -238,6 +244,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult AbrirPeriodo()
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             var lista = db.Gasto_Ano.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad);
             List<decimal> final = new List<decimal>();
@@ -349,6 +356,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult Eliminar()
         {
+            ViewBag.admimuni = true;
             var tempdata = TempData[errorPassword];
             ViewBag.ErrorPassword = tempdata == null ? "" : tempdata as string;
 
@@ -444,7 +452,7 @@ namespace GastoTransparenteMunicipal.Controllers
             db.SP_DeletePersonal(personals == null ? 0 : personals.IdAno);
 
 
-            var municipalidad = GetCurrentIdMunicipality();
+            
             var invisibles = db.Anos_Invisible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
             var visibles = db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
             foreach (var item in visibles.ToList())
@@ -469,6 +477,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult CargaIngresos(int id)
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
@@ -718,6 +727,7 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public ActionResult CargaGastos(int id)
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
@@ -903,6 +913,7 @@ namespace GastoTransparenteMunicipal.Controllers
         #region Proveedores
         public ActionResult CargaProveedores(int id)
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
@@ -1111,6 +1122,7 @@ namespace GastoTransparenteMunicipal.Controllers
         #region Subsidios
         public ActionResult CargaSubsidios(int id)
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
@@ -1202,6 +1214,7 @@ namespace GastoTransparenteMunicipal.Controllers
         #region Corporaciones
         public ActionResult CargaCorporaciones(int id)
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
@@ -1294,6 +1307,7 @@ namespace GastoTransparenteMunicipal.Controllers
         #region Remuneraciones
         public ActionResult CargaRemuneraciones(int id)
         {
+            ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";

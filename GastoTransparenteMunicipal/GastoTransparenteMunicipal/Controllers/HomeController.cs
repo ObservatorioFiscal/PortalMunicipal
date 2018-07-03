@@ -41,6 +41,17 @@ namespace GastoTransparenteMunicipal.Controllers
             };
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.Destacado = "hidden";
+            ViewBag.nombre = municipalidad.Nombre;
+            return View();
+        }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
+
+        public ActionResult Error404()
+        {
             return View();
         }
     }

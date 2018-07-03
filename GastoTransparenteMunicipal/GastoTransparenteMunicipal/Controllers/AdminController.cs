@@ -236,20 +236,27 @@ namespace GastoTransparenteMunicipal.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Cuenta", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);                    
                     await UserManager.SendEmailAsync(user.Id, "Creacion cuenta", "Para continuar con la creación de su cuenta, haga click en el siguiente enlace y siga las instrucciones <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    ViewBag.Message = "Se ha enviado un correo con las instrucciones para la creacion de la cuenta al email ingresado";                        
-                                     
+                    ViewBag.Message = "Se ha enviado un correo con las instrucciones para la creacion de la cuenta al email ingresado";
+                    ViewBag.logo = "municipio.png";
+                    ViewBag.administracion = true;
                     return View();
                 }
                 //AddErrors(result);
                 else
                 {
+                    ViewBag.logo = "municipio.png";
+                    ViewBag.administracion = true;
                     ViewBag.Message = result.Errors;
                 }
             }
             else
             {
+                ViewBag.logo = "municipio.png";
+                ViewBag.administracion = true;
                 ViewBag.Message = "Faltan datos, Complete los datos como corresponde";
             }
+            ViewBag.logo = "municipio.png";
+            ViewBag.administracion = true;
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }

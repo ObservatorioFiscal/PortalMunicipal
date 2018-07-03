@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GastoTransparenteMunicipal.Models;
+using System.Collections.Generic;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -73,8 +74,15 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-
             var municipalidad = GetCurrentIdMunicipality();
+            if (municipalidad == null)
+            {
+                var municipalityName = RouteData.Values["municipality"].ToString();
+                if(municipalityName == "Admin")
+                {
+                    ViewBag.logo = "municipio.png";
+                }
+            }
             ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             return View();
@@ -134,9 +142,12 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult ForgotPassword()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.administracion = true;
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
+            //ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-
+            ViewBag.Destacado = "hidden";
             return View();
         }
 
@@ -173,6 +184,13 @@ namespace GastoTransparenteMunicipal.Controllers
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
+            var municipalidad = GetCurrentIdMunicipality();
+            ViewBag.activos = new List<bool>{
+                municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
+            };
+            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.Destacado = "hidden";
+
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }
@@ -181,7 +199,6 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult ForgotPasswordConfirmation()
         {
             var municipalidad = GetCurrentIdMunicipality();
-            ViewBag.administracion = true;
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
 
             return View();

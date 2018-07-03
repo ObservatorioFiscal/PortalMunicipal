@@ -76,6 +76,25 @@
                                                             </li>
                                                         }
                                                     }
+                                                    else
+                                                    {
+                                                        if (this.User.Identity.IsAuthenticated)
+                                                        {
+
+                                                            if (ViewBag.admimuni == true)
+                                                            {
+                                                                <li class="nav-item"><a href="@Url.Action("Index","AdminComuna")" class="@ViewBag.Inicio">Home</a></li>
+                                                                <li class="nav-item"><a href="@Url.Action("CargaDatos","AdminComuna")" class="@ViewBag.Inicio">Carga Datos</a></li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li class="nav-item"><a href="@Url.Action("Index","Admin")" class="@ViewBag.Inicio">Home</a></li>
+                                                                <li class="nav-item"><a href="@Url.Action("Municipio", "Admin")" class="@ViewBag.Ingreso">Editar Municipios</a></li>
+                                                                <li class="nav-item"><a href="@Url.Action("CreateAccount","Admin")" class="@ViewBag.Gasto">Agregar Usuarios</a></li>
+                                                            }
+
+                                                        }
+                                                    }
                                                 </ul>
                                             </nav>
                                         </div>
@@ -105,6 +124,23 @@
                                                             Datos<br> destacados <span class="md-12 icon-Recurso-20 menuflecha"></span>
                                                         </a>
                                                     </li>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (this.User.Identity.IsAuthenticated)
+                                                {
+                                                    if (ViewBag.admimuni == true)
+                                                    {
+                                                    <li class="nav-item"><a href="@Url.Action("Index", "AdminComuna")" class="nav-link">Home</a></li>
+                                                    <li class="nav-item"><a href="@Url.Action("CargaDatos", "AdminComuna")" class="nav-link">Carga Datos</a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link">Home</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("Municipio", "Admin")" class="nav-link">Editar Municipios</a></li>
+                                                        <li class="nav-item"><a href="@Url.Action("CreateAccount", "Admin")" class="nav-link">Agregar Usuarios</a></li>
+                                                    }
                                                 }
                                             }
                                         </ul>
@@ -176,6 +212,12 @@
             <div class="col padding-Div azulB">
                 <div class="container">
                     <div class="row">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <div class="col-12">
+                                <p class="text-center">Bienvenido @this.User.Identity.Name <a class="blanco" style="text-decoration:underline" href="javascript:document.getElementById('logoutForm').submit()"> Cerrar sesión</a></p>
+                            </div>
+                        }
                         <div class="col-md-3 align-self-center">
                             <ul>
                                 <li class="blanco"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio">Inicio</a></li>
@@ -215,7 +257,7 @@
                                 <span class="md-36 blanco icon-facebook"></span>
                             </a>
                         </div>
-                    </div>
+                        </div>
                     <div class="row">
                         <div class="col-12">
                             <p class="text-center"><small> Desarrollado por <a class="amarillo" href="https://observatoriofiscal.cl/" target="_blank">Observatorio del Gasto Fiscal en chile</a> y <a class="amarillo" href="https://www.consejotransparencia.cl/" target="_blank">Consejo para la transparencia</a>.</small> </p>

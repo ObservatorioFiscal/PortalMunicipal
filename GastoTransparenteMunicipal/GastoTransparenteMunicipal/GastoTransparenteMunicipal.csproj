@@ -317,6 +317,8 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\AdminComuna\Eliminar.cshtml" />
     <Content Include="Views\AdminComuna\CargaDatosOk.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Error404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,3 +19,4 @@ C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Core
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Core\obj\Debug\Core.csproj.CopyComplete
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Core\obj\Debug\Core.dll
 C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Core\obj\Debug\Core.pdb
+C:\Users\Lmleon\Documents\GitHub\PortalMunicipal\GastoTransparenteMunicipal\Core\obj\Debug\Core.csprojAssemblyReference.cache
