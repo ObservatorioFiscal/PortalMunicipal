@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.SessionState;
 
 namespace GastoTransparenteMunicipal
 {
@@ -18,5 +20,54 @@ namespace GastoTransparenteMunicipal
             MapperConfig.Mapping();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            GastoTransparenteMunicipalEntities db = new GastoTransparenteMunicipalEntities();
+            string routeNotMunicipality = "~/list/Home/List";
+            string routeInactivityMunicipality = "~/list/Home/List2";
+            string baseRoute = "list";
+
+            try
+            {
+                string currentPath = Request.Path.ToLower();
+                HttpSessionState curSession = HttpContext.Current.Session;
+                var parameters = currentPath.Split('/');
+
+                var municipalityName = parameters[1].ToLower();
+                var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb.ToLower() == municipalityName);
+
+                if (municipality == null && municipalityName != baseRoute)
+                {
+                    curSession.Clear();
+                    HttpContext.Current.Server.ClearError();
+                    HttpContext.Current.Response.StatusCode = (int)System.Net.HttpStatusCode.Redirect;
+                    HttpContext.Current.Response.Redirect(routeNotMunicipality, true);
+                    HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                    HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                    HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
+                    HttpContext.Current.Response.End();
+                }                    
+                else
+                {
+                    if(!municipality.Activa)
+                    {
+                        curSession.Clear();
+                        HttpContext.Current.Server.ClearError();
+                        HttpContext.Current.Response.StatusCode = (int)System.Net.HttpStatusCode.Redirect;
+                        HttpContext.Current.Response.Redirect(routeInactivityMunicipality, true);
+                        HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                        HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                        HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
+                        HttpContext.Current.Response.End();
+                    }
+                }                    
+            }
+            catch
+            {
+
+            }
+        } 
     }
 }
+

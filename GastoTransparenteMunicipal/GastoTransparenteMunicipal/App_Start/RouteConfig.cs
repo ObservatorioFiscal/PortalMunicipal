@@ -17,7 +17,7 @@ namespace GastoTransparenteMunicipal
                 name: "Default",
                 url: "{municipality}/{controller}/{action}/{id}",
                 //defaults: new { municipality = "RECOLETA", controller = "Home", action = "Index", id = UrlParameter.Optional }
-                defaults: new {  controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { municipality = "list" ,controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

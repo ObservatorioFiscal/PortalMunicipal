@@ -37,9 +37,16 @@ namespace GastoTransparenteMunicipal.Controllers
 
         public Municipalidad GetCurrentIdMunicipality()
         {
-            var municipalityName = RouteData.Values["municipality"].ToString();
-            var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb == municipalityName);
-            return municipality;
+            try
+            {
+                var municipalityName = RouteData.Values["municipality"].ToString();
+                var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb == municipalityName);
+                return municipality;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public int SaveBulk<T>(List<T> list,string tableName)

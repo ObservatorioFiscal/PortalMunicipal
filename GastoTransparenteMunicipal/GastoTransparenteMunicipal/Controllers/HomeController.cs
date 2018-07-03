@@ -11,6 +11,9 @@ namespace GastoTransparenteMunicipal.Controllers
         public ActionResult Index()
         {
             var municipalidad = GetCurrentIdMunicipality();
+            if (municipalidad == null)
+                return RedirectToAction("List");
+
             if(municipalidad != null)
             {
                 ViewBag.activos = new List<bool>
@@ -51,6 +54,16 @@ namespace GastoTransparenteMunicipal.Controllers
         }
 
         public ActionResult Error404()
+        {
+            return View();
+        }
+
+        public ActionResult List()
+        {
+            return View();
+        }
+
+        public ActionResult List2()
         {
             return View();
         }
