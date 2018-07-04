@@ -53,7 +53,7 @@ namespace GastoTransparenteMunicipal.Helpers
 
             municipalidad = municipalidad.ToUpper();
 
-            filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { municipality = municipalidad, controller = "Home", action = "Index"}));
+            filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { municipality = municipalidad, controller = "Account", action = "Login"}));
         }
     }
 }

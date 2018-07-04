@@ -1,17 +1,32 @@
-﻿
+﻿@model IEnumerable<Core.Municipalidad>
+
 @{
-    Layout = null;
+    ViewBag.Title = "Municipios";
 }
 
-<!DOCTYPE html>
+<h2>ActivarMunicipio</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<table class="table table-striped" id="tableMunicipios">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Url
+        </th>     
+    </tr>
+    @{
+        var root = HttpContext.Current.Request.Url.Host;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    <a href="@string.Format("{0}/{1}", root,item.DireccionWeb)">@string.Format("{0}/{1}", root, item.DireccionWeb)</a>
+                </td>
+            </tr>
+        }
+    }
+</table>

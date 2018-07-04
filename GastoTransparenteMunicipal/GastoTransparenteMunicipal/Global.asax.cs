@@ -24,8 +24,8 @@ namespace GastoTransparenteMunicipal
         protected void Application_AcquireRequestState(object sender, EventArgs e)
         {
             GastoTransparenteMunicipalEntities db = new GastoTransparenteMunicipalEntities();
-            string routeNotMunicipality = "~/list/Home/List";
-            string routeInactivityMunicipality = "~/list/Home/List2";
+            string routeNotMunicipality = "~/list/Home/Error";
+            string routeInactivityMunicipality = "~/list/Home/List";
             string baseRoute = "list";
             string baseAdminRoute = "admin";
 
