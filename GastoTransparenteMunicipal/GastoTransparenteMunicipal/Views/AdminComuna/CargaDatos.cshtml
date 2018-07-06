@@ -47,19 +47,18 @@
             {
                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;<span>Remuneraciones</span> <small id="remuneracion" class="paneladmin"></small></h5>
             }
-                <form action="@Url.Action("CargaDatos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
-                    <h2 class="text-right">
-                        <input type="hidden" name="id" id="anopost" />
-                        <span class="cssToolTip"><span class="md-24 icon-Recurso-help amarillo"></span><span class="oculto" style="font-size:12px">Primero tienes que tener cargada la información. Para que se active el boton. Si tienes otro periodo cargado  de este año, se eliminara automaticamente.</span></span>
-                        <button type="submit" class="btn btn-primary blanco" id="aceptarFinal" disabled="disabled">Activar Periodo</button>
-                        <a href="@Url.Action("Eliminar","AdminComuna")" class="btn btn-transparente btn-xs"><small>Elimina periodos</small></a>
-                    </h2>
-                </form>
-</div>
+            <form action="@Url.Action("CargaDatos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
+                <h2 class="text-right">
+                    <input type="hidden" name="id" id="anopost" />
+                    <span class="cssToolTip"><span class="md-24 icon-Recurso-help amarillo"></span><span class="oculto" style="font-size:12px">Primero tienes que tener cargada la información. Para que se active el boton. Si tienes otro periodo cargado  de este año, se eliminara automaticamente.</span></span>
+                    <button type="submit" class="btn btn-primary blanco" id="aceptarFinal" disabled="disabled">Activar Periodo</button>
+                    <a href="@Url.Action("Eliminar","AdminComuna")" class="btn btn-transparente btn-xs"><small>Elimina periodos</small></a>
+                </h2>
+            </form>
+        </div>
     </div>
     <div class="row padding-Div"></div>
     <div class="row padding-Div">
-        
     </div>
 </div>
 

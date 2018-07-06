@@ -53,6 +53,7 @@ namespace GastoTransparenteMunicipal.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
+            ViewBag.administracion = true;
             if (userId == null || code == null)
             {
                 return View("Error");
@@ -62,7 +63,6 @@ namespace GastoTransparenteMunicipal.Controllers
             {
                 return RedirectToAction("ResetPassword", new { userId = userId });
             }
-            
             return View("Error");
         }
 
@@ -71,9 +71,10 @@ namespace GastoTransparenteMunicipal.Controllers
         public async Task<ActionResult> ResetPassword(string userId)
         {
             //var id = userId.ToString();
+            ViewBag.administracion = true;
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.administracion = true;
-            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.logo = (municipalidad==null)?"municipalidad.png":municipalidad.DireccionWeb + ".png";
 
             var user = await UserManager.FindByIdAsync(userId);
             ResetPasswordViewModel model = new ResetPasswordViewModel();
@@ -119,7 +120,9 @@ namespace GastoTransparenteMunicipal.Controllers
             return View();
         }
 
-        public ActionResult ResetPasswordConfirmation()
+        public ActionResult
+           
+           ResetPasswordConfirmation()
         {
             return View();
         }

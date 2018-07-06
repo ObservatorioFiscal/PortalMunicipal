@@ -205,6 +205,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AuthorizeAdmin.cs" />
     <Compile Include="Helpers\AuthorizeComuna.cs" />
     <Compile Include="Helpers\ConvertTo.cs" />
     <Compile Include="Helpers\d3Object.cs" />
@@ -236,12 +237,31 @@
     <Content Include="Content\image\bg-scrollbar-thumb-y.png" />
     <Content Include="Content\image\bg-scrollbar-track-y.png" />
     <Content Include="Content\image\bg-scrollbar-trackend-y.png" />
+    <Content Include="Content\image\bien.png" />
     <Content Include="Content\image\chevron-down.svg" />
+    <Content Include="Content\image\circulos.png" />
+    <Content Include="Content\image\consejo.png" />
     <Content Include="Content\image\fondo.png" />
+    <Content Include="Content\image\fondohome.png" />
     <Content Include="Content\image\icono.png" />
     <Content Include="Content\image\iniciativa.png" />
+    <Content Include="Content\image\jadue.jpg" />
+    <Content Include="Content\image\leitao.jpg" />
     <Content Include="Content\image\logo.svg" />
+    <Content Include="Content\image\mal.png" />
+    <Content Include="Content\image\municipios\IsladePascua.png" />
+    <Content Include="Content\image\municipios\municipio.png" />
+    <Content Include="Content\image\municipios\Penalolen.png" />
     <Content Include="Content\image\municipios\recoleta.png" />
+    <Content Include="Content\image\municipios\Vitacura.png" />
+    <Content Include="Content\image\observatorio.png" />
+    <Content Include="Content\image\recoleta.png" />
+    <Content Include="Content\image\respal1.png" />
+    <Content Include="Content\image\respal2.png" />
+    <Content Include="Content\image\respal3.png" />
+    <Content Include="Content\image\torrealba.jpg" />
+    <Content Include="Content\image\transparente.png" />
+    <Content Include="Content\image\vitacura.png" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

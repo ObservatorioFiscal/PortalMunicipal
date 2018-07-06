@@ -215,7 +215,7 @@
                         @if (Request.IsAuthenticated)
                         {
                             <div class="col-12">
-                                <p class="text-center">Bienvenido @this.User.Identity.Name <a class="blanco" style="text-decoration:underline" href="@Url.Action("Account","LogOff");"> Cerrar sesión</a></p>
+                                <p class="text-center">Bienvenido @this.User.Identity.Name <a class="blanco" style="text-decoration:underline" href="@Url.Action("LogOff","Account")"> Cerrar sesión</a></p>
                             </div>
                         }
                         <div class="col-md-3 align-self-center">
@@ -277,23 +277,18 @@
         $(document).ready(function () {
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 25) {
-                    $(".logo-top").css("padding", "0")
+                    $(".logo-top").css("padding", "5px 0 0 0")
                     //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 0.95)")
                     $(".menu-auxiliar").css("opacity", "1")
-
                     var URLactual = window.location.pathname;
                     if (URLactual.includes("DatosDestacados")) {
                         $("#barra-primera").css("height", "0")
                         $("#barra-primera").css("opacity", "0")
                     }
-                    
-
-                    
                 }
                 if ($(this).scrollTop() < 25) {
                     $(".logo-top").css("padding", "15px 0")
                     //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 1)")
-                    
                     $(".menu-auxiliar").css("opacity", "0")
                     var URLactual = window.location.pathname;
                     if (URLactual.includes("DatosDestacados")) {

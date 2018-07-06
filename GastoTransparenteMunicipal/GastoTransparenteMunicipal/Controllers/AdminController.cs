@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using GastoTransparenteMunicipal.Helpers;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
-    [Authorize(Roles = "admin")]  
+    [AuthorizeAdmin]  
     public class AdminController : BaseController
     {
         #region login
@@ -72,8 +73,12 @@ namespace GastoTransparenteMunicipal.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            ViewBag.Destacado = "hidden";
+            ViewBag.administracion = true;
             ViewBag.logo = "municipio.png";
-            return View();
+            //List<Core.Municipalidad> municipios = db.Municipalidad.Where(r => !r.Activa).ToList();
+            List<Core.Municipalidad> municipios = db.Municipalidad.Where(r=>r.Activa==true).ToList();
+            return View(municipios);
         }
 
         public ActionResult Municipio()

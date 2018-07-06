@@ -1,18 +1,46 @@
-﻿
+﻿@model IEnumerable<Core.Municipalidad>
+
 @{
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ActivarMunicipio";
 }
+
 <div class="row seccion-destado">
     <div class="col">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>HOLAA</h2>
+                    <h1>
+                        Municipios activos
+                    </h1>
+                </div>
+                <div class="col-12">
+                    <table class="table table-striped" id="tableMunicipios">
+                        <tr>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Última actualización
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @item.Nombre
+                            </td>
+                            <td>
+                                @item.Gasto_Ano.Last().UpdatedOn.Value.ToShortDateString()
+                            </td>
+                        </tr>
+                        }
+
+                    </table>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 

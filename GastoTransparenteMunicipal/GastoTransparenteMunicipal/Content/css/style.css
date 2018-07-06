@@ -76,6 +76,10 @@ h6{
 	color:#f1c330;
 }
 
+.azul {
+    color: #0D2B50;
+}
+
 .azulB{
 	background-color:#0D2B50;
 	color:#ffffff;
@@ -553,4 +557,8 @@ h6{
 
 .subimg {
     vertical-align: sub;
+}
+
+.salto{
+    margin-bottom:100px;
 }

@@ -35,33 +35,47 @@ namespace GastoTransparenteMunicipal
                 HttpSessionState curSession = HttpContext.Current.Session;
                 var parameters = currentPath.Split('/');
 
-                var municipalityName = parameters[1].ToLower();
-                var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb.ToLower() == municipalityName);
-                if (municipalityName != baseAdminRoute || routeNotMunicipality.Contains(currentPath) || routeNotMunicipality.Contains(routeInactivityMunicipality))
+                if (parameters.Count() < 1 || parameters[1] == "")
                 {
-                    if (municipality == null && municipalityName != baseRoute)
+                    curSession.Clear();
+                    HttpContext.Current.Server.ClearError();
+                    HttpContext.Current.Response.StatusCode = (int)System.Net.HttpStatusCode.Redirect;
+                    HttpContext.Current.Response.Redirect(routeInactivityMunicipality, true);
+                    HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                    HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                    HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
+                    HttpContext.Current.Response.End();
+                }
+                else
+                {
+                    var municipalityName = parameters[1].ToLower();
+                    var municipality = db.Municipalidad.SingleOrDefault(r => r.DireccionWeb.ToLower() == municipalityName);
+                    if (municipalityName != baseAdminRoute && !routeNotMunicipality.Contains(currentPath) && !routeNotMunicipality.Contains(routeInactivityMunicipality))
                     {
-                        curSession.Clear();
-                        HttpContext.Current.Server.ClearError();
-                        HttpContext.Current.Response.StatusCode = (int)System.Net.HttpStatusCode.Redirect;
-                        HttpContext.Current.Response.Redirect(routeNotMunicipality, true);
-                        HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
-                        HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
-                        HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
-                        HttpContext.Current.Response.End();
-                    }
-                    else
-                    {
-                        if (!municipality.Activa)
+                        if (municipality == null && municipalityName != baseRoute)
                         {
                             curSession.Clear();
                             HttpContext.Current.Server.ClearError();
                             HttpContext.Current.Response.StatusCode = (int)System.Net.HttpStatusCode.Redirect;
-                            HttpContext.Current.Response.Redirect(routeInactivityMunicipality, true);
+                            HttpContext.Current.Response.Redirect(routeNotMunicipality, true);
                             HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
                             HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
                             HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
                             HttpContext.Current.Response.End();
+                        }
+                        else
+                        {
+                            if (!municipality.Activa)
+                            {
+                                curSession.Clear();
+                                HttpContext.Current.Server.ClearError();
+                                HttpContext.Current.Response.StatusCode = (int)System.Net.HttpStatusCode.Redirect;
+                                HttpContext.Current.Response.Redirect(routeInactivityMunicipality, true);
+                                HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                                HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                                HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
+                                HttpContext.Current.Response.End();
+                            }
                         }
                     }
                 }

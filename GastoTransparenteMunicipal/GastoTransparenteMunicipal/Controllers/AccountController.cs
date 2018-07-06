@@ -77,14 +77,14 @@ namespace GastoTransparenteMunicipal.Controllers
             var municipalidad = GetCurrentIdMunicipality();
             if (municipalidad == null)
             {
-                var municipalityName = RouteData.Values["municipality"].ToString();
-                if(municipalityName == "Admin")
+                var municipalityName = RouteData.Values["municipality"].ToString().ToLower();
+                if(municipalityName == "admin")
                 {
                     ViewBag.logo = "municipio.png";
                 }
             }
             ViewBag.administracion = true;
-            ViewBag.logo = municipalidad.DireccionWeb + ".png";
+            ViewBag.logo = (municipalidad==null)? "municipio.png" : municipalidad.DireccionWeb + ".png";
             return View();
         }
 
@@ -124,8 +124,11 @@ namespace GastoTransparenteMunicipal.Controllers
                 case SignInStatus.Success:
                     var roles = await UserManager.GetRolesAsync(user.Id);                                        
                     var redirectUrl = roles.First().ToUpper();
-                    returnUrl = "/" + redirectUrl + "/" + "AdminComuna/CargaDatos" ;
-                    
+                    if(redirectUrl != "ADMIN")
+                        returnUrl = "/" + redirectUrl + "/" + "AdminComuna/CargaDatos" ;
+                    else
+                        returnUrl = "/" + redirectUrl + "/" + "admin/Municipio";
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
