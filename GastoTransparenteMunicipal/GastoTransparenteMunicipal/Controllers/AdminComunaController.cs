@@ -15,6 +15,7 @@ using NPOI.SS.UserModel;
 using System.Data.Entity;
 using System.Data;
 using System.Text;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -44,19 +45,21 @@ namespace GastoTransparenteMunicipal.Controllers
             return sb;
         }
 
-        public void UploadCSV(string fileName, StringBuilder data)
+        public string UploadCSV(string fileName, StringBuilder data)
         {
             BlobService blobService = new BlobService(GetAccountName, GetAccountKey);
-            var blob = blobService.UploadBlob("municipio/ano/ingresos.csv", "dataset", data);
+            var blob = blobService.UploadBlob(fileName, "dataset", data);
+            return blob.Uri.AbsoluteUri;
         }
+
+
 
         public ActionResult Index()
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
             ViewBag.administracion = true;
-            var anoscargados = db.Gasto_Ano.Where(r => r.Activo == true);
-
+            var anoscargados = db.Gasto_Ano.Where(r => r.Activo == true);         
             return View();
         }
 
@@ -595,6 +598,12 @@ namespace GastoTransparenteMunicipal.Controllers
             }
 
             db.SaveChanges();
+
+            var ds = db.IngresoInformev2.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
+            var csv = StringCSV(ds);
+            var blobPath = UploadCSV(ingresoAno.Ano.ToString() + "/ingreso/dataset.csv", csv);
+            ingresoAno.FilePath = blobPath;
+
             db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
 
             db.ChangeTracker.DetectChanges();
@@ -882,10 +891,17 @@ namespace GastoTransparenteMunicipal.Controllers
             }
 
             db.SaveChanges();
+
+            var ds = db.GastoInforme.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
+            var csv = StringCSV(ds);
+            var blobPath = UploadCSV(gastoAno.Ano.ToString() + "/gasto/dataset.csv", csv);
+            gastoAno.FilePath = blobPath;
+
             db.SP_InformeGasto(loadReport.IdGroupInforme, gastoAno.IdAno);
 
             db.ChangeTracker.DetectChanges();
             db.SaveChanges();
+
             return RedirectToAction("CargaDatos");
         }
        
@@ -1128,6 +1144,20 @@ namespace GastoTransparenteMunicipal.Controllers
             }
 
             db.SaveChanges();
+
+            var ds = db.Proveedor_AdmInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var ds1 = db.Proveedor_CementerioInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var ds2 = db.Proveedor_EducacionInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var ds3 = db.Proveedor_SaludInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+
+            ds.AddRange(ds1);
+            ds.AddRange(ds2);
+            ds.AddRange(ds3);            
+
+            var csv = StringCSV(ds);
+            var blobPath = UploadCSV(proveedorAno.Ano.ToString() + "/proveedor/dataset.csv", csv);
+            proveedorAno.FilePath = blobPath;
+
             db.SP_ProveedorTotal(loadReport.IdGroupInforme, proveedorAno.IdAno);
 
             db.ChangeTracker.DetectChanges();
@@ -1267,6 +1297,7 @@ namespace GastoTransparenteMunicipal.Controllers
         #endregion
 
         #region Subsidios
+
         public ActionResult CargaSubsidios(int id)
         {
             ViewBag.admimuni = true;
@@ -1358,6 +1389,12 @@ namespace GastoTransparenteMunicipal.Controllers
                 //db.SubsidioInforme.AddRange(result);                
                 //db.SaveChanges();
                 SaveBulk(result, "SubsidioInforme");
+
+                var ds = db.SubsidioInforme.OrderBy(r => r.IdGroupInformeSubsidio == loadReport.IdGroupInforme).ToList();
+                var csv = StringCSV(ds);
+                var blobPath = UploadCSV(subsidioAno.Ano.ToString() + "/subsidio/dataset.csv", csv);
+                subsidioAno.FilePath = blobPath;
+
                 db.SP_InformeSubsidio(loadReport.IdGroupInforme, subsidioAno.IdAno);
             }
 
@@ -1461,6 +1498,12 @@ namespace GastoTransparenteMunicipal.Controllers
                 //db.CorporacionInforme.AddRange(result);
                 //db.SaveChanges();
                 SaveBulk(result, "CorporacionInforme");
+
+                var ds = db.CorporacionInforme.OrderBy(r => r.IdGroupInforme == loadReport.IdGroupInforme).ToList();
+                var csv = StringCSV(ds);
+                var blobPath = UploadCSV(corporacionAno.Ano.ToString() + "/corporacion/dataset.csv", csv);
+                corporacionAno.FilePath = blobPath;
+
                 db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);
             }
 
@@ -1708,6 +1751,18 @@ namespace GastoTransparenteMunicipal.Controllers
                     db.SP_InformePersonalCementerio(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
             }
+            var ds = db.Personal_AdmInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var ds1 = db.Personal_CementerioInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var ds2 = db.Personal_EducacionInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var ds3 = db.Personal_SaludInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+
+            ds.AddRange(ds1);
+            ds.AddRange(ds2);
+            ds.AddRange(ds3);
+
+            var csv = StringCSV(ds);
+            var blobPath = UploadCSV(personalAno.Ano.ToString() + "/remuneracion/dataset.csv", csv);
+            personalAno.FilePath = blobPath;
 
             db.SP_InformePersonalMunicipioTotal(loadReport.IdGroupInforme, personalAno.IdAno);
 
