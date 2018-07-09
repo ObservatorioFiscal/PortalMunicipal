@@ -21,6 +21,8 @@ namespace GastoTransparenteMunicipal.Controllers
     public class AdminComunaController : BaseController
     {
         private const string errorPassword = "ErrorPassword";
+        private const string errorMessage = "Error en columna numero ";
+        private const string okMessage = "OK";
 
         public ActionResult Index()
         {
@@ -618,11 +620,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;                
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -640,11 +652,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);                    
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -662,11 +684,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);                    
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -684,11 +716,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);                    
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }      
         }
 
@@ -835,11 +877,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "ADM. Y SERVICIOS", 1);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -857,11 +909,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "SALUD", 2);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
                                    
@@ -879,11 +941,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "EDUCACION", 3);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
                                    
@@ -901,11 +973,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "CEMENTERIO", 4);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
         #endregion
@@ -1042,11 +1124,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1065,11 +1157,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1087,11 +1189,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1109,12 +1221,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
-
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
         #endregion
@@ -1164,11 +1285,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     LoadReport loadReport = new LoadReport();
                     var result = loadReport.LoadInformeSubsidio(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1256,11 +1387,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     LoadReport loadReport = new LoadReport();
                     var result = loadReport.LoadInformeCorporaciones(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1350,11 +1491,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1374,11 +1525,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     var result = loadReport.LoadInformePersonalSalud(xssfwb);
                 }
 
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1396,11 +1557,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalEducacion(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 
@@ -1419,11 +1590,21 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalCementerio(xssfwb);
                 }
-                return Json(isValid);
+                var resultJson = new { isValid = !isValid, message = okMessage };
+                return Json(resultJson);
             }
             catch (Exception ex)
             {
-                return Json(!isValid);
+                var position = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().IndexOf("GetCell");
+                position = position + 8;
+                var columnPositionString = ((AutoMapper.AutoMapperMappingException)ex).PropertyMap.CustomExpression.ToString().Substring(position, 1);
+                var columnPositionint = 0;
+                int.TryParse(columnPositionString, out columnPositionint);
+                columnPositionint++;
+                var message = errorMessage + columnPositionint;
+
+                var resultJson = new { isValid = !isValid, message = message };
+                return Json(resultJson);
             }
         }
 

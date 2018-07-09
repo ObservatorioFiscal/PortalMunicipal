@@ -36,6 +36,8 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
                         <input type="hidden" id="fileStatusAdm" />
+                        <br />
+                        <label id="messagefileStatusAdm" />
                     </small>
                 </p>
                 <hr />
@@ -49,6 +51,8 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
                         <input type="hidden" id="fileStatusSalud" />
+                        <br />
+                        <label id="messagefileStatusSalud" />
                     </small>
                 </p>
                 <hr />
@@ -62,6 +66,8 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
                         <input type="hidden" id="fileStatusEducacion" />
+                        <br />
+                        <label id="messagefileStatusEducacion" />
                     </small>
                 </p>
                 <hr />
@@ -79,6 +85,8 @@
                         <small>
                             <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
                             <input type="hidden" id="fileStatusCementerio" />
+                            <br />
+                            <label id="messagefileStatusCementerio" />
                         </small>
                     </p>
                     <hr />
@@ -132,8 +140,9 @@
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    $("#" + result).val(response);
-                    checkSingleStatus(name,response);
+                    $("#" + result).val(response.isValid);
+                    $("#message" + result).text(response.message);
+                    checkSingleStatus(name, response.isValid);
                     checkAllStatus();
                 }
             });

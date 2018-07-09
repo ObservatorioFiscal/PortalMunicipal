@@ -31,6 +31,8 @@
                     Archivo
                     <input type="file" accept=".xls,.xlsx" id="file" name="file" />
                     <input type="hidden" id="fileStatus" />
+                    <br />
+                    <label id="messagefileStatus" />
                     <span id="success" class="md-36 icon-Recurso15" style="display:none"></span>
                     <span id="error" class="md-36 icon-Recurso14" style="display:none"></span>
                 </label><br />
@@ -73,8 +75,9 @@
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    $("#" + result).val(response);
-                    checkSingleStatus(name,response);
+                    $("#" + result).val(response.isValid);
+                    $("#message" + result).text(response.message);
+                    checkSingleStatus(name, response.isValid);
                     checkAllStatus();
                 }
             });
