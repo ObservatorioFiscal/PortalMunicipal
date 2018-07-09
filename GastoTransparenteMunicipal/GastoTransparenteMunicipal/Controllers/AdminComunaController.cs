@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using NPOI.SS.UserModel;
 using System.Data.Entity;
 using System.Data;
+using System.Text;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -23,6 +24,31 @@ namespace GastoTransparenteMunicipal.Controllers
         private const string errorPassword = "ErrorPassword";
         private const string errorMessage = "Error en columna numero ";
         private const string okMessage = "OK";
+
+        public StringBuilder StringCSV<T>(List<T> listItem)
+        {
+            ConvertTo convert = new ConvertTo();            
+            var dt = convert.DataTable(listItem);
+
+            StringBuilder sb = new StringBuilder();
+            IEnumerable<string> columnNames = dt.Columns.Cast<DataColumn>().Select(column => column.ColumnName);
+
+            sb.AppendLine(string.Join("|", columnNames));
+
+            foreach (DataRow row in dt.Rows)
+            {
+                IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString());
+                sb.AppendLine(string.Join("|", fields));
+            }            
+
+            return sb;
+        }
+
+        public void UploadCSV(string fileName, StringBuilder data)
+        {
+            BlobService blobService = new BlobService(GetAccountName, GetAccountKey);
+            var blob = blobService.UploadBlob("municipio/ano/ingresos.csv", "dataset", data);
+        }
 
         public ActionResult Index()
         {
