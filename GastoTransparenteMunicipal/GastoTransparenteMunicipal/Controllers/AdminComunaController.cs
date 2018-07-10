@@ -16,6 +16,7 @@ using System.Data.Entity;
 using System.Data;
 using System.Text;
 using Microsoft.WindowsAzure.Storage.Blob;
+using AutoMapper;
 
 namespace GastoTransparenteMunicipal.Controllers
 {
@@ -564,24 +565,21 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileAdm.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
-                    //db.IngresoInformev2.AddRange(result);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);                    
                     SaveBulk(result, "IngresoInformev2");
                 }
 
                 using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);
-                    //db.IngresoInformev2.AddRange(result);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);                    
                     SaveBulk(result, "IngresoInformev2");
                 }
 
                 using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);
-                    //db.IngresoInformev2.AddRange(result);
+                    var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);                    
                     SaveBulk(result, "IngresoInformev2");
                 }
 
@@ -590,8 +588,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     using (Stream fileStream = fileCementerio.InputStream)
                     {
                         xssfwb = new XSSFWorkbook(fileStream);
-                        var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);
-                        //db.IngresoInformev2.AddRange(result);
+                        var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);                        
                         SaveBulk(result, "IngresoInformev2");
                     }
                 }
@@ -599,10 +596,12 @@ namespace GastoTransparenteMunicipal.Controllers
 
             db.SaveChanges();
 
-            var ds = db.IngresoInformev2.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
-            var csv = StringCSV(ds);
+            var data = db.IngresoInformev2.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
+            var dataInforme = Mapper.Map<List<Core.IngresoInformev2>, List<Core.Models.Ingreso.IngresoInforme>>(data);
+
+            var csv = StringCSV(dataInforme);
             var blobPath = UploadCSV(ingresoAno.Ano.ToString() + "/ingreso/dataset.csv", csv);
-            ingresoAno.FilePath = blobPath;
+            ingresoAno.DataFilePath = blobPath;
 
             db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
 
@@ -857,24 +856,21 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileAdm.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeGastov2(xssfwb, "ADM. Y SERVICIOS", 1);
-                    //db.GastoInformev2.AddRange(result);
+                    var result = loadReport.LoadInformeGastov2(xssfwb, "ADM. Y SERVICIOS", 1);                   
                     SaveBulk(result, "GastoInformev2");
                 }
 
                 using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeGastov2(xssfwb, "SALUD", 2);
-                    //db.GastoInformev2.AddRange(result);
+                    var result = loadReport.LoadInformeGastov2(xssfwb, "SALUD", 2);                    
                     SaveBulk(result, "GastoInformev2");
                 }
 
                 using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeGastov2(xssfwb, "EDUCACION", 3);
-                    //db.GastoInformev2.AddRange(result);
+                    var result = loadReport.LoadInformeGastov2(xssfwb, "EDUCACION", 3);                    
                     SaveBulk(result, "GastoInformev2");
                 }
 
@@ -883,19 +879,20 @@ namespace GastoTransparenteMunicipal.Controllers
                     using (Stream fileStream = fileCementerio.InputStream)
                     {
                         xssfwb = new XSSFWorkbook(fileStream);
-                        var result = loadReport.LoadInformeGastov2(xssfwb, "CEMENTERIO", 4);
-                        //db.GastoInformev2.AddRange(result);
+                        var result = loadReport.LoadInformeGastov2(xssfwb, "CEMENTERIO", 4);                        
                         SaveBulk(result, "GastoInformev2");
                     }
                 }
             }
 
             db.SaveChanges();
+            
+            var data = db.GastoInformev2.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
+            var dataInforme = Mapper.Map<List<Core.GastoInformev2>, List<Core.Models.Gasto.GastoInforme>>(data);
 
-            var ds = db.GastoInforme.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
-            var csv = StringCSV(ds);
+            var csv = StringCSV(dataInforme);
             var blobPath = UploadCSV(gastoAno.Ano.ToString() + "/gasto/dataset.csv", csv);
-            gastoAno.FilePath = blobPath;
+            gastoAno.DataFilePath = blobPath;
 
             db.SP_InformeGasto(loadReport.IdGroupInforme, gastoAno.IdAno);
 
@@ -1095,9 +1092,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
 
-                    var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
-                    //db.Proveedor_AdmInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);                    
                     SaveBulk(result, "Proveedor_AdmInforme");
                     db.SP_ProveedorAdm(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
@@ -1108,9 +1103,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
-                    //db.Proveedor_SaludInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformeProveedoresSalud(xssfwb);                    
                     SaveBulk(result, "Proveedor_SaludInforme");
                     db.SP_ProveedorSalud(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
@@ -1121,9 +1114,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
-                    //db.Proveedor_EducacionInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);                    
                     SaveBulk(result, "Proveedor_EducacionInforme");
                     db.SP_ProveedorEducacion(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
@@ -1134,9 +1125,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileCementerio.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
-                    //db.Proveedor_CementerioInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);                    
                     SaveBulk(result, "Proveedor_CementerioInforme");
                     db.SP_ProveedorCementerio(loadReport.IdGroupInforme, proveedorAno.IdAno);
                 }
@@ -1145,18 +1134,25 @@ namespace GastoTransparenteMunicipal.Controllers
 
             db.SaveChanges();
 
-            var ds = db.Proveedor_AdmInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
-            var ds1 = db.Proveedor_CementerioInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
-            var ds2 = db.Proveedor_EducacionInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
-            var ds3 = db.Proveedor_SaludInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var data = db.Proveedor_AdmInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var data1 = db.Proveedor_CementerioInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var data2 = db.Proveedor_EducacionInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
+            var data3 = db.Proveedor_SaludInforme.OrderBy(r => r.IdGroupInformeProveedores == loadReport.IdGroupInforme).ToList();
 
-            ds.AddRange(ds1);
-            ds.AddRange(ds2);
-            ds.AddRange(ds3);            
+            
+            var dataInforme = Mapper.Map<List<Core.Proveedor_AdmInforme>, List<Core.Models.Proveedor.ProveedorInforme>>(data);
+            var dataInforme1 = Mapper.Map<List<Core.Proveedor_CementerioInforme>, List<Core.Models.Proveedor.ProveedorInforme>>(data1);
+            var dataInforme2 = Mapper.Map<List<Core.Proveedor_EducacionInforme>, List<Core.Models.Proveedor.ProveedorInforme>>(data2);
+            var dataInforme3 = Mapper.Map<List<Core.Proveedor_SaludInforme>, List<Core.Models.Proveedor.ProveedorInforme>>(data3);
 
-            var csv = StringCSV(ds);
+            dataInforme.AddRange(dataInforme1);
+            dataInforme.AddRange(dataInforme2);
+            dataInforme.AddRange(dataInforme3);            
+
+            var csv = StringCSV(dataInforme);
+
             var blobPath = UploadCSV(proveedorAno.Ano.ToString() + "/proveedor/dataset.csv", csv);
-            proveedorAno.FilePath = blobPath;
+            proveedorAno.DataFilePath = blobPath;
 
             db.SP_ProveedorTotal(loadReport.IdGroupInforme, proveedorAno.IdAno);
 
@@ -1385,15 +1381,15 @@ namespace GastoTransparenteMunicipal.Controllers
             {
                 xssfwb = new XSSFWorkbook(fileStream);
                 LoadReport loadReport = new LoadReport();
-                var result = loadReport.LoadInformeSubsidio(xssfwb);
-                //db.SubsidioInforme.AddRange(result);                
-                //db.SaveChanges();
+                var result = loadReport.LoadInformeSubsidio(xssfwb);                
                 SaveBulk(result, "SubsidioInforme");
 
-                var ds = db.SubsidioInforme.OrderBy(r => r.IdGroupInformeSubsidio == loadReport.IdGroupInforme).ToList();
-                var csv = StringCSV(ds);
+                var data = db.SubsidioInforme.OrderBy(r => r.IdGroupInformeSubsidio == loadReport.IdGroupInforme).ToList();
+                var dataInforme = Mapper.Map<List<Core.SubsidioInforme>, List<Core.Models.Subsidio.SubsidioInforme>>(data);
+
+                var csv = StringCSV(dataInforme);
                 var blobPath = UploadCSV(subsidioAno.Ano.ToString() + "/subsidio/dataset.csv", csv);
-                subsidioAno.FilePath = blobPath;
+                subsidioAno.DataFilePath = blobPath;
 
                 db.SP_InformeSubsidio(loadReport.IdGroupInforme, subsidioAno.IdAno);
             }
@@ -1494,15 +1490,15 @@ namespace GastoTransparenteMunicipal.Controllers
             {
                 xssfwb = new XSSFWorkbook(fileStream);
                 LoadReport loadReport = new LoadReport();
-                var result = loadReport.LoadInformeCorporaciones(xssfwb);
-                //db.CorporacionInforme.AddRange(result);
-                //db.SaveChanges();
+                var result = loadReport.LoadInformeCorporaciones(xssfwb);                
                 SaveBulk(result, "CorporacionInforme");
+                
+                var data = db.CorporacionInforme.OrderBy(r => r.IdGroupInforme == loadReport.IdGroupInforme).ToList();
+                var dataInforme = Mapper.Map<List<Core.CorporacionInforme>, List<Core.Models.Corporacion.CorporacionInforme>>(data);
 
-                var ds = db.CorporacionInforme.OrderBy(r => r.IdGroupInforme == loadReport.IdGroupInforme).ToList();
-                var csv = StringCSV(ds);
+                var csv = StringCSV(dataInforme);
                 var blobPath = UploadCSV(corporacionAno.Ano.ToString() + "/corporacion/dataset.csv", csv);
-                corporacionAno.FilePath = blobPath;
+                corporacionAno.DataFilePath = blobPath;
 
                 db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);
             }
@@ -1705,9 +1701,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
 
-                    var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);
-                    //db.Personal_AdmInforme.AddRange(result);
-                    //db.SaveChanges();                    
+                    var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);                    
                     SaveBulk(result, "Personal_AdmInforme");
                     db.SP_InformePersonalAdm(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
@@ -1718,9 +1712,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileSalud.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformePersonalSalud(xssfwb);
-                    //db.Personal_SaludInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformePersonalSalud(xssfwb);                    
                     SaveBulk(result, "Personal_SaludInforme");
                     db.SP_InformePersonalSalud(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
@@ -1731,9 +1723,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileEducacion.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformePersonalEducacion(xssfwb);
-                    //db.Personal_EducacionInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformePersonalEducacion(xssfwb);                    
                     SaveBulk(result, "Personal_EducacionInforme");
                     db.SP_InformePersonalEducacion(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
@@ -1744,25 +1734,28 @@ namespace GastoTransparenteMunicipal.Controllers
                 using (Stream fileStream = fileCementerio.InputStream)
                 {
                     xssfwb = new XSSFWorkbook(fileStream);
-                    var result = loadReport.LoadInformePersonalCementerio(xssfwb);
-                    //db.Personal_CementerioInforme.AddRange(result);
-                    //db.SaveChanges();
+                    var result = loadReport.LoadInformePersonalCementerio(xssfwb);                    
                     SaveBulk(result, "Personal_CementerioInforme");
                     db.SP_InformePersonalCementerio(loadReport.IdGroupInforme, personalAno.IdAno);
                 }
             }
-            var ds = db.Personal_AdmInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
-            var ds1 = db.Personal_CementerioInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
-            var ds2 = db.Personal_EducacionInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
-            var ds3 = db.Personal_SaludInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var data = db.Personal_AdmInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var data1 = db.Personal_CementerioInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var data2 = db.Personal_EducacionInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            var data3 = db.Personal_SaludInforme.OrderBy(r => r.IdGroupInformePersonal == loadReport.IdGroupInforme).ToList();
+            
+            var dataInforme = Mapper.Map<List<Core.Personal_AdmInforme>, List<Core.Models.Personal.PersonalInforme>>(data);
+            var dataInforme1 = Mapper.Map<List<Core.Personal_CementerioInforme>, List<Core.Models.Personal.PersonalInforme>>(data1);
+            var dataInforme2 = Mapper.Map<List<Core.Personal_EducacionInforme>, List<Core.Models.Personal.PersonalInforme>>(data2);
+            var dataInforme3 = Mapper.Map<List<Core.Personal_SaludInforme>, List<Core.Models.Personal.PersonalInforme>>(data3);
 
-            ds.AddRange(ds1);
-            ds.AddRange(ds2);
-            ds.AddRange(ds3);
+            dataInforme.AddRange(dataInforme1);
+            dataInforme.AddRange(dataInforme2);
+            dataInforme.AddRange(dataInforme3);
 
-            var csv = StringCSV(ds);
+            var csv = StringCSV(dataInforme);
             var blobPath = UploadCSV(personalAno.Ano.ToString() + "/remuneracion/dataset.csv", csv);
-            personalAno.FilePath = blobPath;
+            personalAno.DataFilePath = blobPath;
 
             db.SP_InformePersonalMunicipioTotal(loadReport.IdGroupInforme, personalAno.IdAno);
 

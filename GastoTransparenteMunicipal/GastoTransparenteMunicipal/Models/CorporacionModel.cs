@@ -5,6 +5,7 @@ using System.Web;
 using Core;
 using AutoMapper;
 using Newtonsoft.Json;
+using Core.Models.Corporacion;
 
 namespace GastoTransparenteMunicipal.Models
 {

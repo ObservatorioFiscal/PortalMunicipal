@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core
+namespace Core.Models.Ingreso
 {
-    public class Ingreso_N4
+    public class Ingreso_N2
     {
-        public long IdNivel4 { get; set; }
-        public Nullable<long> IdNivel3 { get; set; }
+        public long IdNivel2 { get; set; }
+        public Nullable<long> IdNivel1 { get; set; }
         public string Nombre { get; set; }
         public string Tipo { get; set; }
         public Nullable<long> MontoGastado { get; set; }

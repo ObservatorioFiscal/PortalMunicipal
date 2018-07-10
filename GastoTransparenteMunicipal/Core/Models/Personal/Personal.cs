@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core
+namespace Core.Models.Personal
 {
     public class Personal
     {
@@ -14,7 +14,7 @@ namespace Core
         public Personal()
         {
             this.Personal_Nivel1 = new Personal_Nivel1();
-            this.Personal_Nivel2 = new List<Core.Personal_Nivel2>();
+            this.Personal_Nivel2 = new List<Models.Personal.Personal_Nivel2>();
         }        
     }
 }

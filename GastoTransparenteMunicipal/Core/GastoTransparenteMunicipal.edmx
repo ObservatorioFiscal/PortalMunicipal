@@ -24,6 +24,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+          <Property Name="DataFilePath" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Corporacion_Nivel1">
           <Key>
@@ -58,6 +59,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+          <Property Name="DataFilePath" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Gasto_Glosa">
           <Key>
@@ -171,6 +173,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+          <Property Name="DataFilePath" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Ingreso_Glosa">
           <Key>
@@ -341,6 +344,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+          <Property Name="DataFilePath" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Personal_Cementerio_Nivel1">
           <Key>
@@ -524,6 +528,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+          <Property Name="DataFilePath" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Proveedor_Cementerio_Nivel1">
           <Key>
@@ -655,6 +660,7 @@
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Semestre" Type="decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="bit" Nullable="false" />
+          <Property Name="DataFilePath" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Subsidio_Nivel1">
           <Key>
@@ -1324,9 +1330,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
         <Function Name="SP_SumaGastoByIdAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
           <Parameter Name="IdAno" Type="bigint" Mode="In" />
         </Function>
-        <Function Name="CapitalizeFirstLetter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
-          <Parameter Name="string" Type="varchar(max)" Mode="In" />
-        </Function>
         <Function Name="SP_InformeGastoArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdAno" Type="int" Mode="In" />
           <Parameter Name="NumeroDecimales" Type="int" Mode="In" />
@@ -1911,231 +1914,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <FunctionImport Name="SP_DeleteSubsidio">
           <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
-          <EntitySet Name="Comunas" EntityType="GastoTransparenteMunicipalModel.Comunas" />
-          <EntitySet Name="Corporacion_Ano" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano" />
-          <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
-          <EntitySet Name="CorporacionInforme" EntityType="GastoTransparenteMunicipalModel.CorporacionInforme" />
-          <EntitySet Name="Gasto_Ano" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano" />
-          <EntitySet Name="Gasto_Glosa" EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" />
-          <EntitySet Name="Gasto_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" />
-          <EntitySet Name="Gasto_Nivel1" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel1" />
-          <EntitySet Name="Gasto_Nivel2" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel2" />
-          <EntitySet Name="Gasto_Nivel3" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel3" />
-          <EntitySet Name="Gasto_Nivel4" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel4" />
-          <EntitySet Name="GastoInforme" EntityType="GastoTransparenteMunicipalModel.GastoInforme" />
-          <EntitySet Name="GastoInformev2" EntityType="GastoTransparenteMunicipalModel.GastoInformev2" />
-          <EntitySet Name="Ingreso_Ano" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano" />
-          <EntitySet Name="Ingreso_Glosa" EntityType="GastoTransparenteMunicipalModel.Ingreso_Glosa" />
-          <EntitySet Name="Ingreso_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" />
-          <EntitySet Name="Ingreso_Nivel1" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel1" />
-          <EntitySet Name="Ingreso_Nivel2" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel2" />
-          <EntitySet Name="Ingreso_Nivel3" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel3" />
-          <EntitySet Name="Ingreso_Nivel4" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel4" />
-          <EntitySet Name="IngresoInforme" EntityType="GastoTransparenteMunicipalModel.IngresoInforme" />
-          <EntitySet Name="IngresoInformev2" EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" />
-          <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
-          <EntitySet Name="Personal_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" />
-          <EntitySet Name="Personal_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2" />
-          <EntitySet Name="Personal_AdmInforme" EntityType="GastoTransparenteMunicipalModel.Personal_AdmInforme" />
-          <EntitySet Name="Personal_Ano" EntityType="GastoTransparenteMunicipalModel.Personal_Ano" />
-          <EntitySet Name="Personal_Cementerio_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1" />
-          <EntitySet Name="Personal_Cementerio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel2" />
-          <EntitySet Name="Personal_CementerioInforme" EntityType="GastoTransparenteMunicipalModel.Personal_CementerioInforme" />
-          <EntitySet Name="Personal_Educacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1" />
-          <EntitySet Name="Personal_Educacion_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel2" />
-          <EntitySet Name="Personal_EducacionInforme" EntityType="GastoTransparenteMunicipalModel.Personal_EducacionInforme" />
-          <EntitySet Name="Personal_Salud_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1" />
-          <EntitySet Name="Personal_Salud_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Salud_Nivel2" />
-          <EntitySet Name="Personal_SaludInforme" EntityType="GastoTransparenteMunicipalModel.Personal_SaludInforme" />
-          <EntitySet Name="Personal_Total_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" />
-          <EntitySet Name="Personal_Total_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Total_Nivel2" />
-          <EntitySet Name="Proveedor_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1" />
-          <EntitySet Name="Proveedor_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel2" />
-          <EntitySet Name="Proveedor_AdmInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_AdmInforme" />
-          <EntitySet Name="Proveedor_Ano" EntityType="GastoTransparenteMunicipalModel.Proveedor_Ano" />
-          <EntitySet Name="Proveedor_Cementerio_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel1" />
-          <EntitySet Name="Proveedor_Cementerio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel2" />
-          <EntitySet Name="Proveedor_CementerioInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_CementerioInforme" />
-          <EntitySet Name="Proveedor_Educacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel1" />
-          <EntitySet Name="Proveedor_Educacion_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel2" />
-          <EntitySet Name="Proveedor_EducacionInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_EducacionInforme" />
-          <EntitySet Name="Proveedor_Salud_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel1" />
-          <EntitySet Name="Proveedor_Salud_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel2" />
-          <EntitySet Name="Proveedor_SaludInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_SaludInforme" />
-          <EntitySet Name="Proveedor_Total_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel1" />
-          <EntitySet Name="Proveedor_Total_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel2" />
-          <EntitySet Name="Subsidio_Ano" EntityType="GastoTransparenteMunicipalModel.Subsidio_Ano" />
-          <EntitySet Name="Subsidio_Nivel1" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel1" />
-          <EntitySet Name="Subsidio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel2" />
-          <EntitySet Name="Subsidio_Nivel3" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel3" />
-          <EntitySet Name="SubsidioInforme" EntityType="GastoTransparenteMunicipalModel.SubsidioInforme" />
-          <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
-          <EntitySet Name="Corporacion_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano_Visible" />
-          <EntitySet Name="Gasto_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano_Visible" />
-          <EntitySet Name="Ingreso_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano_Visible" />
-          <EntitySet Name="Personal_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Personal_Ano_Visible" />
-          <EntitySet Name="Proveedor_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Proveedor_Ano_Visible" />
-          <EntitySet Name="Subsidio_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Subsidio_Ano_Visible" />
-          <AssociationSet Name="FK__Corporaci__IdAno__18EBB532" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532">
-            <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
-            <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Ano__IdMun__19DFD96B" Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Niv__IdAno__1AD3FDA4" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4">
-            <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
-            <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1">
-            <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
-            <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Niv__IdNiv__1BC821DD" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD">
-            <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
-            <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Niv__IdNiv__1CBC4616" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1CBC4616">
-            <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
-            <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Niv__IdNiv__1DB06A4F" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F">
-            <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
-            <End Role="Gasto_Nivel4" EntitySet="Gasto_Nivel4" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1">
-            <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
-            <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84">
-            <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
-            <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_N__IdNiv__208CD6FA" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA">
-            <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
-            <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_N__IdNiv__2180FB33" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__2180FB33">
-            <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
-            <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_N__IdNiv__22751F6C" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C">
-            <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
-            <End Role="Ingreso_Nivel4" EntitySet="Ingreso_Nivel4" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdMun__2FCF1A8A" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Subsidio___IdMun__3864608B" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B">
-            <End Role="Municipalidad" EntitySet="Municipalidad" />
-            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__236943A5" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__245D67DE" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE">
-            <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
-            <End Role="Personal_Adm_Nivel2" EntitySet="Personal_Adm_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__2645B050" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__282DF8C2" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__2A164134" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__2BFE89A6" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__2739D489" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489">
-            <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
-            <End Role="Personal_Cementerio_Nivel2" EntitySet="Personal_Cementerio_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__29221CFB" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__29221CFB">
-            <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
-            <End Role="Personal_Educacion_Nivel2" EntitySet="Personal_Educacion_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__2B0A656D" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D">
-            <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
-            <End Role="Personal_Salud_Nivel2" EntitySet="Personal_Salud_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__2CF2ADDF" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF">
-            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-            <End Role="Personal_Total_Nivel2" EntitySet="Personal_Total_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdAno__2DE6D218" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218">
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-            <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdNIv__2EDAF651" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__2EDAF651">
-            <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
-            <End Role="Proveedor_Adm_Nivel2" EntitySet="Proveedor_Adm_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdAno__30C33EC3" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3">
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-            <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdAno__32AB8735" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735">
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-            <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdAno__3493CFA7" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7">
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-            <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdAno__367C1819" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819">
-            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
-            <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdNIv__31B762FC" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__31B762FC">
-            <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
-            <End Role="Proveedor_Cementerio_Nivel2" EntitySet="Proveedor_Cementerio_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdNIv__339FAB6E" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__339FAB6E">
-            <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
-            <End Role="Proveedor_Educacion_Nivel2" EntitySet="Proveedor_Educacion_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdNIv__3587F3E0" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__3587F3E0">
-            <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
-            <End Role="Proveedor_Salud_Nivel2" EntitySet="Proveedor_Salud_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proveedor__IdNIv__37703C52" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__37703C52">
-            <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
-            <End Role="Proveedor_Total_Nivel2" EntitySet="Proveedor_Total_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Subsidio___IdAno__395884C4" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4">
-            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
-            <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Subsidio___IdAno__3A4CA8FD" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD">
-            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
-            <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Subsidio___IdNiv__3B40CD36" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36">
-            <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
-            <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
-          </AssociationSet>
           <FunctionImport Name="SP_InformeGastoArea">
             <Parameter Name="IdAno" Mode="In" Type="Int32" />
             <Parameter Name="NumeroDecimales" Mode="In" Type="Int32" />
@@ -2157,19 +1935,19 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <Parameter Name="IdGroupInformeGasto" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="SP_InformePersonalAdmNivel1">
-            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="SP_InformePersonalCementerioNivel1">
-            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="SP_InformePersonalEducacionNivel1">
-            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="SP_InformePersonalMunicipioTotalNivel1">
-            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="SP_InformePersonalSaludNivel1">
-            <Parameter Name="IdAno" Mode="In" Type="Int64" />
+          <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="SP_InformeSubsidioNivel1">
             <Parameter Name="IdGroupInformeSubsidio" Mode="In" Type="Guid" />
@@ -2363,6 +2141,231 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <Parameter Name="IdGroupInformeProveedores" Mode="In" Type="Guid" />
             <Parameter Name="IdAno" Mode="In" Type="Int64" />
           </FunctionImport>
+          <EntitySet Name="Comunas" EntityType="GastoTransparenteMunicipalModel.Comunas" />
+          <EntitySet Name="Corporacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Corporacion_Nivel1" />
+          <EntitySet Name="CorporacionInforme" EntityType="GastoTransparenteMunicipalModel.CorporacionInforme" />
+          <EntitySet Name="Gasto_Ano" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano" />
+          <EntitySet Name="Gasto_Glosa" EntityType="GastoTransparenteMunicipalModel.Gasto_Glosa" />
+          <EntitySet Name="Gasto_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" />
+          <EntitySet Name="Gasto_Nivel1" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel1" />
+          <EntitySet Name="Gasto_Nivel2" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel2" />
+          <EntitySet Name="Gasto_Nivel3" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel3" />
+          <EntitySet Name="Gasto_Nivel4" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel4" />
+          <EntitySet Name="GastoInforme" EntityType="GastoTransparenteMunicipalModel.GastoInforme" />
+          <EntitySet Name="GastoInformev2" EntityType="GastoTransparenteMunicipalModel.GastoInformev2" />
+          <EntitySet Name="Ingreso_Ano" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano" />
+          <EntitySet Name="Ingreso_Glosa" EntityType="GastoTransparenteMunicipalModel.Ingreso_Glosa" />
+          <EntitySet Name="Ingreso_GlosaCodigo" EntityType="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" />
+          <EntitySet Name="Ingreso_Nivel1" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel1" />
+          <EntitySet Name="Ingreso_Nivel2" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel2" />
+          <EntitySet Name="Ingreso_Nivel3" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel3" />
+          <EntitySet Name="Ingreso_Nivel4" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel4" />
+          <EntitySet Name="IngresoInforme" EntityType="GastoTransparenteMunicipalModel.IngresoInforme" />
+          <EntitySet Name="IngresoInformev2" EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" />
+          <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
+          <EntitySet Name="Personal_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" />
+          <EntitySet Name="Personal_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel2" />
+          <EntitySet Name="Personal_AdmInforme" EntityType="GastoTransparenteMunicipalModel.Personal_AdmInforme" />
+          <EntitySet Name="Personal_Ano" EntityType="GastoTransparenteMunicipalModel.Personal_Ano" />
+          <EntitySet Name="Personal_Cementerio_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1" />
+          <EntitySet Name="Personal_Cementerio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel2" />
+          <EntitySet Name="Personal_CementerioInforme" EntityType="GastoTransparenteMunicipalModel.Personal_CementerioInforme" />
+          <EntitySet Name="Personal_Educacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel1" />
+          <EntitySet Name="Personal_Educacion_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Educacion_Nivel2" />
+          <EntitySet Name="Personal_EducacionInforme" EntityType="GastoTransparenteMunicipalModel.Personal_EducacionInforme" />
+          <EntitySet Name="Personal_Salud_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1" />
+          <EntitySet Name="Personal_Salud_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Salud_Nivel2" />
+          <EntitySet Name="Personal_SaludInforme" EntityType="GastoTransparenteMunicipalModel.Personal_SaludInforme" />
+          <EntitySet Name="Personal_Total_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" />
+          <EntitySet Name="Personal_Total_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Total_Nivel2" />
+          <EntitySet Name="Proveedor_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1" />
+          <EntitySet Name="Proveedor_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel2" />
+          <EntitySet Name="Proveedor_AdmInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_AdmInforme" />
+          <EntitySet Name="Proveedor_Ano" EntityType="GastoTransparenteMunicipalModel.Proveedor_Ano" />
+          <EntitySet Name="Proveedor_Cementerio_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel1" />
+          <EntitySet Name="Proveedor_Cementerio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Cementerio_Nivel2" />
+          <EntitySet Name="Proveedor_CementerioInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_CementerioInforme" />
+          <EntitySet Name="Proveedor_Educacion_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel1" />
+          <EntitySet Name="Proveedor_Educacion_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Educacion_Nivel2" />
+          <EntitySet Name="Proveedor_EducacionInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_EducacionInforme" />
+          <EntitySet Name="Proveedor_Salud_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel1" />
+          <EntitySet Name="Proveedor_Salud_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Salud_Nivel2" />
+          <EntitySet Name="Proveedor_SaludInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_SaludInforme" />
+          <EntitySet Name="Proveedor_Total_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel1" />
+          <EntitySet Name="Proveedor_Total_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Total_Nivel2" />
+          <EntitySet Name="Subsidio_Ano" EntityType="GastoTransparenteMunicipalModel.Subsidio_Ano" />
+          <EntitySet Name="Subsidio_Nivel1" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel1" />
+          <EntitySet Name="Subsidio_Nivel2" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel2" />
+          <EntitySet Name="Subsidio_Nivel3" EntityType="GastoTransparenteMunicipalModel.Subsidio_Nivel3" />
+          <EntitySet Name="SubsidioInforme" EntityType="GastoTransparenteMunicipalModel.SubsidioInforme" />
+          <AssociationSet Name="FK__Gasto_Ano__IdMun__19DFD96B" Association="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Niv__IdAno__1AD3FDA4" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4">
+            <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
+            <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1">
+            <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
+            <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Niv__IdNiv__1BC821DD" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1BC821DD">
+            <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
+            <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Niv__IdNiv__1CBC4616" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1CBC4616">
+            <End Role="Gasto_Nivel2" EntitySet="Gasto_Nivel2" />
+            <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Gasto_Niv__IdNiv__1DB06A4F" Association="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F">
+            <End Role="Gasto_Nivel3" EntitySet="Gasto_Nivel3" />
+            <End Role="Gasto_Nivel4" EntitySet="Gasto_Nivel4" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_A__IdMun__1EA48E88" Association="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_N__IdAno__1F98B2C1" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1">
+            <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
+            <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84">
+            <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
+            <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_N__IdNiv__208CD6FA" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__208CD6FA">
+            <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
+            <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_N__IdNiv__2180FB33" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__2180FB33">
+            <End Role="Ingreso_Nivel2" EntitySet="Ingreso_Nivel2" />
+            <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingreso_N__IdNiv__22751F6C" Association="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C">
+            <End Role="Ingreso_Nivel3" EntitySet="Ingreso_Nivel3" />
+            <End Role="Ingreso_Nivel4" EntitySet="Ingreso_Nivel4" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdMun__2FCF1A8A" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subsidio___IdMun__3864608B" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdAno__236943A5" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5">
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+            <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdNiv__245D67DE" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__245D67DE">
+            <End Role="Personal_Adm_Nivel1" EntitySet="Personal_Adm_Nivel1" />
+            <End Role="Personal_Adm_Nivel2" EntitySet="Personal_Adm_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdAno__2645B050" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050">
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+            <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdAno__282DF8C2" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2">
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+            <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdAno__2A164134" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134">
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+            <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdAno__2BFE89A6" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6">
+            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
+            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdNiv__2739D489" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489">
+            <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
+            <End Role="Personal_Cementerio_Nivel2" EntitySet="Personal_Cementerio_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdNiv__29221CFB" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__29221CFB">
+            <End Role="Personal_Educacion_Nivel1" EntitySet="Personal_Educacion_Nivel1" />
+            <End Role="Personal_Educacion_Nivel2" EntitySet="Personal_Educacion_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdNiv__2B0A656D" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D">
+            <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
+            <End Role="Personal_Salud_Nivel2" EntitySet="Personal_Salud_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Personal___IdNiv__2CF2ADDF" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF">
+            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
+            <End Role="Personal_Total_Nivel2" EntitySet="Personal_Total_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdAno__2DE6D218" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218">
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+            <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdNIv__2EDAF651" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__2EDAF651">
+            <End Role="Proveedor_Adm_Nivel1" EntitySet="Proveedor_Adm_Nivel1" />
+            <End Role="Proveedor_Adm_Nivel2" EntitySet="Proveedor_Adm_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdAno__30C33EC3" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3">
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+            <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdAno__32AB8735" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__32AB8735">
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+            <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdAno__3493CFA7" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__3493CFA7">
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+            <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdAno__367C1819" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__367C1819">
+            <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
+            <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdNIv__31B762FC" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__31B762FC">
+            <End Role="Proveedor_Cementerio_Nivel1" EntitySet="Proveedor_Cementerio_Nivel1" />
+            <End Role="Proveedor_Cementerio_Nivel2" EntitySet="Proveedor_Cementerio_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdNIv__339FAB6E" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__339FAB6E">
+            <End Role="Proveedor_Educacion_Nivel1" EntitySet="Proveedor_Educacion_Nivel1" />
+            <End Role="Proveedor_Educacion_Nivel2" EntitySet="Proveedor_Educacion_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdNIv__3587F3E0" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__3587F3E0">
+            <End Role="Proveedor_Salud_Nivel1" EntitySet="Proveedor_Salud_Nivel1" />
+            <End Role="Proveedor_Salud_Nivel2" EntitySet="Proveedor_Salud_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__IdNIv__37703C52" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdNIv__37703C52">
+            <End Role="Proveedor_Total_Nivel1" EntitySet="Proveedor_Total_Nivel1" />
+            <End Role="Proveedor_Total_Nivel2" EntitySet="Proveedor_Total_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subsidio___IdAno__395884C4" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4">
+            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+            <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subsidio___IdAno__3A4CA8FD" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD">
+            <End Role="Subsidio_Ano" EntitySet="Subsidio_Ano" />
+            <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subsidio___IdNiv__3B40CD36" Association="GastoTransparenteMunicipalModel.FK__Subsidio___IdNiv__3B40CD36">
+            <End Role="Subsidio_Nivel1" EntitySet="Subsidio_Nivel1" />
+            <End Role="Subsidio_Nivel2" EntitySet="Subsidio_Nivel2" />
+          </AssociationSet>
+          <EntitySet Name="Anos_Invisible" EntityType="GastoTransparenteMunicipalModel.Anos_Invisible" />
+          <EntitySet Name="Corporacion_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano_Visible" />
+          <EntitySet Name="Gasto_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Gasto_Ano_Visible" />
+          <EntitySet Name="Ingreso_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano_Visible" />
+          <EntitySet Name="Personal_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Personal_Ano_Visible" />
+          <EntitySet Name="Proveedor_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Proveedor_Ano_Visible" />
+          <EntitySet Name="Subsidio_Ano_Visible" EntityType="GastoTransparenteMunicipalModel.Subsidio_Ano_Visible" />
+          <EntitySet Name="Corporacion_Ano" EntityType="GastoTransparenteMunicipalModel.Corporacion_Ano" />
+          <AssociationSet Name="FK__Corporaci__IdAno__18EBB532" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532">
+            <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
+            <End Role="Corporacion_Nivel1" EntitySet="Corporacion_Nivel1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corporaci__IdMun__17F790F9" Association="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9">
+            <End Role="Municipalidad" EntitySet="Municipalidad" />
+            <End Role="Corporacion_Ano" EntitySet="Corporacion_Ano" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="SP_SumaGastoByIdAno_Result">
           <Property Type="Int64" Name="TotalGastado" Nullable="true" />
@@ -2377,20 +2380,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="IdComuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Corporacion_Ano">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Ano" Type="Int32" />
-          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
-          <Property Name="Cargado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Corporacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" FromRole="Corporacion_Ano" ToRole="Corporacion_Nivel1" />
-          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Corporacion_Ano" ToRole="Municipalidad" />
         </EntityType>
         <EntityType Name="Corporacion_Nivel1">
           <Key>
@@ -2426,6 +2415,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
+          <Property Name="DataFilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Gasto_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Gasto_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdAno__1AD3FDA4" FromRole="Gasto_Ano" ToRole="Gasto_Nivel1" />
         </EntityType>
@@ -2550,6 +2540,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
+          <Property Name="DataFilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Ingreso_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Ingreso_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdAno__1F98B2C1" FromRole="Ingreso_Ano" ToRole="Ingreso_Nivel1" />
         </EntityType>
@@ -2680,12 +2671,12 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Periodo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TotalGastado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TotalPresupuestado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
           <NavigationProperty Name="Gasto_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Ano__IdMun__19DFD96B" FromRole="Municipalidad" ToRole="Gasto_Ano" />
           <NavigationProperty Name="Ingreso_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_A__IdMun__1EA48E88" FromRole="Municipalidad" ToRole="Ingreso_Ano" />
           <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Municipalidad" ToRole="Personal_Ano" />
           <NavigationProperty Name="Proveedor_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Municipalidad" ToRole="Proveedor_Ano" />
           <NavigationProperty Name="Subsidio_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Municipalidad" ToRole="Subsidio_Ano" />
+          <NavigationProperty Name="Corporacion_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Municipalidad" ToRole="Corporacion_Ano" />
         </EntityType>
         <EntityType Name="Personal_Adm_Nivel1">
           <Key>
@@ -2740,6 +2731,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
+          <Property Name="DataFilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdMun__25518C17" FromRole="Personal_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Personal_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__236943A5" FromRole="Personal_Ano" ToRole="Personal_Adm_Nivel1" />
           <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Ano" ToRole="Personal_Cementerio_Nivel1" />
@@ -2944,6 +2936,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
+          <Property Name="DataFilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdMun__2FCF1A8A" FromRole="Proveedor_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Proveedor_Adm_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218" FromRole="Proveedor_Ano" ToRole="Proveedor_Adm_Nivel1" />
           <NavigationProperty Name="Proveedor_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__30C33EC3" FromRole="Proveedor_Ano" ToRole="Proveedor_Cementerio_Nivel1" />
@@ -3093,6 +3086,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
           <Property Name="Cargado" Type="Boolean" Nullable="false" />
+          <Property Name="DataFilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdMun__3864608B" FromRole="Subsidio_Ano" ToRole="Municipalidad" />
           <NavigationProperty Name="Subsidio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__395884C4" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel1" />
           <NavigationProperty Name="Subsidio_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Subsidio___IdAno__3A4CA8FD" FromRole="Subsidio_Ano" ToRole="Subsidio_Nivel2" />
@@ -3142,86 +3136,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="MONTOAPORTE" Type="Double" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="Anos_Invisible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Corporacion_Ano_Visible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Gasto_Ano_Visible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Ingreso_Ano_Visible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Personal_Ano_Visible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Proveedor_Ano_Visible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Subsidio_Ano_Visible">
-          <Key>
-            <PropertyRef Name="IdAno" />
-          </Key>
-          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMunicipalidad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK__Corporaci__IdAno__18EBB532">
-          <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Corporacion_Nivel1" Role="Corporacion_Nivel1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Corporacion_Ano">
-              <PropertyRef Name="IdAno" />
-            </Principal>
-            <Dependent Role="Corporacion_Nivel1">
-              <PropertyRef Name="IdAno" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Corporaci__IdMun__17F790F9">
-          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipalidad">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Principal>
-            <Dependent Role="Corporacion_Ano">
-              <PropertyRef Name="IdMunicipalidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Gasto_Ano__IdMun__19DFD96B">
           <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
           <End Type="GastoTransparenteMunicipalModel.Gasto_Ano" Role="Gasto_Ano" Multiplicity="*" />
@@ -3678,6 +3592,101 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Anos_Invisible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Corporacion_Ano_Visible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Gasto_Ano_Visible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ingreso_Ano_Visible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personal_Ano_Visible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Proveedor_Ano_Visible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Subsidio_Ano_Visible">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Corporacion_Ano">
+          <Key>
+            <PropertyRef Name="IdAno" />
+          </Key>
+          <Property Name="IdAno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMunicipalidad" Type="Int32" />
+          <Property Name="Ano" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Semestre" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Cargado" Type="Boolean" Nullable="false" />
+          <Property Name="DataFilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Corporacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdAno__18EBB532" FromRole="Corporacion_Ano" ToRole="Corporacion_Nivel1" />
+          <NavigationProperty Name="Municipalidad" Relationship="GastoTransparenteMunicipalModel.FK__Corporaci__IdMun__17F790F9" FromRole="Corporacion_Ano" ToRole="Municipalidad" />
+        </EntityType>
+        <Association Name="FK__Corporaci__IdAno__18EBB532">
+          <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Corporacion_Nivel1" Role="Corporacion_Nivel1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corporacion_Ano">
+              <PropertyRef Name="IdAno" />
+            </Principal>
+            <Dependent Role="Corporacion_Nivel1">
+              <PropertyRef Name="IdAno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corporaci__IdMun__17F790F9">
+          <End Type="GastoTransparenteMunicipalModel.Municipalidad" Role="Municipalidad" Multiplicity="0..1" />
+          <End Type="GastoTransparenteMunicipalModel.Corporacion_Ano" Role="Corporacion_Ano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalidad">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Principal>
+            <Dependent Role="Corporacion_Ano">
+              <PropertyRef Name="IdMunicipalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3714,25 +3723,69 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <FunctionImportMapping FunctionImportName="SP_DeletePersonal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeletePersonal" />
           <FunctionImportMapping FunctionImportName="SP_DeleteProveedor" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteProveedor" />
           <FunctionImportMapping FunctionImportName="SP_DeleteSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_DeleteSubsidio" />
+          <FunctionImportMapping FunctionImportName="SP_InformeGastoArea" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGastoArea" />
+          <FunctionImportMapping FunctionImportName="SP_InformeGastoCuenta" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGastoCuenta" />
+          <FunctionImportMapping FunctionImportName="SP_InformeIngresoArea" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngresoArea" />
+          <FunctionImportMapping FunctionImportName="SP_InformeIngresoCuenta" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngresoCuenta" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalAdmNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdmNivel1" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerioNivel1" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacionNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacionNivel1" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotalNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotalNivel1" />
+          <FunctionImportMapping FunctionImportName="SP_InformePersonalSaludNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSaludNivel1" />
+          <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel1" />
+          <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel2" />
+          <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel3" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel3" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_CalidadJuridica" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Estamento" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Grado" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_NivelAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_NivelAdm" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Profesion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_RangoEtario" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_CalidadJuridica" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Estamento" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Grado" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_NivelCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_NivelCementerio" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Profesion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoEtario" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_CalidadJuridica" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Estamento" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Grado" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_NivelEducacion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Profesion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoEtario" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_CalidadJuridica" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Estamento" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Grado" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_NivelEducacion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Profesion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoEtario" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_CalidadJuridica" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Estamento" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Grado" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_NivelSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_NivelSalud" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Profesion" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoAntiguedad" />
+          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoEtario" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorAdm_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm_Nivel1" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorAdm_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm_Nivel2" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio_Nivel1" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio_Nivel2" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion_Nivel1" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion_Nivel2" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorSalud_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud_Nivel1" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorSalud_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud_Nivel2" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorTotal_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal_Nivel1" />
+          <FunctionImportMapping FunctionImportName="SP_ProveedorTotal_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal_Nivel2" />
           <EntitySetMapping Name="Comunas">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Comunas">
               <MappingFragment StoreEntitySet="Comunas">
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdComuna" ColumnName="IdComuna" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Corporacion_Ano">
-            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Ano">
-              <MappingFragment StoreEntitySet="Corporacion_Ano">
-                <ScalarProperty Name="Cargado" ColumnName="Cargado" />
-                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="Ano" ColumnName="Ano" />
-                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
-                <ScalarProperty Name="IdAno" ColumnName="IdAno" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3763,6 +3816,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySetMapping Name="Gasto_Ano">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Gasto_Ano">
               <MappingFragment StoreEntitySet="Gasto_Ano">
+                <ScalarProperty Name="DataFilePath" ColumnName="DataFilePath" />
                 <ScalarProperty Name="Cargado" ColumnName="Cargado" />
                 <ScalarProperty Name="Semestre" ColumnName="Semestre" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -3885,6 +3939,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySetMapping Name="Ingreso_Ano">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Ingreso_Ano">
               <MappingFragment StoreEntitySet="Ingreso_Ano">
+                <ScalarProperty Name="DataFilePath" ColumnName="DataFilePath" />
                 <ScalarProperty Name="Cargado" ColumnName="Cargado" />
                 <ScalarProperty Name="Semestre" ColumnName="Semestre" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -4068,6 +4123,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySetMapping Name="Personal_Ano">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Ano">
               <MappingFragment StoreEntitySet="Personal_Ano">
+                <ScalarProperty Name="DataFilePath" ColumnName="DataFilePath" />
                 <ScalarProperty Name="Cargado" ColumnName="Cargado" />
                 <ScalarProperty Name="Semestre" ColumnName="Semestre" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -4266,6 +4322,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySetMapping Name="Proveedor_Ano">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Proveedor_Ano">
               <MappingFragment StoreEntitySet="Proveedor_Ano">
+                <ScalarProperty Name="DataFilePath" ColumnName="DataFilePath" />
                 <ScalarProperty Name="Cargado" ColumnName="Cargado" />
                 <ScalarProperty Name="Semestre" ColumnName="Semestre" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -4409,6 +4466,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySetMapping Name="Subsidio_Ano">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Subsidio_Ano">
               <MappingFragment StoreEntitySet="Subsidio_Ano">
+                <ScalarProperty Name="DataFilePath" ColumnName="DataFilePath" />
                 <ScalarProperty Name="Cargado" ColumnName="Cargado" />
                 <ScalarProperty Name="Semestre" ColumnName="Semestre" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -4527,63 +4585,20 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_InformeGastoArea" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGastoArea" />
-          <FunctionImportMapping FunctionImportName="SP_InformeGastoCuenta" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeGastoCuenta" />
-          <FunctionImportMapping FunctionImportName="SP_InformeIngresoArea" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngresoArea" />
-          <FunctionImportMapping FunctionImportName="SP_InformeIngresoCuenta" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeIngresoCuenta" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalAdmNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdmNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerioNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacionNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacionNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotalNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotalNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalSaludNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSaludNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel2" />
-          <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel3" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel3" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_CalidadJuridica" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Estamento" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Grado" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_NivelAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_NivelAdm" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_Profesion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_RangoAntiguedad" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalAdm_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalAdm_RangoEtario" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_CalidadJuridica" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Estamento" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Grado" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_NivelCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_NivelCementerio" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_Profesion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoAntiguedad" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalCementerio_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalCementerio_RangoEtario" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_CalidadJuridica" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Estamento" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Grado" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_NivelEducacion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Profesion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoAntiguedad" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoEtario" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_CalidadJuridica" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Estamento" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Grado" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_NivelEducacion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Profesion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoAntiguedad" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoEtario" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_CalidadJuridica" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Estamento" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Grado" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_NivelSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_NivelSalud" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Profesion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoAntiguedad" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalSalud_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_RangoEtario" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorAdm_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm_Nivel1" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorAdm_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm_Nivel2" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio_Nivel1" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorCementerio_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorCementerio_Nivel2" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion_Nivel1" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorEducacion_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorEducacion_Nivel2" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorSalud_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud_Nivel1" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorSalud_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorSalud_Nivel2" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorTotal_Nivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal_Nivel1" />
-          <FunctionImportMapping FunctionImportName="SP_ProveedorTotal_Nivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorTotal_Nivel2" />
+          <EntitySetMapping Name="Corporacion_Ano">
+            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Corporacion_Ano">
+              <MappingFragment StoreEntitySet="Corporacion_Ano">
+                <ScalarProperty Name="DataFilePath" ColumnName="DataFilePath" />
+                <ScalarProperty Name="Cargado" ColumnName="Cargado" />
+                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="IdMunicipalidad" ColumnName="IdMunicipalidad" />
+                <ScalarProperty Name="IdAno" ColumnName="IdAno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -5,6 +5,7 @@ using System.Web;
 using Core;
 using Newtonsoft.Json;
 using AutoMapper;
+using Core.Models.Proveedor;
 
 namespace GastoTransparenteMunicipal.Models
 {
@@ -19,8 +20,8 @@ namespace GastoTransparenteMunicipal.Models
         public ProveedorModel()
         {
             this.JsonProveedor = string.Empty;
-            this.Proveedor_Nivel1 = new List<Core.Proveedor_Nivel1>();
-            this.Proveedor_Nivel2 = new List<Core.Proveedor_Nivel2>();
+            this.Proveedor_Nivel1 = new List<Proveedor_Nivel1>();
+            this.Proveedor_Nivel2 = new List<Proveedor_Nivel2>();
         }
         
         public void WordCloud(GastoTransparenteMunicipalEntities db, int takeElements, int year, int origenData)

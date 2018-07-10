@@ -17,12 +17,12 @@ namespace Core
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Municipalidad()
         {
-            this.Corporacion_Ano = new HashSet<Corporacion_Ano>();
             this.Gasto_Ano = new HashSet<Gasto_Ano>();
             this.Ingreso_Ano = new HashSet<Ingreso_Ano>();
             this.Personal_Ano = new HashSet<Personal_Ano>();
             this.Proveedor_Ano = new HashSet<Proveedor_Ano>();
             this.Subsidio_Ano = new HashSet<Subsidio_Ano>();
+            this.Corporacion_Ano = new HashSet<Corporacion_Ano>();
         }
     
         public int IdMunicipalidad { get; set; }
@@ -40,8 +40,6 @@ namespace Core
         public string TotalPresupuestado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Corporacion_Ano> Corporacion_Ano { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gasto_Ano> Gasto_Ano { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ingreso_Ano> Ingreso_Ano { get; set; }
@@ -51,5 +49,7 @@ namespace Core
         public virtual ICollection<Proveedor_Ano> Proveedor_Ano { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subsidio_Ano> Subsidio_Ano { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Corporacion_Ano> Corporacion_Ano { get; set; }
     }
 }

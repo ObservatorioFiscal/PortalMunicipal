@@ -28,7 +28,6 @@ namespace Core
         }
     
         public virtual DbSet<Comunas> Comunas { get; set; }
-        public virtual DbSet<Corporacion_Ano> Corporacion_Ano { get; set; }
         public virtual DbSet<Corporacion_Nivel1> Corporacion_Nivel1 { get; set; }
         public virtual DbSet<CorporacionInforme> CorporacionInforme { get; set; }
         public virtual DbSet<Gasto_Ano> Gasto_Ano { get; set; }
@@ -92,6 +91,7 @@ namespace Core
         public virtual DbSet<Personal_Ano_Visible> Personal_Ano_Visible { get; set; }
         public virtual DbSet<Proveedor_Ano_Visible> Proveedor_Ano_Visible { get; set; }
         public virtual DbSet<Subsidio_Ano_Visible> Subsidio_Ano_Visible { get; set; }
+        public virtual DbSet<Corporacion_Ano> Corporacion_Ano { get; set; }
     
         public virtual int SP_InformeCorporaciones(Nullable<System.Guid> idGroupInforme, Nullable<long> idAno)
         {

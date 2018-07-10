@@ -5,6 +5,7 @@ using System.Web;
 using Core;
 using AutoMapper;
 using Newtonsoft.Json;
+using Core.Models.Subsidio;
 
 namespace GastoTransparenteMunicipal.Models
 {
@@ -16,7 +17,7 @@ namespace GastoTransparenteMunicipal.Models
 
         public SubsidioModel()
         {
-            this.Subsidio_Nivel1 = new List<Core.Subsidio_N1>();            
+            this.Subsidio_Nivel1 = new List<Subsidio_N1>();            
         }
 
         public void Init(GastoTransparenteMunicipalEntities db, int idMunicipality)
@@ -28,7 +29,7 @@ namespace GastoTransparenteMunicipal.Models
             {
                 var subsidio_nivel2 = db.Subsidio_Nivel2.Where(r => r.IdNivel1 == subsidio_nivel1.IdNivel1).ToList();
 
-                var subsidio_n1 = new Core.Subsidio_N1();                
+                var subsidio_n1 = new Subsidio_N1();                
                 Mapper.Map(subsidio_nivel1, subsidio_n1);
                 Mapper.Map(subsidio_nivel2, subsidio_n1.subsidio_Nivel2);
                 this.Subsidio_Nivel1.Add(subsidio_n1);
@@ -57,7 +58,7 @@ namespace GastoTransparenteMunicipal.Models
             {
                 var subsidio_nivel2 = db.Subsidio_Nivel2.Where(r => r.IdNivel1 == subsidio_nivel1.IdNivel1).ToList();
 
-                var subsidio_n1 = new Core.Subsidio_N1();
+                var subsidio_n1 = new Subsidio_N1();
                 Mapper.Map(subsidio_nivel1, subsidio_n1);
                 Mapper.Map(subsidio_nivel2, subsidio_n1.subsidio_Nivel2);
                 this.Subsidio_Nivel1.Add(subsidio_n1);

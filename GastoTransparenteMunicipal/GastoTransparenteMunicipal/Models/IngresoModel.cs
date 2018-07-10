@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
+using Core.Models.Ingreso;
 using Core;
 
 namespace GastoTransparenteMunicipal.Models

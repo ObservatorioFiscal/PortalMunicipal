@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Core;
+using Core.Models.Corporacion;
+using Core.Models.Gasto;
+using Core.Models.Ingreso;
+using Core.Models.Personal;
+using Core.Models.Proveedor;
+using Core.Models.Subsidio;
 using NPOI.SS.UserModel;
 
 namespace GastoTransparenteMunicipal
@@ -239,6 +245,45 @@ namespace GastoTransparenteMunicipal
 
                 cfg.CreateMap<Core.Ingreso_Nivel4, Ingreso_N4>()
                 .ReverseMap();
+                #endregion
+
+                #region
+
+                cfg.CreateMap<Core.IngresoInformev2, Core.Models.Ingreso.IngresoInforme>();
+
+                cfg.CreateMap<Core.GastoInformev2, Core.Models.Gasto.GastoInforme>();
+
+                cfg.CreateMap<Core.CorporacionInforme, Core.Models.Corporacion.CorporacionInforme>();
+
+                cfg.CreateMap<Core.CorporacionInforme, Core.Models.Corporacion.CorporacionInforme>();
+
+                cfg.CreateMap<Core.SubsidioInforme, Core.Models.Subsidio.SubsidioInforme>();
+
+
+                cfg.CreateMap<Core.Personal_AdmInforme, Core.Models.Personal.PersonalInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Administracion Municipal"));
+
+                cfg.CreateMap<Core.Personal_CementerioInforme, Core.Models.Personal.PersonalInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Cementerio"));
+
+                cfg.CreateMap<Core.Personal_EducacionInforme, Core.Models.Personal.PersonalInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Educacion"));
+
+                cfg.CreateMap<Core.Personal_SaludInforme, Core.Models.Personal.PersonalInforme>()               
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Salud"));
+
+
+                cfg.CreateMap<Core.Proveedor_AdmInforme, Core.Models.Proveedor.ProveedorInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Administracion Municipal"));
+
+                cfg.CreateMap<Core.Proveedor_CementerioInforme, Core.Models.Proveedor.ProveedorInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Cementerio"));
+
+                cfg.CreateMap<Core.Proveedor_EducacionInforme, Core.Models.Proveedor.ProveedorInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Educacion"));
+
+                cfg.CreateMap<Core.Proveedor_SaludInforme, Core.Models.Proveedor.ProveedorInforme>()
+                .ForMember(dst => dst.Categoria, src => src.MapFrom("Salud"));
                 #endregion
             });
         }
