@@ -599,8 +599,9 @@ namespace GastoTransparenteMunicipal.Controllers
             var data = db.IngresoInformev2.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
             var dataInforme = Mapper.Map<List<Core.IngresoInformev2>, List<Core.Models.Ingreso.IngresoInforme>>(data);
 
+            var muni = GetCurrentMunicipality().ToLower();
             var csv = StringCSV(dataInforme);
-            var blobPath = UploadCSV(ingresoAno.Ano.ToString() + "/ingreso/dataset.csv", csv);
+            var blobPath = UploadCSV(muni + "/" +ingresoAno.Ano.ToString() + "/ingreso/dataset.csv", csv);
             ingresoAno.DataFilePath = blobPath;
 
             db.SP_InformeIngreso(loadReport.IdGroupInforme, ingresoAno.IdAno);
@@ -890,8 +891,9 @@ namespace GastoTransparenteMunicipal.Controllers
             var data = db.GastoInformev2.OrderBy(r => r.IdGroupInformeGasto == loadReport.IdGroupInforme).ToList();
             var dataInforme = Mapper.Map<List<Core.GastoInformev2>, List<Core.Models.Gasto.GastoInforme>>(data);
 
+            var muni = GetCurrentMunicipality().ToLower();
             var csv = StringCSV(dataInforme);
-            var blobPath = UploadCSV(gastoAno.Ano.ToString() + "/gasto/dataset.csv", csv);
+            var blobPath = UploadCSV(muni + "/" + gastoAno.Ano.ToString() + "/gasto/dataset.csv", csv);
             gastoAno.DataFilePath = blobPath;
 
             db.SP_InformeGasto(loadReport.IdGroupInforme, gastoAno.IdAno);
@@ -1147,11 +1149,12 @@ namespace GastoTransparenteMunicipal.Controllers
 
             dataInforme.AddRange(dataInforme1);
             dataInforme.AddRange(dataInforme2);
-            dataInforme.AddRange(dataInforme3);            
+            dataInforme.AddRange(dataInforme3);
 
+            var muni = GetCurrentMunicipality().ToLower();
             var csv = StringCSV(dataInforme);
 
-            var blobPath = UploadCSV(proveedorAno.Ano.ToString() + "/proveedor/dataset.csv", csv);
+            var blobPath = UploadCSV(muni + "/" + proveedorAno.Ano.ToString() + "/proveedor/dataset.csv", csv);
             proveedorAno.DataFilePath = blobPath;
 
             db.SP_ProveedorTotal(loadReport.IdGroupInforme, proveedorAno.IdAno);
@@ -1387,8 +1390,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 var data = db.SubsidioInforme.OrderBy(r => r.IdGroupInformeSubsidio == loadReport.IdGroupInforme).ToList();
                 var dataInforme = Mapper.Map<List<Core.SubsidioInforme>, List<Core.Models.Subsidio.SubsidioInforme>>(data);
 
+                var muni = GetCurrentMunicipality().ToLower();
                 var csv = StringCSV(dataInforme);
-                var blobPath = UploadCSV(subsidioAno.Ano.ToString() + "/subsidio/dataset.csv", csv);
+                var blobPath = UploadCSV(muni + "/" + subsidioAno.Ano.ToString() + "/subsidio/dataset.csv", csv);
                 subsidioAno.DataFilePath = blobPath;
 
                 db.SP_InformeSubsidio(loadReport.IdGroupInforme, subsidioAno.IdAno);
@@ -1496,8 +1500,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 var data = db.CorporacionInforme.OrderBy(r => r.IdGroupInforme == loadReport.IdGroupInforme).ToList();
                 var dataInforme = Mapper.Map<List<Core.CorporacionInforme>, List<Core.Models.Corporacion.CorporacionInforme>>(data);
 
+                var muni = GetCurrentMunicipality().ToLower();
                 var csv = StringCSV(dataInforme);
-                var blobPath = UploadCSV(corporacionAno.Ano.ToString() + "/corporacion/dataset.csv", csv);
+                var blobPath = UploadCSV(muni + "/" + corporacionAno.Ano.ToString() + "/corporacion/dataset.csv", csv);
                 corporacionAno.DataFilePath = blobPath;
 
                 db.SP_InformeCorporaciones(loadReport.IdGroupInforme, corporacionAno.IdAno);
@@ -1753,8 +1758,9 @@ namespace GastoTransparenteMunicipal.Controllers
             dataInforme.AddRange(dataInforme2);
             dataInforme.AddRange(dataInforme3);
 
+            var muni = GetCurrentMunicipality().ToLower();
             var csv = StringCSV(dataInforme);
-            var blobPath = UploadCSV(personalAno.Ano.ToString() + "/remuneracion/dataset.csv", csv);
+            var blobPath = UploadCSV(muni + "/" + personalAno.Ano.ToString() + "/remuneracion/dataset.csv", csv);
             personalAno.DataFilePath = blobPath;
 
             db.SP_InformePersonalMunicipioTotal(loadReport.IdGroupInforme, personalAno.IdAno);
