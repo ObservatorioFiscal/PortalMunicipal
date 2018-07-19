@@ -11,7 +11,7 @@ namespace Core.Models.Ingreso
         public string Codigo { get; set; }
         public Nullable<double> MontoPresupuestado { get; set; }
         public Nullable<double> MontoGastado { get; set; }
-        public Nullable<int> TipoCodigo { get; set; }
+        //public Nullable<int> TipoCodigo { get; set; }
         public string TipoNombre { get; set; }
     }
 }

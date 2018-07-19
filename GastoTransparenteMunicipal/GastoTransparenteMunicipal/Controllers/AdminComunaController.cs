@@ -214,7 +214,7 @@ namespace GastoTransparenteMunicipal.Controllers
                 municipalidad.TotalPresupuestado = "$" + Ppuntos(suma.TotalPresupuestado.Value);
                 db.SaveChanges();
             }
-            return View();
+            return RedirectToAction ("CargaDatosOk");
         }
 
         public ActionResult CargaDatosOk()
@@ -263,8 +263,8 @@ namespace GastoTransparenteMunicipal.Controllers
             Gasto_Ano gasto = db.Gasto_Ano.Find(aux);
             bool[] lista = new bool[]
             {
-                gasto.Cargado,
                 db.Ingreso_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true),
+                gasto.Cargado,
                 db.Proveedor_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true),
                 db.Subsidio_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true),
                 db.Corporacion_Ano.Any(r=>r.Ano==gasto.Ano && r.Semestre==gasto.Semestre && r.IdMunicipalidad == gasto.IdMunicipalidad && r.Cargado==true),
@@ -278,7 +278,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             ViewBag.admimuni = true;
             var municipalidad = GetCurrentIdMunicipality();
-            var lista = db.Gasto_Ano.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad);
+            List<Gasto_Ano> lista = db.Gasto_Ano.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
             List<decimal> final = new List<decimal>();
             int anoactual = DateTime.Now.Year;
             for (var item = 2010; item < anoactual; item++)
@@ -295,6 +295,33 @@ namespace GastoTransparenteMunicipal.Controllers
                     final.Add(anoactual);
                 }
             }
+            else
+            {
+                int mes = DateTime.Now.Month;
+                if (mes > 3)
+                {
+                    if (!lista.Where(r => r.Ano == anoactual).Select(r => r.Semestre).Contains(1))
+                    {
+                        final.Add(anoactual);
+                    }
+                }
+                if (mes > 6)
+                {
+                    if (!lista.Where(r => r.Ano == anoactual).Select(r => r.Semestre).Contains(2))
+                    {
+                        final.Add(anoactual);
+                    }
+                }
+                if (mes > 9)
+                {
+                    if (!lista.Where(r => r.Ano == anoactual).Select(r => r.Semestre).Contains(3))
+                    {
+                        final.Add(anoactual);
+                    }
+                }
+
+
+            }
             final.Reverse(); // año mas alto.
             decimal ultimoano = final.First();
             List<decimal?> lista2 = lista.Where(r => r.Ano == ultimoano).Select(r => r.Semestre).ToList();
@@ -305,10 +332,10 @@ namespace GastoTransparenteMunicipal.Controllers
                     dic.Add(1, "a Marzo");
                 }
                 if (!lista2.Contains(2) && mes > 6){
-                    dic.Add(1, "a Junio");
+                    dic.Add(2, "a Junio");
                 }
                 if (!lista2.Contains(3) && mes > 9){
-                    dic.Add(1, "a Septiembre");
+                    dic.Add(3, "a Septiembre");
                 }
             }
             else{
@@ -655,7 +682,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "ADM. Y SERVICIOS", 1);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -687,7 +714,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "SALUD", 2);                    
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -719,7 +746,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "EDUCACION", 3);                    
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -751,7 +778,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeIngresov2(xssfwb, "CEMENTERIO", 4);                    
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -918,7 +945,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "ADM. Y SERVICIOS", 1);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -950,7 +977,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "SALUD", 2);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -982,7 +1009,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "EDUCACION", 3);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1014,7 +1041,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeGastov2(xssfwb, "CEMENTERIO", 4);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1179,7 +1206,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresAdmServicios(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1212,7 +1239,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresSalud(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1244,7 +1271,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresEducacion(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1276,7 +1303,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformeProveedoresCementerio(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1341,7 +1368,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     LoadReport loadReport = new LoadReport();
                     var result = loadReport.LoadInformeSubsidio(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1450,7 +1477,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     LoadReport loadReport = new LoadReport();
                     var result = loadReport.LoadInformeCorporaciones(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1561,7 +1588,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalAdmServicios(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1595,7 +1622,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     var result = loadReport.LoadInformePersonalSalud(xssfwb);
                 }
 
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1627,7 +1654,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalEducacion(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)
@@ -1660,7 +1687,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     xssfwb = new XSSFWorkbook(fileStream);
                     var result = loadReport.LoadInformePersonalCementerio(xssfwb);
                 }
-                var resultJson = new { isValid = !isValid, message = okMessage };
+                var resultJson = new { isValid = isValid, message = okMessage };
                 return Json(resultJson);
             }
             catch (Exception ex)

@@ -18,7 +18,10 @@
                                     <option value="@OrigenData.Adm">Adm. y Serv. Municipales</option>
                                     <option value="@OrigenData.Salud">Salud</option>
                                     <option value="@OrigenData.Educacion">Educación</option>
-                                    <option value="@OrigenData.Cementerio">Cementerio</option>
+                                    @if (ViewBag.cementerio)
+                                    {
+                                        <option value="@OrigenData.Cementerio">Cementerio</option>
+                                    }
                                 </select>
                             </span>
                         </small>
@@ -69,8 +72,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <p><small>*La información presentada en la seccion es subida y presentada exclusivamente por el municipio.</small></p>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <p class="text-right">
+
+                            Compartir:
+                            <a onclick="redesclick('facebook')" class="md-24 icon-twitter"></a>
+                            <a onclick="redesclick('twitter')" class="md-24 icon-facebook"></a>
+                            <a onclick="DescargaDataset('proveedores')" class="btn btn-xs">Descarga Dataset</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

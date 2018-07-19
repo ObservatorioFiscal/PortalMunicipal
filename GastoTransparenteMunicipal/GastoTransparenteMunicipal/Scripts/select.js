@@ -189,3 +189,34 @@ function getTextWidth(text, font) {
     var metrics = context.measureText(text);
     return metrics.width;
 }
+
+
+function DescargaDataset(aux) {
+    var IDANO = $("#ano").val();
+    $.ajax({
+        cache: false,
+        async: false,
+        type: 'POST',
+        data: {
+            year: IDANO,
+            origenData: aux
+        },
+        url: "../../../../Admin/Home/Descarga",
+        dataType: 'json',
+        success: function (data) {
+            console.log("data");
+            console.log(data);
+            abrirEnPestana(data);
+        }
+        , error: function (error) {
+            console.log("error");
+            console.log(error);
+        }
+    });
+}
+function abrirEnPestana(url) {
+    var a = document.createElement("a");
+    a.target = "_blank";
+    a.href = url;
+    a.click();
+}

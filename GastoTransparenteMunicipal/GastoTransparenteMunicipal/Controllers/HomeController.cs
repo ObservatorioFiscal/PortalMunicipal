@@ -73,5 +73,33 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             return View();
         }
+        
+        public JsonResult Descarga(int year, string origenData)
+        {
+            string aux = "";
+            switch (origenData)
+            {
+                case "ingresos":
+                    aux = db.Ingreso_Ano.Find(year).DataFilePath;
+                    break;
+                case "gastos":
+                    aux = db.Gasto_Ano.Find(year).DataFilePath;
+                    break;
+                case "corporaciones":
+                    aux = db.Corporacion_Ano.Find(year).DataFilePath;
+                    break;
+                case "subsidios":
+                    aux = db.Subsidio_Ano.Find(year).DataFilePath;
+                    break;
+                case "proveedores":
+                    aux = db.Proveedor_Ano.Find(year).DataFilePath;
+                    break;
+                case "sueldos":
+                    aux = db.Personal_Ano.Find(year).DataFilePath;
+                    break;
+            }
+            return Json(aux, JsonRequestBehavior.AllowGet);
+            //return this.Content(aux, "application/json");
+        }
     }
 }

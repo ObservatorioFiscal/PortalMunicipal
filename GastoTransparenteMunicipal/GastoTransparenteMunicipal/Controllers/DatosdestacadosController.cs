@@ -16,11 +16,14 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb+".png";
-            ViewBag.Anos = new SelectList(db.Personal_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            List<Personal_Ano_Visible> tiempos = db.Personal_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+
+            ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Sueldos = "active";
             ViewBag.activos = new List<bool>{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
             };
+            ViewBag.cementerio = municipalidad.Cementerio;
             return View();
         }
 
@@ -29,11 +32,14 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-            ViewBag.Anos = new SelectList(db.Proveedor_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            List<Proveedor_Ano_Visible> tiempos = db.Proveedor_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+
+            ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Proveedores = "active";
             ViewBag.activos = new List<bool>{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
             };
+            ViewBag.cementerio = municipalidad.Cementerio;
             return View();
         }
 
@@ -42,7 +48,9 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-            ViewBag.Anos = new SelectList(db.Subsidio_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            List<Subsidio_Ano_Visible> tiempos = db.Subsidio_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+
+            ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Subsidios = "active";
             ViewBag.activos = new List<bool>{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
@@ -55,7 +63,9 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-            ViewBag.Anos = new SelectList(db.Corporacion_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+            List<Corporacion_Ano_Visible> tiempos = db.Corporacion_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+
+            ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Corporaciones = "active";
             ViewBag.activos = new List<bool>{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal

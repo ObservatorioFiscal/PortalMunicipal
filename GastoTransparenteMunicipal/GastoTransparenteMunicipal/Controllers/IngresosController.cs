@@ -19,7 +19,9 @@ namespace GastoTransparenteMunicipal.Controllers
             ViewBag.activos = new List<bool>{
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
             };
-            ViewBag.Anos = new SelectList(db.Ingreso_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+
+            List<Ingreso_Ano_Visible> tiempos = db.Ingreso_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Destacado = "hidden";
             return View();
         }

@@ -261,29 +261,29 @@ namespace GastoTransparenteMunicipal
 
 
                 cfg.CreateMap<Core.Personal_AdmInforme, Core.Models.Personal.PersonalInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Administracion Municipal"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Administracion Municipal"));
 
                 cfg.CreateMap<Core.Personal_CementerioInforme, Core.Models.Personal.PersonalInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Cementerio"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Cementerio"));
 
                 cfg.CreateMap<Core.Personal_EducacionInforme, Core.Models.Personal.PersonalInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Educacion"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Educacion"));
 
                 cfg.CreateMap<Core.Personal_SaludInforme, Core.Models.Personal.PersonalInforme>()               
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Salud"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Salud"));
 
 
                 cfg.CreateMap<Core.Proveedor_AdmInforme, Core.Models.Proveedor.ProveedorInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Administracion Municipal"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Administracion Municipal"));
 
                 cfg.CreateMap<Core.Proveedor_CementerioInforme, Core.Models.Proveedor.ProveedorInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Cementerio"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Cementerio"));
 
                 cfg.CreateMap<Core.Proveedor_EducacionInforme, Core.Models.Proveedor.ProveedorInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Educacion"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Educacion"));
 
                 cfg.CreateMap<Core.Proveedor_SaludInforme, Core.Models.Proveedor.ProveedorInforme>()
-                .ForMember(dst => dst.Categoria, src => src.MapFrom("Salud"));
+                .ForMember(dst => dst.Categoria, src => src.UseValue<string>("Salud"));
                 #endregion
             });
         }

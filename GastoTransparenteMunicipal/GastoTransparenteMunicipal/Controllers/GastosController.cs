@@ -19,7 +19,9 @@ namespace GastoTransparenteMunicipal.Controllers
                 municipalidad.Act_Proveedor,municipalidad.Act_Subsidio,municipalidad.Act_Corporacion,municipalidad.Act_Personal
             };
             ViewBag.Destacado = "hidden";
-            ViewBag.Anos = new SelectList(db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad), "IdAno", "Nombre");
+
+            List<Gasto_Ano_Visible> tiempos = db.Gasto_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Gasto = "active";
             return View();
         }
