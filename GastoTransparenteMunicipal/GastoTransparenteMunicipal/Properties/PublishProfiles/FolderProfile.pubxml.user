@@ -22,10 +22,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/18/2018 14:39:35</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/19/2018 16:48:42</publishTime>
+      <publishTime>07/19/2018 18:23:15</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/19/2018 16:48:42</publishTime>
+      <publishTime>07/19/2018 18:23:15</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>07/18/2018 14:39:36</publishTime>
@@ -82,10 +82,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/18/2018 14:39:36</publishTime>
     </File>
     <File Include="bin/GastoTransparenteMunicipal.dll">
-      <publishTime>07/19/2018 16:48:38</publishTime>
+      <publishTime>07/19/2018 18:23:11</publishTime>
     </File>
     <File Include="bin/GastoTransparenteMunicipal.pdb">
-      <publishTime>07/19/2018 16:48:38</publishTime>
+      <publishTime>07/19/2018 18:23:11</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>07/18/2018 14:39:37</publishTime>
@@ -361,7 +361,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/18/2018 14:40:44</publishTime>
     </File>
     <File Include="Content/css/styleBootrap.css">
-      <publishTime>07/18/2018 14:40:44</publishTime>
+      <publishTime>07/19/2018 17:07:06</publishTime>
     </File>
     <File Include="Content/css/styleSueldos.css">
       <publishTime>07/18/2018 14:39:35</publishTime>
@@ -484,7 +484,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/18/2018 14:40:44</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/19/2018 16:48:39</publishTime>
+      <publishTime>07/19/2018 18:23:12</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/18/2018 14:39:36</publishTime>
@@ -592,7 +592,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/18/2018 14:40:44</publishTime>
     </File>
     <File Include="Views/AdminComuna/Eliminar.cshtml">
-      <publishTime>07/18/2018 14:40:44</publishTime>
+      <publishTime>07/19/2018 17:16:36</publishTime>
     </File>
     <File Include="Views/AdminComuna/Index.cshtml">
       <publishTime>07/18/2018 14:40:44</publishTime>

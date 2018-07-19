@@ -63,47 +63,58 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <div class="card">
-                        
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Sueldos","DatosDestacados")">
-                                <span class="md-96 icon-Recurso2"></span>
-                                <p><br>¿Cual es el sueldo promedio por tipo de funcionario?</p>
-                            </a>
+                @if (ViewBag.activos[3])
+                {
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <a href="@Url.Action("Sueldos","DatosDestacados")">
+                                    <span class="md-96 icon-Recurso2"></span>
+                                    <p><br>¿Cual es el sueldo promedio por tipo de funcionario?</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Proveedores","DatosDestacados")">
-                                <span class="md-96 icon-Recurso3"></span>
-                                <p><br>¿A quiénes le <br> compramos?</p>
-                            </a>
+                }
+                @if (ViewBag.activos[0])
+                {
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <a href="@Url.Action("Proveedores","DatosDestacados")">
+                                    <span class="md-96 icon-Recurso3"></span>
+                                    <p><br>¿A quiénes le <br> compramos?</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Subsidios","DatosDestacados")">
-                                <span class="md-96 icon-Recurso7"></span>
-                                <p><br>¿A quiénes<br>  subsidiamos?</p>
-                            </a>
+                }
+                @if (ViewBag.activos[1])
+                {
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <a href="@Url.Action("Subsidios","DatosDestacados")">
+                                    <span class="md-96 icon-Recurso7"></span>
+                                    <p><br>¿A quiénes<br>  subsidiamos?</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <a href="@Url.Action("Corporaciones","DatosDestacados")">
-                                <span class="md-96 icon-Recurso1"></span>
-                                <p><br>¿Cómo se financian nuestras Corporaciones?</p>
-                            </a>
+                }
+                @if (ViewBag.activos[2])
+                {
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <a href="@Url.Action("Corporaciones","DatosDestacados")">
+                                    <span class="md-96 icon-Recurso1"></span>
+                                    <p><br>¿Cómo se financian nuestras Corporaciones?</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>
