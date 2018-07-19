@@ -16,7 +16,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb+".png";
-            List<Personal_Ano_Visible> tiempos = db.Personal_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            List<Personal_Ano_Visible> tiempos = db.Personal_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).OrderByDescending(r => r.Nombre).ToList();
 
             ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Sueldos = "active";
@@ -32,7 +32,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-            List<Proveedor_Ano_Visible> tiempos = db.Proveedor_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            List<Proveedor_Ano_Visible> tiempos = db.Proveedor_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).OrderByDescending(r=>r.Nombre).ToList();
 
             ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Proveedores = "active";
@@ -48,7 +48,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-            List<Subsidio_Ano_Visible> tiempos = db.Subsidio_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            List<Subsidio_Ano_Visible> tiempos = db.Subsidio_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).OrderByDescending(r => r.Nombre).ToList();
 
             ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Subsidios = "active";
@@ -63,7 +63,7 @@ namespace GastoTransparenteMunicipal.Controllers
         {
             var municipalidad = GetCurrentIdMunicipality();
             ViewBag.logo = municipalidad.DireccionWeb + ".png";
-            List<Corporacion_Ano_Visible> tiempos = db.Corporacion_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).ToList();
+            List<Corporacion_Ano_Visible> tiempos = db.Corporacion_Ano_Visible.Where(r => r.IdMunicipalidad == municipalidad.IdMunicipalidad).OrderByDescending(r => r.Nombre).ToList();
 
             ViewBag.Anos = new SelectList(tiempos, "IdAno", "Nombre");
             ViewBag.Corporaciones = "active";
