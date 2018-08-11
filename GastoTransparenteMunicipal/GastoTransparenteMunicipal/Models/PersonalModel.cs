@@ -27,9 +27,6 @@ namespace GastoTransparenteMunicipal.Models
                 case OrigenData.Cementerio:
                     var personales_cementerio_nivel1 = personal_Ano.Personal_Educacion_Nivel1.ToList();                  
                     break;
-                case OrigenData.MunicipioTotal:
-                    var personales_total_nivel1 = personal_Ano.Personal_Total_Nivel1.ToList();
-                    break;
             } 
         }
 

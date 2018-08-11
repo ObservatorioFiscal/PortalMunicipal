@@ -38,7 +38,6 @@ namespace Core
         public virtual DbSet<Gasto_Nivel2> Gasto_Nivel2 { get; set; }
         public virtual DbSet<Gasto_Nivel3> Gasto_Nivel3 { get; set; }
         public virtual DbSet<Gasto_Nivel4> Gasto_Nivel4 { get; set; }
-        public virtual DbSet<GastoInforme> GastoInforme { get; set; }
         public virtual DbSet<GastoInformev2> GastoInformev2 { get; set; }
         public virtual DbSet<Ingreso_Ano> Ingreso_Ano { get; set; }
         public virtual DbSet<Ingreso_Glosa> Ingreso_Glosa { get; set; }
@@ -47,7 +46,6 @@ namespace Core
         public virtual DbSet<Ingreso_Nivel2> Ingreso_Nivel2 { get; set; }
         public virtual DbSet<Ingreso_Nivel3> Ingreso_Nivel3 { get; set; }
         public virtual DbSet<Ingreso_Nivel4> Ingreso_Nivel4 { get; set; }
-        public virtual DbSet<IngresoInforme> IngresoInforme { get; set; }
         public virtual DbSet<IngresoInformev2> IngresoInformev2 { get; set; }
         public virtual DbSet<Municipalidad> Municipalidad { get; set; }
         public virtual DbSet<Personal_Adm_Nivel1> Personal_Adm_Nivel1 { get; set; }
@@ -63,8 +61,6 @@ namespace Core
         public virtual DbSet<Personal_Salud_Nivel1> Personal_Salud_Nivel1 { get; set; }
         public virtual DbSet<Personal_Salud_Nivel2> Personal_Salud_Nivel2 { get; set; }
         public virtual DbSet<Personal_SaludInforme> Personal_SaludInforme { get; set; }
-        public virtual DbSet<Personal_Total_Nivel1> Personal_Total_Nivel1 { get; set; }
-        public virtual DbSet<Personal_Total_Nivel2> Personal_Total_Nivel2 { get; set; }
         public virtual DbSet<Proveedor_Adm_Nivel1> Proveedor_Adm_Nivel1 { get; set; }
         public virtual DbSet<Proveedor_Adm_Nivel2> Proveedor_Adm_Nivel2 { get; set; }
         public virtual DbSet<Proveedor_AdmInforme> Proveedor_AdmInforme { get; set; }
@@ -171,18 +167,7 @@ namespace Core
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InformePersonalEducacion", idGroupInformePersonaParameter, idAnParameter);
         }
     
-        public virtual int SP_InformePersonalMunicipioTotal(Nullable<System.Guid> idGroupInformePersona, Nullable<long> idAn)
-        {
-            var idGroupInformePersonaParameter = idGroupInformePersona.HasValue ?
-                new ObjectParameter("IdGroupInformePersona", idGroupInformePersona) :
-                new ObjectParameter("IdGroupInformePersona", typeof(System.Guid));
-    
-            var idAnParameter = idAn.HasValue ?
-                new ObjectParameter("IdAn", idAn) :
-                new ObjectParameter("IdAn", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InformePersonalMunicipioTotal", idGroupInformePersonaParameter, idAnParameter);
-        }
+        
     
         public virtual int SP_InformePersonalSalud(Nullable<System.Guid> idGroupInformePersona, Nullable<long> idAn)
         {
@@ -440,15 +425,6 @@ namespace Core
                 new ObjectParameter("IdAno", typeof(long));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InformePersonalEducacionNivel1", idAnoParameter);
-        }
-    
-        public virtual int SP_InformePersonalMunicipioTotalNivel1(Nullable<long> idAno)
-        {
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InformePersonalMunicipioTotalNivel1", idAnoParameter);
         }
     
         public virtual int SP_InformePersonalSaludNivel1(Nullable<long> idAno)
@@ -770,97 +746,6 @@ namespace Core
                 new ObjectParameter("IdAno", typeof(long));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalEducacion_RangoEtario", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_CalidadJuridica(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_CalidadJuridica", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_Estamento(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_Estamento", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_Grado(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_Grado", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_NivelEducacion(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_NivelEducacion", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_Profesion(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_Profesion", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_RangoAntiguedad(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_RangoAntiguedad", idGroupInformePersonalParameter, idAnoParameter);
-        }
-    
-        public virtual int SP_PersonalMunicipioTotal_RangoEtario(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)
-        {
-            var idGroupInformePersonalParameter = idGroupInformePersonal.HasValue ?
-                new ObjectParameter("IdGroupInformePersonal", idGroupInformePersonal) :
-                new ObjectParameter("IdGroupInformePersonal", typeof(System.Guid));
-    
-            var idAnoParameter = idAno.HasValue ?
-                new ObjectParameter("IdAno", idAno) :
-                new ObjectParameter("IdAno", typeof(long));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_PersonalMunicipioTotal_RangoEtario", idGroupInformePersonalParameter, idAnoParameter);
         }
     
         public virtual int SP_PersonalSalud_CalidadJuridica(Nullable<System.Guid> idGroupInformePersonal, Nullable<long> idAno)

@@ -65,17 +65,65 @@
     <Compile Include="Corporacion_Ano_Visible.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Corporacion\CorporacionInforme.cs" />
-    <Compile Include="Models\Corporacion\Corporacion_N1.cs" />
     <Compile Include="Corporacion_Nivel1.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GastoInforme.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="GastoInformev2.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Gasto_Ano.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Ano_Visible.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Glosa.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_GlosaCodigo.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Nivel1.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Nivel2.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Nivel3.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Nivel4.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IngresoInformev2.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Ano.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Ano_Visible.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Glosa.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_GlosaCodigo.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Nivel1.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Nivel2.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Nivel3.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso_Nivel4.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Corporacion\CorporacionInforme.cs" />
+    <Compile Include="Models\Corporacion\Corporacion_N1.cs" />
     <Compile Include="GastoTransparenteMunicipal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,30 +139,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GastoTransparenteMunicipal.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Gasto_Ano.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gasto_Ano_Visible.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gasto_Glosa.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gasto_GlosaCodigo.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IngresoInformev2.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Ano_Visible.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Glosa.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_GlosaCodigo.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Gasto\GastoInforme.cs" />
     <Compile Include="Models\Ingreso\IngresoInforme.cs" />
     <Compile Include="Models\Ingreso\Ingreso_N1.cs" />
@@ -125,54 +149,18 @@
     <Compile Include="Models\Gasto\Gasto_N3.cs" />
     <Compile Include="Models\Gasto\Gasto_N2.cs" />
     <Compile Include="Models\Gasto\Gasto_N1.cs" />
-    <Compile Include="Gasto_Nivel1.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gasto_Nivel2.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gasto_Nivel3.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gasto_Nivel4.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Personal\PersonalInforme.cs" />
     <Compile Include="Models\Proveedor\ProveedorInforme.cs" />
     <Compile Include="Models\Subsidio\SubsidioInforme.cs" />
-    <Compile Include="OrigenData.cs" />
-    <Compile Include="Models\Personal\Personal.cs" />
-    <Compile Include="Personal_Ano_Visible.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Personal\Personal_Nivel2.cs" />
-    <Compile Include="Models\Personal\Personal_Nivel1.cs" />
-    <Compile Include="Proveedor_Ano_Visible.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Proveedor\Proveedor_Nivel1.cs" />
-    <Compile Include="Models\Proveedor\Proveedor_Nivel2.cs" />
-    <Compile Include="IngresoInforme.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Ano.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Nivel1.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Nivel2.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Nivel3.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ingreso_Nivel4.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Municipalidad.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrigenData.cs" />
+    <Compile Include="Models\Personal\Personal.cs" />
+    <Compile Include="Models\Personal\Personal_Nivel2.cs" />
+    <Compile Include="Models\Personal\Personal_Nivel1.cs" />
+    <Compile Include="Models\Proveedor\Proveedor_Nivel1.cs" />
+    <Compile Include="Models\Proveedor\Proveedor_Nivel2.cs" />
     <Compile Include="Personal_AdmInforme.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -183,6 +171,9 @@
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Personal_Ano.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Personal_Ano_Visible.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Personal_CementerioInforme.cs">
@@ -212,12 +203,6 @@
     <Compile Include="Personal_Salud_Nivel2.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Personal_Total_Nivel1.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Personal_Total_Nivel2.cs">
-      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor_AdmInforme.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
@@ -229,6 +214,9 @@
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Proveedor_Ano.cs">
+      <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor_Ano_Visible.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
     <Compile Include="Proveedor_CementerioInforme.cs">
@@ -267,6 +255,9 @@
     <Compile Include="SP_SumaGastoByIdAno_Result.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Subsidio\Subsidio_N3.cs" />
+    <Compile Include="Models\Subsidio\Subsidio_N2.cs" />
+    <Compile Include="Models\Subsidio\Subsidio_N1.cs" />
     <Compile Include="SubsidioInforme.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
@@ -276,9 +267,6 @@
     <Compile Include="Subsidio_Ano_Visible.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Subsidio\Subsidio_N3.cs" />
-    <Compile Include="Models\Subsidio\Subsidio_N2.cs" />
-    <Compile Include="Models\Subsidio\Subsidio_N1.cs" />
     <Compile Include="Subsidio_Nivel1.cs">
       <DependentUpon>GastoTransparenteMunicipal.tt</DependentUpon>
     </Compile>

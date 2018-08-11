@@ -199,7 +199,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminComunaController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\DatosdestacadosController.cs" />
@@ -215,7 +214,6 @@
     <Compile Include="Helpers\AuthorizeComuna.cs" />
     <Compile Include="Helpers\BlobService.cs" />
     <Compile Include="Helpers\ConvertTo.cs" />
-    <Compile Include="Helpers\d3Object.cs" />
     <Compile Include="Helpers\LoadReport.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IngresoModel.cs" />
@@ -230,13 +228,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
     <Content Include="Content\css\font.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styleBootrap.css" />
+    <Content Include="Content\css\styleconsolidado.css" />
+    <Content Include="Content\css\styleconsolidado.min.css" />
     <Content Include="Content\css\styleSueldos.css" />
     <Content Include="Content\css\styleTreemap.css" />
     <Content Include="Content\css\tinyscrollbar.css" />
@@ -247,9 +245,8 @@
     <Content Include="Content\image\bien.png" />
     <Content Include="Content\image\chevron-down.svg" />
     <Content Include="Content\image\circulos.png" />
-    <Content Include="Content\image\consejo.png" />
     <Content Include="Content\image\fondo.png" />
-    <Content Include="Content\image\fondohome.png" />
+    <Content Include="Content\image\fondohome.jpg" />
     <Content Include="Content\image\icono.png" />
     <Content Include="Content\image\iniciativa.png" />
     <Content Include="Content\image\jadue.jpg" />
@@ -262,14 +259,11 @@
     <Content Include="Content\image\municipios\recoleta.png" />
     <Content Include="Content\image\municipios\Vitacura.png" />
     <Content Include="Content\image\observatorio.png" />
-    <Content Include="Content\image\recoleta.png" />
     <Content Include="Content\image\respal1.png" />
     <Content Include="Content\image\respal2.png" />
     <Content Include="Content\image\respal3.png" />
     <Content Include="Content\image\torrealba.jpg" />
     <Content Include="Content\image\transparente.png" />
-    <Content Include="Content\image\vitacura.png" />
-    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -324,13 +318,11 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\AdminComuna\Index.cshtml" />
     <Content Include="Views\Admin\CreateAccount.cshtml" />
     <Content Include="Views\Cuenta\ResetPassword.cshtml" />
-    <Content Include="Views\Shared\ViewAdmin.cshtml" />
     <Content Include="Views\AdminComuna\CargaDatos.cshtml" />
     <Content Include="Views\AdminComuna\CargaIngresos.cshtml" />
     <Content Include="Views\AdminComuna\CargaGastos.cshtml" />
@@ -341,7 +333,6 @@
     <Content Include="Views\AdminComuna\AbrirNuevoAno.cshtml" />
     <Content Include="Views\AdminComuna\AbrirPeriodo.cshtml" />
     <Content Include="Views\Admin\Municipio.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\AdminComuna\Eliminar.cshtml" />
     <Content Include="Views\AdminComuna\CargaDatosOk.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
@@ -352,8 +343,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\municipiosblanco\" />
-    <Folder Include="Views\FeaturedData\" />
-    <Folder Include="Views\Testing\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -381,21 +370,6 @@
       <Project>{1e6f26a7-f591-4d48-824a-faa75e30d5bc}</Project>
       <Name>Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Administration\CargaInformeGasto.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Administration\CargaInformeSubsidio.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Administration\CargaInformePersonal.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Administration\CargaInformeCorporaciones.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Administration\CargaInformeProveedores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />

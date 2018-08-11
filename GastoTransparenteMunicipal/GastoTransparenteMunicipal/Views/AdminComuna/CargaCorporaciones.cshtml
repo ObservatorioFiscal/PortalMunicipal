@@ -21,22 +21,27 @@
                 <span class="muntotal">
                     @ViewBag.ano
                 </span>
+                <br />
+                <br />
             </h1>
         </div>
         <div class="col-md-12">
             <form action="@Url.Action("CargaCorporaciones","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id" value="@ViewBag.id" />
-                <label>
-                    <span></span>
-                    Archivo
-                    <input type="file" accept=".xls,.xlsx" id="file" name="file" />
-                    <input type="hidden" id="fileStatus" />
-                    <br />
-                    <label id="messagefileStatus" />
-                    <span id="success" class="md-36 icon-Recurso15" style="display:none"></span>
-                    <span id="error" class="md-36 icon-Recurso14" style="display:none"></span>
-                </label><br />
-                <input type="submit" class="btn" id="boton" value="Confirmar subida de Informacion">
+                <h4 class="inline">
+                    <img src="~/Content/image/mal.png" id="error" style="display:none" alt="archivo correcto" />
+                    <img src="~/Content/image/bien.png" id="success" style="display:none" alt="archivo con errores" />
+                    Municipio Total &nbsp;&nbsp;&nbsp;
+                </h4>
+                <p class="inline">
+                    <small>
+                        <input type="file" accept=".xls,.xlsx" id="file" name="file" />
+                        <input type="hidden" id="fileStatus" />        
+                        <label id="messagefileStatus" />
+                    </small>
+                </p>
+                <hr />
+                <input type="submit" class="btn" id="boton" value="Confirmar subida de Información" disabled>
             </form>
         </div>
     </div>
@@ -97,12 +102,12 @@
         function checkSingleStatus(item, result) {
             if (item == "file") {
                 if (result == true) {
-                    $('#success').css("display", "block");
+                    $('#success').css("display", "inline");
                     $('#error').css("display", "none");
                 }
                 else {
                     $('#success').css("display", "none");
-                    $('#error').css("display", "block");
+                    $('#error').css("display", "inline");
                 }
             }         
         }

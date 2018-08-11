@@ -21,6 +21,7 @@
                 <span class="muntotal">
                     @ViewBag.ano
                 </span>
+                <br /><br />
             </h1>
         </div>
         <div class="col-md-12">
@@ -35,12 +36,11 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="file" name="file" />
                         <input type="hidden" id="fileStatus" />
-                        <br />
                         <label id="messagefileStatus" />
                     </small>
                 </p>
                 <hr />
-                <input type="submit" class="btn" id="boton" value="Confirmar subida de Informacion">
+                <input type="submit" class="btn" id="boton" value="Confirmar subida de Información" disabled>
             </form>
         </div>
     </div>
@@ -101,12 +101,12 @@
         function checkSingleStatus(item, result) {
             if (item == "file") {
                 if (result == true) {
-                    $('#success').css("display", "block");
+                    $('#success').css("display", "inline");
                     $('#error').css("display", "none");
                 }
                 else {
                     $('#success').css("display", "none");
-                    $('#error').css("display", "block");
+                    $('#error').css("display", "inline");
                 }
             }
         }

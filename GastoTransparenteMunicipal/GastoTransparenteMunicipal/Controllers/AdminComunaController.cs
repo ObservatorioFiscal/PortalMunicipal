@@ -23,7 +23,7 @@ namespace GastoTransparenteMunicipal.Controllers
     [AuthorizeComuna]
     public class AdminComunaController : BaseController
     {
-        private const string errorPassword = "ErrorPassword";
+        private const string errorPassword = "Error Password";
         private const string errorMessage = "Error en columna numero ";
         private const string okMessage = "OK";
 
@@ -52,9 +52,7 @@ namespace GastoTransparenteMunicipal.Controllers
             var blob = blobService.UploadBlob(fileName, "dataset", data);
             return blob.Uri.AbsoluteUri;
         }
-
-
-
+        
         public ActionResult Index()
         {
             var municipalidad = GetCurrentIdMunicipality();
@@ -191,29 +189,28 @@ namespace GastoTransparenteMunicipal.Controllers
             }
             db.SaveChanges();
 
-            var maxAno = db.Gasto_Ano.Where(r => r.Ano == gasto.Ano && r.IdMunicipalidad == gasto.IdMunicipalidad).OrderByDescending(r => r.Ano).FirstOrDefault();            
-            if (maxAno == null || gasto.Ano== maxAno.Ano) { 
-                var suma = db.SP_SumaGastoByIdAno(id).First();
-                Municipalidad municipalidad = db.Municipalidad.Find(gasto.IdMunicipalidad);
-                switch (gasto.Semestre)
-                {
-                    case 0:
-                        municipalidad.Periodo = "El " + gasto.Ano +" "; 
-                        break;
-                    case 1:
-                        municipalidad.Periodo = "A Marzo de " + gasto.Ano + " ";
-                        break;
-                    case 2:
-                        municipalidad.Periodo = "A Junio de " + gasto.Ano + " ";
-                        break;
-                    case 3:
-                        municipalidad.Periodo = "A Septiembre de " + gasto.Ano + " ";
-                        break;
-                }
-                municipalidad.TotalGastado = "$"+ Ppuntos(suma.TotalGastado.Value);
-                municipalidad.TotalPresupuestado = "$" + Ppuntos(suma.TotalPresupuestado.Value);
-                db.SaveChanges();
+            Gasto_Ano maxAno = db.Gasto_Ano.Where(r=>r.IdMunicipalidad==gasto.IdMunicipalidad && r.Activo==true).OrderByDescending(r=>r.Ano).First();            
+            var suma = db.SP_SumaGastoByIdAno(maxAno.IdAno).First();
+            Municipalidad municipalidad = db.Municipalidad.Find(maxAno.IdMunicipalidad);
+            switch (maxAno.Semestre)
+            {
+                case 0:
+                    municipalidad.Periodo = "El " + maxAno.Ano +" "; 
+                    break;
+                case 1:
+                    municipalidad.Periodo = "A Marzo de " + maxAno.Ano + " ";
+                    break;
+                case 2:
+                    municipalidad.Periodo = "A Junio de " + maxAno.Ano + " ";
+                    break;
+                case 3:
+                    municipalidad.Periodo = "A Septiembre de " + maxAno.Ano + " ";
+                    break;
             }
+            municipalidad.TotalGastado = "$"+ Ppuntos(suma.TotalGastado.Value);
+            municipalidad.TotalPresupuestado = "$" + Ppuntos(suma.TotalPresupuestado.Value);
+            db.SaveChanges();
+
             return RedirectToAction ("CargaDatosOk");
         }
 
@@ -550,13 +547,13 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (ingr.Semestre)
             {
                 case 1:
-                    ViewBag.ano = ingr.Ano + "a marzo";
+                    ViewBag.ano = ingr.Ano + " a marzo";
                     break;
                 case 2:
-                    ViewBag.ano = ingr.Ano + "a junio";
+                    ViewBag.ano = ingr.Ano + " a junio";
                     break;
                 case 3:
-                    ViewBag.ano = ingr.Ano + "a septiembre";
+                    ViewBag.ano = ingr.Ano + " a septiembre";
                     break;
                 default:
                     ViewBag.ano = ingr.Ano;
@@ -843,13 +840,13 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (gasto.Semestre)
             {
                 case 1:
-                    ViewBag.ano = gasto.Ano + "a marzo";
+                    ViewBag.ano = gasto.Ano + " a marzo";
                     break;
                 case 2:
-                    ViewBag.ano = gasto.Ano + "a junio";
+                    ViewBag.ano = gasto.Ano + " a junio";
                     break;
                 case 3:
-                    ViewBag.ano = gasto.Ano + "a septiembre";
+                    ViewBag.ano = gasto.Ano + " a septiembre";
                     break;
                 default:
                     ViewBag.ano = gasto.Ano;
@@ -1077,13 +1074,13 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (ingr.Semestre)
             {
                 case 1:
-                    ViewBag.ano = ingr.Ano + "a marzo";
+                    ViewBag.ano = ingr.Ano + " a marzo";
                     break;
                 case 2:
-                    ViewBag.ano = ingr.Ano + "a junio";
+                    ViewBag.ano = ingr.Ano + " a junio";
                     break;
                 case 3:
-                    ViewBag.ano = ingr.Ano + "a septiembre";
+                    ViewBag.ano = ingr.Ano + " a septiembre";
                     break;
                 default:
                     ViewBag.ano = ingr.Ano;
@@ -1339,13 +1336,13 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (ingr.Semestre)
             {
                 case 1:
-                    ViewBag.ano = ingr.Ano + "a marzo";
+                    ViewBag.ano = ingr.Ano + " a marzo";
                     break;
                 case 2:
-                    ViewBag.ano = ingr.Ano + "a junio";
+                    ViewBag.ano = ingr.Ano + " a junio";
                     break;
                 case 3:
-                    ViewBag.ano = ingr.Ano + "a septiembre";
+                    ViewBag.ano = ingr.Ano + " a septiembre";
                     break;
                 default:
                     ViewBag.ano = ingr.Ano;
@@ -1448,13 +1445,13 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (ingr.Semestre)
             {
                 case 1:
-                    ViewBag.ano = ingr.Ano + "a marzo";
+                    ViewBag.ano = ingr.Ano + " a marzo";
                     break;
                 case 2:
-                    ViewBag.ano = ingr.Ano + "a junio";
+                    ViewBag.ano = ingr.Ano + " a junio";
                     break;
                 case 3:
-                    ViewBag.ano = ingr.Ano + "a septiembre";
+                    ViewBag.ano = ingr.Ano + " a septiembre";
                     break;
                 default:
                     ViewBag.ano = ingr.Ano;
@@ -1559,13 +1556,13 @@ namespace GastoTransparenteMunicipal.Controllers
             switch (ingr.Semestre)
             {
                 case 1:
-                    ViewBag.ano = ingr.Ano + "a marzo";
+                    ViewBag.ano = ingr.Ano + " a marzo";
                     break;
                 case 2:
-                    ViewBag.ano = ingr.Ano + "a junio";
+                    ViewBag.ano = ingr.Ano + " a junio";
                     break;
                 case 3:
-                    ViewBag.ano = ingr.Ano + "a septiembre";
+                    ViewBag.ano = ingr.Ano + " a septiembre";
                     break;
                 default:
                     ViewBag.ano = ingr.Ano;
@@ -1790,7 +1787,7 @@ namespace GastoTransparenteMunicipal.Controllers
             var blobPath = UploadCSV(muni + "/" + personalAno.Ano.ToString() + "/remuneracion/dataset.csv", csv);
             personalAno.DataFilePath = blobPath;
 
-            db.SP_InformePersonalMunicipioTotal(loadReport.IdGroupInforme, personalAno.IdAno);
+            //db.SP_InformePersonalMunicipioTotal(loadReport.IdGroupInforme, personalAno.IdAno);
 
             db.ChangeTracker.DetectChanges();
             db.SaveChanges();

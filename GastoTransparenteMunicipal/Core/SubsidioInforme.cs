@@ -16,11 +16,11 @@ namespace Core
     {
         public long IdSubsidio { get; set; }
         public Nullable<System.Guid> IdGroupInformeSubsidio { get; set; }
-        public string CATEGORIA { get; set; }
-        public string ORGANIZACION { get; set; }
-        public string FECHADECRETO { get; set; }
-        public string OBJETIVODELAPORTE { get; set; }
-        public Nullable<double> MONTOAPORTE { get; set; }
+        public string Categoria { get; set; }
+        public string Organizacion { get; set; }
+        public string FechaDecreto { get; set; }
+        public string ObjetivoDelAporte { get; set; }
+        public Nullable<double> MontoAporte { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     }
 }

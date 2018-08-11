@@ -133,21 +133,6 @@
           <Property Name="PorcentajePresupuestado" Type="float" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
         </EntityType>
-        <EntityType Name="GastoInforme">
-          <Key>
-            <PropertyRef Name="IdGastoInforme" />
-          </Key>
-          <Property Name="IdGastoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TIPO" Type="nvarchar" MaxLength="200" />
-          <Property Name="AREANIVEL1A" Type="nvarchar" MaxLength="200" />
-          <Property Name="AREANIVEL2" Type="nvarchar" MaxLength="200" />
-          <Property Name="CUENTANIVEL1" Type="nvarchar" MaxLength="200" />
-          <Property Name="CUENTANIVEL2" Type="nvarchar" MaxLength="200" />
-          <Property Name="MontoPresupuestadoAnual" Type="float" />
-          <Property Name="MontoGastado" Type="float" />
-          <Property Name="UpdatedOn" Type="datetime" />
-          <Property Name="IdGroupInformeGasto" Type="uniqueidentifier" />
-        </EntityType>
         <EntityType Name="GastoInformev2">
           <Key>
             <PropertyRef Name="IdGastoInforme" />
@@ -248,21 +233,6 @@
           <Property Name="PorcentajePresupuestado" Type="float" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="300" />
         </EntityType>
-        <EntityType Name="IngresoInforme">
-          <Key>
-            <PropertyRef Name="IdIngresoInforme" />
-          </Key>
-          <Property Name="IdIngresoInforme" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TIPO" Type="nvarchar" MaxLength="200" />
-          <Property Name="AREANIVEL1A" Type="nvarchar" MaxLength="200" />
-          <Property Name="AREANIVEL2" Type="nvarchar" MaxLength="200" />
-          <Property Name="CUENTANIVEL1" Type="nvarchar" MaxLength="200" />
-          <Property Name="CUENTANIVEL2" Type="nvarchar" MaxLength="200" />
-          <Property Name="MontoPresupuestadoAnual" Type="float" />
-          <Property Name="MontoGastado" Type="float" />
-          <Property Name="UpdatedOn" Type="datetime" />
-          <Property Name="IdGroupInformeIngreso" Type="uniqueidentifier" />
-        </EntityType>
         <EntityType Name="IngresoInformev2">
           <Key>
             <PropertyRef Name="IdGastoInforme" />
@@ -321,16 +291,16 @@
           </Key>
           <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
-          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
-          <Property Name="EDAD" Type="int" />
-          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
-          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
-          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
-          <Property Name="GRADO" Type="int" />
-          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
-          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
-          <Property Name="SUELDOHABERES" Type="bigint" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="30" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="CalidadJuridica" Type="nvarchar" MaxLength="50" />
+          <Property Name="Profesion" Type="nvarchar" MaxLength="100" />
+          <Property Name="NivelAcademico" Type="nvarchar" MaxLength="100" />
+          <Property Name="Estamento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grado" Type="int" />
+          <Property Name="Antiguedad" Type="nvarchar" MaxLength="3" />
+          <Property Name="Area" Type="nvarchar" MaxLength="500" />
+          <Property Name="SueldoHaberes" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Personal_Ano">
@@ -373,16 +343,16 @@
           </Key>
           <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
-          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
-          <Property Name="EDAD" Type="int" />
-          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
-          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
-          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
-          <Property Name="GRADO" Type="int" />
-          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
-          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
-          <Property Name="SUELDOHABERES" Type="bigint" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="30" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="CalidadJuridica" Type="nvarchar" MaxLength="50" />
+          <Property Name="Profesion" Type="nvarchar" MaxLength="100" />
+          <Property Name="NivelAcademico" Type="nvarchar" MaxLength="100" />
+          <Property Name="Estamento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grado" Type="int" />
+          <Property Name="Antiguedad" Type="nvarchar" MaxLength="3" />
+          <Property Name="Area" Type="nvarchar" MaxLength="500" />
+          <Property Name="SueldoHaberes" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Personal_Educacion_Nivel1">
@@ -412,16 +382,16 @@
           </Key>
           <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
-          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
-          <Property Name="EDAD" Type="int" />
-          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
-          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
-          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
-          <Property Name="GRADO" Type="int" />
-          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
-          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
-          <Property Name="SUELDOHABERES" Type="bigint" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="30" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="CalidadJuridica" Type="nvarchar" MaxLength="50" />
+          <Property Name="Profesion" Type="nvarchar" MaxLength="100" />
+          <Property Name="NivelAcademico" Type="nvarchar" MaxLength="100" />
+          <Property Name="Estamento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grado" Type="int" />
+          <Property Name="Antiguedad" Type="nvarchar" MaxLength="3" />
+          <Property Name="Area" Type="nvarchar" MaxLength="500" />
+          <Property Name="SueldoHaberes" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Personal_Salud_Nivel1">
@@ -451,38 +421,17 @@
           </Key>
           <Property Name="IdInformePersonal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdGroupInformePersonal" Type="uniqueidentifier" />
-          <Property Name="GENERO" Type="nvarchar" MaxLength="30" />
-          <Property Name="EDAD" Type="int" />
-          <Property Name="CALIDADJURIDICA" Type="nvarchar" MaxLength="50" />
-          <Property Name="PROFESION" Type="nvarchar" MaxLength="100" />
-          <Property Name="NIVELACADEMICO" Type="nvarchar" MaxLength="100" />
-          <Property Name="ESTAMENTO" Type="nvarchar" MaxLength="50" />
-          <Property Name="GRADO" Type="int" />
-          <Property Name="ANTIGUEDAD" Type="nvarchar" MaxLength="3" />
-          <Property Name="AREA" Type="nvarchar" MaxLength="500" />
-          <Property Name="SUELDOHABERES" Type="bigint" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="30" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="CalidadJuridica" Type="nvarchar" MaxLength="50" />
+          <Property Name="Profesion" Type="nvarchar" MaxLength="100" />
+          <Property Name="NivelAcademico" Type="nvarchar" MaxLength="100" />
+          <Property Name="Estamento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grado" Type="int" />
+          <Property Name="Antiguedad" Type="nvarchar" MaxLength="3" />
+          <Property Name="Area" Type="nvarchar" MaxLength="500" />
+          <Property Name="SueldoHaberes" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
-        </EntityType>
-        <EntityType Name="Personal_Total_Nivel1">
-          <Key>
-            <PropertyRef Name="IdNivel1" />
-          </Key>
-          <Property Name="IdNivel1" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdAno" Type="bigint" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-          <Property Name="CodTipo" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Personal_Total_Nivel2">
-          <Key>
-            <PropertyRef Name="IdNivel2" />
-          </Key>
-          <Property Name="IdNivel2" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdNivel1" Type="bigint" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="300" />
-          <Property Name="MontoMujer" Type="bigint" />
-          <Property Name="MontoHombre" Type="bigint" />
-          <Property Name="CantidadMujer" Type="bigint" />
-          <Property Name="CantidadHombre" Type="bigint" />
         </EntityType>
         <EntityType Name="Proveedor_Adm_Nivel1">
           <Key>
@@ -513,7 +462,7 @@
           <Property Name="NumeroOrdenCompra" Type="bigint" />
           <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
           <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
-          <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+          <Property Name="Rut" Type="nvarchar" MaxLength="20" />
           <Property Name="Monto" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
@@ -559,7 +508,7 @@
           <Property Name="NumeroOrdenCompra" Type="bigint" />
           <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
           <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
-          <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+          <Property Name="Rut" Type="nvarchar" MaxLength="20" />
           <Property Name="Monto" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
@@ -592,7 +541,7 @@
           <Property Name="NumeroOrdenCompra" Type="bigint" />
           <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
           <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
-          <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+          <Property Name="Rut" Type="nvarchar" MaxLength="20" />
           <Property Name="Monto" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
@@ -625,7 +574,7 @@
           <Property Name="NumeroOrdenCompra" Type="bigint" />
           <Property Name="Glosa" Type="nvarchar" MaxLength="1000" />
           <Property Name="Proveedor" Type="nvarchar" MaxLength="500" />
-          <Property Name="RUT" Type="nvarchar" MaxLength="20" />
+          <Property Name="Rut" Type="nvarchar" MaxLength="20" />
           <Property Name="Monto" Type="bigint" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
@@ -696,11 +645,11 @@
           </Key>
           <Property Name="IdSubsidio" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdGroupInformeSubsidio" Type="uniqueidentifier" />
-          <Property Name="CATEGORIA" Type="nvarchar" MaxLength="300" />
-          <Property Name="ORGANIZACION" Type="nvarchar" MaxLength="300" />
-          <Property Name="FECHADECRETO" Type="nvarchar" MaxLength="50" />
-          <Property Name="OBJETIVODELAPORTE" Type="nvarchar(max)" />
-          <Property Name="MONTOAPORTE" Type="float" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="300" />
+          <Property Name="Organizacion" Type="nvarchar" MaxLength="300" />
+          <Property Name="FechaDecreto" Type="nvarchar" MaxLength="50" />
+          <Property Name="ObjetivoDelAporte" Type="nvarchar(max)" />
+          <Property Name="MontoAporte" Type="float" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <!--Errores durante la generación:
@@ -809,7 +758,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Gasto_Glo__Glosa__477199F1">
+        <Association Name="FK__Gasto_Glo__Glosa__6442E2C9">
           <End Role="Gasto_Glosa" Type="Self.Gasto_Glosa" Multiplicity="0..1" />
           <End Role="Gasto_GlosaCodigo" Type="Self.Gasto_GlosaCodigo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -881,7 +830,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ingreso_G__Glosa__7073AF84">
+        <Association Name="FK__Ingreso_G__Glosa__69FBBC1F">
           <End Role="Ingreso_Glosa" Type="Self.Ingreso_Glosa" Multiplicity="0..1" />
           <End Role="Ingreso_GlosaCodigo" Type="Self.Ingreso_GlosaCodigo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -989,18 +938,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Personal___IdAno__2BFE89A6">
-          <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="0..1" />
-          <End Role="Personal_Total_Nivel1" Type="Self.Personal_Total_Nivel1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal_Ano">
-              <PropertyRef Name="IdAno" />
-            </Principal>
-            <Dependent Role="Personal_Total_Nivel1">
-              <PropertyRef Name="IdAno" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Personal___IdMun__25518C17">
           <End Role="Municipalidad" Type="Self.Municipalidad" Multiplicity="0..1" />
           <End Role="Personal_Ano" Type="Self.Personal_Ano" Multiplicity="*" />
@@ -1057,18 +994,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               <PropertyRef Name="IdNivel1" />
             </Principal>
             <Dependent Role="Personal_Salud_Nivel2">
-              <PropertyRef Name="IdNivel1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Personal___IdNiv__2CF2ADDF">
-          <End Role="Personal_Total_Nivel1" Type="Self.Personal_Total_Nivel1" Multiplicity="0..1" />
-          <End Role="Personal_Total_Nivel2" Type="Self.Personal_Total_Nivel2" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal_Total_Nivel1">
-              <PropertyRef Name="IdNivel1" />
-            </Principal>
-            <Dependent Role="Personal_Total_Nivel2">
               <PropertyRef Name="IdNivel1" />
             </Dependent>
           </ReferentialConstraint>
@@ -1295,10 +1220,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IdAn" Type="bigint" Mode="In" />
         </Function>
-        <Function Name="SP_InformePersonalMunicipioTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
-          <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAn" Type="bigint" Mode="In" />
-        </Function>
         <Function Name="SP_InformePersonalSalud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="app">
           <Parameter Name="IdGroupInformePersona" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IdAn" Type="bigint" Mode="In" />
@@ -1357,9 +1278,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Parameter Name="IdAno" Type="bigint" Mode="In" />
         </Function>
         <Function Name="SP_InformePersonalEducacionNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_InformePersonalMunicipioTotalNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdAno" Type="bigint" Mode="In" />
         </Function>
         <Function Name="SP_InformePersonalSaludNivel1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1461,34 +1379,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IdAno" Type="bigint" Mode="In" />
         </Function>
-        <Function Name="SP_PersonalMunicipioTotal_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_PersonalMunicipioTotal_Estamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_PersonalMunicipioTotal_Grado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_PersonalMunicipioTotal_NivelEducacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_PersonalMunicipioTotal_Profesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_PersonalMunicipioTotal_RangoAntiguedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
-        <Function Name="SP_PersonalMunicipioTotal_RangoEtario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
-          <Parameter Name="IdAno" Type="bigint" Mode="In" />
-        </Function>
         <Function Name="SP_PersonalSalud_CalidadJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdGroupInformePersonal" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IdAno" Type="bigint" Mode="In" />
@@ -1572,7 +1462,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Gasto_Nivel2" EntityType="Self.Gasto_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Nivel3" EntityType="Self.Gasto_Nivel3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gasto_Nivel4" EntityType="Self.Gasto_Nivel4" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GastoInforme" EntityType="Self.GastoInforme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GastoInformev2" EntityType="Self.GastoInformev2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Ano" EntityType="Self.Ingreso_Ano" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Glosa" EntityType="Self.Ingreso_Glosa" Schema="dbo" store:Type="Tables" />
@@ -1581,7 +1470,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Ingreso_Nivel2" EntityType="Self.Ingreso_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Nivel3" EntityType="Self.Ingreso_Nivel3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingreso_Nivel4" EntityType="Self.Ingreso_Nivel4" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="IngresoInforme" EntityType="Self.IngresoInforme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IngresoInformev2" EntityType="Self.IngresoInformev2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipalidad" EntityType="Self.Municipalidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal_Adm_Nivel1" EntityType="Self.Personal_Adm_Nivel1" Schema="dbo" store:Type="Tables" />
@@ -1597,8 +1485,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Personal_Salud_Nivel1" EntityType="Self.Personal_Salud_Nivel1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal_Salud_Nivel2" EntityType="Self.Personal_Salud_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal_SaludInforme" EntityType="Self.Personal_SaludInforme" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Personal_Total_Nivel1" EntityType="Self.Personal_Total_Nivel1" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Personal_Total_Nivel2" EntityType="Self.Personal_Total_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedor_Adm_Nivel1" EntityType="Self.Proveedor_Adm_Nivel1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedor_Adm_Nivel2" EntityType="Self.Proveedor_Adm_Nivel2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedor_AdmInforme" EntityType="Self.Proveedor_AdmInforme" Schema="dbo" store:Type="Tables" />
@@ -1680,7 +1566,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
           </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="Self.FK__Gasto_Glo__Glosa__477199F1">
+          <AssociationSet Name="FK__Gasto_Glo__Glosa__6442E2C9" Association="Self.FK__Gasto_Glo__Glosa__6442E2C9">
             <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
             <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
           </AssociationSet>
@@ -1704,7 +1590,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="Self.FK__Ingreso_G__Glosa__7073AF84">
+          <AssociationSet Name="FK__Ingreso_G__Glosa__69FBBC1F" Association="Self.FK__Ingreso_G__Glosa__69FBBC1F">
             <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
             <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
           </AssociationSet>
@@ -1740,10 +1626,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Personal_Ano" EntitySet="Personal_Ano" />
             <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
           </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__2BFE89A6" Association="Self.FK__Personal___IdAno__2BFE89A6">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-          </AssociationSet>
           <AssociationSet Name="FK__Personal___IdMun__25518C17" Association="Self.FK__Personal___IdMun__25518C17">
             <End Role="Municipalidad" EntitySet="Municipalidad" />
             <End Role="Personal_Ano" EntitySet="Personal_Ano" />
@@ -1763,10 +1645,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <AssociationSet Name="FK__Personal___IdNiv__2B0A656D" Association="Self.FK__Personal___IdNiv__2B0A656D">
             <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
             <End Role="Personal_Salud_Nivel2" EntitySet="Personal_Salud_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__2CF2ADDF" Association="Self.FK__Personal___IdNiv__2CF2ADDF">
-            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-            <End Role="Personal_Total_Nivel2" EntitySet="Personal_Total_Nivel2" />
           </AssociationSet>
           <AssociationSet Name="FK__Proveedor__IdAno__2DE6D218" Association="Self.FK__Proveedor__IdAno__2DE6D218">
             <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
@@ -2152,7 +2030,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Gasto_Nivel2" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel2" />
           <EntitySet Name="Gasto_Nivel3" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel3" />
           <EntitySet Name="Gasto_Nivel4" EntityType="GastoTransparenteMunicipalModel.Gasto_Nivel4" />
-          <EntitySet Name="GastoInforme" EntityType="GastoTransparenteMunicipalModel.GastoInforme" />
           <EntitySet Name="GastoInformev2" EntityType="GastoTransparenteMunicipalModel.GastoInformev2" />
           <EntitySet Name="Ingreso_Ano" EntityType="GastoTransparenteMunicipalModel.Ingreso_Ano" />
           <EntitySet Name="Ingreso_Glosa" EntityType="GastoTransparenteMunicipalModel.Ingreso_Glosa" />
@@ -2161,7 +2038,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Ingreso_Nivel2" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel2" />
           <EntitySet Name="Ingreso_Nivel3" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel3" />
           <EntitySet Name="Ingreso_Nivel4" EntityType="GastoTransparenteMunicipalModel.Ingreso_Nivel4" />
-          <EntitySet Name="IngresoInforme" EntityType="GastoTransparenteMunicipalModel.IngresoInforme" />
           <EntitySet Name="IngresoInformev2" EntityType="GastoTransparenteMunicipalModel.IngresoInformev2" />
           <EntitySet Name="Municipalidad" EntityType="GastoTransparenteMunicipalModel.Municipalidad" />
           <EntitySet Name="Personal_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Adm_Nivel1" />
@@ -2177,8 +2053,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <EntitySet Name="Personal_Salud_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Salud_Nivel1" />
           <EntitySet Name="Personal_Salud_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Salud_Nivel2" />
           <EntitySet Name="Personal_SaludInforme" EntityType="GastoTransparenteMunicipalModel.Personal_SaludInforme" />
-          <EntitySet Name="Personal_Total_Nivel1" EntityType="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" />
-          <EntitySet Name="Personal_Total_Nivel2" EntityType="GastoTransparenteMunicipalModel.Personal_Total_Nivel2" />
           <EntitySet Name="Proveedor_Adm_Nivel1" EntityType="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel1" />
           <EntitySet Name="Proveedor_Adm_Nivel2" EntityType="GastoTransparenteMunicipalModel.Proveedor_Adm_Nivel2" />
           <EntitySet Name="Proveedor_AdmInforme" EntityType="GastoTransparenteMunicipalModel.Proveedor_AdmInforme" />
@@ -2222,7 +2096,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Gasto_Ano" EntitySet="Gasto_Ano" />
             <End Role="Gasto_Nivel1" EntitySet="Gasto_Nivel1" />
           </AssociationSet>
-          <AssociationSet Name="FK__Gasto_Glo__Glosa__477199F1" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1">
+          <AssociationSet Name="FK__Gasto_Glo__Glosa__6442E2C9" Association="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__6442E2C9">
             <End Role="Gasto_Glosa" EntitySet="Gasto_Glosa" />
             <End Role="Gasto_GlosaCodigo" EntitySet="Gasto_GlosaCodigo" />
           </AssociationSet>
@@ -2246,7 +2120,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Ingreso_Ano" EntitySet="Ingreso_Ano" />
             <End Role="Ingreso_Nivel1" EntitySet="Ingreso_Nivel1" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ingreso_G__Glosa__7073AF84" Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84">
+          <AssociationSet Name="FK__Ingreso_G__Glosa__69FBBC1F" Association="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__69FBBC1F">
             <End Role="Ingreso_Glosa" EntitySet="Ingreso_Glosa" />
             <End Role="Ingreso_GlosaCodigo" EntitySet="Ingreso_GlosaCodigo" />
           </AssociationSet>
@@ -2294,10 +2168,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <End Role="Personal_Ano" EntitySet="Personal_Ano" />
             <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
           </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdAno__2BFE89A6" Association="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6">
-            <End Role="Personal_Ano" EntitySet="Personal_Ano" />
-            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-          </AssociationSet>
           <AssociationSet Name="FK__Personal___IdNiv__2739D489" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2739D489">
             <End Role="Personal_Cementerio_Nivel1" EntitySet="Personal_Cementerio_Nivel1" />
             <End Role="Personal_Cementerio_Nivel2" EntitySet="Personal_Cementerio_Nivel2" />
@@ -2309,10 +2179,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <AssociationSet Name="FK__Personal___IdNiv__2B0A656D" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2B0A656D">
             <End Role="Personal_Salud_Nivel1" EntitySet="Personal_Salud_Nivel1" />
             <End Role="Personal_Salud_Nivel2" EntitySet="Personal_Salud_Nivel2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Personal___IdNiv__2CF2ADDF" Association="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF">
-            <End Role="Personal_Total_Nivel1" EntitySet="Personal_Total_Nivel1" />
-            <End Role="Personal_Total_Nivel2" EntitySet="Personal_Total_Nivel2" />
           </AssociationSet>
           <AssociationSet Name="FK__Proveedor__IdAno__2DE6D218" Association="GastoTransparenteMunicipalModel.FK__Proveedor__IdAno__2DE6D218">
             <End Role="Proveedor_Ano" EntitySet="Proveedor_Ano" />
@@ -2441,7 +2307,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="GlosaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Gasto_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" FromRole="Gasto_Glosa" ToRole="Gasto_GlosaCodigo" />
+          <NavigationProperty Name="Gasto_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__6442E2C9" FromRole="Gasto_Glosa" ToRole="Gasto_GlosaCodigo" />
         </EntityType>
         <EntityType Name="Gasto_GlosaCodigo">
           <Key>
@@ -2450,7 +2316,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GlosaId" Type="Int64" />
           <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Gasto_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__477199F1" FromRole="Gasto_GlosaCodigo" ToRole="Gasto_Glosa" />
+          <NavigationProperty Name="Gasto_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Glo__Glosa__6442E2C9" FromRole="Gasto_GlosaCodigo" ToRole="Gasto_Glosa" />
         </EntityType>
         <EntityType Name="Gasto_Nivel1">
           <Key>
@@ -2515,21 +2381,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gasto_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Gasto_Niv__IdNiv__1DB06A4F" FromRole="Gasto_Nivel4" ToRole="Gasto_Nivel3" />
         </EntityType>
-        <EntityType Name="GastoInforme">
-          <Key>
-            <PropertyRef Name="IdGastoInforme" />
-          </Key>
-          <Property Name="IdGastoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TIPO" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AREANIVEL1A" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AREANIVEL2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CUENTANIVEL1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CUENTANIVEL2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="MontoPresupuestadoAnual" Type="Double" />
-          <Property Name="MontoGastado" Type="Double" />
-          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <Property Name="IdGroupInformeGasto" Type="Guid" />
-        </EntityType>
         <EntityType Name="GastoInformev2">
           <Key>
             <PropertyRef Name="IdGastoInforme" />
@@ -2567,7 +2418,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="NombreAreaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NombreCuentaNivel1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NombreCuentaNivel2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ingreso_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" FromRole="Ingreso_Glosa" ToRole="Ingreso_GlosaCodigo" />
+          <NavigationProperty Name="Ingreso_GlosaCodigo" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__69FBBC1F" FromRole="Ingreso_Glosa" ToRole="Ingreso_GlosaCodigo" />
         </EntityType>
         <EntityType Name="Ingreso_GlosaCodigo">
           <Key>
@@ -2576,7 +2427,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="GlosaCodigoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GlosaId" Type="Int64" />
           <Property Name="Codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ingreso_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__7073AF84" FromRole="Ingreso_GlosaCodigo" ToRole="Ingreso_Glosa" />
+          <NavigationProperty Name="Ingreso_Glosa" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_G__Glosa__69FBBC1F" FromRole="Ingreso_GlosaCodigo" ToRole="Ingreso_Glosa" />
         </EntityType>
         <EntityType Name="Ingreso_Nivel1">
           <Key>
@@ -2640,21 +2491,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="PorcentajePresupuestado" Type="Double" />
           <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ingreso_Nivel3" Relationship="GastoTransparenteMunicipalModel.FK__Ingreso_N__IdNiv__22751F6C" FromRole="Ingreso_Nivel4" ToRole="Ingreso_Nivel3" />
-        </EntityType>
-        <EntityType Name="IngresoInforme">
-          <Key>
-            <PropertyRef Name="IdIngresoInforme" />
-          </Key>
-          <Property Name="IdIngresoInforme" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TIPO" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AREANIVEL1A" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AREANIVEL2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CUENTANIVEL1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CUENTANIVEL2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="MontoPresupuestadoAnual" Type="Double" />
-          <Property Name="MontoGastado" Type="Double" />
-          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <Property Name="IdGroupInformeIngreso" Type="Guid" />
         </EntityType>
         <EntityType Name="IngresoInformev2">
           <Key>
@@ -2723,16 +2559,16 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           </Key>
           <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdGroupInformePersonal" Type="Guid" />
-          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="EDAD" Type="Int32" />
-          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GRADO" Type="Int32" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SUELDOHABERES" Type="Int64" />
+          <Property Name="Genero" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="CalidadJuridica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NivelAcademico" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grado" Type="Int32" />
+          <Property Name="Antiguedad" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoHaberes" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Personal_Ano">
@@ -2752,7 +2588,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <NavigationProperty Name="Personal_Cementerio_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2645B050" FromRole="Personal_Ano" ToRole="Personal_Cementerio_Nivel1" />
           <NavigationProperty Name="Personal_Educacion_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__282DF8C2" FromRole="Personal_Ano" ToRole="Personal_Educacion_Nivel1" />
           <NavigationProperty Name="Personal_Salud_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2A164134" FromRole="Personal_Ano" ToRole="Personal_Salud_Nivel1" />
-          <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Ano" ToRole="Personal_Total_Nivel1" />
         </EntityType>
         <EntityType Name="Personal_Cementerio_Nivel1">
           <Key>
@@ -2784,16 +2619,16 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           </Key>
           <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdGroupInformePersonal" Type="Guid" />
-          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="EDAD" Type="Int32" />
-          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GRADO" Type="Int32" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SUELDOHABERES" Type="Int64" />
+          <Property Name="Genero" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="CalidadJuridica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NivelAcademico" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grado" Type="Int32" />
+          <Property Name="Antiguedad" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoHaberes" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Personal_Educacion_Nivel1">
@@ -2826,16 +2661,16 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           </Key>
           <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdGroupInformePersonal" Type="Guid" />
-          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="EDAD" Type="Int32" />
-          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GRADO" Type="Int32" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SUELDOHABERES" Type="Int64" />
+          <Property Name="Genero" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="CalidadJuridica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NivelAcademico" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grado" Type="Int32" />
+          <Property Name="Antiguedad" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoHaberes" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Personal_Salud_Nivel1">
@@ -2868,41 +2703,17 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           </Key>
           <Property Name="IdInformePersonal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdGroupInformePersonal" Type="Guid" />
-          <Property Name="GENERO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="EDAD" Type="Int32" />
-          <Property Name="CALIDADJURIDICA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NIVELACADEMICO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ESTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GRADO" Type="Int32" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="AREA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SUELDOHABERES" Type="Int64" />
+          <Property Name="Genero" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="CalidadJuridica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NivelAcademico" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grado" Type="Int32" />
+          <Property Name="Antiguedad" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SueldoHaberes" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Personal_Total_Nivel1">
-          <Key>
-            <PropertyRef Name="IdNivel1" />
-          </Key>
-          <Property Name="IdNivel1" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdAno" Type="Int64" />
-          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CodTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Personal_Ano" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdAno__2BFE89A6" FromRole="Personal_Total_Nivel1" ToRole="Personal_Ano" />
-          <NavigationProperty Name="Personal_Total_Nivel2" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF" FromRole="Personal_Total_Nivel1" ToRole="Personal_Total_Nivel2" />
-        </EntityType>
-        <EntityType Name="Personal_Total_Nivel2">
-          <Key>
-            <PropertyRef Name="IdNivel2" />
-          </Key>
-          <Property Name="IdNivel2" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdNivel1" Type="Int64" />
-          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="MontoMujer" Type="Int64" />
-          <Property Name="MontoHombre" Type="Int64" />
-          <Property Name="CantidadMujer" Type="Int64" />
-          <Property Name="CantidadHombre" Type="Int64" />
-          <NavigationProperty Name="Personal_Total_Nivel1" Relationship="GastoTransparenteMunicipalModel.FK__Personal___IdNiv__2CF2ADDF" FromRole="Personal_Total_Nivel2" ToRole="Personal_Total_Nivel1" />
         </EntityType>
         <EntityType Name="Proveedor_Adm_Nivel1">
           <Key>
@@ -2936,7 +2747,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="NumeroOrdenCompra" Type="Int64" />
           <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Proveedor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="RUT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rut" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Monto" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
@@ -2991,7 +2802,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="NumeroOrdenCompra" Type="Int64" />
           <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Proveedor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="RUT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rut" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Monto" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
@@ -3027,7 +2838,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="NumeroOrdenCompra" Type="Int64" />
           <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Proveedor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="RUT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rut" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Monto" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
@@ -3063,7 +2874,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <Property Name="NumeroOrdenCompra" Type="Int64" />
           <Property Name="Glosa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Proveedor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="RUT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rut" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Monto" Type="Int64" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
@@ -3144,11 +2955,11 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           </Key>
           <Property Name="IdSubsidio" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdGroupInformeSubsidio" Type="Guid" />
-          <Property Name="CATEGORIA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ORGANIZACION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="FECHADECRETO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OBJETIVODELAPORTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MONTOAPORTE" Type="Double" />
+          <Property Name="Categoria" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Organizacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FechaDecreto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObjetivoDelAporte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MontoAporte" Type="Double" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Anos_Invisible">
@@ -3255,7 +3066,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Gasto_Glo__Glosa__477199F1">
+        <Association Name="FK__Gasto_Glo__Glosa__6442E2C9">
           <End Type="GastoTransparenteMunicipalModel.Gasto_Glosa" Role="Gasto_Glosa" Multiplicity="0..1" />
           <End Type="GastoTransparenteMunicipalModel.Gasto_GlosaCodigo" Role="Gasto_GlosaCodigo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3327,7 +3138,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ingreso_G__Glosa__7073AF84">
+        <Association Name="FK__Ingreso_G__Glosa__69FBBC1F">
           <End Type="GastoTransparenteMunicipalModel.Ingreso_Glosa" Role="Ingreso_Glosa" Multiplicity="0..1" />
           <End Type="GastoTransparenteMunicipalModel.Ingreso_GlosaCodigo" Role="Ingreso_GlosaCodigo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3471,18 +3282,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Personal___IdAno__2BFE89A6">
-          <End Type="GastoTransparenteMunicipalModel.Personal_Ano" Role="Personal_Ano" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" Role="Personal_Total_Nivel1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal_Ano">
-              <PropertyRef Name="IdAno" />
-            </Principal>
-            <Dependent Role="Personal_Total_Nivel1">
-              <PropertyRef Name="IdAno" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Personal___IdNiv__2739D489">
           <End Type="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel1" Role="Personal_Cementerio_Nivel1" Multiplicity="0..1" />
           <End Type="GastoTransparenteMunicipalModel.Personal_Cementerio_Nivel2" Role="Personal_Cementerio_Nivel2" Multiplicity="*" />
@@ -3515,18 +3314,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               <PropertyRef Name="IdNivel1" />
             </Principal>
             <Dependent Role="Personal_Salud_Nivel2">
-              <PropertyRef Name="IdNivel1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Personal___IdNiv__2CF2ADDF">
-          <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel1" Role="Personal_Total_Nivel1" Multiplicity="0..1" />
-          <End Type="GastoTransparenteMunicipalModel.Personal_Total_Nivel2" Role="Personal_Total_Nivel2" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal_Total_Nivel1">
-              <PropertyRef Name="IdNivel1" />
-            </Principal>
-            <Dependent Role="Personal_Total_Nivel2">
               <PropertyRef Name="IdNivel1" />
             </Dependent>
           </ReferentialConstraint>
@@ -3699,7 +3486,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <FunctionImportMapping FunctionImportName="SP_InformePersonalAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdm" />
           <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerio" />
           <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacion" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotal" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotal" />
           <FunctionImportMapping FunctionImportName="SP_InformePersonalSalud" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSalud" />
           <FunctionImportMapping FunctionImportName="SP_InformeSubsidio" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidio" />
           <FunctionImportMapping FunctionImportName="SP_ProveedorAdm" FunctionName="GastoTransparenteMunicipalModel.Store.SP_ProveedorAdm" />
@@ -3730,7 +3516,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <FunctionImportMapping FunctionImportName="SP_InformePersonalAdmNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalAdmNivel1" />
           <FunctionImportMapping FunctionImportName="SP_InformePersonalCementerioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalCementerioNivel1" />
           <FunctionImportMapping FunctionImportName="SP_InformePersonalEducacionNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalEducacionNivel1" />
-          <FunctionImportMapping FunctionImportName="SP_InformePersonalMunicipioTotalNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalMunicipioTotalNivel1" />
           <FunctionImportMapping FunctionImportName="SP_InformePersonalSaludNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformePersonalSaludNivel1" />
           <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel1" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel1" />
           <FunctionImportMapping FunctionImportName="SP_InformeSubsidioNivel2" FunctionName="GastoTransparenteMunicipalModel.Store.SP_InformeSubsidioNivel2" />
@@ -3756,13 +3541,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
           <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_Profesion" />
           <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoAntiguedad" />
           <FunctionImportMapping FunctionImportName="SP_PersonalEducacion_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalEducacion_RangoEtario" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_CalidadJuridica" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Estamento" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Grado" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_NivelEducacion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_NivelEducacion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_Profesion" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_Profesion" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoAntiguedad" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoAntiguedad" />
-          <FunctionImportMapping FunctionImportName="SP_PersonalMunicipioTotal_RangoEtario" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalMunicipioTotal_RangoEtario" />
           <FunctionImportMapping FunctionImportName="SP_PersonalSalud_CalidadJuridica" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_CalidadJuridica" />
           <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Estamento" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Estamento" />
           <FunctionImportMapping FunctionImportName="SP_PersonalSalud_Grado" FunctionName="GastoTransparenteMunicipalModel.Store.SP_PersonalSalud_Grado" />
@@ -3919,22 +3697,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GastoInforme">
-            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.GastoInforme">
-              <MappingFragment StoreEntitySet="GastoInforme">
-                <ScalarProperty Name="IdGroupInformeGasto" ColumnName="IdGroupInformeGasto" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-                <ScalarProperty Name="MontoPresupuestadoAnual" ColumnName="MontoPresupuestadoAnual" />
-                <ScalarProperty Name="CUENTANIVEL2" ColumnName="CUENTANIVEL2" />
-                <ScalarProperty Name="CUENTANIVEL1" ColumnName="CUENTANIVEL1" />
-                <ScalarProperty Name="AREANIVEL2" ColumnName="AREANIVEL2" />
-                <ScalarProperty Name="AREANIVEL1A" ColumnName="AREANIVEL1A" />
-                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
-                <ScalarProperty Name="IdGastoInforme" ColumnName="IdGastoInforme" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GastoInformev2">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.GastoInformev2">
               <MappingFragment StoreEntitySet="GastoInformev2">
@@ -4043,22 +3805,6 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="IngresoInforme">
-            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.IngresoInforme">
-              <MappingFragment StoreEntitySet="IngresoInforme">
-                <ScalarProperty Name="IdGroupInformeIngreso" ColumnName="IdGroupInformeIngreso" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="MontoGastado" ColumnName="MontoGastado" />
-                <ScalarProperty Name="MontoPresupuestadoAnual" ColumnName="MontoPresupuestadoAnual" />
-                <ScalarProperty Name="CUENTANIVEL2" ColumnName="CUENTANIVEL2" />
-                <ScalarProperty Name="CUENTANIVEL1" ColumnName="CUENTANIVEL1" />
-                <ScalarProperty Name="AREANIVEL2" ColumnName="AREANIVEL2" />
-                <ScalarProperty Name="AREANIVEL1A" ColumnName="AREANIVEL1A" />
-                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
-                <ScalarProperty Name="IdIngresoInforme" ColumnName="IdIngresoInforme" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="IngresoInformev2">
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.IngresoInformev2">
               <MappingFragment StoreEntitySet="IngresoInformev2">
@@ -4119,16 +3865,16 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_AdmInforme">
               <MappingFragment StoreEntitySet="Personal_AdmInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-                <ScalarProperty Name="AREA" ColumnName="AREA" />
-                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="SueldoHaberes" ColumnName="SueldoHaberes" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Estamento" ColumnName="Estamento" />
+                <ScalarProperty Name="NivelAcademico" ColumnName="NivelAcademico" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="CalidadJuridica" ColumnName="CalidadJuridica" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
                 <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
                 <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
               </MappingFragment>
@@ -4175,16 +3921,16 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_CementerioInforme">
               <MappingFragment StoreEntitySet="Personal_CementerioInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-                <ScalarProperty Name="AREA" ColumnName="AREA" />
-                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="SueldoHaberes" ColumnName="SueldoHaberes" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Estamento" ColumnName="Estamento" />
+                <ScalarProperty Name="NivelAcademico" ColumnName="NivelAcademico" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="CalidadJuridica" ColumnName="CalidadJuridica" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
                 <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
                 <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
               </MappingFragment>
@@ -4217,16 +3963,16 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_EducacionInforme">
               <MappingFragment StoreEntitySet="Personal_EducacionInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-                <ScalarProperty Name="AREA" ColumnName="AREA" />
-                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="SueldoHaberes" ColumnName="SueldoHaberes" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Estamento" ColumnName="Estamento" />
+                <ScalarProperty Name="NivelAcademico" ColumnName="NivelAcademico" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="CalidadJuridica" ColumnName="CalidadJuridica" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
                 <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
                 <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
               </MappingFragment>
@@ -4259,41 +4005,18 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_SaludInforme">
               <MappingFragment StoreEntitySet="Personal_SaludInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="SUELDOHABERES" ColumnName="SUELDOHABERES" />
-                <ScalarProperty Name="AREA" ColumnName="AREA" />
-                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
-                <ScalarProperty Name="ESTAMENTO" ColumnName="ESTAMENTO" />
-                <ScalarProperty Name="NIVELACADEMICO" ColumnName="NIVELACADEMICO" />
-                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-                <ScalarProperty Name="CALIDADJURIDICA" ColumnName="CALIDADJURIDICA" />
-                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="SueldoHaberes" ColumnName="SueldoHaberes" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Estamento" ColumnName="Estamento" />
+                <ScalarProperty Name="NivelAcademico" ColumnName="NivelAcademico" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="CalidadJuridica" ColumnName="CalidadJuridica" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
                 <ScalarProperty Name="IdGroupInformePersonal" ColumnName="IdGroupInformePersonal" />
                 <ScalarProperty Name="IdInformePersonal" ColumnName="IdInformePersonal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Personal_Total_Nivel1">
-            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Total_Nivel1">
-              <MappingFragment StoreEntitySet="Personal_Total_Nivel1">
-                <ScalarProperty Name="CodTipo" ColumnName="CodTipo" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdAno" ColumnName="IdAno" />
-                <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Personal_Total_Nivel2">
-            <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.Personal_Total_Nivel2">
-              <MappingFragment StoreEntitySet="Personal_Total_Nivel2">
-                <ScalarProperty Name="CantidadHombre" ColumnName="CantidadHombre" />
-                <ScalarProperty Name="CantidadMujer" ColumnName="CantidadMujer" />
-                <ScalarProperty Name="MontoHombre" ColumnName="MontoHombre" />
-                <ScalarProperty Name="MontoMujer" ColumnName="MontoMujer" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdNivel1" ColumnName="IdNivel1" />
-                <ScalarProperty Name="IdNivel2" ColumnName="IdNivel2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4324,7 +4047,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               <MappingFragment StoreEntitySet="Proveedor_AdmInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
                 <ScalarProperty Name="Glosa" ColumnName="Glosa" />
                 <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
@@ -4374,7 +4097,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               <MappingFragment StoreEntitySet="Proveedor_CementerioInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
                 <ScalarProperty Name="Glosa" ColumnName="Glosa" />
                 <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
@@ -4410,7 +4133,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               <MappingFragment StoreEntitySet="Proveedor_EducacionInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
                 <ScalarProperty Name="Glosa" ColumnName="Glosa" />
                 <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
@@ -4446,7 +4169,7 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
               <MappingFragment StoreEntitySet="Proveedor_SaludInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
                 <ScalarProperty Name="Glosa" ColumnName="Glosa" />
                 <ScalarProperty Name="NumeroOrdenCompra" ColumnName="NumeroOrdenCompra" />
@@ -4526,11 +4249,11 @@ advertencia 6002: La tabla o vista 'GastoTransparenteMunicipal.dbo.Subsidio_Ano_
             <EntityTypeMapping TypeName="GastoTransparenteMunicipalModel.SubsidioInforme">
               <MappingFragment StoreEntitySet="SubsidioInforme">
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="MONTOAPORTE" ColumnName="MONTOAPORTE" />
-                <ScalarProperty Name="OBJETIVODELAPORTE" ColumnName="OBJETIVODELAPORTE" />
-                <ScalarProperty Name="FECHADECRETO" ColumnName="FECHADECRETO" />
-                <ScalarProperty Name="ORGANIZACION" ColumnName="ORGANIZACION" />
-                <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+                <ScalarProperty Name="MontoAporte" ColumnName="MontoAporte" />
+                <ScalarProperty Name="ObjetivoDelAporte" ColumnName="ObjetivoDelAporte" />
+                <ScalarProperty Name="FechaDecreto" ColumnName="FechaDecreto" />
+                <ScalarProperty Name="Organizacion" ColumnName="Organizacion" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
                 <ScalarProperty Name="IdGroupInformeSubsidio" ColumnName="IdGroupInformeSubsidio" />
                 <ScalarProperty Name="IdSubsidio" ColumnName="IdSubsidio" />
               </MappingFragment>

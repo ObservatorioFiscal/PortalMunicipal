@@ -171,21 +171,6 @@ namespace GastoTransparenteMunicipal.Controllers
                                             MHombre = l.MontoHombre
                                         })
                                     }), JsonRequestBehavior.AllowGet);
-                case OrigenData.MunicipioTotal:
-                    return this.Json(personal_Ano.Personal_Total_Nivel1.OrderBy(r => r.Nombre).Select(r =>
-                                    new
-                                    {
-                                        Item = r.CodTipo,
-                                        Lista = r.Personal_Total_Nivel2.OrderBy(l => l.Nombre).Select(l =>
-                                          new
-                                          {
-                                              Nombre = l.Nombre,
-                                              CMujer = l.CantidadMujer,
-                                              CHombre = l.CantidadHombre,
-                                              MMujer = l.MontoMujer,
-                                              MHombre = l.MontoHombre
-                                          })
-                                    }), JsonRequestBehavior.AllowGet);
                 default:
                     return this.Json(false, JsonRequestBehavior.AllowGet);
             }

@@ -49,27 +49,7 @@ namespace GastoTransparenteMunicipal.Helpers
             return gastoGlosas;
         }
 
-        public List<GastoInforme> LoadInformeGasto(IWorkbook excelInforme)
-        {
-            List<GastoInforme> InformeGastos = new List<GastoInforme>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    GastoInforme informeGasto = Mapper.Map<IRow, GastoInforme>(row);
-                    informeGasto.UpdatedOn = this.UpdatedOn;
-                    informeGasto.IdGroupInformeGasto = this.IdGroupInforme;
-
-                    InformeGastos.Add(informeGasto);
-                }
-            }
-
-            return InformeGastos;
-        }
-
-        public List<GastoInformev2> LoadInformeGastov2(IWorkbook excelInforme, string tipoNombre, int tipoCodigo)
+                public List<GastoInformev2> LoadInformeGastov2(IWorkbook excelInforme, string tipoNombre, int tipoCodigo)
         {
             List<GastoInformev2> InformeGastos = new List<GastoInformev2>();
             ISheet sheet = excelInforme.GetSheetAt(0);
@@ -138,28 +118,7 @@ namespace GastoTransparenteMunicipal.Helpers
             }
             return ingresoGlosas;
         }
-
-        public List<IngresoInforme> LoadInformeIngreso(IWorkbook excelInforme)
-        {
-            List<IngresoInforme> InformeIngresos = new List<IngresoInforme>();
-            ISheet sheet = excelInforme.GetSheetAt(0);
-            for (int rowPosition = 1; rowPosition <= sheet.LastRowNum; rowPosition++)
-            {
-                var row = sheet.GetRow(rowPosition);
-                if (row != null)
-                {
-                    IngresoInforme informeIngreso = Mapper.Map<IRow, IngresoInforme>(row);
-
-                    informeIngreso.UpdatedOn = this.UpdatedOn;
-                    informeIngreso.IdGroupInformeIngreso = this.IdGroupInforme;
-
-                    InformeIngresos.Add(informeIngreso);
-                }
-            }
-
-            return InformeIngresos;
-        }
-
+        
         public List<IngresoInformev2> LoadInformeIngresov2(IWorkbook excelInforme, string tipoNombre, int tipoCodigo)
         {
             List<IngresoInformev2> InformeIngresos = new List<IngresoInformev2>();

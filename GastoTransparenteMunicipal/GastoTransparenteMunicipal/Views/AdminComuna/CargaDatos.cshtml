@@ -27,25 +27,21 @@
             <input type="hidden" id="dat2" value="@ViewBag.activos[2]" />
             <input type="hidden" id="dat3" value="@ViewBag.activos[3]" />
 
-            @if (!ViewBag.activos[0] || !ViewBag.activos[1] || !ViewBag.activos[2] || !ViewBag.activos[3])
-            {
-                <h2>Datos Destacados</h2>
-            }
             @if (ViewBag.activos[0])
             {
-                <h5>&nbsp;&nbsp;&nbsp;&nbsp;<span>Proveedores</span> <small id="proveedor" class="paneladmin"></small></h5>
+                <h2><span>Proveedores</span> <small id="proveedor" class="paneladmin"></small></h2>
             }
             @if (ViewBag.activos[1])
             {
-                <h5>&nbsp;&nbsp;&nbsp;&nbsp;<span>Subsidios</span> <small id="subsidio" class="paneladmin"></small></h5>
+                <h2><span>Subsidios</span> <small id="subsidio" class="paneladmin"></small></h2>
             }
             @if (ViewBag.activos[2])
             {
-                <h5>&nbsp;&nbsp;&nbsp;&nbsp;<span>Corporaciones</span> <small id="corporacion" class="paneladmin"></small></h5>
+                <h2><span>Corporaciones</span> <small id="corporacion" class="paneladmin"></small></h2>
             }
             @if (ViewBag.activos[3])
             {
-                <h5>&nbsp;&nbsp;&nbsp;&nbsp;<span>Remuneraciones</span> <small id="remuneracion" class="paneladmin"></small></h5>
+                <h2><span>Remuneraciones</span> <small id="remuneracion" class="paneladmin"></small></h2>
             }
             <form action="@Url.Action("CargaDatos","AdminComuna")" id="formulario" method="post" enctype="multipart/form-data">
                 <h2 class="text-right">

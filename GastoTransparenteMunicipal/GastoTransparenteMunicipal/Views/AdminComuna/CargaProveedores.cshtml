@@ -21,6 +21,7 @@
                 <span class="muntotal">
                     @ViewBag.ano
                 </span>
+                <br /><br />
             </h1>
         </div>
         <div class="col-md-12">
@@ -36,8 +37,7 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="fileAdm" name="fileAdm" />
                         <input type="hidden" id="fileStatusAdm" />
-                        <br />
-                        <label id="messagefileStatusAdm" />
+                        <label class="alert alert-danger" id="messagefileStatusAdm" />
                     </small>
                 </p>
                 <hr />
@@ -51,7 +51,6 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="fileSalud" name="fileSalud" />
                         <input type="hidden" id="fileStatusSalud" />
-                        <br />
                         <label id="messagefileStatusSalud" />
                     </small>
                 </p>
@@ -66,7 +65,6 @@
                     <small>
                         <input type="file" accept=".xls,.xlsx" id="fileEducacion" name="fileEducacion" />
                         <input type="hidden" id="fileStatusEducacion" />
-                        <br />
                         <label id="messagefileStatusEducacion" />
                     </small>
                 </p>
@@ -85,7 +83,6 @@
                         <small>
                             <input type="file" accept=".xls,.xlsx" id="fileCementerio" name="fileCementerio" />
                             <input type="hidden" id="fileStatusCementerio" />
-                            <br />
                             <label id="messagefileStatusCementerio" />
                         </small>
                     </p>
@@ -174,42 +171,42 @@
         function checkSingleStatus(item, result) {
             if (item == "fileAdm") {
                 if (result == true) {
-                    $('#successAdm').css("display", "block");
+                    $('#successAdm').css("display", "inline");
                     $('#errorAdm').css("display", "none");
                 }
                 else {
                     $('#successAdm').css("display", "none");
-                    $('#errorAdm').css("display", "block");
+                    $('#errorAdm').css("display", "inline");
                 }
             }
             if (item == "fileSalud") {
                 if (result == true) {
-                    $('#successSalud').css("display", "block");
+                    $('#successSalud').css("display", "inline");
                     $('#errorSalud').css("display", "none");
                 }
                 else {
                     $('#successSalud').css("display", "none");
-                    $('#errorSalud').css("display", "block");
+                    $('#errorSalud').css("display", "inline");
                 }
             }
             if (item == "fileEducacion") {
                 if (result == true) {
-                    $('#successEducacion').css("display", "block");
+                    $('#successEducacion').css("display", "inline");
                     $('#errorEducacion').css("display", "none");
                 }
                 else {
                     $('#successEducacion').css("display", "none");
-                    $('#errorEducacion').css("display", "block");
+                    $('#errorEducacion').css("display", "inline");
                 }
             }
             if (item == "fileCementerio") {
                 if (result == true) {
-                    $('#successCementerio').css("display", "block");
+                    $('#successCementerio').css("display", "inline");
                     $('#errorCementerio').css("display", "none");
                 }
                 else {
                     $('#successCementerio').css("display", "none");
-                    $('#errorCementerio').css("display", "block");
+                    $('#errorCementerio').css("display", "inline");
                 }
             }
         }

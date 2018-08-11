@@ -3,6 +3,10 @@ body{
 	font-weight: 300;
 }
 
+.small{
+    font-size:80%;
+}
+
 a{
 	color:#0D2B50;
 }
@@ -199,67 +203,52 @@ h6{
     background-color: #f5f9ff;
 }
 
-.absolute {
-    display: block;
-    position: relative;
-    width: 100%;
+.homefont {
+    background-image: url(../../../Content/image/fondohome.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    margin-top:45px;
 }
 
-.absolute::after{
-	content:"";
-	  position:absolute;
-	  top:0;
-	  left:0;
-	  width:100%;
-	  height:100%;
-	  background:rgba(14,44,81,0.75);
-}
-
-.absolute img{
-	min-height: 500px;
-}
-.relative{
-    display: block;
+.relative {
     position: absolute;
-    top: 14%;
-    left: 0;
     width: 100%;
+    height: 500px;
+    background-color: rgba(13, 43, 80, 0.65);
+    margin-top: 45px;
+    padding-top: 15%;
+    text-shadow: 1px 1px 5px #2f5071;
 }
 
-.relative-abajo{
-	position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
 
 .small-display{
 	display: none;
 }
-@media (min-width: 576px) {
-	.relative{
-		top: 45%;
-	}
-}
 
 @media (min-width: 768px) {
-
-	.relative{
-		top: 17%;
-	}
   	.small-display {
     	display: block;
   	}
+    .relative {
+        padding-top: 7%;
+    }
 }
 
 @media (min-width: 992px) {
-
-    .relative {
-        top: 28%;
-    }
-
     .small-display {
         display: block;
+    }
+    .relative {
+        padding-top: 8%;
+    }
+}
+@media (min-width: 1200px) {
+    
+    .relative {
+        padding-top: 6%;
     }
 }
 

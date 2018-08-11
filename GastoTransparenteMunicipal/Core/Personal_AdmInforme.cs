@@ -16,16 +16,16 @@ namespace Core
     {
         public long IdInformePersonal { get; set; }
         public Nullable<System.Guid> IdGroupInformePersonal { get; set; }
-        public string GENERO { get; set; }
-        public Nullable<int> EDAD { get; set; }
-        public string CALIDADJURIDICA { get; set; }
-        public string PROFESION { get; set; }
-        public string NIVELACADEMICO { get; set; }
-        public string ESTAMENTO { get; set; }
-        public Nullable<int> GRADO { get; set; }
-        public string ANTIGUEDAD { get; set; }
-        public string AREA { get; set; }
-        public Nullable<long> SUELDOHABERES { get; set; }
+        public string Genero { get; set; }
+        public Nullable<int> Edad { get; set; }
+        public string CalidadJuridica { get; set; }
+        public string Profesion { get; set; }
+        public string NivelAcademico { get; set; }
+        public string Estamento { get; set; }
+        public Nullable<int> Grado { get; set; }
+        public string Antiguedad { get; set; }
+        public string Area { get; set; }
+        public Nullable<long> SueldoHaberes { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     }
 }

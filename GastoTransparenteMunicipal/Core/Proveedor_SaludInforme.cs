@@ -19,7 +19,7 @@ namespace Core
         public Nullable<long> NumeroOrdenCompra { get; set; }
         public string Glosa { get; set; }
         public string Proveedor { get; set; }
-        public string RUT { get; set; }
+        public string Rut { get; set; }
         public Nullable<long> Monto { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     }

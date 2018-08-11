@@ -127,7 +127,7 @@ namespace GastoTransparenteMunicipal.Controllers
                     if(redirectUrl != "ADMIN")
                         returnUrl = "/" + redirectUrl + "/" + "AdminComuna/CargaDatos" ;
                     else
-                        returnUrl = "/" + redirectUrl + "/" + "admin/Municipio";
+                        returnUrl = "/" + redirectUrl + "/" + "admin";
 
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:

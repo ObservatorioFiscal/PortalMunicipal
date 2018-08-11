@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
     <title>@ViewBag.Title - @ViewBag.logo</title>
-    @*@Styles.Render("~/Content/css")*@
-    <link href="~/Content/css/bootstrap-grid.css"   rel="stylesheet" />
-    <link href="~/Content/css/bootstrap-reboot.css" rel="stylesheet" />
-    <link href="~/Content/css/font.css"             rel="stylesheet" />
-    <link href="~/Content/css/styleBootrap.css"     rel="stylesheet" />
-    <link href="~/Content/css/style.css"            rel="stylesheet" />
-    <link href="~/Content/css/styleSueldos.css"     rel="stylesheet" />
-    <link href="~/Content/css/tinyscrollbar.css"    rel="stylesheet" />
-    <link href="~/Content/css/styleTreemap.css"     rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />        
+      @*<link href="~/Content/css/bootstrap-grid.css"   rel="stylesheet" />
+        <link href="~/Content/css/bootstrap-reboot.css" rel="stylesheet" />
+        <link href="~/Content/css/font.css"             rel="stylesheet" />
+        <link href="~/Content/css/styleBootrap.css"     rel="stylesheet" />
+        <link href="~/Content/css/style.css"            rel="stylesheet" />
+        <link href="~/Content/css/styleSueldos.css"     rel="stylesheet" />
+        <link href="~/Content/css/tinyscrollbar.css"    rel="stylesheet" />
+        <link href="~/Content/css/styleTreemap.css"     rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />*@
+    <link href="~/Content/css/styleconsolidado.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid">
@@ -218,48 +218,74 @@
                                 <p class="text-center">Bienvenido @this.User.Identity.Name <a class="blanco" style="text-decoration:underline" href="@Url.Action("LogOff","Account")"> Cerrar sesión</a></p>
                             </div>
                         }
+                        <div class="col-12">
+                            <p><br /><br /></p>
+                        </div>
+                        <div class="col-3">
+                            <p><b>Portal Cuentas Claras Municipales</b></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-center"><b>Una iniciativa conjunta de:</b></p>
+                        </div>
+                        <div class="col-3">
+                            <p></p>
+                        </div>
                         <div class="col-md-3 align-self-center">
-                            <ul>
+                            <ul class="small">
                                 <li class="blanco"><a href="@Url.Action("Index","Home")" class="@ViewBag.Inicio">Inicio</a></li>
                                 <li class="blanco"><a href="@Url.Action("Index","Ingresos")" class="@ViewBag.Ingresos">Ingresos</a></li>
                                 <li class="blanco"><a href="@Url.Action("Index","Gastos")" class="@ViewBag.Gastos">Gastos</a></li>
-                                <li class="blanco"><a href="@Url.Action("Dueldos","DatosDestacados")" class="@ViewBag.Sueldo">Remuneraciones</a></li>
-                                <li class="blanco"><a href="@Url.Action("Proveedores","DatosDestacados")" class="@ViewBag.Proveedores">Proveedores</a></li>
-                                <li class="blanco"><a href="@Url.Action("Corporaciones","DatosDestacados")" class="@ViewBag.Corporaciones">Corporaciones</a></li>
-                                <li class="blanco"><a href="@Url.Action("Subsidios","DatosDestacados")" class="@ViewBag.Subsidios">Subsidios</a></li>
-                                <li class="blanco"><a href="@Url.Action("About","Home")" class="@ViewBag.About">El Proyecto</a></li>
-                            </ul>
+                                @if (ViewBag.administracion != true)
+                                {
+                                    if (ViewBag.activos[0])
+                                    {
+                                        <li class="blanco"><a href="@Url.Action("Proveedores", "DatosDestacados")" class="@ViewBag.Proveedores">Proveedores</a></li>
+                                    }
+                                    if (ViewBag.activos[1])
+                                    {
+                                        <li class="blanco"><a href="@Url.Action("Sueldos", "DatosDestacados")" class="@ViewBag.Sueldo">Remuneraciones</a></li>
+                                    }
+                                    if (ViewBag.activos[2])
+                                    {
+                                        <li class="blanco"><a href="@Url.Action("Corporaciones", "DatosDestacados")" class="@ViewBag.Corporaciones">Corporaciones</a></li>
+                                    }
+                                    if (ViewBag.activos[3])
+                                    {
+                                        <li class="blanco"><a href="@Url.Action("Subsidios", "DatosDestacados")" class="@ViewBag.Subsidios">Subsidios</a></li>
+                                    }
+                                }
+                                </ul>
                         </div>
-                        <div class="col-md-8 align-self-center">
+                        <div class="col-md-6 align-self-center">
                             <div class="row">
                                 <div class="col-12">
-                                    <p>Una iniciativa conjunta de:</p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <img src="~/Content/image/iniciativa.png" class="img-fluid" usemap="#iniciativa" />
                                     <map name="iniciativa">
-                                        <area shape="rect" coords="1,1,240,56" alt=" Observatorio del Gasto Fiscal en Chile" href="rectangulo.html" />
-                                        <area shape="rect" coords="260,1,390,56" alt="Consejo para la Transparencia" href="rectangulo.html" />
+                                        <area shape="rect" coords="1,1,200,56" alt=" Observatorio del Gasto Fiscal en Chile" href="https://observatoriofiscal.cl/" />
+                                        <area shape="rect" coords="200,1,380,56" alt="Consejo para la Transparencia" href="https://www.consejotransparencia.cl/" />
                                     </map>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <a href="">
                                         <img class="text-center img-fluid" src="~/Content/image/municipiosblanco/@ViewBag.logo" alt="Municipalidad">
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-1 align-self-center">
-                            <a href="#">
-                                <span class="md-36 blanco icon-twitter"></span>
-                            </a>
-                            <a href="#">
-                                <span class="md-36 blanco icon-facebook"></span>
-                            </a>
+                        <div class="col-md-3 align-self-center">
+                            <p>
+                                contacto@cuentasclaras.de<br /><br />
+                                <a href="@Url.Action("About","Home")" class="blanco">El Proyecto</a><br />
+                                Condiciones<br />
+                                           <small class="small">Esta obra está bajo una Licencia Creative Commons Atribución 4.0 Internacional.</small>
+                            </p>
                         </div>
-                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-12">
+                            <br /><br />
                             <p class="text-center"><small> Desarrollado por <a class="amarillo" href="https://observatoriofiscal.cl/" target="_blank">Observatorio del Gasto Fiscal en chile</a> y <a class="amarillo" href="https://www.consejotransparencia.cl/" target="_blank">Consejo para la transparencia</a>.</small> </p>
                         </div>
                     </div>
@@ -268,8 +294,8 @@
         </footer>
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
 
     @RenderSection("scripts", required: false)
 
@@ -278,7 +304,6 @@
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 25) {
                     $(".logo-top").css("padding", "5px 0 0 0")
-                    //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 0.95)")
                     $(".menu-auxiliar").css("opacity", "1")
                     var URLactual = window.location.pathname;
                     if (URLactual.includes("DatosDestacados")) {
@@ -288,7 +313,6 @@
                 }
                 if ($(this).scrollTop() < 25) {
                     $(".logo-top").css("padding", "15px 0")
-                    //$(".barra-superior").css("background-color", "rgba(255, 255, 255, 1)")
                     $(".menu-auxiliar").css("opacity", "0")
                     var URLactual = window.location.pathname;
                     if (URLactual.includes("DatosDestacados")) {
@@ -297,8 +321,7 @@
                     }
                 }
             });
-
-
+            
             $("#menu-mobile").click(
                 function () {
                     if ($("#menu-mobile-contenido").hasClass("hidden")) {
